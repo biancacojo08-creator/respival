@@ -186,18 +186,139 @@ ads.push({ id: 'P11-0317-0730', html: page(`body{background:linear-gradient(90de
   <div class="abs" style="left:600px;top:940px;font:400 16px Inter;color:${C.forest};width:420px">*Experiențe raportate de clienți. Rezultatele pot varia.</div>
   ${foot(C.forest, '#fff')}`) });
 
-// 12. Offer
-ads.push({ id: 'P12-oferta', html: page(`body{background:${C.forest};color:#fff}
-  .price{position:absolute;left:56px;top:470px}
-  .old{font:800 54px Archivo;color:rgba(255,255,255,.55);text-decoration:line-through}
-  .now{font:900 170px Archivo;letter-spacing:-6px;line-height:1;color:#fff}
-  .now small{font-size:60px;letter-spacing:0}
-  .cta{position:absolute;left:56px;top:790px;background:${C.saffron};color:${C.forest};font:900 38px Archivo;padding:24px 44px;border-radius:999px;text-transform:uppercase}`,
-  `${logo(56, 56, 46, 'filter:brightness(0) invert(1)')}
-  <div class="abs h" style="left:56px;top:150px;width:620px;font-size:88px">Doar azi: <span class="it" style="color:${C.saffron}">-35%</span> la PROSTA COMPLEX</div>
-  <div class="price"><div class="old">99,99 lei</div><div class="now">64,99<small> lei</small></div></div>
-  <div class="cta">Comandă acum →</div>
-  <div class="burst" style="width:230px;height:230px;left:810px;top:60px;background:${C.saffron};font:900 64px/0.9 Archivo;color:${C.forest}">-35%</div>
-  ${prod(720, 640, 230, 4)}${disc('Supliment alimentar.', '#fff')}${foot(C.saffron, C.forest)}`) });
+
+// ================================================================ AGGRESSIVE / OFFER SET
+// 1 cutie = 66,99 lei · Cura completă = 3 cutii = 190 lei cu transport GRATUIT (3 x 66,99 = 200,97 lei)
+const RED = '#D7262E', YEL = '#FFD23F', BLK = '#0E0E0E';
+const stack3 = (h, x, y) => `<img class="prod" src="${PROD}" style="height:${h * .9}px;left:${x}px;top:${y + h * .1}px;transform:rotate(-9deg)">
+  <img class="prod" src="${PROD}" style="height:${h * .9}px;left:${x + h * .42}px;top:${y + h * .1}px;transform:rotate(9deg)">
+  <img class="prod" src="${PROD}" style="height:${h}px;left:${x + h * .2}px;top:${y}px">`;
+const AGG = `
+  .tape{position:absolute;left:-40px;right:-40px;height:64px;display:flex;align-items:center;gap:40px;white-space:nowrap;font:900 30px Archivo;letter-spacing:2px;text-transform:uppercase;overflow:hidden}
+  .big{font-family:Archivo;font-weight:900;letter-spacing:-3px;line-height:.92;text-transform:uppercase}
+  .btn{position:absolute;padding:24px 44px;border-radius:999px;font:900 36px Archivo;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 8px 0 rgba(0,0,0,.35)}
+  .strike{position:relative;display:inline-block}.strike:after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:6px;background:${RED};transform:rotate(-8deg)}
+`;
+const tape = (top, bg, fg, txt) => `<div class="tape" style="top:${top}px;background:${bg};color:${fg}">${Array(6).fill(`<span>${txt}</span><span>★</span>`).join('')}</div>`;
+
+// A01 – bundle hero (red)
+ads.push({ id: 'A01-cura-completa-190', html: page(`body{background:${RED};color:#fff}${AGG}`,
+  `${tape(0, YEL, BLK, 'Transport gratuit la cura completă')}
+  ${logo(56, 100, 44, 'filter:brightness(0) invert(1)')}
+  <div class="abs big" style="left:56px;top:180px;font-size:88px">Cura<br>completă</div>
+  <div class="abs" style="left:60px;top:400px;font:800 34px Archivo">3 cutii PROSTA COMPLEX</div>
+  <div class="abs" style="left:56px;top:470px;font:900 200px/1 Archivo;letter-spacing:-8px">190<span style="font-size:70px;letter-spacing:0"> lei</span></div>
+  <div class="abs" style="left:60px;top:690px;font:700 34px Inter">în loc de <span class="strike">200,97 lei</span></div>
+  <div class="btn" style="left:56px;top:790px;background:${YEL};color:${BLK}">Comandă acum →</div>
+  ${stack3(540, 590, 330)}
+  <div class="burst" style="width:260px;height:260px;left:790px;top:90px;background:${YEL};color:${BLK};font:900 30px/0.95 Archivo">TRANSPORT<br>GRATUIT</div>
+  ${foot(BLK, '#fff')}`) });
+
+// A02 – 1 box vs 3 boxes
+ads.push({ id: 'A02-1-vs-3-cutii', html: page(`body{background:${C.cream}}${AGG}
+  .card{position:absolute;top:250px;height:640px;border-radius:36px;padding:36px;text-align:center}
+  .card .t{font:900 34px Archivo;text-transform:uppercase;letter-spacing:1px}
+  .card .p{font:900 92px/1 Archivo;letter-spacing:-4px;margin-top:14px}
+  .card .p small{font-size:40px;letter-spacing:0}
+  .card .s{font:700 26px Inter;margin-top:10px}`,
+  `${logo(56, 56)}
+  <div class="abs big" style="left:56px;top:130px;font-size:78px;color:${BLK}">Alege-ți <span style="color:${RED}">oferta</span></div>
+  <div class="card" style="left:56px;width:400px;background:#fff;border:3px solid #ddd">
+    <div class="t" style="color:#777">1 cutie</div>
+    <img src="${PROD}" style="height:300px;margin:26px 0 6px;filter:drop-shadow(0 18px 18px rgba(0,0,0,.3))">
+    <div class="p" style="color:${BLK}">66,99<small> lei</small></div><div class="s" style="color:#777">+ transport</div></div>
+  <div class="card" style="left:480px;width:544px;background:${C.forest};color:#fff;box-shadow:0 0 0 8px ${YEL}">
+    <div class="t" style="color:${YEL}">3 cutii · cura completă</div>
+    <div style="position:relative;height:330px">${'<img src="' + PROD + '" style="position:absolute;height:280px;top:40px;left:90px;transform:rotate(-8deg);filter:drop-shadow(0 14px 14px rgba(0,0,0,.4))"><img src="' + PROD + '" style="position:absolute;height:280px;top:40px;left:250px;transform:rotate(8deg);filter:drop-shadow(0 14px 14px rgba(0,0,0,.4))"><img src="' + PROD + '" style="position:absolute;height:310px;top:16px;left:170px;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))">'}</div>
+    <div class="p">190<small> lei</small></div><div class="s" style="color:${YEL}">TRANSPORT GRATUIT ✓</div></div>
+  <div class="abs" style="left:650px;top:212px;background:${RED};color:#fff;font:900 26px Archivo;padding:12px 24px;border-radius:999px;letter-spacing:1px">CEA MAI BUNĂ OFERTĂ</div>
+  ${foot(BLK, '#fff')}`) });
+
+// A03 – aggressive statement + bundle (black/yellow)
+ads.push({ id: 'A03-ajunge-cu-noptile', html: page(`body{background:${BLK};color:#fff}${AGG}`,
+  `${tape(0, YEL, BLK, 'Plata la livrare · Transport gratuit la 3 cutii')}
+  <div class="abs big" style="left:56px;top:120px;width:560px;font-size:90px">Ajunge cu nopțile <span style="color:${YEL}">pierdute</span> la baie.</div>
+  <div class="abs" style="left:60px;top:580px;width:520px;font:600 28px/1.35 Inter;color:#ddd">PROSTA COMPLEX susține funcția urinară și contribuie la reducerea disconfortului.</div>
+  <div class="abs" style="left:60px;top:720px;font:900 44px Archivo">Cura completă: <span style="color:${YEL}">190 lei</span></div>
+  <div class="btn" style="left:56px;top:800px;background:${RED};color:#fff">Vreau cura completă</div>
+  ${stack3(520, 610, 360)}${disc('Supliment alimentar. Rezultatele pot varia.', '#fff')}${foot(YEL, BLK)}`) });
+
+// A04 – myth-busting
+ads.push({ id: 'A04-nu-e-normal', html: page(`body{background:${YEL};color:${BLK}}${AGG}`,
+  `${logo(56, 56, 44)}
+  <div class="abs big" style="left:56px;top:140px;width:620px;font-size:78px">4 treziri pe noapte <span style="color:${RED}">nu sunt</span> „normale la vârsta asta”.</div>
+  <div class="abs" style="left:60px;top:590px;width:560px;font:600 28px/1.35 Inter">Susține-ți prostata și funcția urinară cu PROSTA COMPLEX: Serenoa, urzică, dovleac, zinc, seleniu și vitamina E.</div>
+  <div class="btn" style="left:56px;top:810px;background:${BLK};color:${YEL}">Cura completă · 190 lei</div>
+  ${prod(700, 700, 200, 5)}${disc()}${foot(BLK, '#fff')}`) });
+
+// A05 – free shipping typographic
+ads.push({ id: 'A05-transport-gratuit', html: page(`body{background:${C.forest};color:#fff}${AGG}`,
+  `${logo(56, 56, 44, 'filter:brightness(0) invert(1)')}
+  <div class="abs big" style="left:50px;top:140px;font-size:118px;color:${YEL}">Transport</div>
+  <div class="abs big" style="left:50px;top:250px;font-size:118px">gratuit</div>
+  <div class="abs" style="left:58px;top:380px;font:800 38px Archivo">la cura completă de 3 cutii</div>
+  <div class="abs" style="left:56px;top:540px;font:900 150px/1 Archivo;letter-spacing:-6px">190<span style="font-size:56px;letter-spacing:0"> lei</span></div>
+  <div class="abs" style="left:60px;top:710px;font:600 30px Inter;opacity:.9">Plătești la livrare, când primești coletul.</div>
+  <div class="btn" style="left:56px;top:800px;background:${YEL};color:${BLK}">Comandă acum →</div>
+  ${stack3(500, 620, 400)}${foot(RED, '#fff')}`) });
+
+// A06 – 3 reasons for the full cure
+ads.push({ id: 'A06-3-motive', html: page(`body{background:#fff}${AGG}
+  .r{position:absolute;left:56px;width:600px;display:flex;gap:26px;align-items:center}
+  .r .n{flex:none;width:96px;height:96px;border-radius:24px;background:${RED};color:#fff;display:flex;align-items:center;justify-content:center;font:900 54px Archivo}
+  .r b{display:block;font:900 38px Archivo;letter-spacing:-.5px}.r span{font:400 26px/1.3 Inter;color:#444}`,
+  `${logo(56, 56)}
+  <div class="abs big" style="left:56px;top:140px;font-size:84px">3 motive pentru <span style="color:${RED}">cura completă</span></div>
+  <div class="r" style="top:380px"><div class="n">1</div><div><b>Transport gratuit</b><span>la pachetul de 3 cutii</span></div></div>
+  <div class="r" style="top:530px"><div class="n">2</div><div><b>Plătești mai puțin</b><span>190 lei în loc de 200,97 lei</span></div></div>
+  <div class="r" style="top:680px"><div class="n">3</div><div><b>Nu rămâi fără</b><span>la jumătatea curei</span></div></div>
+  ${stack3(520, 610, 380)}${foot(BLK, '#fff')}`) });
+
+// A07 – before/after aggressive split
+ads.push({ id: 'A07-inainte-dupa-agresiv', html: page(`body{background:${BLK}}${AGG}
+  .l{position:absolute;left:0;top:0;width:540px;height:1016px;background:#2A2A2E}
+  .r{position:absolute;left:540px;top:0;width:540px;height:1016px;background:${YEL}}
+  .lab{position:absolute;top:60px;font:900 40px Archivo;letter-spacing:3px;text-transform:uppercase}
+  .w{position:absolute;top:140px;width:440px;font:900 64px/1 Archivo;text-transform:uppercase;letter-spacing:-2px}`,
+  `<div class="l"></div><div class="r"></div>
+  <div class="lab" style="left:56px;color:#9b9ba3">Înainte</div><div class="lab" style="left:596px;color:${BLK}">După</div>
+  <div class="w" style="left:56px;color:#fff">Treziri.<br>Drumuri.<br>Disconfort.</div>
+  <div class="w" style="left:596px;color:${BLK}">Nopți mai<br>liniștite.*</div>
+  ${prod(520, 290, 430)}
+  <div class="abs" style="left:596px;top:820px;font:900 40px Archivo;color:${BLK}">Cura completă<br><span style="color:${RED}">190 lei</span> · transport gratuit</div>
+  <div class="abs" style="left:56px;top:930px;font:400 16px Inter;color:#9b9ba3;width:300px">*Experiențe raportate de clienți. Supliment alimentar. Rezultatele pot varia.</div>
+  ${foot(RED, '#fff')}`) });
+
+// A08 – pay on delivery / zero risk
+ads.push({ id: 'A08-plata-la-livrare', html: page(`body{background:${C.cream}}${AGG}
+  .chk i{background:${RED};color:#fff}`,
+  `${logo(56, 56)}
+  <div class="abs big" style="left:56px;top:140px;width:580px;font-size:84px">Plătești doar când <span style="color:${RED}">ai coletul</span> în mână.</div>
+  <div class="abs" style="left:60px;top:520px;display:flex;flex-direction:column;gap:26px">
+   <div class="chk"><i>✓</i>Plata ramburs, la curier</div>
+   <div class="chk"><i>✓</i>Transport gratuit la 3 cutii</div>
+   <div class="chk"><i>✓</i>Colet discret</div></div>
+  <div class="btn" style="left:56px;top:810px;background:${BLK};color:#fff">3 cutii · 190 lei</div>
+  ${stack3(520, 620, 380)}${foot(C.forest, '#fff')}`) });
+
+// A09 – warning tape style
+ads.push({ id: 'A09-atentie-barbati', html: page(`body{background:${BLK};color:#fff}${AGG}`,
+  `${tape(70, YEL, BLK, 'Atenție · Atenție · Atenție')}
+  <div class="abs big" style="left:56px;top:190px;width:680px;font-size:96px">Nu-ți mai planifica ziua <span style="color:${YEL}">după toaletă.</span></div>
+  <div class="abs" style="left:60px;top:560px;width:540px;font:600 30px/1.35 Inter;color:#ddd">30 de picături, de 2 ori pe zi. Susține funcția urinară și sănătatea prostatei.</div>
+  <div class="abs" style="left:60px;top:720px;font:900 44px Archivo">1 cutie <span style="color:${YEL}">66,99 lei</span></div>
+  <div class="btn" style="left:56px;top:800px;background:${YEL};color:${BLK}">Comandă acum →</div>
+  ${prod(680, 690, 230, 5)}${disc('Supliment alimentar.', '#fff')}${foot(RED, '#fff')}`) });
+
+// A10 – review + bundle
+ads.push({ id: 'A10-recenzie-oferta', html: page(`body{background:${RED};color:#fff}${AGG}
+  .card{position:absolute;left:56px;top:120px;width:620px;background:#fff;color:${BLK};border-radius:32px;padding:44px}`,
+  `<div class="card"><div class="stars" style="font-size:46px">★★★★★</div>
+   <div class="it" style="font-size:44px;line-height:1.16;margin-top:16px;color:${BLK}">„Produs bun, natural, fără reacții adverse. După aproximativ o săptămână am simțit diferența.”</div>
+   <div style="margin-top:22px;font:700 24px Inter">Client verificat <span style="color:#2E7D32">✔</span> · 4,75/5</div></div>
+  <div class="abs" style="left:60px;top:640px;font:900 52px Archivo">Cura completă</div>
+  <div class="abs" style="left:56px;top:700px;font:900 130px/1 Archivo;letter-spacing:-5px">190<span style="font-size:48px;letter-spacing:0"> lei</span></div>
+  <div class="abs" style="left:60px;top:850px;background:${YEL};color:${BLK};font:900 26px/1.1 Archivo;padding:14px 20px;border-radius:14px">TRANSPORT<br>GRATUIT</div>
+  ${stack3(520, 630, 380)}${foot(BLK, '#fff')}`) });
 
 module.exports = ads;

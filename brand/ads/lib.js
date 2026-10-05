@@ -115,7 +115,7 @@ function footer({ price = true } = {}) {
   return `<div class="footer">
     <div class="badges"><div class="row"><span>Ingrediente naturale</span><span>Fabricat în România</span><span>Plata la livrare</span></div>
     <small>Supliment alimentar. Rezultatele pot varia.</small></div>
-    <div style="display:flex;align-items:center">${price ? `<div class="price"><span class="old">99,99</span><span class="now">64,99 lei</span></div>` : ''}<div class="cta">Comandă acum</div></div>
+    <div style="display:flex;align-items:center">${price ? `<div class="price"><span class="now">66,99 lei</span></div>` : ''}<div class="cta">Comandă acum</div></div>
   </div>`;
 }
 
