@@ -18,3 +18,22 @@ Poze fotorealiste generate în Canva, text în română, layout complet. **Cutia
 ⭐ = unghiul câștigător (vezi `TARGETARE.md`).
 
 Portrete separate (pentru alte formate): Petre `MAHXKdtT32k`, Costică `MAHXKhFpxWg`, Mariana `MAHXKj5oY4Y`, Ioana `MAHXKt7nc0E`, Vasile `MAHXKsicBEI`, Fănică `MAHXKv-fEzU`, Dorin `MAHXKldW6Dk`, Aurel `MAHXKnIAWJU`, Gelu și Mariana `MAHXKjLokVc`, Ilie `MAHXKk2lJ8c`.
+
+## Set agresiv cu persoane (S01–S12)
+
+⚠️ Cutia din aceste poze e **o imitație generată de AI**, nu cutia reală. Înlocuiește-o cu poza reală (în Canva: Uploads → trage poza peste cutie) sau urcă poza într-un design și o pun eu.
+
+| # | Scenă | Titlu | Link |
+|---|---|---|---|
+| S01 | Bărbat la micul dejun cu cutia | „Ajunge cu nopțile pierdute la baie.” | [deschide](https://canva.link/97bjjy01kjztyvq) |
+| S02 | Toarnă 10 ml în lingură | „10 ml dimineața. 10 ml seara. Atât.” | [deschide](https://canva.link/ucjspglnwtqyfk4) |
+| S03 | Soția îi dă lingura | „Ea a comandat. Acum dorm amândoi.” | [deschide](https://canva.link/nn6y0kvd5ia1kfl) |
+| S04 | Cuplu cu 3 cutii pe masă | „Cura completă: 3 cutii, 190 lei” | [deschide](https://canva.link/z2rq8axmctc254e) |
+| S05 | Bunic cu nepotul | „Mai mult timp cu nepoții. Mai puțin la baie.” | [deschide](https://canva.link/rhclstpsamvi6iq) |
+| S06 | Taximetrist, cutia pe bord | „Ruta mea nu mai depinde de toalete.” | [deschide](https://canva.link/icatio8bdat3x7p) |
+| S07 | Șofer de TIR cu cutia | „Kilometri, nu opriri.” | [deschide](https://canva.link/fq2qrvrxihs5zmp) |
+| S08 | Selfie UGC cu cutia | „Cel mai bun obicei de după 50 de ani.” | [deschide](https://canva.link/fqpyxgdtz1p8oc6) |
+| S09 | Deschide coletul cu 3 cutii | „A venit cura completă.” | [deschide](https://canva.link/v3jx4lyn1cdgr9a) |
+| S10 | Seara, lingura înainte de culcare | „Ultimul lucru înainte de culcare: 10 ml.” | [deschide](https://canva.link/p6177uygq7jh2r1) |
+| S11 | Pescar pe ponton cu cutia | „Stai pe ponton, nu pe drum spre mal.” | [deschide](https://canva.link/1bgqb1ngj3qgcrr) |
+| S12 | Tâmplar cu cutia în atelier | „Nu încă o pastilă. 10 ml, de 2 ori pe zi.” | [deschide](https://canva.link/zwcvn7iiorxn93a) |
