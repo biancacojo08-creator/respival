@@ -4,7 +4,8 @@
 const fs = require('fs'), path = require('path');
 
 const KEY = process.env.SEGMIND_API_KEY;
-if (!KEY) { console.error('SEGMIND_API_KEY lipsește din mediu.'); process.exit(1); }
+// The key may come from SEGMIND_API_KEY or be injected by the environment's API credentials (proxy adds x-api-key).
+if (!KEY) console.warn('SEGMIND_API_KEY nu e setat: mă bazez pe API credentials din mediu.');
 const MODEL = process.env.SEGMIND_MODEL || 'nano-banana';
 const PRODUCT = path.join(__dirname, '..', '1231.png'); // original packshot (full label)
 const productB64 = fs.readFileSync(PRODUCT).toString('base64');
@@ -33,7 +34,7 @@ const SCENES = [
   for (const [id, scene] of SCENES) {
     if (only.length && !only.some(o => id.includes(o))) continue;
     const body = { prompt: `${scene} ${KEEP}`, image_urls: [productRef], aspect_ratio: '1:1', output_format: 'png' };
-    const res = await fetch(`https://api.segmind.com/v1/${MODEL}`, { method: 'POST', headers: { 'x-api-key': KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const res = await fetch(`https://api.segmind.com/v1/${MODEL}`, { method: 'POST', headers: { ...(KEY ? { 'x-api-key': KEY } : {}), 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     const type = res.headers.get('content-type') || '';
     if (!res.ok) { console.error(id, res.status, (await res.text()).slice(0, 400)); continue; }
     let buf;
