@@ -27,6 +27,8 @@ Prostamisin, Prostalisan, ProstaNEW, Prosnova, Pepon (ulei de dovleac), complexe
 
 ## 2. Identitate vizuală pentru reclame
 
+> **Actualizare după poza cutiei:** produsul se numește **PROSTA COMPLEX** (Novensa), supliment lichid de 100 ml. Pe cutie: **Serenoa repens, urzică, dovleac, zinc, seleniu, vitamina E**; doza: 30 de picături (1 ml), de 2 ori pe zi, în puțină apă. Cutia e neagră, cu titlu auriu cu serife și logo verde. Reclamele folosesc acum: **Merriweather Black** (serif, apropiat de titlul de pe cutie) pentru titluri și citate, **Inter** pentru text, **Barlow Condensed** pentru preț și buton, **Caveat** pentru scris de mână; culori: negru `#0b0b0b`, auriu `#f7e19c → #d4a24c → #8f5f1f`, verde `#5ba33b`. Ce urmează mai jos e propunerea inițială.
+
 ### Fonturi
 Nu am putut citi CSS-ul site-ului, așa că propun un set **îmbunătățit**, gândit pentru un public 50+ care citește pe telefon. Toate au suport complet pentru diacritice românești (ă â î ș ț) și sunt descărcate în `brand/fonts/`.
 
