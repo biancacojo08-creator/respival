@@ -173,3 +173,26 @@ Toate hook-urile de mai sus sunt scrise deja în varianta mai sigură, cu excep�
 1. **Am nevoie de la tine:** poze cu sticla (fundal alb / PNG), logo-ul Novensa și ofertele de pachet (ex. 2+1), dacă există. Pot extrage și culorile exacte din ele.
 2. Alegi 4–6 unghiuri (recomand **A, B, C, D, G, H** pentru primul test).
 3. Generez imaginile în formatele **1080×1080** (feed), **1080×1350** (4:5, cel mai bun în feed mobil) și **1080×1920** (stories/reels), cu fonturile și culorile de mai sus.
+
+---
+
+## 7. Unghiuri „persona” – reclame cu personaj
+
+Fiecare reclamă are în centru un personaj concret care își spune povestea la persoana întâi: portret, citat mare pe imagine, sticla în cadru.
+
+> ⚠️ Personajele sunt fictive. În reclamă nu le prezenta ca „client verificat” și nu le atribui rezultate ca și cum ar fi recenzii reale (încalcă politica Meta și legea protecției consumatorului). Dacă vrei format de testimonial, folosește recenziile reale de pe site, cu acordul clienților.
+
+| # | Personaj | Scena | Citat pe imagine |
+|---|---|---|---|
+| 1 | Nea Costică, 64, apicultor, Vâlcea | La stupi, cu sticla pe ladă | „Am încredere în ce-mi dă natura. De-asta am ales plantele.” |
+| 2 | Domnul Petre, 58, taximetrist, București | La volan, cu geamul lăsat | „12 ore pe zi la volan. Nu-mi permit să caut toaleta la fiecare colț.” |
+| 3 | Doamna Mariana, 61, soție, Iași | La masa din bucătărie, cu cafeaua | „I-am comandat lui Gelu. Acum dormim amândoi.” |
+| 4 | Ioana, 36, fiică, în diaspora la Torino | Pe balcon, la telefon cu tatăl | „L-am auzit pe tata obosit la telefon. I l-am trimis acasă, plată la livrare.” |
+| 5 | Domnul Vasile, 70, profesor de mate pensionar, Cluj | În bibliotecă, cu ochelarii pe nas | „Am citit eticheta: 6 plante, nicio chimicală. Asta m-a convins.” |
+| 6 | Nea Fănică, 67, pescar, Tulcea | Pe malul apei, dimineața devreme, cu nepotul | „Vreau să stau la pescuit cu nepotul fără să fug la mal la fiecare oră.” |
+| 7 | Dorin, 52, șofer de TIR | În cabina camionului | „Pe autostradă în Germania nu oprești când vrei. Trebuia să fac ceva.” |
+| 8 | Domnul Aurel, 62, primar sau om respectat în comunitate | La un eveniment, la costum | „Îmi era jenă să întreb pe cineva. Am comandat discret, online.” |
+| 9 | Gelu și Mariana, 60+, cuplu | Dimineață luminoasă, în pat, zâmbind | „Prima noapte întreagă de dormit după mult timp.” |
+| 10 | Nea Ilie, 66, meșter (tâmplar), Maramureș | În atelier, cu așchii de lemn | „Toată viața am lucrat cu mâinile. Nu vreau să stau pe pastile.” |
+
+**Recomandare pentru primul test:** 2 (Petre), 3 (Mariana), 4 (Ioana), 5 (Vasile), 6 (Fănică).
