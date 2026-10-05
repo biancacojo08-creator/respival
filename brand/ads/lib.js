@@ -55,30 +55,8 @@ const PLANTS = `<svg viewBox="0 0 300 120" class="plants">
 </svg>`;
 
 function productBox(scale = 1, extraStyle = '') {
-  return `
-<div class="boxwrap" style="transform:scale(${scale});${extraStyle}">
-  <div class="box3d">
-    <div class="face front">
-      <div class="logo">${LEAF}<span>NOVENSA</span></div>
-      <div class="pname gold">PROSTA</div>
-      <div class="pcomplex">COMPLEX</div>
-      <div class="prule"></div>
-      <div class="pclaim">Suport rapid și complet<br>pentru prostată</div>
-      <ul class="pbul"><li>Susține sănătatea prostatei și funcția urinară.</li><li>Contribuie la reducerea disconfortului</li></ul>
-      ${PLANTS}
-      <div class="plichid">SUPLIMENT LICHID</div>
-      <div class="pml">100 ml</div>
-    </div>
-    <div class="face side">
-      <div class="sname gold">PROSTA</div><div class="scomplex">COMPLEX</div>
-      <div class="srule"></div>
-      <div class="stxt"><b>INGREDIENTE:</b><br>Extract de Serenoa repens, Extract de Urzică, Extract de Dovleac, Zinc, Seleniu, Vitamina E.<br><br><b>MOD DE UTILIZARE:</b><br>Adulți: câte 30 de picături (1 ml), de 2 ori pe zi, dizolvate în puțină apă.</div>
-      <div class="sbadges"><span>${LEAF}</span><span class="ro"><i></i><i></i><i></i></span></div>
-    </div>
-    <div class="face top"></div>
-  </div>
-  <div class="boxshadow"></div>
-</div>`;
+  // real packshot (brand/product-cutout.png), same footprint as the old 300x460 box
+  return `<div class="boxwrap" style="transform:scale(${scale});${extraStyle}"><img src="../../product-cutout.png" style="position:absolute;left:40px;top:-20px;height:500px;filter:drop-shadow(0 26px 26px rgba(0,0,0,.55))"></div>`;
 }
 
 const BOX_CSS = `
