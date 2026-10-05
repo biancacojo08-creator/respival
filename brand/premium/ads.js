@@ -104,7 +104,7 @@ ads.push({ id: 'P04-noi-vs-ei', html: page(`body{background:${C.cream}}
   `${logo(56, 56)}
   <div class="abs h" style="left:56px;top:140px;font-size:80px;color:${C.forest}">De ce <span class="it" style="color:${C.gold}">lichid?</span></div>
   <table><tr><th></th><th class="us">PROSTA<br>COMPLEX</th><th class="them">Capsule<br>obișnuite</th></tr>
-  <tr><td>Se dizolvă în puțină apă</td><td class="us ok">✓</td><td class="them no">✕</td></tr>
+  <tr><td>Formă lichidă, ușor de luat</td><td class="us ok">✓</td><td class="them no">✕</td></tr>
   <tr><td>Fără pastile de înghițit</td><td class="us ok">✓</td><td class="them no">✕</td></tr>
   <tr><td>Serenoa + urzică + dovleac</td><td class="us ok">✓</td><td class="them">?</td></tr>
   <tr><td>Zinc, seleniu, vitamina E</td><td class="us ok">✓</td><td class="them">?</td></tr>
@@ -142,9 +142,9 @@ ads.push({ id: 'P07-ritual', html: page(`body{background:${C.cream}}
   `${logo(56, 56)}
   <div class="abs h" style="left:56px;top:140px;font-size:78px;color:${C.forest}">Ritualul de <span class="it" style="color:${C.gold}">1 minut</span></div>
   <div class="line"></div>
-  <div class="step" style="top:300px"><div class="n">AM</div><div><b>30 de picături dimineața</b><span>dizolvate în puțină apă, lângă cafea</span></div></div>
-  <div class="step" style="top:500px"><div class="n">PM</div><div><b>30 de picături seara</b><span>același gest simplu, înainte de culcare</span></div></div>
-  <div class="step" style="top:700px"><div class="n">30</div><div><b>Zile de consecvență</b><span>pentru funcția urinară și confortul tău</span></div></div>
+  <div class="step" style="top:300px"><div class="n">AM</div><div><b>10 ml dimineața</b><span>un gest simplu, lângă cafea</span></div></div>
+  <div class="step" style="top:500px"><div class="n">PM</div><div><b>10 ml seara</b><span>același gest, înainte de culcare</span></div></div>
+  <div class="step" style="top:700px"><div class="n">15</div><div><b>Zile: cura completă</b><span>3 cutii, pentru funcția urinară și confortul tău</span></div></div>
   ${prod(700, 720, 200, -3)}${disc()}${foot(C.forest, '#fff')}`) });
 
 // 8. Stat
@@ -206,7 +206,7 @@ ads.push({ id: 'A01-cura-completa-190', html: page(`body{background:${RED};color
   `${tape(0, YEL, BLK, 'Transport gratuit la cura completă')}
   ${logo(56, 100, 44, 'filter:brightness(0) invert(1)')}
   <div class="abs big" style="left:56px;top:180px;font-size:88px">Cura<br>completă</div>
-  <div class="abs" style="left:60px;top:400px;font:800 34px Archivo">3 cutii PROSTA COMPLEX</div>
+  <div class="abs" style="left:60px;top:400px;font:800 34px Archivo">3 cutii · cura de 15 zile</div>
   <div class="abs" style="left:56px;top:470px;font:900 200px/1 Archivo;letter-spacing:-8px">190<span style="font-size:70px;letter-spacing:0"> lei</span></div>
   <div class="abs" style="left:60px;top:690px;font:700 34px Inter">în loc de <span class="strike">200,97 lei</span></div>
   <div class="btn" style="left:56px;top:790px;background:${YEL};color:${BLK}">Comandă acum →</div>
@@ -256,7 +256,7 @@ ads.push({ id: 'A05-transport-gratuit', html: page(`body{background:${C.forest};
   `${logo(56, 56, 44, 'filter:brightness(0) invert(1)')}
   <div class="abs big" style="left:50px;top:140px;font-size:118px;color:${YEL}">Transport</div>
   <div class="abs big" style="left:50px;top:250px;font-size:118px">gratuit</div>
-  <div class="abs" style="left:58px;top:380px;font:800 38px Archivo">la cura completă de 3 cutii</div>
+  <div class="abs" style="left:58px;top:380px;font:800 38px Archivo">la cura completă: 3 cutii, 15 zile</div>
   <div class="abs" style="left:56px;top:540px;font:900 150px/1 Archivo;letter-spacing:-6px">190<span style="font-size:56px;letter-spacing:0"> lei</span></div>
   <div class="abs" style="left:60px;top:710px;font:600 30px Inter;opacity:.9">Plătești la livrare, când primești coletul.</div>
   <div class="btn" style="left:56px;top:800px;background:${YEL};color:${BLK}">Comandă acum →</div>
@@ -271,7 +271,7 @@ ads.push({ id: 'A06-3-motive', html: page(`body{background:#fff}${AGG}
   <div class="abs big" style="left:56px;top:140px;font-size:84px">3 motive pentru <span style="color:${RED}">cura completă</span></div>
   <div class="r" style="top:380px"><div class="n">1</div><div><b>Transport gratuit</b><span>la pachetul de 3 cutii</span></div></div>
   <div class="r" style="top:530px"><div class="n">2</div><div><b>Plătești mai puțin</b><span>190 lei în loc de 200,97 lei</span></div></div>
-  <div class="r" style="top:680px"><div class="n">3</div><div><b>Nu rămâi fără</b><span>la jumătatea curei</span></div></div>
+  <div class="r" style="top:680px"><div class="n">3</div><div><b>Toată cura de 15 zile</b><span>dintr-o singură comandă</span></div></div>
   ${stack3(520, 610, 380)}${foot(BLK, '#fff')}`) });
 
 // A07 – before/after aggressive split
@@ -305,7 +305,7 @@ ads.push({ id: 'A08-plata-la-livrare', html: page(`body{background:${C.cream}}${
 ads.push({ id: 'A09-atentie-barbati', html: page(`body{background:${BLK};color:#fff}${AGG}`,
   `${tape(70, YEL, BLK, 'Atenție · Atenție · Atenție')}
   <div class="abs big" style="left:56px;top:190px;width:680px;font-size:96px">Nu-ți mai planifica ziua <span style="color:${YEL}">după toaletă.</span></div>
-  <div class="abs" style="left:60px;top:560px;width:540px;font:600 30px/1.35 Inter;color:#ddd">30 de picături, de 2 ori pe zi. Susține funcția urinară și sănătatea prostatei.</div>
+  <div class="abs" style="left:60px;top:560px;width:540px;font:600 30px/1.35 Inter;color:#ddd">10 ml, de 2 ori pe zi. Susține funcția urinară și sănătatea prostatei.</div>
   <div class="abs" style="left:60px;top:720px;font:900 44px Archivo">1 cutie <span style="color:${YEL}">66,99 lei</span></div>
   <div class="btn" style="left:56px;top:800px;background:${YEL};color:${BLK}">Comandă acum →</div>
   ${prod(680, 690, 230, 5)}${disc('Supliment alimentar.', '#fff')}${foot(RED, '#fff')}`) });

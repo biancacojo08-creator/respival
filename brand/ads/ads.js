@@ -71,7 +71,7 @@ function chatAd() {
   const msgs = [
     ['in', 'Iar n-am dormit bine… m-am sculat de 4 ori azi-noapte 😔', '22:47'],
     ['out', 'Tată, ți-am comandat ceva. Vine mâine acasă, plătești la curier 📦', '22:49'],
-    ['out', 'Se numește PROSTA COMPLEX, de la Novensa. 30 de picături în puțină apă, de 2 ori pe zi. Te rog să le iei ❤️', '22:50'],
+    ['out', 'Se numește PROSTA COMPLEX, de la Novensa. Iei câte 10 ml dimineața și seara. Te rog să-l iei ❤️', '22:50'],
     ['in', 'Bine, mamă. Mulțumesc 🙏', '22:52'],
   ];
   return page(`
@@ -109,7 +109,7 @@ function noteAd() {
   `, `<div class="table"></div>
     <div class="h">„I-am comandat lui Gelu. <em>Acum dormim amândoi.</em>”</div>
     <div class="who">— Mariana, 61 de ani, Iași</div>
-    <div class="note">Gelu, ți-am pus picăturile lângă cafea. 30 în puțină apă, dimineața și seara.<br>Să dormim și noi o noapte întreagă ❤️<br><span style="float:right">— M.</span></div>
+    <div class="note">Gelu, ți-am pus sticla lângă cafea. 10 ml dimineața și 10 ml seara.<br>Să dormim și noi o noapte întreagă ❤️<br><span style="float:right">— M.</span></div>
     <div class="cup"></div>
     ${productBox(1.0, 'left:735px;top:400px')}${footer()}`);
 }
@@ -150,7 +150,7 @@ function routeAd() {
       <circle cx="600" cy="900" r="18" fill="#f3d27e"/><circle cx="1040" cy="40" r="18" fill="#5ba33b"/></svg>
     <div class="panel"></div>
     <div class="col">${tag('wheel', '<b>Petre, 58</b> · taximetrist, București')}<div class="h">„Ruta mea nu mai depinde <em>de toalete.</em>”</div><div class="rule" style="width:160px"></div>
-    <div class="sub">30 de picături dimineața, 30 seara.<br>PROSTA COMPLEX: Serenoa, urzică și dovleac pentru sănătatea prostatei.</div></div>
+    <div class="sub">10 ml dimineața, 10 ml seara.<br>PROSTA COMPLEX: Serenoa, urzică și dovleac pentru sănătatea prostatei.</div></div>
     ${productBox(1.0, 'left:720px;top:430px')}${footer()}`);
 }
 
@@ -168,7 +168,7 @@ function labelAd() {
   `, `<div class="bg"></div>
     <div class="who">${tag('glasses', '<b>Domnul Vasile, 70</b> · profesor de matematică, Cluj')}</div>
     <div class="h">„Am citit eticheta înainte să cumpăr. <em>Asta m-a convins.</em>”</div>
-    <div class="lab"><b>INGREDIENTE:</b><br><span class="hl">Extract de Serenoa repens</span>, extract de urzică, extract de dovleac, zinc, seleniu, vitamina E.<br><br><b>MOD DE UTILIZARE:</b><br>30 de picături (1 ml), de 2 ori pe zi, în puțină apă.</div>
+    <div class="lab"><b>INGREDIENTE:</b><br><span class="hl">Extract de Serenoa repens</span>, extract de urzică, extract de dovleac, zinc, seleniu, vitamina E.<br><br><b>MOD DE UTILIZARE:</b><br>10 ml, de 2 ori pe zi.<br>O cutie = 5 zile.</div>
     <div class="mag"></div>
     ${productBox(1.0, 'left:730px;top:400px')}${footer()}`);
 }
@@ -187,9 +187,9 @@ function compareAd() {
     .drop{position:absolute;width:26px;height:26px;background:#e3a33b;border-radius:0 50% 50% 50%;transform:rotate(45deg)}
     .cap{position:absolute;top:800px;font:600 26px/1.3 Inter;color:#eadfc6;text-align:center;width:420px}
   `, `<div class="l"></div><div class="r"></div>
-    <div class="h">„Nu încă o pastilă de înghițit.<br><em>30 de picături în puțină apă.</em>”</div>
+    <div class="h">„Nu încă o pastilă de înghițit.<br><em>10 ml dimineața, 10 ml seara.</em>”</div>
     <div class="lab" style="left:120px;color:#c9ccd2">Încă o capsulă?</div>
-    <div class="lab" style="left:640px;color:#f0c66a">Picături</div>
+    <div class="lab" style="left:640px;color:#f0c66a">Lichid</div>
     ${pills}<svg class="x" viewBox="0 0 400 400"><path d="M40 40L360 360M360 40L40 360" stroke="#e8463a" stroke-width="22" stroke-linecap="round" opacity=".85"/></svg>
     <div class="glass"></div><div class="drop" style="left:660px;top:470px"></div><div class="drop" style="left:664px;top:520px;transform:rotate(45deg) scale(.7)"></div>
     <div class="cap" style="left:60px">${tag('glasses', '<b>Domnul Vasile, 70</b>')}</div>
@@ -243,7 +243,7 @@ function odoAd() {
     .odo i{font:700 40px Barlow;color:#f0c66a;margin-left:10px;font-style:normal}
     .shade{position:absolute;left:0;top:0;width:800px;height:${H}px;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,0))}
   `, `${scene('road')}<div class="shade"></div>
-    <div class="col">${tag('truck', '<b>Dorin, 52</b> · șofer de TIR')}<div class="h">Kilometri,<br><em>nu opriri.</em></div><div class="odo">${digits}<i>km azi</i></div><div class="rule" style="width:160px"></div><div class="sub">30 de picături dimineața, 30 seara.<br>Între ele: drumul.</div></div>
+    <div class="col">${tag('truck', '<b>Dorin, 52</b> · șofer de TIR')}<div class="h">Kilometri,<br><em>nu opriri.</em></div><div class="odo">${digits}<i>km azi</i></div><div class="rule" style="width:160px"></div><div class="sub">10 ml dimineața, 10 ml seara.<br>Între ele: drumul.</div></div>
     ${productBox(1.05, 'left:720px;top:400px')}${footer()}`);
 }
 
@@ -281,7 +281,7 @@ module.exports = [
   { id: '01A-costica-natura', html: quoteAd({ sceneKey: 'honey', icon: 'bee', who: '<b>Nea Costică, 64</b> · apicultor, Vâlcea', quote: 'Am încredere în ce-mi dă natura. <em>De-asta am ales plantele.</em>', size: 64, sub: 'Serenoa repens, urzică și dovleac, plus zinc, seleniu și vitamina E. Supliment lichid fabricat în România.' }) },
   { id: '01B-costica-ingrediente', html: ingredientsAd() },
   // 2. Petre – taximetrist
-  { id: '02A-petre-12ore', html: quoteAd({ sceneKey: 'city', icon: 'wheel', who: '<b>Petre, 58</b> · taximetrist, București', quote: '12 ore pe zi la volan. <em>Nu-mi permit să caut toaleta la fiecare colț.</em>', size: 60, sub: 'PROSTA COMPLEX susține sănătatea prostatei și funcția urinară. 30 de picături, de 2 ori pe zi.' }) },
+  { id: '02A-petre-12ore', html: quoteAd({ sceneKey: 'city', icon: 'wheel', who: '<b>Petre, 58</b> · taximetrist, București', quote: '12 ore pe zi la volan. <em>Nu-mi permit să caut toaleta la fiecare colț.</em>', size: 60, sub: 'PROSTA COMPLEX susține sănătatea prostatei și funcția urinară. 10 ml, de 2 ori pe zi.' }) },
   { id: '02B-petre-ruta', html: routeAd() },
   // 3. Mariana – soția
   { id: '03A-mariana-dormim', html: noteAd() },
@@ -296,7 +296,7 @@ module.exports = [
   { id: '06A-fanica-pescuit', html: quoteAd({ sceneKey: 'dawn', icon: 'fish', who: '<b>Nea Fănică, 67</b> · pescar, Tulcea', quote: 'Vreau să stau la pescuit cu nepotul, <em>nu să fug la mal la fiecare oră.</em>', size: 56, sub: 'PROSTA COMPLEX: Serenoa, urzică și dovleac pentru sănătatea prostatei.', box: { s: .95, x: 760, y: 120 } }) },
   { id: '06B-fanica-nepoti', html: nepotAd() },
   // 7. Dorin – șofer de TIR
-  { id: '07A-dorin-autostrada', html: quoteAd({ sceneKey: 'road', icon: 'truck', who: '<b>Dorin, 52</b> · șofer de TIR', quote: 'Pe autostradă în Germania nu oprești când vrei. <em>Trebuia să fac ceva.</em>', size: 58, sub: '30 de picături dimineața, 30 seara. Supliment lichid pentru sănătatea prostatei și funcția urinară.', box: { s: 1.0, x: 740, y: 420 } }) },
+  { id: '07A-dorin-autostrada', html: quoteAd({ sceneKey: 'road', icon: 'truck', who: '<b>Dorin, 52</b> · șofer de TIR', quote: 'Pe autostradă în Germania nu oprești când vrei. <em>Trebuia să fac ceva.</em>', size: 58, sub: '10 ml dimineața, 10 ml seara. Supliment lichid pentru sănătatea prostatei și funcția urinară.', box: { s: 1.0, x: 740, y: 420 } }) },
   { id: '07B-dorin-kilometri', html: odoAd() },
   // 8. Domnul Aurel – discretul
   { id: '08A-aurel-jena', html: quoteAd({ sceneKey: 'elegant', icon: 'tie', who: '<b>Domnul Aurel, 62</b>', quote: 'Îmi era jenă să întreb pe cineva. <em>Am comandat discret, online.</em>', size: 64, sub: 'Fără rețetă, fără cozi la farmacie. Colet discret, plata la livrare.' }) },
@@ -305,6 +305,6 @@ module.exports = [
   { id: '09A-cuplu-prima-noapte', html: quoteAd({ sceneKey: 'sunrise', icon: 'moon', who: '<b>Gelu & Mariana</b> · 63 și 61, Ploiești', quote: 'Prima noapte întreagă de dormit, <em>după mult timp.</em>', size: 70, sub: 'PROSTA COMPLEX susține sănătatea prostatei și funcția urinară. Ingrediente naturale, fabricat în România.' }) },
   { id: '09B-cuplu-inainte-acum', html: splitAd() },
   // 10. Nea Ilie – tâmplar
-  { id: '10A-ilie-pastile', html: quoteAd({ sceneKey: 'wood', icon: 'saw', who: '<b>Nea Ilie, 66</b> · tâmplar, Maramureș', quote: 'Toată viața am lucrat cu mâinile. <em>Nu vreau să stau pe pastile.</em>', size: 62, sub: 'Supliment lichid: 30 de picături în puțină apă, de 2 ori pe zi. Ingrediente naturale.' }) },
+  { id: '10A-ilie-pastile', html: quoteAd({ sceneKey: 'wood', icon: 'saw', who: '<b>Nea Ilie, 66</b> · tâmplar, Maramureș', quote: 'Toată viața am lucrat cu mâinile. <em>Nu vreau să stau pe pastile.</em>', size: 62, sub: 'Supliment lichid: 10 ml, de 2 ori pe zi. Ingrediente naturale.' }) },
   { id: '10B-ilie-romania', html: madeAd() },
 ];
