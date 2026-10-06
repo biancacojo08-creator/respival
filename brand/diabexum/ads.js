@@ -338,7 +338,7 @@ ads.push(clean({ id: 'F03-pofta-pe-pauza', bg: '#FFE3EA', fg: C.ink, acc: '#E030
 ads.push(clean({ id: 'F04-3-griji', bg: '#fff', fg: C.navy, acc: C.red, pillBg: C.red, pillFg: '#fff', btnBg: '#fff', btnFg: C.red,
   l1: 'Glicemie. Colesterol.', l2: 'Poftă de dulce.', sub: 'Un singur flacon.', layout: 'center' }));
 ads.push(clean({ id: 'F05-2-flacoane', bg: C.yel, fg: C.ink, acc: C.red, pillBg: C.ink, pillFg: '#fff', btnBg: C.red, btnFg: '#fff',
-  l1: '2 flacoane.', l2: '99,99 lei.', sub: 'Al doilea e gratuit. Transportul la fel.', two: true }));
+  l1: '2 flacoane.', l2: '99,99 lei.', sub: 'Al doilea e gratuit. Transportul la fel.', two: true, h: 480, x: 720, base: 920 }));
 ads.push(clean({ id: 'F06-pa-dulciuri-seara', bg: '#1C1B2E', fg: '#fff', acc: '#FFB4C8', pillBg: '#fff', pillFg: C.ink, btnBg: C.red, btnFg: '#fff', logoWhite: true,
   l1: 'Pa-pa, dulciuri', l2: 'de la miezul nopții.', sub: 'Mai puțină poftă. Mai mult control.' }));
 ads.push(clean({ id: 'F07-echilibru-nu-restrictii', bg: '#E4EEE1', fg: '#16422C', acc: C.green, pillBg: '#16422C', pillFg: '#fff', btnBg: C.yel, btnFg: C.ink,
@@ -349,5 +349,53 @@ ads.push(clean({ id: 'F09-energie-pofta', bg: C.sky, fg: C.navy, acc: C.blue, pi
   l1: 'Mai multă energie.', l2: 'Mai puțină poftă.*', layout: 'center', star: RX }));
 ads.push(clean({ id: 'F10-mai-usor', bg: '#F3EBDD', fg: '#3B2418', acc: '#B7862F', pillBg: '#3B2418', pillFg: '#fff', btnBg: '#D9A441', btnFg: C.ink,
   l1: 'Mai ușor.', l2: 'Mai echilibrat.', sub: 'Glicemie, colesterol, poftă de dulce.', two: true }));
+
+// ================================================================ AUTUMN PHOTO SET (G01–G10)
+// Clean copy over autumn photo backgrounds (bg/Gxx.jpg, generated in Canva, downloaded at full size).
+// The REAL bottle is composited on top with a soft contact shadow, so the label stays exact.
+const PHOTO = `
+  .bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .veil{position:absolute;inset:0}
+  .hl{position:absolute;font-family:Archivo;font-weight:900;letter-spacing:-3px;line-height:.95}
+  .sub{position:absolute;font:600 30px/1.3 Inter}
+  .pill{position:absolute;display:flex;align-items:center;gap:18px;padding:18px 18px 18px 30px;border-radius:999px;font:900 34px Archivo;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .pill b{padding:12px 24px;border-radius:999px;font:900 30px Archivo}
+  .mini{position:absolute;font:700 22px Inter;letter-spacing:.3px}
+  .tiny{position:absolute;right:32px;bottom:22px;font:400 14px Inter;opacity:.7}
+  .shadow{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(20,10,0,.55),rgba(20,10,0,0));filter:blur(6px)}
+  .bottle{position:absolute;filter:drop-shadow(10px 18px 22px rgba(30,15,0,.35))}
+`;
+// one or two bottles standing on the surface whose line is at y=base
+const stand = (h, x, base, two) => {
+  const w = h * 0.578;
+  const one = (hh, xx, bb) => `<div class="shadow" style="left:${xx - hh * .05}px;top:${bb - hh * .05}px;width:${hh * .68}px;height:${hh * .1}px"></div><img class="bottle" src="${PROD}" style="height:${hh}px;left:${xx}px;top:${bb - hh}px">`;
+  return two ? one(h * .9, x - w * .55, base - 6) + one(h, x + w * .35, base) : one(h, x, base);
+};
+const photo = ({ id, bg, fg = '#fff', acc = C.yel, veil, l1, l2, sub, h = 560, x = 640, base = 900, two = false, pillBg = '#fff', pillFg = C.ink, btnBg = C.red, btnFg = '#fff', star = '' }) => ({ id, html: page(
+  `body{background:#3a2a1a;color:${fg}}${PHOTO}`,
+  `<div class="bgimg" style="background-image:url(../bg/${bg}.jpg)"></div>
+  <div class="veil" style="background:${veil || 'linear-gradient(115deg,rgba(25,14,4,.72) 0%,rgba(25,14,4,.35) 42%,rgba(25,14,4,0) 62%)'}"></div>
+  ${logo(64, 64, 40, fg === '#fff')}
+  <div class="abs" style="left:64px;top:170px;width:600px;display:flex;flex-direction:column;gap:26px">
+    <div class="hl" style="position:static;font-size:78px;color:${fg};text-shadow:0 4px 24px rgba(0,0,0,.25)">${l1}<br><span style="color:${acc}">${l2}</span></div>
+    ${sub ? `<div class="sub" style="position:static;width:480px;color:${fg};opacity:.92">${sub}</div>` : ''}</div>
+  ${stand(h, x, base, two)}
+  <div class="pill" style="left:64px;top:850px;background:${pillBg};color:${pillFg}">1+1 GRATUIT <b style="background:${btnBg};color:${btnFg}">99,99 lei</b></div>
+  <div class="mini" style="left:68px;top:950px;color:${fg};text-shadow:0 2px 10px rgba(0,0,0,.4)">Transport gratuit · Plata la livrare</div>
+  <div class="tiny" style="color:${fg}">${star}Supliment alimentar. Rezultatele pot varia.</div>`) });
+
+const G = [
+  { id: 'G01-masa-toamna', bg: 'G01', l1: 'Toamna asta,', l2: 'mai puțin dulce.', sub: 'Pofta de dulce, sub control.' },
+  { id: 'G02-banca-parc', bg: 'G02', l1: 'Glicemia în echilibru.', l2: 'Pașii, mai ușori.', two: true, h: 470, x: 720, base: 930 },
+  { id: 'G03-bucatarie-mere', bg: 'G03', l1: 'Mere, nu', l2: 'prăjituri.', sub: 'Pofta de dulce? Pune-o pe pauză.', x: 650, base: 940 },
+  { id: 'G04-living-seara', bg: 'G04', l1: 'Seara, fără', l2: 'pofte de dulce.*', star: RX, x: 660, base: 880 },
+  { id: 'G05-fereastra-ploaie', bg: 'G05', l1: 'Afară plouă.', l2: 'Glicemia, stabilă.', sub: 'Susține echilibrul glicemic.', x: 640, base: 900 },
+  { id: 'G06-gradina-dovleci', bg: 'G06', l1: '2 flacoane.', l2: '99,99 lei.', sub: 'Al doilea e gratuit. Transportul la fel.', two: true, h: 480, x: 720, base: 920 },
+  { id: 'G07-mic-dejun', bg: 'G07', l1: 'Echilibru,', l2: 'de la micul dejun.', sub: 'Glicemie, colesterol, poftă de dulce.', x: 650, base: 920 },
+  { id: 'G08-living-lampa', bg: 'G08', l1: 'Tu alegi.', l2: 'Nu pofta.', x: 620, base: 920 },
+  { id: 'G09-banca-frunze', bg: 'G09', l1: 'Mai puțin dulce.', l2: 'Mai puține kg.*', star: RX, two: true, h: 470, x: 730, base: 930 },
+  { id: 'G10-insula-crizanteme', bg: 'G10', l1: 'Glicemie. Colesterol.', l2: 'Poftă de dulce.', sub: 'Un singur flacon.', x: 640, base: 900 },
+];
+G.forEach(g => ads.push(photo(g)));
 
 module.exports = ads;
