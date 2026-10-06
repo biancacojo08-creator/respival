@@ -301,4 +301,53 @@ ads.push({ id: 'E10-nu-e-vointa', html: page(`body{background:${C.ink};color:#ff
   <div class="btn" style="left:56px;top:830px;background:${C.red};color:#fff">Rupe cercul →</div>
   ${prod(620, 690, 230, 5)}${disc('#fff')}${foot(C.red, '#fff')}`) });
 
+// ================================================================ CLEAN SET (F01–F10)
+// Minimal: 2-line hook, big bottle, one offer pill. Little text, lots of air.
+const CLEAN = `
+  .hl{position:absolute;font-family:Archivo;font-weight:900;letter-spacing:-3px;line-height:.95}
+  .sub{position:absolute;font:600 30px/1.3 Inter;opacity:.75}
+  .pill{position:absolute;display:flex;align-items:center;gap:18px;padding:18px 18px 18px 30px;border-radius:999px;font:900 34px Archivo;white-space:nowrap}
+  .pill b{padding:12px 24px;border-radius:999px;font:900 30px Archivo}
+  .mini{position:absolute;font:600 22px Inter;opacity:.7;letter-spacing:.3px}
+  .tiny{position:absolute;right:32px;bottom:26px;font:400 14px Inter;opacity:.5}
+`;
+const clean = ({ id, bg, fg, acc, pillBg, pillFg, btnBg, btnFg, l1, l2, sub, layout = 'side', two = false, logoWhite = false, star = '' }) => {
+  const head = layout === 'side'
+    ? `<div class="abs" style="left:64px;top:170px;width:600px;display:flex;flex-direction:column;gap:30px">
+         <div class="hl" style="position:static;font-size:84px;color:${fg}">${l1}<br><span style="color:${acc}">${l2}</span></div>
+         ${sub ? `<div class="sub" style="position:static;width:500px;color:${fg}">${sub}</div>` : ''}</div>
+       ${two ? duo(520, 600, 340) : prod(680, 650, 200, 4)}`
+    : `<div class="hl" style="left:0;right:0;top:130px;text-align:center;font-size:92px;color:${fg}">${l1}<br><span style="color:${acc}">${l2}</span></div>
+       ${sub ? `<div class="sub" style="left:0;right:0;top:340px;text-align:center;color:${fg}">${sub}</div>` : ''}
+       ${two ? duo(520, 300, 400) : prod(560, 380, 380, 0)}`;
+  const px = layout === 'side' ? 'left:64px' : 'left:50%;transform:translateX(-50%)';
+  return { id, html: page(`body{background:${bg};color:${fg}}${CLEAN}`,
+    `${logo(layout === 'side' ? 64 : 474, 64, 40, logoWhite)}${head}
+    <div class="pill" style="${px};top:${layout === 'side' ? 860 : 930}px;background:${pillBg};color:${pillFg}">1+1 GRATUIT <b style="background:${btnBg};color:${btnFg}">99,99 lei</b></div>
+    ${layout === 'side' ? `<div class="mini" style="left:68px;top:960px;color:${fg}">Transport gratuit · Plata la livrare</div>` : ''}
+    <div class="tiny" style="color:${fg}">${star}Supliment alimentar. Rezultatele pot varia.</div>`) };
+};
+const RX = '*Experiențe raportate de clienți. ';
+
+ads.push(clean({ id: 'F01-mai-putin-dulce', bg: C.cream, fg: C.navy, acc: C.red, pillBg: C.navy, pillFg: '#fff', btnBg: C.yel, btnFg: C.ink,
+  l1: 'Mai puțin dulce.', l2: 'Mai puține kg.*', sub: 'Pofta de dulce, sub control.', star: RX }));
+ads.push(clean({ id: 'F02-glicemia-sub-control', bg: C.navy, fg: '#fff', acc: C.yel, pillBg: '#fff', pillFg: C.navy, btnBg: C.red, btnFg: '#fff', logoWhite: true,
+  l1: 'Glicemia în echilibru.', l2: 'Pofta, la fel.', layout: 'center' }));
+ads.push(clean({ id: 'F03-pofta-pe-pauza', bg: '#FFE3EA', fg: C.ink, acc: '#E0306A', pillBg: C.ink, pillFg: '#fff', btnBg: '#E0306A', btnFg: '#fff',
+  l1: 'Pofta de dulce?', l2: 'Pune-o pe pauză.', sub: 'Susține și echilibrul glicemic.' }));
+ads.push(clean({ id: 'F04-3-griji', bg: '#fff', fg: C.navy, acc: C.red, pillBg: C.red, pillFg: '#fff', btnBg: '#fff', btnFg: C.red,
+  l1: 'Glicemie. Colesterol.', l2: 'Poftă de dulce.', sub: 'Un singur flacon.', layout: 'center' }));
+ads.push(clean({ id: 'F05-2-flacoane', bg: C.yel, fg: C.ink, acc: C.red, pillBg: C.ink, pillFg: '#fff', btnBg: C.red, btnFg: '#fff',
+  l1: '2 flacoane.', l2: '99,99 lei.', sub: 'Al doilea e gratuit. Transportul la fel.', two: true }));
+ads.push(clean({ id: 'F06-pa-dulciuri-seara', bg: '#1C1B2E', fg: '#fff', acc: '#FFB4C8', pillBg: '#fff', pillFg: C.ink, btnBg: C.red, btnFg: '#fff', logoWhite: true,
+  l1: 'Pa-pa, dulciuri', l2: 'de la miezul nopții.', sub: 'Mai puțină poftă. Mai mult control.' }));
+ads.push(clean({ id: 'F07-echilibru-nu-restrictii', bg: '#E4EEE1', fg: '#16422C', acc: C.green, pillBg: '#16422C', pillFg: '#fff', btnBg: C.yel, btnFg: C.ink,
+  l1: 'Echilibru,', l2: 'nu restricții.', layout: 'center', two: true }));
+ads.push(clean({ id: 'F08-tu-alegi', bg: C.red, fg: '#fff', acc: C.yel, pillBg: '#fff', pillFg: C.red, btnBg: C.ink, btnFg: '#fff', logoWhite: true,
+  l1: 'Tu alegi.', l2: 'Nu pofta.', sub: 'Glicemie echilibrată, pofte sub control.' }));
+ads.push(clean({ id: 'F09-energie-pofta', bg: C.sky, fg: C.navy, acc: C.blue, pillBg: C.navy, pillFg: '#fff', btnBg: C.yel, btnFg: C.ink,
+  l1: 'Mai multă energie.', l2: 'Mai puțină poftă.*', layout: 'center', star: RX }));
+ads.push(clean({ id: 'F10-mai-usor', bg: '#F3EBDD', fg: '#3B2418', acc: '#B7862F', pillBg: '#3B2418', pillFg: '#fff', btnBg: '#D9A441', btnFg: C.ink,
+  l1: 'Mai ușor.', l2: 'Mai echilibrat.', sub: 'Glicemie, colesterol, poftă de dulce.', two: true }));
+
 module.exports = ads;
