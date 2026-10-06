@@ -5,7 +5,7 @@ const ads = require('./ads.js');
 (async () => {
   const only = process.argv.slice(2);
   const browser = await chromium.launch();
-  const pg = await browser.newPage({ viewport: { width: 1080, height: 1080 } });
+  const pg = await browser.newPage({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 2 });
   for (const ad of ads) {
     if (only.length && !only.some(o => ad.id.includes(o))) continue;
     const file = path.join(__dirname, 'html', ad.id + '.html');
