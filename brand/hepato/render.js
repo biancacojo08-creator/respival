@@ -1,7 +1,7 @@
 // Renders every ad in ads.js to brand/hepato/png/<id>.png at 1080x1080.
 const fs = require('fs'), path = require('path');
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
-const ads = require('./ads.js');
+const ads = [...require('./ads.js'), ...require('./sales.js')];
 (async () => {
   const only = process.argv.slice(2);
   const browser = await chromium.launch();

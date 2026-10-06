@@ -63,3 +63,44 @@ Cura completă recomandată pe cutie este de 3 luni, adică 3 cutii. Comanzi acu
 - `png/H01…H10.png` – reclamele 1080×1080 · `_overview.jpg` – toate pe o pagină
 - `box-cutout.png` – cutia decupată, fundal transparent
 - `ads.js` – sursa (texte, culori, poziții) · `node render.js [H04]` regenerează
+
+---
+
+# Setul 2: hook-uri puternice, orientate spre vânzare (S01–S10)
+
+Fiecare reclamă are buton de comandă pe imagine. Hook-ul spune totul în 1–2 secunde, fără să citești restul.
+
+| # | Hook | Tip de hook | Public | Unde rulează |
+|---|---|---|---|---|
+| S01 | **Nu e lene. E ficatul.** | Reîncadrare (vina nu e a ta) | 30–60, larg | Prospectare · **favorit** |
+| S02 | **3 semne pe care le ignori zilnic. Același vinovat.** | Curiozitate | 30–60, larg | Prospectare · **favorit** |
+| S03 | **Keto ✕ Sală ✕ Apă cu lămâie ✕ …și burta tot acolo?** | „Am încercat tot” | Femei 28–55, dietă și fitness | Prospectare · **favorit** |
+| S04 | **Ficatul nu doare. De aceea îl ignori 20 de ani.** | Frică blândă | 40–65 | Prospectare |
+| S05 | **Provocarea: 30 de zile, o cană pe zi** | Provocare / angajament | Femei 25–45 | Prospectare, Stories |
+| S06 | **Nasturele de la blugi știe primul.** | Imagine concretă (balonare) | Femei 25–50 | Prospectare · **favorit** |
+| S07 | **Înainte de încă o dietă, citește asta.** | Dovadă (eticheta) | Scepticii, 40–70 | Prospectare + retargeting |
+| S08 | **Decembrie, în cifre: 40+ sarmale, 3 cozonaci, 1 singur ficat** | Sezonier, umor | 35–65, toată țara | **Din 15 noiembrie până în ianuarie** |
+| S09 | **Comanzi în 60 de secunde. Plătești la ușă.** | Eliminarea riscului | 45–70, cei care nu cumpără online | Retargeting (vizitatori) |
+| S10 | **27/30 – Mai ai 3 plicuri. Nu te opri acum.** | Recomandare (cumpărători) | **Doar cumpărători de acum 20–30 de zile** | Retargeting · Custom Audience |
+
+**Test recomandat:** S01, S02, S03 și S06 într-un set de reclame cu Advantage+, iar S07 și S09 pe retargeting. Cele care trec de CTR 1,5% merg mai departe.
+
+## Text principal (primary text) – setul 2
+
+**S01 – Nu e lene. E ficatul.**
+Te trezești obosit(ă), după prânz abia mai ții ochii deschiși și seara te cheamă dulcele. Nu e lipsă de voință. Ficatul lucrează non-stop și are nevoie de sprijin. **Hepato Nova Detox**: anghinare, armurariu, păpădie, gălbenele și sunătoare, câte 20% din fiecare. 1–2 căni pe zi, 30 de zile. 👉 Comandă acum, plătești la livrare.
+
+**S02 – 3 semne**
+Pofta de dulce. Balonarea. Oboseala. Le pui pe seama stresului, a vârstei sau a vremii, dar toate trec prin același organ: ficatul. Dă-i 30 de zile de sprijin natural cu **Hepato Nova Detox**, ceai din 5 plante, fabricat în România. 👉 Comandă azi, plătești la ușă.
+
+**S03 – Am încercat tot**
+Keto, sală, apă cu lămâie, fără pâine… și burta tot acolo? Multe diete uită de ficat, organul care procesează grăsimile și tot ce mâncăm. **Hepato Nova Detox**: 5 plante care susțin ficatul și digestia, o cană de 1–2 ori pe zi, alături de dieta ta. 👉 Comandă acum, plătești la livrare.
+
+**S06 – Nasturele de la blugi**
+Dimineața închizi blugii ușor, iar după prânz… nu prea. Burta umflată după masă e obișnuită, dar nu e normală. Anghinarea și păpădia susțin digestia, iar armurariul susține ficatul, toate într-o cană de **Hepato Nova Detox**. 👉 Comandă acum, plătești la livrare.
+
+**S09 – 60 de secunde**
+Nu-ți place să plătești cu cardul online? Nici nu trebuie. Lași numele și adresa, curierul îți aduce coletul și plătești doar când îl primești. **Hepato Nova Detox**: 30 de plicuri, cura de 30 de zile. 👉 Comandă acum.
+
+**S10 – Ziua 27 (doar cumpărători)**
+Ai ajuns aproape de finalul cutiei? Cura recomandată pe cutie e de 3 luni. Comandă acum următoarea cutie, ca să n-o întrerupi. Plătești la livrare, ca data trecută. 💚

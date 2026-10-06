@@ -193,3 +193,4 @@ ads.push({ id: 'H10-oferta-cura', html: page(`body{background:${C.forest};color:
   ${disc('Supliment alimentar. Rezultatele pot varia.', '#fff')}${foot(C.honey, C.forest, ['Livrare rapidă', 'Plata la livrare', 'Stoc limitat'])}`) });
 
 module.exports = ads;
+module.exports.lib = { C, box, logo, foot, disc, page, priceTag, PRICE, OLD_PRICE };
