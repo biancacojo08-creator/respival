@@ -12,7 +12,7 @@ const ads = require('./ads.js');
     fs.writeFileSync(file, ad.html);
     await pg.goto('file://' + file);
     await pg.evaluate(() => document.fonts.ready);
-    await pg.screenshot({ path: path.join(__dirname, 'png-hd', ad.id + '.png') });
+    await pg.screenshot({ path: path.join(__dirname, ad.id.startsWith('G') ? 'jpg-hd' : 'png-hd', ad.id + (ad.id.startsWith('G') ? '.jpg' : '.png')), ...(ad.id.startsWith('G') ? { type: 'jpeg', quality: 92 } : {}) });
     console.log('ok', ad.id);
   }
   await browser.close();
