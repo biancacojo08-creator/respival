@@ -242,4 +242,146 @@ ads.push({ id: 'S10-din-romania', html: page(`body{background:linear-gradient(16
   <div class="abs" style="left:60px;top:860px;font:600 28px Inter;color:#dfeccf">Fără coloranți. Fără compromisuri.</div>
   ${bottle(660, 740, 280, -4)}${disc('#dfeccf')}${foot(C.moon, C.leaf)}`) });
 
+// ================================================================ SET 2 – conversie (T01–T10)
+const OLD = '119,99 lei', NEW = '66,99';
+const offer = (x, y, fg, btnBg, btnFg, label = 'Comandă acum →') => `<div class="abs" style="left:${x}px;top:${y}px;display:flex;align-items:center;gap:22px;color:${fg}">
+  <div><div style="font:600 26px Inter;text-decoration:line-through;text-decoration-color:${C.red};text-decoration-thickness:3px;opacity:.7">${OLD}</div>
+  <div style="font:800 92px/0.9 Barlow;letter-spacing:-1px">${NEW}<span style="font-size:38px;margin-left:6px">lei</span></div></div>
+  <div style="padding:22px 28px;border-radius:18px;background:${btnBg};color:${btnFg};font:900 29px Archivo;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.18)">${label}</div></div>`;
+const tag = (x, y, bg, fg, t, rot = -8) => `<div class="burst" style="width:190px;height:190px;left:${x}px;top:${y}px;background:${bg};color:${fg};font:900 50px/1 Archivo;transform:rotate(${rot}deg)">${t}</div>`;
+const lined = (bg, line = '#C9DBF2', margin = '#F19C9C') => `background:${bg} repeating-linear-gradient(transparent 0 58px,${line} 58px 60px);`;
+const discS = (c = C.ink) => disc(c, '*Experiența raportată de părinți. Supliment alimentar, nu înlocuiește un stil de viață sănătos. Conține miere – nu se administrează sub 1 an.');
+
+// T01 – atenția de la ore începe cu somnul
+ads.push({ id: 'T01-atentia-la-ore', html: page(`body{background:linear-gradient(180deg,#EAF2FF,#FFFFFF)}
+  .chk i{background:#2D5BD7;color:#fff}`,
+  `${logo(60, 56, 44)}
+  <div class="abs" style="left:60px;top:140px;font:800 26px Inter;letter-spacing:3px;color:#2D5BD7">🎒 PENTRU COPIII DE ȘCOALĂ</div>
+  <div class="abs h" style="left:56px;top:190px;width:660px;font-size:74px;color:${C.night}">Atenția de la ore începe cu <span class="it" style="color:#2D5BD7">somnul de azi-noapte.</span></div>
+  <div class="abs" style="left:62px;top:480px;display:flex;flex-direction:column;gap:22px;width:600px;color:${C.night}">
+    <div class="chk"><i>✓</i>Seară calmă, fără negocieri</div>
+    <div class="chk"><i>✓</i>Adoarme mai ușor, doarme liniștit</div>
+    <div class="chk"><i>✓</i>Odihnit și pregătit la prima oră</div></div>
+  ${offer(60, 780, C.night, '#2D5BD7', '#fff')}
+  ${bottle(640, 750, 270, 4)}${discS()}${foot(C.night, '#fff')}`) });
+
+// T02 – copii plini de energie
+ads.push({ id: 'T02-plin-de-energie', html: page(`body{background:radial-gradient(circle at 80% 30%,#FFE1B8,#FFD08A 40%,#F9A45C)}
+  .chk i{background:${C.night};color:${C.moon}}`,
+  `${logo(60, 56, 44)}
+  <div class="abs h" style="left:56px;top:150px;width:680px;font-size:80px;color:${C.night}">Plin de energie toată ziua? <span class="it" style="color:#8A2B0E">Seara poate fi altfel.</span></div>
+  <div class="abs" style="left:62px;top:470px;display:flex;flex-direction:column;gap:22px;width:620px;color:${C.night}">
+    <div class="chk"><i>✓</i>Floarea pasiunii – contribuie la relaxare</div>
+    <div class="chk"><i>✓</i>Teiul – calmul de seară, ca la bunica</div>
+    <div class="chk"><i>✓</i>Natural, cu gust plăcut de miere</div></div>
+  ${offer(60, 780, C.night, C.night, C.moon)}
+  ${bottle(640, 750, 270, 5)}${discS()}${foot(C.night, '#fff')}`) });
+
+// T03 – lista pentru școală
+ads.push({ id: 'T03-lista-scoala', html: page(`body{${lined('#FFFDF5')}}
+  .margin{position:absolute;left:110px;top:0;bottom:0;width:3px;background:#F19C9C}
+  .li{display:flex;align-items:center;gap:20px;font:700 64px/1 Caveat;color:#2b3a67}
+  .li b{width:50px;height:50px;border:4px solid #2b3a67;border-radius:8px;display:flex;align-items:center;justify-content:center;font:900 38px Inter;color:#1E9E57}
+  .hl{background:linear-gradient(transparent 55%,#FFE066 55%);padding:0 6px}`,
+  `<div class="margin"></div>${logo(150, 50, 44)}
+  <div class="abs h" style="left:150px;top:130px;width:620px;font-size:66px;color:${C.night}">Lista pentru școală, <span class="it" style="color:#D7263D">completă.</span></div>
+  <div class="abs" style="left:150px;top:380px;display:flex;flex-direction:column;gap:20px">
+    <div class="li"><b>✓</b>Caiete și creioane</div>
+    <div class="li"><b>✓</b>Ghiozdanul pregătit</div>
+    <div class="li"><b>✓</b>Uniforma călcată</div>
+    <div class="li"><b>✓</b><span class="hl">Nopți odihnite 🌙</span></div></div>
+  ${offer(140, 790, C.night, '#D7263D', '#fff')}
+  ${bottle(620, 770, 280, 5)}${discS()}${foot(C.night, '#fff')}`) });
+
+// T04 – 6 motive
+const six = [['🌙', 'Seri mai calme'], ['😴', 'Adoarme mai ușor'], ['🛏️', 'Somn fără treziri dese'], ['☀️', 'Dimineți fără crize'], ['🎒', 'Odihnit la școală'], ['🌿', '100% natural']];
+ads.push({ id: 'T04-6-motive', html: page(`body{background:radial-gradient(circle at 80% 20%,#2B3275,${C.night} 55%,${C.night2});color:#fff}
+  .g{position:absolute;left:56px;top:310px;width:650px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .g div{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:20px 22px;display:flex;align-items:center;gap:16px;font:700 27px/1.15 Inter}
+  .g span{font-size:44px}`,
+  `${stars(40, 31)}${logo(60, 56, 44, white)}
+  <div class="abs h" style="left:56px;top:140px;width:700px;font-size:66px">6 motive pentru care <span class="it" style="color:${C.moon}">părinții îl aleg</span></div>
+  <div class="g">${six.map(([e, t]) => `<div><span>${e}</span>${t}</div>`).join('')}</div>
+  ${offer(60, 790, '#fff', C.moon, C.night)}
+  ${bottle(640, 760, 270, 4)}${disc('#cfd1ef')}${foot(C.moon, C.night)}`) });
+
+// T05 – timeline seară -> școală
+const tl = [['20:30', 'O linguriță de NovoKids'], ['21:00', 'Liniștit, adoarme ușor*'], ['07:00', 'Se trezește odihnit'], ['08:00', 'Gata de ore 🎒']];
+ads.push({ id: 'T05-de-seara-la-scoala', html: page(`body{background:${C.lav2}}
+  .row{position:absolute;left:56px;display:flex;align-items:center;gap:26px}
+  .row b{width:150px;font:800 64px/1 Barlow;color:#6E4BC7}
+  .row span{font:700 32px Inter;color:${C.night}}
+  .dot{position:absolute;left:226px;width:18px;height:18px;border-radius:50%;background:${C.honey};box-shadow:0 0 0 6px #fff}
+  .ln{position:absolute;left:233px;top:370px;width:4px;height:330px;background:#D4CBF5}`,
+  `${logo(60, 56, 44)}
+  <div class="abs h" style="left:56px;top:140px;width:680px;font-size:70px;color:${C.night}">De la culcare <span class="it" style="color:#6E4BC7">la prima oră.</span></div>
+  <div class="ln"></div>
+  ${tl.map(([t, d], i) => `<div class="dot" style="top:${362 + i * 110}px"></div><div class="row" style="top:${340 + i * 110}px"><b>${t}</b><span style="margin-left:40px">${d}</span></div>`).join('')}
+  ${offer(60, 800, C.night, '#6E4BC7', '#fff')}
+  ${bottle(620, 780, 280, 4)}${discS()}${foot(C.night, '#fff')}`) });
+
+// T06 – mai puțin decât o pizza
+ads.push({ id: 'T06-mai-putin-ca-pizza', html: page(`body{background:${C.cream}}
+  .chk i{background:${C.leaf};color:#fff}`,
+  `${logo(60, 56, 44)}
+  <div class="abs h" style="left:56px;top:140px;width:680px;font-size:78px;color:${C.night}">Seri liniștite pentru <span class="it" style="color:${C.honey}">mai puțin decât o pizza.</span> 🍕</div>
+  <div class="abs" style="left:62px;top:450px;font:800 28px Inter;letter-spacing:2px;color:${C.leaf}">CE PRIMEȘTI:</div>
+  <div class="abs" style="left:62px;top:500px;display:flex;flex-direction:column;gap:20px;width:600px;color:${C.night}">
+    <div class="chk"><i>✓</i>Sirop natural de 100 ml</div>
+    <div class="chk"><i>✓</i>Tei + floarea pasiunii + miere</div>
+    <div class="chk"><i>✓</i>Fabricat în România</div></div>
+  ${offer(60, 790, C.night, C.leaf, '#fff')}
+  ${tag(860, 70, C.red, '#fff', '−44%')}
+  ${bottle(640, 760, 270, 4)}${disc()}${foot(C.leaf, '#fff')}`) });
+
+// T07 – tema pentru acasă
+ads.push({ id: 'T07-tema-pentru-acasa', html: page(`body{${lined('#FFFDF5')}}
+  .margin{position:absolute;left:110px;top:0;bottom:0;width:3px;background:#F19C9C}
+  .t{font:700 58px/60px Caveat;color:#2b3a67}
+  .hl{background:linear-gradient(transparent 55%,#FFE066 55%);padding:0 6px}`,
+  `<div class="margin"></div>${logo(150, 50, 44)}
+  <div class="abs h" style="left:150px;top:130px;width:620px;font-size:64px;color:${C.night}">Cea mai importantă temă: <span class="it" style="color:#2D5BD7">somnul.</span></div>
+  <div class="abs t" style="left:150px;top:390px">
+    <div>Tema pentru acasă:</div>
+    <div>1. Citit 15 minute 📖</div>
+    <div>2. Ghiozdanul pregătit</div>
+    <div>3. <span class="hl">O linguriță de NovoKids</span></div>
+    <div>4. La somn la 21:00 ⭐</div></div>
+  ${offer(140, 800, C.night, '#2D5BD7', '#fff')}
+  ${bottle(620, 770, 280, 5)}${disc()}${foot(C.night, '#fff')}`) });
+
+// T08 – urgență ofertă
+ads.push({ id: 'T08-ultimele-zile', html: page(`body{background:${C.red};color:#fff}
+  .tape{position:absolute;left:-40px;right:-40px;height:64px;background:${C.moon};color:${C.night};font:900 30px/64px Archivo;letter-spacing:4px;white-space:nowrap;text-align:center}`,
+  `<div class="tape" style="top:40px;transform:rotate(-2deg)">OFERTĂ LIMITATĂ · OFERTĂ LIMITATĂ · OFERTĂ LIMITATĂ · OFERTĂ LIMITATĂ</div>
+  <div class="abs h" style="left:56px;top:170px;width:680px;font-size:96px">Ultimele zile la <span style="color:${C.moon}">−44%</span></div>
+  <div class="abs" style="left:60px;top:400px;font:700 40px Inter">Economisești <span style="background:#fff;color:${C.red};padding:2px 14px;border-radius:10px">53 lei</span></div>
+  <div class="abs" style="left:60px;top:500px;width:600px;font:600 30px/1.35 Inter;opacity:.95">Siropul natural cu tei, floarea pasiunii și miere, pentru seri calme și nopți liniștite.</div>
+  ${offer(60, 760, '#fff', C.moon, C.night, 'Vreau oferta →')}
+  ${bottle(660, 750, 260, 5)}${disc('#ffe1e4', 'Supliment alimentar. Stoc limitat. Conține miere – nu se administrează copiilor sub 1 an.')}${foot(C.night, '#fff')}`) });
+
+// T09 – întrebări de la părinți
+const faq = [['E natural?', 'Da: tei, floarea pasiunii, miere polifloră și apă.'], ['Cât de repede?', 'Mulți părinți observă calm în 20–30 de minute.*'], ['De la ce vârstă?', 'Peste 1 an (conține miere).'], ['Îl bea ușor?', 'Da, are gust plăcut de miere.']];
+ads.push({ id: 'T09-intrebari-parinti', html: page(`body{background:${C.blush}}
+  .q{position:absolute;left:56px;width:660px;background:#fff;border-radius:22px;padding:18px 26px;box-shadow:0 10px 26px rgba(122,46,69,.1)}
+  .q b{display:block;font:900 28px Archivo;color:${C.rose}}.q span{font:600 25px/1.25 Inter;color:#333}`,
+  `${logo(60, 52, 42)}
+  <div class="abs h" style="left:56px;top:130px;font-size:64px;color:${C.rose}">Întrebări <span class="it">de la părinți</span></div>
+  ${faq.map(([q, a], i) => `<div class="q" style="top:${240 + i * 128}px"><b>${q}</b><span>${a}</span></div>`).join('')}
+  ${offer(60, 790, C.rose, C.rose, '#fff')}
+  ${bottle(640, 760, 260, 4)}${discS(C.rose)}${foot(C.rose, '#fff')}`) });
+
+// T10 – copiii care nu se opresc niciodată
+ads.push({ id: 'T10-nu-se-opresc', html: page(`body{background:linear-gradient(160deg,#7B5BD6,#5A3DB8 55%,#3E2A8C);color:#fff}
+  .sq{position:absolute;border:5px solid rgba(255,255,255,.18);border-radius:50%}`,
+  `<div class="sq" style="width:520px;height:520px;left:660px;top:180px"></div><div class="sq" style="width:700px;height:700px;left:570px;top:90px"></div>
+  ${logo(60, 56, 44, white)}
+  <div class="abs h" style="left:56px;top:150px;width:680px;font-size:80px">Pentru copiii care <span class="it" style="color:${C.moon}">nu se opresc niciodată.</span></div>
+  <div class="abs" style="left:60px;top:440px;width:600px;font:600 31px/1.35 Inter;color:#E6DEFF">Aleargă, sar, întreabă, inventează… până seara târziu. 💜 Floarea pasiunii și teiul contribuie la relaxare, ca seara să devină momentul de liniște.</div>
+  <div class="abs" style="left:60px;top:650px;display:flex;gap:12px">
+    <div class="pill" style="background:${C.moon};color:${C.night}">🌿 Natural</div>
+    <div class="pill" style="background:rgba(255,255,255,.15);color:#fff">🇷🇴 Din România</div></div>
+  ${offer(60, 790, '#fff', C.moon, C.night)}
+  ${bottle(640, 760, 270, 5)}${disc('#E6DEFF')}${foot(C.moon, C.night)}`) });
+
 module.exports = ads;
