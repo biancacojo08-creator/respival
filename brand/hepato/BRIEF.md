@@ -109,7 +109,8 @@ Ai ajuns aproape de finalul cutiei? Cura recomandată pe cutie e de 3 luni. Coma
 
 # Setul 3: reclame cu oameni (Canva, P01–P10)
 
-Design Canva editabil, 10 pagini 1080×1080: https://canva.link/fw0j5iy7d1779gz (previzualizare: `_overview-oameni.jpg`).
+Design Canva, 10 pagini 1080×1080 (salvat). Editare: https://www.canva.com/d/SbLViS3-swN_Np-
+Vizualizare pe pagini: P01 https://www.canva.com/d/NtG_MZQyHUO3XSy#1 · P02 …#2 · … · P10 …#10 (previzualizare: `_overview-oameni.jpg`).
 Pozele sunt generate cu AI în Canva. **Cutia reală trebuie trasă manual** în spațiul liber din panoul crem, deasupra textului „Hepato Nova Detox · 30 plicuri”: urcă o dată `box-cutout.png` în Canva și trage-l pe fiecare pagină.
 
 | # | Persoana din poză | Hook | Public |
