@@ -104,3 +104,25 @@ Nu-ți place să plătești cu cardul online? Nici nu trebuie. Lași numele și 
 
 **S10 – Ziua 27 (doar cumpărători)**
 Ai ajuns aproape de finalul cutiei? Cura recomandată pe cutie e de 3 luni. Comandă acum următoarea cutie, ca să n-o întrerupi. Plătești la livrare, ca data trecută. 💚
+
+---
+
+# Setul 3: reclame cu oameni (Canva, P01–P10)
+
+Design Canva editabil, 10 pagini 1080×1080: https://canva.link/fw0j5iy7d1779gz (previzualizare: `_overview-oameni.jpg`).
+Pozele sunt generate cu AI în Canva. **Cutia reală trebuie trasă manual** în spațiul liber din panoul crem, deasupra textului „Hepato Nova Detox · 30 plicuri”: urcă o dată `box-cutout.png` în Canva și trage-l pe fiecare pagină.
+
+| # | Persoana din poză | Hook | Public |
+|---|---|---|---|
+| P01 | Femeie la birou, cu ciocolată și ceai | Ciocolata de la ora 4 nu e foame. | Femei 25–50, la birou |
+| P02 | Femeie care își încheie greu blugii | Nasturele de la blugi știe primul. | Femei 25–50 |
+| P03 | Bărbat care cască la laptop | Nu e lene. E ficatul. | 30–55, la birou |
+| P04 | Femeie 45+ cu ceai în bucătărie | După 40, începe cu ficatul. | Femei 38–60 |
+| P05 | Bărbat la grătar | Burta de la 45 nu e doar de la bere. | Bărbați 40–65 |
+| P06 | Masă de Crăciun în familie | 40 de sarmale. Un singur ficat. | 35–65, din noiembrie |
+| P07 | Femeie cu jurnal și ceai | 30 de zile. O cană pe zi. | Femei 25–45 |
+| P08 | Cuplu care râde la ceai | Ritualul nostru de dimineață. | Cupluri 45–65 |
+| P09 | Femeie care primește coletul de la curier | Plătești doar la ușă. | Retargeting, 45–70 |
+| P10 | Bunic cu cană de lut și plante | Plantele bunicilor, într-un plic. | 50–70, rural |
+
+ID-urile pozelor în Canva: P01 `MAHXOl67Kkc`, P02 `MAHXOlUIbkI`, P03 `MAHXOo8TkZQ`, P04 `MAHXOkCy7JI`, P05 `MAHXOsEJs3Q`, P06 `MAHXOoPGebk`, P07 `MAHXOs8EEjY`, P08 `MAHXOkyVrbE`, P09 `MAHXOlL67C0`, P10 `MAHXOir1nG8`.
