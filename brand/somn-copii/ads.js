@@ -1,7 +1,7 @@
 // Novokids Somn Liniștit (sirop pentru copii) – 10 statice Facebook/Instagram, 1080x1080.
 // Render: node render.js [id-filter]
-// Poza reală a sticlei: pune un PNG decupat (fundal transparent) în somn-copii/product.png și re-randează.
-// Până atunci se folosește o sticlă ilustrată (placeholder).
+// Produsul: somn-copii/product.png (cutia NovoKids decupată din sirsom.png). Fără el se folosește o sticlă ilustrată.
+// Ingrediente conform cutiei: mușețel, levănțică, tei, miere, lămâie.
 const fs = require('fs'), path = require('path');
 
 const FONTS = `
@@ -70,10 +70,10 @@ const bottle = (h, x, y, rot = 0) => fs.existsSync(REAL)
   : `<div class="btl" style="left:${x}px;top:${y}px;transform:rotate(${rot}deg) scale(${(h / 700).toFixed(3)})">
       <div class="cap"></div><div class="neck"></div>
       <div class="body"><div class="shine"></div><div class="label"><img src="${LOGO}"><div class="moonl"></div>
-      <b>Somn<br>Liniștit</b><small>sirop pentru copii</small><div class="band">TEI · PASSIFLORA · MIERE</div></div></div></div>`;
+      <b>Somn<br>Liniștit</b><small>sirop pentru copii</small><div class="band">MUȘEȚEL · LEVĂNȚICĂ · TEI</div></div></div></div>`;
 const logo = (x, y, h = 46, extra = '') => `<img class="logo" src="${LOGO}" style="left:${x}px;top:${y}px;height:${h}px;${extra}">`;
 const white = 'filter:brightness(0) invert(1)';
-const foot = (bg, fg) => `<div class="foot" style="background:${bg};color:${fg}"><span>100% natural</span><span>Fabricat în România</span><span>Gust plăcut de miere</span></div>`;
+const foot = (bg, fg) => `<div class="foot" style="background:${bg};color:${fg}"><span>100% natural</span><span>Fabricat în România</span><span>Fără conservanți</span></div>`;
 const disc = (c = C.ink, t = 'Supliment alimentar. Conține miere – nu se administrează copiilor sub 1 an. Rezultatele pot varia.') => `<div class="disc" style="color:${c}">${t}</div>`;
 const page = (css, body) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${CSS}${css}</style></head><body>${body}</body></html>`;
 
@@ -94,6 +94,9 @@ const ico = {
   pasi: () => `<svg viewBox="0 0 100 100">${Array.from({ length: 10 }, (_, i) => `<ellipse cx="50" cy="22" rx="9" ry="22" fill="#fff" stroke="#B9A6EE" stroke-width="2" transform="rotate(${i * 36} 50 50)"/>`).join('')}${Array.from({ length: 24 }, (_, i) => `<line x1="50" y1="50" x2="50" y2="22" stroke="#6E4BC7" stroke-width="2.4" transform="rotate(${i * 15} 50 50)"/>`).join('')}<circle cx="50" cy="50" r="12" fill="#8DBE5A"/><circle cx="50" cy="50" r="5" fill="#F2C94C"/></svg>`,
   miere: () => `<svg viewBox="0 0 100 100"><path d="M50 10C50 10 22 46 22 64a28 28 0 0 0 56 0C78 46 50 10 50 10Z" fill="#E9A23B"/><ellipse cx="40" cy="62" rx="6" ry="12" fill="#fff" opacity=".45"/></svg>`,
   apa: () => `<svg viewBox="0 0 100 100"><path d="M50 10C50 10 22 46 22 64a28 28 0 0 0 56 0C78 46 50 10 50 10Z" fill="#6FB7E8"/><ellipse cx="40" cy="62" rx="6" ry="12" fill="#fff" opacity=".55"/></svg>`,
+  musetel: () => `<svg viewBox="0 0 100 100">${Array.from({ length: 14 }, (_, i) => `<ellipse cx="50" cy="24" rx="7" ry="20" fill="#fff" stroke="#E4E0D4" stroke-width="1.5" transform="rotate(${i * 25.7} 50 50)"/>`).join('')}<circle cx="50" cy="50" r="15" fill="#F5B92E"/><circle cx="46" cy="46" r="5" fill="#FFD866"/></svg>`,
+  lavanda: () => `<svg viewBox="0 0 100 100"><path d="M50 95V30" stroke="#6B9A4A" stroke-width="4" stroke-linecap="round"/><path d="M50 70 34 58M50 78 66 66" stroke="#6B9A4A" stroke-width="3.5" stroke-linecap="round"/>${[14, 24, 34, 44, 54].map((y, i) => `<ellipse cx="${i % 2 ? 57 : 43}" cy="${y}" rx="8" ry="6" fill="${i % 2 ? '#8E6FD8' : '#A68BE6'}"/><ellipse cx="${i % 2 ? 43 : 57}" cy="${y + 4}" rx="8" ry="6" fill="#7A5AC9"/>`).join('')}</svg>`,
+  lamaie: () => `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#F5C518"/><circle cx="50" cy="50" r="33" fill="#FFF3B0"/>${Array.from({ length: 8 }, (_, i) => `<path d="M50 50 L${50 + 30 * Math.cos(i * Math.PI / 4 - .3)} ${50 + 30 * Math.sin(i * Math.PI / 4 - .3)} A30 30 0 0 1 ${50 + 30 * Math.cos(i * Math.PI / 4 + .3)} ${50 + 30 * Math.sin(i * Math.PI / 4 + .3)}Z" fill="#FFD84A"/>`).join('')}<circle cx="50" cy="50" r="4" fill="#fff"/></svg>`,
   cup: () => `<svg viewBox="0 0 200 170"><path d="M60 30c-6-14 8-18 2-30M100 30c-6-14 8-18 2-30" stroke="#C9B79A" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M20 50h140v40a70 70 0 0 1-140 0Z" fill="#fff" stroke="#E2D3B8" stroke-width="4"/><path d="M160 64c30 0 30 44 0 44" stroke="#E2D3B8" stroke-width="12" fill="none"/><ellipse cx="90" cy="54" rx="66" ry="8" fill="#D9A441"/><ellipse cx="90" cy="162" rx="90" ry="8" fill="#000" opacity=".08"/></svg>`,
 };
 const leaf = (s, x, y, rot, c = C.linden, o = 1) => `<div class="abs" style="left:${x}px;top:${y}px;width:${s}px;height:${s}px;transform:rotate(${rot}deg);opacity:${o}">${ico.tei(c)}</div>`;
@@ -108,7 +111,7 @@ ads.push({ id: 'S01-ora-2347', html: page(`body{background:radial-gradient(circl
   ${logo(60, 60, 44, white)}
   <div class="abs clock" style="left:56px;top:150px">23:47</div>
   <div class="abs h" style="left:60px;top:340px;width:600px;font-size:62px">A treia trezire<br>în seara asta.</div>
-  <div class="abs it" style="left:60px;top:490px;width:600px;font-size:54px;line-height:1.1;color:${C.lav}">Până am descoperit siropul cu tei și floarea pasiunii.</div>
+  <div class="abs it" style="left:60px;top:490px;width:600px;font-size:50px;line-height:1.1;color:${C.lav}">Până am descoperit siropul cu mușețel, levănțică și tei.</div>
   <div class="abs" style="left:60px;top:690px;display:flex;flex-direction:column;gap:14px">
     <div class="pill" style="background:${C.moon};color:${C.night}">🌙 O linguriță seara</div>
     <div class="pill" style="background:rgba(255,255,255,.12);color:#fff">Relaxat în 20–30 de minute*</div></div>
@@ -116,18 +119,18 @@ ads.push({ id: 'S01-ora-2347', html: page(`body{background:radial-gradient(circl
   ${bottle(700, 720, 250, 5)}${disc('#cfd1ef')}${foot(C.moon, C.night)}`) });
 
 // 2. Doar 4 ingrediente – persona C (mama naturistă)
-const ing4 = [['tei', 'Flori de tei', 'calm blând', 70, 380, C.linden], ['pasi', 'Floarea pasiunii', 'relaxare naturală', 70, 620, null], ['miere', 'Miere polifloră', 'gust plăcut', 760, 380, null], ['apa', 'Apă purificată', 'atât.', 760, 620, null]];
-ads.push({ id: 'S02-4-ingrediente', html: page(`body{background:${C.cream}}
+const ing4 = [['musetel', 'Mușețel', 'calm blând', 60, 310, null], ['lavanda', 'Levănțică', 'relaxare', 60, 520, null], ['tei', 'Tei', '„ceaiul bunicii”', 60, 730, C.linden], ['miere', 'Miere', 'gust plăcut', 750, 400, null], ['lamaie', 'Lămâie', 'prospețime', 750, 620, null]];
+ads.push({ id: 'S02-5-ingrediente', html: page(`body{background:${C.cream}}
   .ing{position:absolute;width:270px;display:flex;flex-direction:column;align-items:center;text-align:center}
-  .ing .c{width:130px;height:130px;border-radius:50%;background:#fff;box-shadow:0 12px 30px rgba(120,90,40,.15);display:flex;align-items:center;justify-content:center}
+  .ing .c{width:120px;height:120px;border-radius:50%;background:#fff;box-shadow:0 12px 30px rgba(120,90,40,.15);display:flex;align-items:center;justify-content:center}
   .ing .c svg{width:84px;height:84px}
   .ing b{margin-top:14px;font:900 30px Archivo;color:${C.night};letter-spacing:-.5px}.ing small{font:400 24px Inter;color:#6b6457}`,
   `${leaf(160, -40, 860, 30, C.linden, .25)}${leaf(120, 960, 220, -20, C.linden, .25)}
   ${logo(440, 50, 46)}
-  <div class="abs h" style="left:0;right:0;top:140px;text-align:center;font-size:80px;color:${C.night}">Doar <span class="it" style="color:${C.honey}">4 ingrediente.</span></div>
-  <div class="abs" style="left:0;right:0;top:240px;text-align:center;font:600 32px Inter;color:#5d5648">Știi exact ce îi dai celui mic.</div>
+  <div class="abs h" style="left:0;right:0;top:135px;text-align:center;font-size:66px;color:${C.night}">5 ingrediente. <span class="it" style="color:${C.honey}">100% naturale.</span></div>
+  <div class="abs" style="left:0;right:0;top:225px;text-align:center;font:600 30px Inter;color:#5d5648">Fără coloranți artificiali · Fără conservanți</div>
   ${ing4.map(([k, n, s, x, y, c]) => `<div class="ing" style="left:${x}px;top:${y}px"><div class="c">${ico[k](c)}</div><b>${n}</b><small>${s}</small></div>`).join('')}
-  ${bottle(620, 410, 330)}${disc()}${foot(C.night, '#fff')}`) });
+  ${bottle(640, 395, 300)}${disc()}${foot(C.night, '#fff')}`) });
 
 // 3. Seara: înainte / acum – persona B
 ads.push({ id: 'S03-seara-inainte-acum', html: page(`body{background:#fff}
@@ -191,8 +194,8 @@ ads.push({ id: 'S07-reteta-bunicii', html: page(`body{background:${C.sand}}
   `${leaf(150, 860, 40, 25)}${leaf(110, 960, 170, -15, C.leaf)}${leaf(130, -30, 880, 40, C.leaf, .5)}
   ${logo(60, 60, 46)}
   <div class="abs h" style="left:60px;top:160px;width:640px;font-size:84px;color:${C.leaf}">Rețeta bunicii,<br><span class="it" style="color:${C.honey}">într-o linguriță.</span></div>
-  <div class="note"><div class="hand" style="font-size:46px;line-height:1.08;color:#4a3b22">„Pe vremea noastră, la culcare era ceai de tei. Acum e tei, floarea pasiunii și miere – și îl beau cu plăcere!”</div>
-  <div style="margin-top:14px;font:700 22px Inter;color:#8a7650">– Bunica Maria 💛</div></div>
+  <div class="note"><div class="hand" style="font-size:46px;line-height:1.08;color:#4a3b22">„Pe vremea noastră, la culcare era ceai de tei. Acum e tei, mușețel, levănțică și miere – și îl beau cu plăcere!”</div>
+  <div style="margin-top:14px;font:700 22px Inter;color:#8a7650">– așa zice bunica 💛</div></div>
   <div class="abs" style="left:430px;top:770px;width:220px">${ico.cup()}</div>
   ${bottle(640, 740, 300, 4)}${disc()}${foot(C.leaf, '#fff')}`) });
 
@@ -209,7 +212,7 @@ ads.push({ id: 'S08-3-semne', html: page(`body{background:${C.lav2}}
   <div class="r" style="top:460px"><div class="n">2</div><span>Se trezește de mai multe ori pe noapte</span></div>
   <div class="r" style="top:580px"><div class="n">3</div><span>Dimineața e morocănos și plânge des</span></div>
   <div class="tip"><div style="font:900 26px Archivo;color:${C.honey};letter-spacing:1px">CE NE-A AJUTAT</div>
-  <div style="font:600 27px/1.3 Inter;color:${C.night};margin-top:6px">Ecrane oprite, lumină caldă, o poveste și o linguriță de sirop cu tei și passiflora.</div></div>
+  <div style="font:600 27px/1.3 Inter;color:${C.night};margin-top:6px">Ecrane oprite, lumină caldă, o poveste și o linguriță de sirop cu mușețel și levănțică.</div></div>
   ${bottle(620, 750, 320, 4)}${disc()}${foot(C.night, '#fff')}`) });
 
 // 9. Plot twist – tati a adormit primul (umor)
@@ -219,7 +222,7 @@ ads.push({ id: 'S09-plot-twist', html: page(`body{background:radial-gradient(cir
   ${logo(60, 60, 44, white)}
   <div class="abs hand" style="left:60px;top:150px;font-size:100px;color:${C.moon};transform:rotate(-4deg)">Plot twist:</div>
   <div class="abs h" style="left:60px;top:290px;width:620px;font-size:78px">cel mic a adormit <span class="it" style="color:${C.lav}">înaintea lui tati.</span></div>
-  <div class="abs" style="left:60px;top:560px;width:600px;font:600 31px/1.35 Inter;color:#d6d8f2">😂 Ritualul de seară + siropul cu tei și floarea pasiunii. Iar noi am reușit, în sfârșit, să ne vedem filmul. 🍿</div>
+  <div class="abs" style="left:60px;top:560px;width:600px;font:600 31px/1.35 Inter;color:#d6d8f2">😂 Ritualul de seară + siropul cu mușețel, levănțică și tei. Iar noi am reușit, în sfârșit, să ne vedem filmul. 🍿</div>
   <div class="btn" style="left:60px;top:780px;background:${C.moon};color:${C.night}">Comandă acum →</div>
   <div class="z" style="left:800px;top:230px;font-size:70px;transform:rotate(-10deg)">Z</div>
   <div class="z" style="left:860px;top:170px;font-size:54px;transform:rotate(-6deg)">z</div>
@@ -235,11 +238,12 @@ ads.push({ id: 'S10-din-romania', html: page(`body{background:linear-gradient(16
   ${logo(60, 60, 46, white)}
   <div class="abs" style="left:60px;top:150px;font:800 28px Inter;letter-spacing:3px;color:${C.moon}">🇷🇴 PRODUS ÎN ROMÂNIA</div>
   <div class="abs h" style="left:56px;top:200px;width:660px;font-size:72px">Din natura României, <span class="it" style="color:${C.moon}">pentru somnul celui mic.</span></div>
-  <div class="abs" style="left:60px;top:540px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+  <div class="abs" style="left:60px;top:500px;display:flex;flex-direction:column;gap:14px;align-items:flex-start">
     <div class="chip"><span>${ico.tei(C.linden)}</span>Flori de tei</div>
-    <div class="chip"><span>${ico.pasi()}</span>Floarea pasiunii</div>
-    <div class="chip"><span>${ico.miere()}</span>Miere polifloră</div></div>
-  <div class="abs" style="left:60px;top:860px;font:600 28px Inter;color:#dfeccf">Fără coloranți. Fără compromisuri.</div>
+    <div class="chip"><span>${ico.musetel()}</span>Mușețel</div>
+    <div class="chip"><span>${ico.lavanda()}</span>Levănțică</div>
+    <div class="chip"><span>${ico.miere()}</span>Miere și lămâie</div></div>
+  <div class="abs" style="left:60px;top:880px;font:600 26px Inter;color:#dfeccf">Fără coloranți artificiali. Fără conservanți.</div>
   ${bottle(660, 740, 280, -4)}${disc('#dfeccf')}${foot(C.moon, C.leaf)}`) });
 
 module.exports = ads;
