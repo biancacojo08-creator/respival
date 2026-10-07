@@ -103,7 +103,7 @@ ads.push({ id: 'T08-soba-iarna', html: page(`${bg('T08')}
     <div class="h" style="font-size:54px">Vine frigul.<br>Pregătește-ți inima pentru iarnă.</div>
     ${checks()}
     <div class="tag">2 cutii: transport gratuit</div></div>
-  ${bottle(500, 740, 460, 0)}`) });
+  ${bottle(400, 560, 545, 0)}`) });
 
 ads.push({ id: 'T09-ceai-paducel', html: page(`${bg('T09')}
   <div class="panel" style="left:48px;top:56px;width:580px">
