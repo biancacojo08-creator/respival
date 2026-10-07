@@ -91,13 +91,16 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 ## 6. ⚠️ Reguli obligatorii (altfel contul e blocat sau primești amendă)
 
 **Meta (politica de atribute personale și sănătate):**
+- Meta are reguli proprii, separate de IBA: un text legal în România poate fi respins de Meta.
 - **NU** „Ai tensiune mare?”, „Suferi de palpitații?”, „Tu, care ai inima slabă…”. Meta respinge orice text care afirmă sau sugerează că cel care vede reclama are o boală.
 - **DA** „Seara, mulți oameni își simt inima bătând…”, „După 55 de ani, inima merită atenție.”
 - Interesele de tip „hipertensiune” și „cardiologie” nu mai există în Meta din 2022. Targetarea se face după vârstă, gen, stil de viață și creative.
 - Fără imagini înainte/după cu tensiometrul (de ex. „170 → 120”). Fără inimi sângerânde sau EKG dramatic.
 
-**Legislația UE / România (Reg. 1924/2006, ANPC, ANSVSA):**
-- Un supliment **nu are voie** să promită că **tratează, vindecă sau scade tensiunea** ori că „reglează ritmul cardiac”. Afirmațiile de pe borcan („reglează ritmul cardiac și tensiunea arterială”) sunt **riscante în reclame**. Folosește formulări permise, legate de ingrediente, de exemplu *„potasiul contribuie la menținerea unei tensiuni arteriale normale”*, *„tiamina (B1) contribuie la funcționarea normală a inimii”*, *„magneziul contribuie la reducerea oboselii”*, **numai dacă ingredientul respectiv e în produs în doza necesară**.
+**Afirmațiile de pe etichetă:**
+- Textele de pe borcan sunt **verificate de IBA** (Institutul de Bioresurse Alimentare, care face notificarea suplimentelor), deci se pot folosi în reclame **exact cum sunt scrise**: „Susține sănătatea inimii și a vaselor de sânge”, „Reglează ritmul cardiac și tensiunea arterială”, „Îmbunătățește circulația și reduce efortul inimii”.
+- Nu adăuga promisiuni care nu sunt pe etichetă: „scade tensiunea în X zile”, „vindecă”, „elimină palpitațiile”, cifre de tensiune.
+- Păstrează **documentul IBA** la îndemână: dacă Meta respinge o reclamă, îl folosești la contestație.
 - Fără „înlocuiește medicamentele” sau „renunță la pastile”. E și periculos: oamenii aceștia iau anticoagulante și antihipertensive.
 - În fiecare reclamă: *„Supliment alimentar. Nu înlocuiește tratamentul medical sau o dietă variată. Dacă urmezi un tratament, consultă medicul.”*
 - **Siguranță:** durerea în piept, palpitațiile cu amețeală sau leșin sunt urgențe medicale. Nu face reclame care le banalizează.
