@@ -134,4 +134,4 @@ Meta nu permite targetare pe „sănătate sexuală”, deci creative-ul face ta
 
 ## Fișiere
 - `ads.js`: designul celor 10 reclame (HTML). Randare: `node render.js [PM0x]`, iar `node sheet.js` face planșa de ansamblu.
-- `png/`: imaginile finale · `_overview.jpg`: toate pe o pagină.
+- `png/`: imaginile 4:5 (1080×1350) · `png-1x1/`: aceleași reclame în 1:1 (1080×1080, din `ads-square.js`, randare `node render-square.js [--hd]`) · `_overview.jpg` / `_overview-1x1.jpg`: toate pe o pagină.

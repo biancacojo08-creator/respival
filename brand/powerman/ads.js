@@ -194,7 +194,7 @@ ads.push({ id: 'PM08-tabu', html: page(``,
 ads.push({ id: 'PM09-oferta', html: page(`body{background:linear-gradient(180deg,${C.red} 0%,#8d0a1d 100%)}
   .chk{display:flex;gap:18px;align-items:center;font:700 34px Inter}
   .chk i{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;color:${C.red};display:flex;align-items:center;justify-content:center;font:900 30px Inter;font-style:normal}`,
-  `${logo(64, 60)}${tag()}${tag(270, 54, C.black)}
+  `${logo(64, 60)}${tag(270, 54, C.black)}
   <div class="abs h" style="left:64px;top:150px;font-size:120px">Oferta de azi</div>
   <div class="abs" style="left:64px;top:290px;font:700 52px Barlow;color:#ffc9d1;text-decoration:line-through">99,99 lei</div>
   <div class="abs h" style="left:56px;top:345px;font-size:250px;letter-spacing:-6px;line-height:1">62,99<span style="font-size:90px;letter-spacing:0"> lei</span></div>
@@ -220,4 +220,6 @@ ads.push({ id: 'PM10-se-pregatesc', html: page(`body{background:${C.black}}
   ${bottle(600, 830, 600, 5)}
   ${disc()}${foot()}`) });
 
+// Shared pieces for the 1:1 set (ads-square.js).
+ads.lib = { C, bottle, logo, foot, disc, tag, page, msg, plants };
 module.exports = ads;
