@@ -152,3 +152,20 @@ Regenerare: `node brand/cardio/render.js [id]`. Previzualizare: `brand/cardio/_o
 | `C08` | WhatsApp mamă–fiică | Andreea (diaspora) | Comanzi tu de oriunde, noi livrăm la părinții tăi în România, iar ei plătesc la curier. CARDIO BALANCE: usturoi, păducel și vâsc. Ia 2 cutii, una pentru mama, una pentru tata: transport gratuit. ⚠️ Livrare doar în RO. |
 
 **Ce lipsește:** recenzii reale de pe site. Pentru o reclamă cu recenzie (ca P05 la Prosta Complex), trimite-mi textul unei recenzii reale cu numele clientului. Nu inventez recenzii.
+
+## 10. Seria de toamnă, în casă (T01–T10)
+
+Fundalurile sunt generate în Canva și mărite de 4 ori. Borcanul e cel real, pus peste. Fișierele: `ads-toamna.js`, `bg/`. Regenerare: `node render.js --set toamna` și `python3 export.py toamna`.
+
+| ID | Decor | Mesaj | Text principal |
+|---|---|---|---|
+| `T01` | Masă de lemn, nuci, gutui, fereastră de toamnă | Toamna, inima cere grijă | Toamna, inima cere grijă. CARDIO BALANCE, cu usturoi, păducel și vâsc, susține inima și vasele de sânge și reglează tensiunea arterială. 69,99 lei, plata la livrare. |
+| `T02` | Fotoliu, pled, ceai, ploaie | Seara, îți auzi inima bătând? | Seara, în liniște, îți auzi inima bătând? CARDIO BALANCE reglează ritmul cardiac, cu usturoi, păducel și vâsc. Comanzi acum, plătești la curier. |
+| `T03` | Usturoi, păducel, vâsc pe masă | Rețeta bunicii, într-o capsulă | Usturoi, păducel și vâsc: plantele bunicii pentru inimă, acum într-o capsulă, fără ceai de fiert și fără miros. |
+| `T04` | Mic dejun pentru doi, dovleac | Cura pentru amândoi | Două cutii, una pentru tine, una pentru el: 132,98 lei, transport gratuit. |
+| `T05` | Noptieră, lampă, ceai | Inima lucrează și noaptea | Inima ta lucrează și noaptea. Ajut-o cu 1–3 capsule pe zi de CARDIO BALANCE. |
+| `T06` | Pervaz, parc de toamnă | Ai tensiune mare sau palpitații? | Ai tensiune mare sau palpitații? CARDIO BALANCE reglează ritmul cardiac și tensiunea arterială. Plata la livrare. |
+| `T07` | Bucătărie tradițională, farfurii de Horezu | Ca la bunica: plante pentru inimă | Ca la bunica: usturoi, păducel și vâsc, acum în capsule. 60 într-un borcan, 69,99 lei. |
+| `T08` | Sobă de teracotă, mere coapte | Pregătește-ți inima pentru iarnă | Vine frigul. Pregătește-ți inima pentru iarnă cu CARDIO BALANCE. La 2 cutii, transportul e gratuit. |
+| `T09` | Fereastră cu ploaie, ceai de păducel | Ceaiul bunicii, acum în capsule | Ceaiul de păducel al bunicii, acum în capsule, plus usturoi și vâsc. Pentru inimă, tensiune și circulație. |
+| `T10` | Masă de recoltă: struguri, nuci, usturoi | Ce e mai bun din toamnă | Ce e mai bun din toamnă, pentru inima ta. 1 cutie: 69,99 lei. 2 cutii: 132,98 lei, transport gratuit. |
