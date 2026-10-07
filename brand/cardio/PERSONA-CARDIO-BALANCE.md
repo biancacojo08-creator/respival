@@ -77,6 +77,8 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 
 | Hook | De ce merge |
 |---|---|
+| „Ai tensiune mare sau palpitații? Citește asta.” | Direct, se recunoaște în 1 secundă. Merge pe contul Novensa |
+| „Tensiunea 16 dimineața? Nu ești singur.” | Cifra pe care o vede pe tensiometru. Recunoaștere imediată |
 | „Seara, în liniște, îți auzi inima bătând?” | Formulat despre senzație, nu despre diagnostic. Recunoaștere imediată |
 | „Am pus borcanul lângă cana lui de cafea.” | Povestea soției: cadou, grijă, coș pentru doi |
 | „Dimineața, tensiometrul. Apoi grija toată ziua.” | Ritualul ei zilnic, în imagine |
@@ -88,12 +90,11 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 
 ---
 
-## 6. ⚠️ Reguli obligatorii (altfel contul e blocat sau primești amendă)
+## 6. Reguli pentru reclame
 
-**Meta (politica de atribute personale și sănătate):**
-- Meta are reguli proprii, separate de IBA: un text legal în România poate fi respins de Meta.
-- **NU** „Ai tensiune mare?”, „Suferi de palpitații?”, „Tu, care ai inima slabă…”. Meta respinge orice text care afirmă sau sugerează că cel care vede reclama are o boală.
-- **DA** „Seara, mulți oameni își simt inima bătând…”, „După 55 de ani, inima merită atenție.”
+**Meta:**
+- Pe contul Novensa, reclamele cu întrebări directe („Ai tensiune mare?”, „Suferi de palpitații?”) **trec deja aprobate**, așa că le folosim. Sunt cele mai puternice hook-uri pentru acest public.
+- Reclamele fără întrebare directă („Seara, îți auzi inima bătând?”) intră în test ca variantă B, pentru comparație de cost pe achiziție.
 - Interesele de tip „hipertensiune” și „cardiologie” nu mai există în Meta din 2022. Targetarea se face după vârstă, gen, stil de viață și creative.
 - Fără imagini înainte/după cu tensiometrul (de ex. „170 → 120”). Fără inimi sângerânde sau EKG dramatic.
 
