@@ -18,7 +18,9 @@ sheet.save(os.path.join(d, oname), quality=88)
 with zipfile.ZipFile(os.path.join(d, zname), 'w', zipfile.ZIP_DEFLATED) as z:
     for f in fs:
         n = os.path.basename(f)
-        z.write(f, f'HD-2160/{n}')
+        hd = os.path.join(d, 'png-hd', n[:-4] + '.jpg')
+        Image.open(f).convert('RGB').save(hd, quality=94, subsampling=0)
+        z.write(hd, f'HD-2160/{n[:-4]}.jpg')
         z.write(os.path.join(d, 'png', n), f'1080/{n}')
     z.write(os.path.join(d, 'cardio-cutout-hd.png'), 'borcan-decupat-HD.png')
     z.write(os.path.join(d, 'PERSONA-CARDIO-BALANCE.md'), 'Targetare-si-texte.md')
