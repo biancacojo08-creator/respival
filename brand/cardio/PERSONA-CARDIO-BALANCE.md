@@ -1,6 +1,6 @@
 # Cardio Balance (Novensa): clientul perfect, comportament, targetare
 
-> Site-ul novensa-romania.ro e blocat în mediul de lucru, așa că datele despre produs vin din **poza borcanului** (`produs-cardio-balance.png`). **Ingrediente confirmate: usturoi, păducel, vâsc.** De completat: dozele, prețul și ofertele de pachet, recenziile de pe site.
+> Site-ul novensa-romania.ro e blocat în mediul de lucru, așa că datele despre produs vin din **poza borcanului** (`produs-cardio-balance.png`). **Confirmate:** ingredientele (usturoi, păducel, vâsc), prețul și doza. De completat: recenziile de pe site.
 
 ## 1. Produsul, pe scurt
 
@@ -8,9 +8,13 @@
 |---|---|
 | **Nume** | CARDIO BALANCE: „Capsule pentru reglarea sistemului cardiovascular” |
 | **Format** | Borcan alb, 60 de capsule, etichetă cu banda roșie și logo Novensa verde |
+| **Ingrediente** | Usturoi, păducel, vâsc |
+| **Doză** | 1–3 capsule pe zi → un borcan ține 20–60 de zile |
+| **Preț** | **1 cutie: 69,99 lei** · **2 cutii: 132,98 lei + transport gratuit** (66,49 lei/cutie) |
 | **Pe etichetă** | Susține sănătatea inimii și a vaselor de sânge · reglează ritmul cardiac și tensiunea arterială · îmbunătățește circulația și reduce efortul inimii |
 | **Pe URL** | „pentru inimă, tensiune și palpitații” |
 | **Cumpărare** | Shopify, piața RO, plata la livrare (ca la celelalte produse Novensa) |
+| **Ofertă de împins** | **Pachetul de 2**: „cura completă pentru amândoi” sau „2 luni”. Transportul gratuit e argumentul principal (publicul 55+ urăște să plătească transport) |
 
 Identitate vizuală pentru reclame: alb clinic, **roșu `#b3202a`** (banda), verde Novensa `#5ba33b`, titlu cu serife. Merriweather + Inter, deja în `brand/fonts/`, se potrivesc.
 
@@ -129,3 +133,22 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 3. **Scalare:** reclamele câștigătoare intră într-o campanie Advantage+ (femei + bărbați 50–72, public larg).
 4. **Retargeting 14 zile:** recenzie reală + „plătești la livrare” + oferta de pachet.
 5. **Cross-sell:** cumpărătorii de Prosta Complex și Diabexum sunt public cald (aceeași vârstă, aceleași probleme). Fă un Custom Audience din clienți și un Lookalike 1–3% RO.
+
+---
+
+## 9. Reclamele (1080×1080, în `brand/cardio/png/`)
+
+Regenerare: `node brand/cardio/render.js [id]`. Previzualizare: `brand/cardio/_overview.jpg`.
+
+| ID | Unghi | Personaj | Text principal (primary text) |
+|---|---|---|---|
+| `C01` | Rețeta bunicii: usturoi, păducel, vâsc | Elena, Nea Gheorghe | Usturoiul, păducelul și vâscul le știi de la bunica. Acum le ai pe toate trei într-o capsulă: fără ceai de fiert, fără miros de usturoi. CARDIO BALANCE de la Novensa susține sănătatea inimii și a vaselor de sânge. 👉 2 cutii: 132,98 lei, transport gratuit, plata la livrare. |
+| `C02` | Întrebare directă + beneficiile de pe etichetă | Elena, Mihai | Ai tensiune mare sau palpitații? CARDIO BALANCE, cu usturoi, păducel și vâsc, reglează ritmul cardiac și tensiunea arterială și îmbunătățește circulația. 60 de capsule, 1–3 pe zi. 69,99 lei, plata la livrare. |
+| `C03` | Oferta: 1 vs 2 cutii | toți / retargeting | O cutie: 69,99 lei. Două cutii: 132,98 lei, **transport gratuit**: una pentru tine, una pentru el. Plătești la curier. |
+| `C04` | Seara, în pat | Elena, Rodica (menopauză) | Seara, în liniște, îți auzi inima bătând? CARDIO BALANCE: usturoi, păducel și vâsc pentru inimă, tensiune și circulație. Comanzi acum, plătești la livrare. |
+| `C05` | Biletul soției | soția (Nea Ion) | Pentru că îl vrei lângă tine încă 20 de ani. Pune-i CARDIO BALANCE lângă cana de cafea. 2 cutii, una pentru fiecare: 132,98 lei, transport gratuit. |
+| `C06` | Tensiometrul de dimineață | Elena, Nea Gheorghe | Tensiunea 16 dimineața? Nu ești singur. CARDIO BALANCE reglează ritmul cardiac și tensiunea arterială, cu usturoi, păducel și vâsc. 69,99 lei, plata la livrare. |
+| `C07` | Comoditate: fără ceai, fără miros | Mihai, cei care au încercat ceaiurile | Fără ceai fiert și strecurat, fără usturoi crud. Usturoi, păducel și vâsc în 1–3 capsule pe zi. 2 cutii: 132,98 lei, transport gratuit. |
+| `C08` | WhatsApp mamă–fiică | Andreea (diaspora) | Comanzi tu de oriunde, noi livrăm la părinții tăi în România, iar ei plătesc la curier. CARDIO BALANCE: usturoi, păducel și vâsc. Ia 2 cutii, una pentru mama, una pentru tata: transport gratuit. ⚠️ Livrare doar în RO. |
+
+**Ce lipsește:** recenzii reale de pe site. Pentru o reclamă cu recenzie (ca P05 la Prosta Complex), trimite-mi textul unei recenzii reale cu numele clientului. Nu inventez recenzii.
