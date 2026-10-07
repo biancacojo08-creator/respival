@@ -1,6 +1,6 @@
 # Cardio Balance (Novensa): clientul perfect, comportament, targetare
 
-> Site-ul novensa-romania.ro e blocat în mediul de lucru, așa că datele despre produs vin din **poza borcanului** (`produs-cardio-balance.png`). **De completat de tine:** ingredientele și dozele (spatele etichetei), prețul și ofertele de pachet, recenziile de pe site.
+> Site-ul novensa-romania.ro e blocat în mediul de lucru, așa că datele despre produs vin din **poza borcanului** (`produs-cardio-balance.png`). **Ingrediente confirmate: usturoi, păducel, vâsc.** De completat: dozele, prețul și ofertele de pachet, recenziile de pe site.
 
 ## 1. Produsul, pe scurt
 
@@ -32,7 +32,7 @@ Identitate vizuală pentru reclame: alb clinic, **roșu `#b3202a`** (banda), ver
 | **TV** | Pro TV, Antena 1, Kanal D. Emisiuni de sănătate de weekend („Sănătate cu de toate”, „Doctor de bine”) |
 | **Cum cumpără** | **Ramburs**, nu dă datele cardului. Sună dacă e număr de telefon. Citește comentariile de sub reclamă înainte să comande. Ia pachetul de 2–3 dacă e reducere clară |
 | **Obiecții** | „Merge cu pastila mea?” · „Nu e țeapă?” · „Pastile chinezești?” · „E scump pentru pensie” |
-| **Ce o convinge** | O femeie ca ea care povestește · ingrediente pe care le cunoaște (păducel, usturoi, Q10, magneziu: **de verificat pe etichetă**) · „fabricat în UE / România” · plata la livrare · „se poate lua alături de tratament, cu acordul medicului” |
+| **Ce o convinge** | O femeie ca ea care povestește · ingrediente pe care le cunoaște de la bunica: **usturoi, păducel, vâsc** · „fabricat în UE / România” · plata la livrare · „se poate lua alături de tratament, cu acordul medicului” |
 
 ### De ce ea, nu el?
 - **Femeile 55+ sunt cel mai activ public de suplimente de pe Facebook în România**: dau mai multe comentarii și share-uri și comandă mai des.
@@ -73,7 +73,20 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 
 ---
 
-## 5. Ce funcționează în reclame (hook-uri)
+## 5. Ingredientele: argumentul cel mai puternic
+
+**Usturoi, păducel, vâsc** sunt trei plante pe care publicul 55+ din România le cunoaște din familie, fără explicații:
+- **Păducelul** e „planta inimii” din tradiția populară: ceai și tinctură de la plafar.
+- **Vâscul** e asociat de generații cu tensiunea. Mulți l-au băut ca ceai sau l-au primit de la bunici.
+- **Usturoiul** e remediul universal „pentru sânge și circulație”. Obiecția e mirosul, iar capsula o rezolvă.
+
+**Unghiuri de reclamă din ingrediente:**
+1. **„Rețeta bunicii, într-o capsulă”:** cele trei plante desenate în jurul borcanului, pe fundal alb sau de lemn. Pentru Elena, Nea Gheorghe și sceptici.
+2. **„Fără ceai de fiert, fără miros de usturoi”:** comoditate. Merge la bărbații activi (Mihai) și la cei care au încercat ceaiurile.
+3. **„Am citit eticheta: usturoi, păducel, vâsc. Atât.”:** încredere. Fără chimicale cu nume greu de pronunțat.
+4. **Carusel:** câte un card pe plantă (poză + o frază din tradiție) → ultimul card cu borcanul și oferta.
+
+## 6. Ce funcționează în reclame (hook-uri)
 
 | Hook | De ce merge |
 |---|---|
@@ -83,14 +96,15 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 | „Am pus borcanul lângă cana lui de cafea.” | Povestea soției: cadou, grijă, coș pentru doi |
 | „Dimineața, tensiometrul. Apoi grija toată ziua.” | Ritualul ei zilnic, în imagine |
 | „Inima ta a bătut de 2,5 miliarde de ori. Merită puțină atenție.” | Curiozitate, fără frică |
-| „Ingrediente pe care le recunoști: [păducel, usturoi, Q10…]” | Pentru sceptici; **numai după ce confirmi eticheta** |
+| „Usturoi, păducel și vâsc. Rețeta bunicii, într-o capsulă.” | Încredere imediată: le știe pe toate trei, fără gust de usturoi și fără ceai de fiert |
+| „Ceaiul de păducel al bunicii, acum în 2 capsule pe zi.” | Comoditate: același remediu, fără fiert și strecurat |
 | „Nu înlocuiește tratamentul. Îl completează.” | Răspunde direct la obiecția nr. 1 și construiește încredere |
 
 **Formate:** poză reală (femeie 60+ la masa din bucătărie, cu tensiometrul și borcanul), UGC „recenzie la telefon”, captură WhatsApp mamă–fiică, carusel cu ingrediente. Video de 15 s pentru Reels cu subtitrare mare.
 
 ---
 
-## 6. Reguli pentru reclame
+## 7. Reguli pentru reclame
 
 **Meta:**
 - Pe contul Novensa, reclamele cu întrebări directe („Ai tensiune mare?”, „Suferi de palpitații?”) **trec deja aprobate**, așa că le folosim. Sunt cele mai puternice hook-uri pentru acest public.
@@ -108,7 +122,7 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 
 ---
 
-## 7. Plan de test (la fel ca la Prosta Complex)
+## 8. Plan de test (la fel ca la Prosta Complex)
 
 1. **Zilele 1–5:** 6 seturi de reclame (câte unul pe personaj), câte 2 reclame în fiecare, 30–50 lei/zi pe set. Programare: accent **6:00–10:00 și 19:30–23:00**. Metrică principală: cost pe achiziție; secundare: CTR peste 1,2%, procentul de comenzi cu pachet.
 2. **Ziua 6+:** opriți seturile cu cost pe achiziție peste 1,5× media. Câștigătorii primesc +20% buget la 48 h.
