@@ -1,6 +1,8 @@
 # PowerMan spray oral (Novensa): analiză + 10 reclame
 
-> Site-urile novensa-romania.ro, avenora.ro și emag.ro sunt blocate în mediul de lucru, așa că datele vin din indexul de căutare. **De confirmat de tine:** ml/flacon, numărul de pufuri, pachetele (2+1?), cât durează livrarea și dacă pe colet scrie ceva. **Flaconul din imagini e desenat (placeholder):** înlocuiește-l cu poza reală când o ai.
+> Site-urile novensa-romania.ro, avenora.ro și emag.ro sunt blocate în mediul de lucru, așa că datele vin din indexul de căutare. **De confirmat de tine:** numărul de pufuri, pachetele (2+1?), cât durează livrarea și dacă pe colet scrie ceva. Reclamele folosesc **poza reală a cutiei** (30 ml), decupată în `produs-cutout.png`.
+
+> ⚠️ Pe cutie scrie „Susține libidoul, creșterea energiei și îmbunătățirea performanței sexuale”. Meta citește textul din imagini, iar „performanței sexuale” poate duce la respingere. Dacă reclamele sunt respinse, fă o poză a cutiei din unghiul lateral sau acoperă rândul acela în poza folosită în reclame.
 
 ---
 
@@ -10,7 +12,7 @@
 |---|---|
 | **Nume** | PowerMan, spray oral pentru vitalitate masculină (Novensa) |
 | **Preț** | **59,99 lei** (redus de la 99,99 lei, −40%) |
-| **Formă** | spray sublingual: 2–3 pufuri, de 2 ori pe zi, cură de 3–4 săptămâni |
+| **Formă** | spray sublingual, 30 ml: 2–3 pufuri, de 2 ori pe zi, cură de 3–4 săptămâni |
 | **Ingrediente** | apă distilată, alcool farmaceutic + **7 extracte**: ginseng roșu, colții-babei (*Tribulus*), damiana, ginkgo biloba, guarana, Poria cocos, ardei iute (cayenne) |
 | **Pe site** | „efect în 5 minute”, „98% rezistență mai mare”, „+100% durată”, „peste 4000 de recenzii”, fabricat în România |
 

@@ -1,5 +1,4 @@
 // PowerMan spray oral (Novensa): 10 statics, 1080x1350.
-// The bottle is a drawn SVG placeholder until a real product photo exists.
 // Image text avoids explicit sexual words on purpose (Meta policy), see STRATEGIE.md.
 // Render: node render.js [id-filter]
 const FONTS = `
@@ -38,31 +37,8 @@ body{font-family:Inter,sans-serif;position:relative;color:#fff;background:${C.bl
 .glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(208,16,43,.45),rgba(208,16,43,0) 68%)}
 `;
 
-// Drawn spray bottle (placeholder for the real packshot). h = rendered height in px.
-let gid = 0;
-const bottle = (h, x, y, rot = 0) => {
-  const g = 'g' + (gid++);
-  return `<svg class="bottle" style="left:${x}px;top:${y}px;height:${h}px;transform:rotate(${rot}deg)" viewBox="0 0 200 560">
-  <defs>
-    <linearGradient id="${g}b" x1="0" x2="1"><stop offset="0" stop-color="#050506"/><stop offset=".28" stop-color="#2b2b31"/><stop offset=".42" stop-color="#0d0d10"/><stop offset="1" stop-color="#000"/></linearGradient>
-    <linearGradient id="${g}m" x1="0" x2="1"><stop offset="0" stop-color="#6d6d74"/><stop offset=".35" stop-color="#f2f2f4"/><stop offset=".6" stop-color="#9a9aa2"/><stop offset="1" stop-color="#4a4a50"/></linearGradient>
-    <linearGradient id="${g}r" x1="0" x2="1"><stop offset="0" stop-color="#7a0716"/><stop offset=".35" stop-color="#e3132f"/><stop offset=".55" stop-color="#b30d24"/><stop offset="1" stop-color="#5e0915"/></linearGradient>
-  </defs>
-  <rect x="72" y="4" width="56" height="58" rx="10" fill="url(#${g}m)"/>
-  <rect x="122" y="22" width="22" height="12" rx="4" fill="#bfbfc5"/>
-  <rect x="56" y="58" width="88" height="40" rx="6" fill="url(#${g}m)"/>
-  <rect x="20" y="96" width="160" height="460" rx="34" fill="url(#${g}b)"/>
-  <rect x="20" y="232" width="160" height="210" fill="url(#${g}r)"/>
-  <rect x="20" y="226" width="160" height="6" fill="${C.gold}"/><rect x="20" y="442" width="160" height="6" fill="${C.gold}"/>
-  <text x="100" y="180" text-anchor="middle" font-family="Inter" font-weight="700" font-size="15" letter-spacing="3" fill="#cfcfd4">NOVENSA</text>
-  <text x="100" y="300" text-anchor="middle" font-family="Barlow" font-weight="800" font-size="58" fill="#fff">POWER</text>
-  <text x="100" y="352" text-anchor="middle" font-family="Barlow" font-weight="800" font-size="58" fill="${C.gold}">MAN</text>
-  <text x="100" y="392" text-anchor="middle" font-family="Inter" font-weight="700" font-size="15" letter-spacing="2.5" fill="#fff">SPRAY ORAL</text>
-  <text x="100" y="420" text-anchor="middle" font-family="Inter" font-weight="400" font-size="11" letter-spacing="1" fill="#ffd9de">7 extracte din plante</text>
-  <text x="100" y="510" text-anchor="middle" font-family="Inter" font-weight="400" font-size="11" fill="#8d8d95">supliment alimentar</text>
-  <rect x="34" y="110" width="10" height="420" rx="5" fill="#fff" opacity=".08"/>
-</svg>`;
-};
+// Real PowerMan box (produs-cutout.png, cut out from produs-original.png). h = rendered height in px.
+const bottle = (h, x, y, rot = 0) => `<img class="bottle" src="../produs-cutout.png" style="left:${x}px;top:${y}px;height:${h}px;transform:rotate(${rot}deg)">`;
 
 const LOGO = '../../logo-novensa.png';
 const logo = (x, y, h = 44, white = true) => `<img class="logo" src="${LOGO}" style="left:${x}px;top:${y}px;height:${h}px;${white ? 'filter:brightness(0) invert(1)' : ''}">`;
@@ -164,7 +140,7 @@ ads.push({ id: 'PM05-7-plante', html: page(`body{background:radial-gradient(90% 
 
 // 06 – Comparativ: mai multe plante, cu 20 de lei mai puțin
 ads.push({ id: 'PM06-comparativ', html: page(`
-  table{position:absolute;left:56px;top:400px;width:968px;border-collapse:separate;border-spacing:0}
+  table{position:absolute;left:56px;top:440px;width:968px;border-collapse:separate;border-spacing:0}
   td,th{height:100px;font:600 30px Inter;border-bottom:2px solid #26262c}
   th{font:800 30px Barlow;letter-spacing:1.5px;text-transform:uppercase;height:120px}
   .us{background:${C.red};color:#fff;text-align:center;width:250px}
@@ -172,7 +148,8 @@ ads.push({ id: 'PM06-comparativ', html: page(`
   tr:first-child .us{border-radius:26px 26px 0 0}tr:last-child .us{border-radius:0 0 26px 26px}
   .ok{color:#fff;font:900 42px Inter}.no{color:#5a5a62;font:900 38px Inter}.big{font:800 46px Barlow}`,
   `${logo(56, 60)}
-  <div class="abs h" style="left:56px;top:140px;font-size:104px;width:980px">Mai multe plante.<br><span class="gold">Cu 20 de lei mai puțin.</span></div>
+  <div class="abs h" style="left:56px;top:140px;font-size:96px;width:800px">Mai multe plante.<br><span class="gold">Cu 20 de lei<br>mai puțin.</span></div>
+  ${bottle(330, 860, 40, 6)}
   <table><tr><th></th><th class="us">PowerMan</th><th class="them">Alte spray-uri<br>populare</th></tr>
   <tr><td>Preț / flacon</td><td class="us big">59,99 lei</td><td class="them big">~80 lei</td></tr>
   <tr><td>Plante active</td><td class="us big">7</td><td class="them big">4</td></tr>
@@ -180,7 +157,7 @@ ads.push({ id: 'PM06-comparativ', html: page(`
   <tr><td>Guarana, pentru energie</td><td class="us ok">✓</td><td class="them no">✕</td></tr>
   <tr><td>Ardei iute + Poria cocos</td><td class="us ok">✓</td><td class="them no">✕</td></tr>
   <tr><td>Fabricat în România</td><td class="us ok">✓</td><td class="them" style="font:800 38px Inter">?</td></tr></table>
-  <div class="abs" style="left:56px;top:1130px;width:780px;font:400 16px/1.4 Inter;opacity:.55">Comparație cu formulele și prețurile afișate public de spray-uri sublinguale similare, octombrie 2026. Supliment alimentar. Rezultatele pot varia.</div>
+  <div class="abs" style="left:56px;top:1192px;width:960px;font:400 16px/1.4 Inter;opacity:.55">Comparație cu formulele și prețurile afișate public de spray-uri sublinguale similare, octombrie 2026. Supliment alimentar. Rezultatele pot varia.</div>
   ${foot()}`) });
 
 // 07 – Ritualul: 2–3 pufuri sub limbă
