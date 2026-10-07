@@ -97,7 +97,7 @@ vede reclama → citește **comentariile** → intră pe pagină → caută „p
 | „Dimineața, tensiometrul. Apoi grija toată ziua.” | Ritualul ei zilnic, în imagine |
 | „Inima ta a bătut de 2,5 miliarde de ori. Merită puțină atenție.” | Curiozitate, fără frică |
 | „Usturoi, păducel și vâsc. Rețeta bunicii, într-o capsulă.” | Încredere imediată: le știe pe toate trei, fără gust de usturoi și fără ceai de fiert |
-| „Ceaiul de păducel al bunicii, acum în 2 capsule pe zi.” | Comoditate: același remediu, fără fiert și strecurat |
+| „Ceaiul de păducel al bunicii, acum în capsule.” | Comoditate: același remediu, fără fiert și strecurat |
 | „Nu înlocuiește tratamentul. Îl completează.” | Răspunde direct la obiecția nr. 1 și construiește încredere |
 
 **Formate:** poză reală (femeie 60+ la masa din bucătărie, cu tensiometrul și borcanul), UGC „recenzie la telefon”, captură WhatsApp mamă–fiică, carusel cu ingrediente. Video de 15 s pentru Reels cu subtitrare mare.
