@@ -37,7 +37,7 @@ body{font-family:Inter,sans-serif;position:relative;color:${C.ink}}
 .burst{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;clip-path:polygon(50% 0%,61% 12%,75% 6%,79% 21%,94% 25%,88% 39%,100% 50%,88% 61%,94% 75%,79% 79%,75% 94%,61% 88%,50% 100%,39% 88%,25% 94%,21% 79%,6% 75%,12% 61%,0% 50%,12% 39%,6% 25%,21% 21%,25% 6%,39% 12%)}
 `;
 
-const PROD = '../cardio-cutout.png', LOGO = '../../logo-novensa.png';
+const PROD = '../cardio-cutout-hd.png', LOGO = '../../logo-novensa.png';
 const prod = (h, x, y, rot = 0) => `<img class="prod" src="${PROD}" style="height:${h}px;left:${x}px;top:${y}px;transform:rotate(${rot}deg)">`;
 const logo = (x, y, h = 44) => `<img class="logo" src="${LOGO}" style="left:${x}px;top:${y}px;height:${h}px">`;
 const foot = (bg = C.green, fg = '#fff') => `<div class="foot" style="background:${bg};color:${fg}"><span>Usturoi · Păducel · Vâsc</span><span>Plata la livrare</span><span>Transport gratuit la 2 cutii</span></div>`;
