@@ -1,0 +1,4 @@
+{"script": "Nevastă-mea m-a întrebat aseară: „Ce-ai pățit, bărbate? Parcă ai iar treizeci de ani!” Nu i-am zis nimic. Până acum. Se numește Power Man. Un spray mic: două pufuri în gură și gata. Natural și discret. Băieți… nu mai așteptați. Comandați acum, plătiți la livrare.",
+ "hooks": [{"text": "CE-AI PĂȚIT, BĂRBATE?!", "start": 0, "end": 3},
+           {"text": "2 PUFURI ÎN GURĂ. ATÂT.", "at_word": "Power", "dur": 3},
+           {"text": "PLATA LA LIVRARE", "last": 3}]}

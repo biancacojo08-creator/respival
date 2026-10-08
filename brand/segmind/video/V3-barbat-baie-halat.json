@@ -1,0 +1,4 @@
+{"script": "Am șaizeci de ani… și nevasta zice că i-au schimbat bărbatul! Secretul meu? Ăsta. Power Man. Un spray mic, două pufuri în gură, și gata. Natural, discret. Comandați-l acum, plătiți la livrare… și mulțumiți-mi mai târziu.",
+ "hooks": [{"text": "LA 60 DE ANI?!", "start": 0, "end": 3},
+           {"text": "SECRETUL: 2 PUFURI", "at_word": "Power", "dur": 3},
+           {"text": "PLATA LA LIVRARE", "last": 3}]}
