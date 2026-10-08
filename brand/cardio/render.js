@@ -13,6 +13,7 @@ const ads = require(set ? `./ads-${set}.js` : './ads.js');
     if (only.length && !only.some(o => ad.id.includes(o))) continue;
     const file = path.join(__dirname, 'html', ad.id + '.html');
     fs.writeFileSync(file, ad.html);
+    await pg.setViewportSize({ width: 1080, height: ad.h || 1080 });
     await pg.goto('file://' + file);
     await pg.evaluate(() => document.fonts.ready);
     await pg.screenshot({ path: path.join(__dirname, 'png-hd', ad.id + '.png') });
