@@ -36,13 +36,13 @@ body{font-family:Inter,sans-serif;position:relative;color:${C.ink}}
 .disc{position:absolute;left:0;right:0;bottom:62px;text-align:center;font:400 14px Inter}
 .logo{height:38px}
 `;
-const PROD = '../cardio-cutout-hd.png', LOGO = '../../logo-novensa.png';
+const PROD = '../cardio-cutout-hd-s.png', LOGO = '../../logo-novensa.png';
 const bottle = (h, x, y, rot = 0) => {
   const w = h * 0.509;
   return `<div class="shadow" style="left:${x - w * 0.1}px;top:${y + h - 26}px;width:${w * 1.2}px;height:52px"></div><img class="prod" src="${PROD}" style="height:${h}px;left:${x}px;top:${y}px;transform:rotate(${rot}deg)">`;
 };
 const pair = (h, x, y) => `${bottle(h, x, y, -4)}${bottle(h, x + h * 0.47, y + 12, 4)}`;
-const bg = id => `<div class="bg" style="background-image:url(../bg/${id}.jpg)"></div>`;
+const bg = id => `<div class="bg" style="background-image:url(../bg/${id}-s.jpg)"></div>`;
 const burst = (x, y, s = 250, rot = -10) => `<div class="burst" style="left:${x}px;top:${y}px;width:${s}px;height:${s}px;background:${C.yellow};color:${C.red};transform:rotate(${rot}deg)"><div class="bc" style="font-size:${s * 0.3}px">1+1</div><div class="bc" style="font-size:${s * 0.16}px">GRATIS</div></div>`;
 const foot = () => `<div class="foot"><span>1+1 GRATIS</span><span>Transport gratuit</span><span>Plata la livrare</span></div>`;
 const disc = (c = '#fff') => `<div class="disc" style="color:${c};${c === '#fff' ? 'text-shadow:0 1px 3px rgba(0,0,0,.8)' : 'opacity:.7'}">Supliment alimentar. Nu înlocuiește tratamentul medical. Dacă urmezi un tratament, consultă medicul.</div>`;
