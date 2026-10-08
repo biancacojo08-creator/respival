@@ -84,7 +84,7 @@ Reguli folosite peste tot:
 
 ### PM01-barbat-sufragerie
 *Bărbat, ~52 ani, încrezător, relaxat, ton de prieten.*
-> Băieți, vorbesc serios. După cincizeci de ani, parcă nu mai ai energia de dinainte. Am încercat Power Man și… nu vă zic mai multe, dar nevasta e mulțumită. Picături naturale, discrete. Merită încercat.
+> Băieți, vorbesc serios. După cincizeci de ani, parcă nu mai ai energia de dinainte. Am încercat Power Man și… nu vă zic mai multe, dar nevasta e mulțumită. Un spray mic, două pufuri în gură, natural și discret. Merită încercat.
 
 ### PM02-barbat-curte-vie-face-cu-ochiul
 *Bărbat, ~58 ani, șugubăț, face cu ochiul în voce, râde.*
@@ -92,7 +92,7 @@ Reguli folosite peste tot:
 
 ### PM03-barbat-garaj-review
 *Bărbat, ~47 ani, energic, direct, ritm alert de review.*
-> Review sincer, fără sponsorizare de la vecini: Power Man. Treizeci de mililitri, picături, se iau simplu în apă. După câteva săptămâni simt clar mai multă energie, inclusiv… acolo unde contează. Nota mea: zece.
+> Review sincer, fără sponsorizare de la vecini: Power Man. Treizeci de mililitri, spray oral, două pufuri în gură și gata. După câteva săptămâni simt clar mai multă energie, inclusiv… acolo unde contează. Nota mea: zece.
 
 ### PM04-cuplu-bucatarie
 *Cuplu ~55 ani: EA începe (complice, amuzată), EL încheie (mândru).*
@@ -117,11 +117,11 @@ Reguli folosite peste tot:
 
 ### PM08-barbat-baie-oglinda
 *Bărbat, ~49 ani, sigur pe el, ton de rutină de dimineață.*
-> Rutina mea de dimineață: dinți, barbă și Power Man. Atât. Îl iau de o lună și mă simt mai sigur pe mine, mai plin de energie toată ziua. Și se pune ușor în apă. Recomand.
+> Rutina mea de dimineață: dinți, barbă și Power Man. Atât. Îl iau de o lună și mă simt mai sigur pe mine, mai plin de energie toată ziua. Și e un spray, îl iei în două secunde. Recomand.
 
 ### PM09-barbat-baie-halat
 *Bărbat, ~60 ani, mustăcios, ironic, cu umor.*
-> Ieșit de la duș, proaspăt, și cu Power Man în mână! La vârsta mea, zic că e bine să ai un ajutor. Picături naturale, nimic complicat. Nevasta zice mersi.
+> Ieșit de la duș, proaspăt, și cu Power Man în mână! La vârsta mea, zic că e bine să ai un ajutor. Un spray natural, două pufuri în gură, nimic complicat. Nevasta zice mersi.
 
 ### PM10-barbat-dormitor-seara-sotie
 *Bărbat, ~56 ani, aproape în șoaptă, complice, zâmbet în voce.*
