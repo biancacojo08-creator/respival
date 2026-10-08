@@ -169,3 +169,20 @@ Fundalurile sunt generate în Canva și mărite de 4 ori. Borcanul e cel real, p
 | `T08` | Sobă de teracotă, mere coapte | Pregătește-ți inima pentru iarnă | Vine frigul. Pregătește-ți inima pentru iarnă cu CARDIO BALANCE. La 2 cutii, transportul e gratuit. |
 | `T09` | Fereastră cu ploaie, ceai de păducel | Ceaiul bunicii, acum în capsule | Ceaiul de păducel al bunicii, acum în capsule, plus usturoi și vâsc. Pentru inimă, tensiune și circulație. |
 | `T10` | Masă de recoltă: struguri, nuci, usturoi | Ce e mai bun din toamnă | Ce e mai bun din toamnă, pentru inima ta. 1 cutie: 69,99 lei. 2 cutii: 132,98 lei, transport gratuit. |
+
+## 11. Seria ofertă 1+1 GRATIS (O01–O10)
+
+Oferta: 2 borcane, 120 capsule, cura de 2–3 luni, transport gratuit, plata la livrare. **Fără preț pe reclame** (cerința clientului). Fișierul: `ads-oferta.js`. Regenerare: `node render.js --set oferta` și `python3 export.py oferta`.
+
+| ID | Mesaj | Text principal |
+|---|---|---|
+| `O01` | 1+1 GRATIS (fundal roșu) | 1+1 GRATIS la Cardio Balance: 2 borcane, 120 capsule, cura completă de 2–3 luni. Transport gratuit, plătești la livrare. |
+| `O02` | Calendar 3 luni: „O cură completă” | O cură completă de 2–3 luni pentru inimă, tensiune și circulație. Acum 1+1 GRATIS, cu transport gratuit. |
+| `O03` | „Unul pentru tine. Unul GRATIS pentru el.” | Unul pentru tine, unul gratis pentru el. Cardio Balance 1+1: usturoi, păducel și vâsc, pentru amândoi. |
+| `O04` | 1 borcan vs cura completă | Un borcan sau cura completă? Cu oferta 1+1 GRATIS iei 120 de capsule, pentru 2–3 luni. |
+| `O05` | Sobă: „Toată iarna, acoperită.” | Toată iarna, acoperită: 120 de capsule Cardio Balance, 1+1 GRATIS, transport gratuit. |
+| `O06` | Bonul comenzii: ce primești | Ce primești: 2 borcane Cardio Balance (al doilea gratis), transport gratuit, plata la livrare. |
+| `O07` | Ingrediente + 1+1 | Usturoi, păducel și vâsc. Acum 1+1 GRATIS: 120 de capsule. |
+| `O08` | WhatsApp cu vecina | Vecinele vorbesc deja: Cardio Balance e 1+1 gratis, cu transport gratuit și plata la curier. |
+| `O09` | „Ai tensiune mare sau palpitații?” | Ai tensiune mare sau palpitații? Ia cura completă de Cardio Balance: 1+1 GRATIS, 120 capsule, 2–3 luni. |
+| `O10` | „120 de capsule. 2–3 luni de liniște.” | 120 de capsule, 2–3 luni de liniște. Cardio Balance 1+1 GRATIS, transport gratuit. |

@@ -1,11 +1,14 @@
 # Downscales png-hd/ (2160) to png/ (1080) and builds the zip + overview for one series.
 # Usage: python3 export.py            -> series C (Cardio-Balance-reclame.zip)
 #        python3 export.py toamna     -> series T (Cardio-Balance-toamna.zip)
+#        python3 export.py oferta     -> series O (Cardio-Balance-oferta-1plus1.zip)
 import glob, os, sys, zipfile
 from PIL import Image
 d = os.path.dirname(os.path.abspath(__file__))
-toamna = len(sys.argv) > 1 and sys.argv[1] == 'toamna'
-prefix, zname, oname = ('T', 'Cardio-Balance-toamna.zip', '_overview-toamna.jpg') if toamna else ('C', 'Cardio-Balance-reclame.zip', '_overview.jpg')
+SETS = {'': ('C', 'Cardio-Balance-reclame.zip', '_overview.jpg'),
+        'toamna': ('T', 'Cardio-Balance-toamna.zip', '_overview-toamna.jpg'),
+        'oferta': ('O', 'Cardio-Balance-oferta-1plus1.zip', '_overview-oferta.jpg')}
+prefix, zname, oname = SETS[sys.argv[1] if len(sys.argv) > 1 else '']
 fs = sorted(glob.glob(os.path.join(d, 'png-hd', prefix + '[0-9]*.png')))
 for f in fs:
     Image.open(f).convert('RGB').resize((1080, 1080), Image.LANCZOS).save(os.path.join(d, 'png', os.path.basename(f)), optimize=True)
