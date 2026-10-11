@@ -1,0 +1,5 @@
+{"script": "Băieți, trei luni am dormit cu spatele la nevastă-mea. Nu că n-o iubesc… dar nu mai aveam nici chef, nici energie. Și te scuzi: „Sunt obosit, mâine…” Un prieten mi-a zis de Power Man. Am râs de el. Dar l-am comandat, că se plătește la livrare și nu află nimeni. E un spray mic: două pufuri în gură și gata. Natural, discret. După câteva săptămâni, nevasta m-a întrebat ce-am pățit. Băieți… nu mai lăsați rușinea să decidă pentru voi. Comandați Power Man acum, plătiți la livrare.",
+ "hooks": [{"text": "3 LUNI CU SPATELE LA EA...", "start": 0, "end": 3.5},
+           {"text": "2 PUFURI ÎN GURĂ. ATÂT.", "at_word": "spray", "dur": 3},
+           {"text": "„CE-AI PĂȚIT?!”", "at_word": "nevasta", "dur": 3},
+           {"text": "PLATA LA LIVRARE", "last": 4}]}
