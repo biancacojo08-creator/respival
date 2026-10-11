@@ -1,0 +1,5 @@
+{"script": "Băieți, la cincizeci și cinci de ani credeam că așa e normal: obosit seara, fără chef, cu scuze. Greșeam. De o lună iau Power Man. E un spray mic: două pufuri în gură dimineața și gata. Am mai multă energie toată ziua, chef cum nu mai aveam de mult… și o încredere pe care o pierdusem. Iar nevasta a observat prima. Natural, discret, nu află nimeni. Comandați-l acum, plătiți la livrare.",
+ "hooks": [{"text": "LA 55 DE ANI CREDEAM CĂ E NORMAL...", "start": 0, "end": 3.5},
+           {"text": "GREȘEAM.", "at_word": "Greșeam", "dur": 2},
+           {"text": "ENERGIE • CHEF • ÎNCREDERE", "at_word": "energie", "dur": 4},
+           {"text": "PLATA LA LIVRARE", "last": 3}]}

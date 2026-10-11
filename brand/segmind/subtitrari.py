@@ -145,7 +145,7 @@ def main():
     ass.write_text(build_ass(cfg, w, h, duration, timed), encoding="utf-8")
     subprocess.run(
         ["ffmpeg", "-y", "-i", video, "-vf", f"ass={ass}:fontsdir={FONTS}",
-         "-c:v", "libx264", "-crf", "20", "-preset", "medium", "-c:a", "copy", out],
+         "-c:v", "libx264", "-crf", "23", "-preset", "medium", "-c:a", "copy", out],
         check=True)
     print(f"Gata: {out}")
 

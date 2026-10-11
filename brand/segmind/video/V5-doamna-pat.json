@@ -1,0 +1,5 @@
+{"script": "Fetelor, vă spun un secret pe care soțul meu nu vrea să-l afle nimeni. Anul trecut adormea la televizor în fiecare seară. Obosit, fără chef… și eu credeam că e vina mea. Apoi i-am comandat Power Man. Un spray mic, două pufuri în gură dimineața. Acum el e cel care mă trage la culcare devreme. Natural, discret, plătești la livrare. Fetelor… faceți-le cadoul ăsta. Mulțumiți-mi mai târziu.",
+ "hooks": [{"text": "SECRETUL SOȚULUI MEU", "start": 0, "end": 3.5},
+           {"text": "2 PUFURI ÎN GURĂ. ATÂT.", "at_word": "spray", "dur": 3},
+           {"text": "ACUM EL MĂ TRAGE LA CULCARE", "at_word": "Acum", "dur": 3},
+           {"text": "PLATA LA LIVRARE", "last": 3}]}
