@@ -1,0 +1,24 @@
+{
+ "script": "Dacă aveți peste șaizeci de ani, ascultați-mă zece secunde. Eu am șaizeci și șapte. Acum un an oboseam de la o plimbare până la colțul străzii. Băiatul meu mi-a adus Cardio Balance. Iau două capsule pe zi, alături de ce mi-a zis doctorul. Acum merg în fiecare dimineață prin parc și mă simt mai odihnit, mai liniștit. Inima trebuie îngrijită din timp. Comandați-l, plătiți la livrare.",
+ "hooks": [
+  {
+   "text": "AI PESTE 60 DE ANI? ASCULTĂ!",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "2 CAPSULE PE ZI",
+   "at_word": "două",
+   "dur": 3
+  },
+  {
+   "text": "PLIMBARE ÎN FIECARE DIMINEAȚĂ",
+   "at_word": "merg",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

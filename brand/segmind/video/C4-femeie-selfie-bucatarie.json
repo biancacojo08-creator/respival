@@ -1,0 +1,24 @@
+{
+ "script": "Fetelor, știți câte etaje am până acasă? Patru. Fără lift. Acum câteva luni mă opream la fiecare etaj să-mi trag sufletul. O vecină mi-a zis de Cardio Balance. Iau o capsulă dimineața, una seara, cu un pahar de apă. Acum urc până sus vorbind la telefon! Natural, simplu, și chiar simt diferența. Comandați-l, plătiți la livrare.",
+ "hooks": [
+  {
+   "text": "4 ETAJE. FĂRĂ LIFT.",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "1 CAPSULĂ DIMINEAȚA, 1 SEARA",
+   "at_word": "capsulă",
+   "dur": 3
+  },
+  {
+   "text": "ACUM URC VORBIND LA TELEFON",
+   "at_word": "urc",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

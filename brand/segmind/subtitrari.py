@@ -118,7 +118,7 @@ def build_ass(cfg, w, h, duration, timed):
     hooks = []
     for hk in cfg.get("hooks", []):
         if "at_word" in hk:
-            key = hk["at_word"].lower()
+            key = hk["at_word"].lower().strip(".,!?…:")
             st = next((s for wd, s, _ in timed if wd.lower().strip(".,!?…:") == key), 0)
             en = st + hk.get("dur", 3)
         elif "last" in hk:
