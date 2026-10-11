@@ -33,3 +33,9 @@ Nu iese identic la pixel, pentru că fiecare generare e puțin aleatoare (cu `se
 
 ## 4. Subtitrări și hook-uri: gratuit
 `python3 brand/segmind/subtitrari.py video.mp4 brand/segmind/video/V1-cuplu-pat.json iesire.mp4`
+
+## 5. Regula de cost pentru video-uri (stabilită)
+- **Generare la 720p** (Pruna P-Video Avatar, ~0,031 $/sec), apoi **mărire gratuită la 1080p** cu ffmpeg:
+  `ffmpeg -i in.mp4 -vf "scale=-2:1920:flags=lanczos,unsharp=5:5:0.6" -c:v libx264 -crf 18 -c:a copy out-1080p.mp4`
+- **Durată maximă 25–30 de secunde** (script de ~60–75 de cuvinte) → ~0,80–0,95 $ pe video.
+- Vocea se generează și se ascultă **înainte** de video (~0,02 $).
