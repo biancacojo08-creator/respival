@@ -69,4 +69,20 @@ module.exports = [
     giftBody: 'Un cadou util pentru părinții cu copii mici. Plata la livrare.', card: 'Pentru cei mici ♥',
     disc: 'Supliment alimentar. Nu se administrează sub 1 an.',
   },
+  {
+    // Prețuri de pe site (novensa-romania.ro, 12.10.2026): 1 flacon = 67,99 lei. Pachetele 2 / 3 sunt propunerea BF
+    // (prețul tăiat = 2 × 67,99 și 3 × 67,99, adică prețul actual, conform regulii celor 30 de zile).
+    key: 'respival', name: 'RESPIVAL', img: 'respival.png', ar: 372 / 932, k: 1,
+    one: 'flacon', many: 'flacoane',
+    packs: [
+      { title: '1 flacon', price: '67,99', sub: 'Transport gratuit', per: '67,99', n: 1, gifts: 0 },
+      { title: '2 flacoane', price: '119', was: '135,98', per: '59,50', n: 2, gifts: 1 },
+      { title: '3 flacoane', price: '169', was: '203,97', per: '56,33', n: 3, gifts: 2, best: true, extra: 'pentru toată familia' },
+    ],
+    hook: ['Iarna vine.', 'Gâtul tău e pregătit?'],
+    checks: ['Propolis, nalbă, salvie, mușețel, eucalipt, ghimbir și alte plante', 'Spray oral pentru gât, 1–2 pufuri', 'Peste 600 de recenzii pe site'],
+    gift: ['Câte un spray pentru fiecare', 'din familie.'],
+    giftBody: 'Iarna vine cu răceli. Trimite-le părinților un spray cu plante, plătesc la livrare.', card: 'Pentru mama ♥',
+    disc: 'Supliment alimentar. Rezultatele pot varia.',
+  },
 ];

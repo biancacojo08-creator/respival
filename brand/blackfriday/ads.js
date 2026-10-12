@@ -127,7 +127,7 @@ function build(P) {
     ${logo(56, 104)}
     <div class="abs tag" style="left:56px;top:180px;background:${GRAD};color:${BLK}">Black Friday</div>
     ${priced
-      ? `<div class="abs big" style="left:52px;top:250px;font-size:116px">${second.title}</div>
+      ? `<div class="abs big" style="left:52px;top:250px;font-size:${second.title.length > 7 ? 80 : 116}px">${second.title}</div>
          <div class="abs" style="left:56px;top:390px">${offer(second, 170)}</div>`
       : `<div class="abs gold" style="left:48px;top:240px;font:900 210px/1 Archivo;letter-spacing:-8px">${second.big}</div>
          <div class="abs gold" style="left:56px;top:445px;font:900 84px/1 Archivo;letter-spacing:2px">GRATUIT</div>
@@ -167,11 +167,11 @@ function build(P) {
     .bar .a{font:900 36px Archivo;text-transform:uppercase}.bar .a small{display:block;font:700 20px Inter;text-transform:none;opacity:.8;margin-top:4px}
     .bar .b{text-align:right;font:900 46px Archivo;letter-spacing:-1px}.bar .b small{display:block;font:700 19px Inter;letter-spacing:0;opacity:.8}`,
     `${tape()}${logo(56, 104)}
-    <div class="abs serif" style="left:56px;top:176px;width:960px;font-size:60px">Cu cât iei mai mult, <span class="gold">${priced ? 'plătești mai puțin' : 'primești mai mult'}</span>${priced ? ' pe cutie' : ''}.</div>
+    <div class="abs serif" style="left:56px;top:176px;width:960px;font-size:60px">Cu cât iei mai mult, <span class="gold">${priced ? 'plătești mai puțin' : 'primești mai mult'}</span>${priced ? ` pe ${P.one}` : ''}.</div>
     ${P.packs.map((o, i) => {
       const ws = nc === 4 ? [620, 720, 820, 968] : [640, 800, 968], last = i === nc - 1;
       const bg = last ? GRAD : ['#2a251e', '#3a3226', '#5a4626'][i];
-      const right = priced ? `${o.per} lei<small>pe cutie</small>` : `Primești ${o.n}<small>${o.n === 1 ? `plătești 1` : `plătești ${o.n / 2}`}</small>`;
+      const right = priced ? `${o.per} lei<small>pe ${P.one}</small>` : `Primești ${o.n}<small>${o.n === 1 ? `plătești 1` : `plătești ${o.n / 2}`}</small>`;
       const left = priced ? `${o.title}<small>${o.price} lei total${o.gifts ? ` · ${cad(o.gifts)}` : ''}</small>` : `${o.title}<small>${o.n} ${o.n === 1 ? P.one : P.many}${o.gifts ? ` · ${cad(o.gifts)}` : ''} · transport gratuit</small>`;
       return `<div class="bar" style="top:${370 + i * (nc === 4 ? 140 : 180)}px;width:${ws[i]}px;background:${bg};${last ? `color:${BLK}` : ''}"><div class="a">${left}</div><div class="b">${right}</div></div>`;
     }).join('')}
