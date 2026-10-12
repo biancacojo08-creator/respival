@@ -1,4 +1,4 @@
-// Email Black Friday Novensa: imagine lungă de 600 px lățime (randată la 2x = 1200 px), fără prețuri și fără date.
+// Email de ANUNȚ Black Friday Novensa (urmează, nu a început): imagine lungă de 600 px lățime (randată la 2x = 1200 px), fără prețuri și fără date.
 // Render: node email.js  →  email/black-friday-email.jpg (întreg) + email/bucati/01..NN.jpg (tăiat pentru lipit)
 const fs = require('fs'), path = require('path');
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
@@ -70,20 +70,21 @@ body{width:600px;background:${BLK};color:#fff;font-family:Inter,sans-serif}
 <div class="sec" style="padding-top:34px;padding-bottom:46px">
   <div class="glow" style="width:700px;height:700px;left:120px;top:-180px"></div>
   <div style="position:relative;display:flex;justify-content:space-between;align-items:center">
-    <img class="logo" src="../../logo-novensa.png"><span class="tag" style="background:${RED};color:#fff">Doar câteva zile</span></div>
-  <div class="big gold" style="position:relative;font-size:118px;margin-top:40px">Black<br>Friday</div>
-  <div class="serif" style="position:relative;font-size:34px;margin-top:20px">Reduceri mari la toate produsele <span class="gold">Novensa.</span></div>
-  <div style="position:relative;font:600 18px/1.45 Inter;color:${GREY};margin-top:16px;width:470px">Transport gratuit la orice comandă și un tichet răzuibil câștigător în fiecare colet.</div>
+    <img class="logo" src="../../logo-novensa.png"><span class="tag" style="background:${RED};color:#fff">În curând</span></div>
+  <div class="big" style="position:relative;font-size:40px;margin-top:36px;letter-spacing:0">Urmează</div>
+  <div class="big gold" style="position:relative;font-size:118px;margin-top:10px">Black<br>Friday</div>
+  <div class="serif" style="position:relative;font-size:34px;margin-top:20px">Pregătim reduceri mari la toate produsele <span class="gold">Novensa.</span></div>
+  <div style="position:relative;font:600 18px/1.45 Inter;color:${GREY};margin-top:16px;width:470px">Vei avea transport gratuit la orice comandă și un tichet răzuibil câștigător în fiecare colet. Te anunțăm în ziua în care începe.</div>
   <div style="position:relative;display:flex;justify-content:center;align-items:flex-end;margin-top:30px;height:300px">
     ${['respival', 'prosta', 'cardio'].map((k, i) => { const p = products.find(x => x.key === k); return `<img src="../produse/${p.img}" style="height:${[250, 300, 240][i] * p.k}px;margin:0 ${i === 1 ? -14 : 0}px;position:relative;z-index:${i === 1 ? 2 : 1};transform:rotate(${[-8, 0, 8][i]}deg);filter:drop-shadow(0 20px 20px rgba(0,0,0,.6))">`; }).join('')}
   </div>
-  <div style="position:relative;text-align:center;margin-top:30px"><span class="btn">Vezi ofertele →</span></div>
+  <div style="position:relative;text-align:center;margin-top:30px"><span class="btn">Vezi produsele →</span></div>
 </div>
 <div class="hr"></div>
 
 <!-- 2. Ce primești -->
 <div class="sec">
-  <div class="serif" style="font-size:32px;text-align:center">Ce primești de <span class="gold">Black Friday</span></div>
+  <div class="serif" style="font-size:32px;text-align:center">Ce vei primi de <span class="gold">Black Friday</span></div>
   <div class="why" style="margin-top:24px">
     <div>${truck}<span><b>Transport gratuit</b><span>la orice comandă, chiar și la o singură bucată</span></span></div>
     <div>${tick}<span><b>Tichet răzuibil cadou</b><span>câte unul la fiecare comandă, toate sunt câștigătoare</span></span></div>
@@ -101,17 +102,17 @@ body{width:600px;background:${BLK};color:#fff;font-family:Inter,sans-serif}
     <div class="pk best"><div class="n">3</div><div class="u">bucăți</div><div class="l">Cea mai<br>aleasă</div></div>
     <div class="pk"><div class="n">5</div><div class="u">bucăți</div><div class="l">Reducere<br>maximă</div></div>
   </div>
-  <div style="font:600 15px Inter;color:${GREY};text-align:center;margin-top:16px">Pachetele sunt valabile la toate produsele de mai jos.</div>
+  <div style="font:600 15px Inter;color:${GREY};text-align:center;margin-top:16px">Pachetele vor fi valabile la toate produsele de mai jos.</div>
 </div>
 <div class="hr"></div>
 
 <!-- 4. Produse -->
 <div class="sec">
-  <div class="serif" style="font-size:32px;text-align:center">Produsele <span class="gold">la reducere</span></div>
+  <div class="serif" style="font-size:32px;text-align:center">Produsele care vor fi <span class="gold">la reducere</span></div>
   <div class="grid">
     ${P.map((p, i) => {
       const last = i === P.length - 1 && P.length % 2 === 1;
-      return `<div class="card${last ? ' wide' : ''}"><div class="im"><img src="../produse/${p.img}"></div><div><h3>${p.name}</h3><p>${LINES[p.key] || ''}</p><span class="b">Vezi oferta →</span></div></div>`;
+      return `<div class="card${last ? ' wide' : ''}"><div class="im"><img src="../produse/${p.img}"></div><div><h3>${p.name}</h3><p>${LINES[p.key] || ''}</p><span class="b">Vezi produsul →</span></div></div>`;
     }).join('')}
   </div>
 </div>
@@ -121,16 +122,16 @@ body{width:600px;background:${BLK};color:#fff;font-family:Inter,sans-serif}
 <div class="sec" style="text-align:center;padding-bottom:56px">
   <div class="glow" style="width:620px;height:620px;left:-10px;top:40px"></div>
   <div class="serif" style="position:relative;font-size:32px">În fiecare colet: <span class="gold">un tichet răzuibil.</span></div>
-  <div style="position:relative;font:600 18px/1.45 Inter;color:${GREY};margin-top:12px">Îl răzuiești când primești coletul. Toate tichetele sunt câștigătoare.</div>
+  <div style="position:relative;font:600 18px/1.45 Inter;color:${GREY};margin-top:12px">Fiecare comandă de Black Friday va avea un tichet răzuibil. Toate vor fi câștigătoare.</div>
   <div style="position:relative">${ticket}</div>
 </div>
 <div class="hr"></div>
 
 <!-- 6. CTA final -->
 <div class="sec" style="text-align:center;padding:46px 36px 50px">
-  <div class="big" style="font-size:52px">Black Friday ține<br><span class="gold">doar câteva zile</span></div>
-  <div style="font:600 18px/1.45 Inter;color:${GREY};margin-top:16px">După aceea, reducerile dispar.</div>
-  <div style="margin-top:28px"><span class="btn" style="font-size:24px;padding:20px 40px">Comandă acum →</span></div>
+  <div class="big" style="font-size:52px">Fii pe fază:<br><span class="gold">ține doar câteva zile</span></div>
+  <div style="font:600 18px/1.45 Inter;color:${GREY};margin-top:16px">Black Friday durează doar câteva zile. Urmărește-ne emailurile ca să nu-l ratezi.</div>
+  <div style="margin-top:28px"><span class="btn" style="font-size:24px;padding:20px 40px">Vezi produsele →</span></div>
   <div style="font:700 17px Inter;color:${GOLDL};margin-top:22px">novensa-romania.ro</div>
 </div>
 

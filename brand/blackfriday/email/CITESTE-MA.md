@@ -1,23 +1,23 @@
-# Email Black Friday Novensa
+# Email de anunț: urmează Black Friday la Novensa
 
 - `black-friday-email.jpg`: emailul întreg, o singură imagine lungă (600 px lățime în email, randată la 1200 px pentru ecrane retina).
 - `bucati/01.jpg` … `07.jpg`: același email tăiat pe secțiuni. Folosește-le dacă vrei să pui un link separat pe fiecare bucată sau dacă programul de email nu acceptă imagini foarte lungi.
 - Randare din nou: `node email.js` (textele sunt în `email.js`).
 
 ## Subiect (alege unul)
-1. 🖤 Black Friday Novensa a început: reduceri mari + transport gratuit
-2. Doar câteva zile: reduceri mari la toate produsele Novensa
-3. Un tichet răzuibil câștigător în fiecare colet 🎁
-4. Black Friday: transport gratuit chiar și la o singură bucată
+1. 🖤 Urmează Black Friday la Novensa
+2. Pregătește-te: reduceri mari la toate produsele Novensa, în curând
+3. În curând: un tichet răzuibil câștigător în fiecare colet 🎁
+4. Black Friday vine. Transport gratuit chiar și la o singură bucată
 
-**Preheader** (textul gri de după subiect): Pachete de 2, 3 și 5 bucăți la reducere mare. Plata la livrare.
+**Preheader** (textul gri de după subiect): Pachete de 2, 3 și 5 bucăți la reducere mare. Te anunțăm când începe.
 
 ## Text de pus deasupra imaginii
 > Bună ziua,
 >
-> A început Black Friday la Novensa! Pentru câteva zile ai reduceri mari la toate produsele, transport gratuit la orice comandă și un tichet răzuibil câștigător în fiecare colet.
+> Urmează Black Friday la Novensa! Pentru câteva zile vei avea reduceri mari la toate produsele, transport gratuit la orice comandă și un tichet răzuibil câștigător în fiecare colet. Te anunțăm în ziua în care începe.
 >
-> 👉 Vezi ofertele: https://novensa-romania.ro
+> 👉 Până atunci, vezi produsele: https://novensa-romania.ro
 
 ## Cum îl lipești gratuit
 
