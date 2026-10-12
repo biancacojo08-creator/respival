@@ -1,0 +1,152 @@
+{
+ "V01": {
+  "img": "UGC01",
+  "voice": [
+   "Bill",
+   "pqHfZKP75CvOlQylNhV4"
+  ],
+  "hook": "Te trezești de 3-4 ori<br><span>pe noapte?</span>",
+  "caps": [
+   "Palmier pitic + urzică + dovleac",
+   "Susține funcția urinară",
+   "10 ml dimineața · 10 ml seara",
+   "190 lei · transport gratuit"
+  ],
+  "text": "Dacă te trezești de trei-patru ori pe noapte ca să mergi la baie, ascultă-mă un minut. Și eu credeam că așa e la vârsta asta. Pe urmă am găsit Prosta Complex, de la Novensa. E un supliment lichid, cu extract de palmier pitic, urzică și dovleac, plus zinc, seleniu și vitamina E. Susține sănătatea prostatei și funcția urinară. Iau zece mililitri dimineața și zece seara. Atât. Cura completă are trei cutii: o sută nouăzeci de lei, cu transport gratuit, și plătești la livrare. Apasă pe butonul de mai jos și comandă acum."
+ },
+ "V02": {
+  "img": "UGC01",
+  "voice": [
+   "Bill",
+   "pqHfZKP75CvOlQylNhV4"
+  ],
+  "hook": "Nu încă<br><span>o pastilă!</span>",
+  "caps": [
+   "Supliment LICHID",
+   "Ingrediente naturale",
+   "Fabricat în România",
+   "Cura completă: 190 lei"
+  ],
+  "text": "Am zis că nu mai iau încă o pastilă. Am destule. De-asta mi-a plăcut că Prosta Complex e lichid. Zece mililitri dimineața, zece seara, și gata. Are ingrediente naturale: palmier pitic, urzică, dovleac, zinc, seleniu și vitamina E. Și e făcut în România. Contribuie la reducerea disconfortului și susține funcția urinară. O cutie costă șaizeci și șase de lei și nouăzeci și nouă de bani, dar eu am luat cura completă, de trei cutii: o sută nouăzeci de lei, cu transport gratuit. Comandă acum. Plătești când vine curierul."
+ },
+ "V03": {
+  "img": "UGC02",
+  "voice": [
+   "Daniel",
+   "onwK4e9ZLuTAKqWW03F9"
+  ],
+  "hook": "Cauți disperat<br><span>o benzinărie?</span>",
+  "caps": [
+   "Fără grija toaletei pe drum",
+   "Susține prostata",
+   "10 ml · de 2 ori pe zi",
+   "Transport GRATUIT"
+  ],
+  "text": "Știi senzația aia când ești pe drum și cauți disperat o benzinărie? Eu o știam prea bine. Stau mult în mașină, și fiecare drum lung era un stres. Acum iau Prosta Complex, de la Novensa. E un supliment lichid pentru sănătatea prostatei și funcția urinară, cu palmier pitic, urzică și dovleac. Zece mililitri dimineața, zece seara. Cura completă, de cincisprezece zile, are trei cutii și costă o sută nouăzeci de lei, cu transport gratuit. Comanzi online și plătești la livrare. Apasă pe Comandă acum."
+ },
+ "V04": {
+  "img": "UGC02",
+  "voice": [
+   "Daniel",
+   "onwK4e9ZLuTAKqWW03F9"
+  ],
+  "hook": "3 motive să-l<br><span>încerci azi</span>",
+  "caps": [
+   "1. E lichid",
+   "2. Ingrediente naturale",
+   "3. Plătești la livrare",
+   "3 cutii = 190 lei"
+  ],
+  "text": "Trei motive pentru care am ales Prosta Complex. Unu: e lichid, nu încă o capsulă de înghițit. Doi: are ingrediente pe care le știu: extract de palmier pitic, urzică și dovleac, plus zinc, seleniu și vitamina E. Trei: e fabricat în România și plătești la livrare, fără niciun risc. Susține sănătatea prostatei și funcția urinară. Cura completă are trei cutii, costă o sută nouăzeci de lei, și transportul e gratuit. Linkul e mai jos. Comandă acum."
+ },
+ "V05": {
+  "img": "UGC03",
+  "voice": [
+   "Matilda",
+   "XrExE9yKIg1WjnStVfm6"
+  ],
+  "hook": "Doamnelor,<br><span>nici voi nu dormiți?</span>",
+  "caps": [
+   "Nopți mai liniștite",
+   "Susține funcția urinară",
+   "I-am luat cura completă",
+   "190 lei · transport gratuit"
+  ],
+  "text": "Doamnelor, vă spun sincer: când el se trezește toată noaptea, nu dormi nici tu. Așa că i-am comandat Prosta Complex. E un supliment lichid, cu palmier pitic, urzică și dovleac, care susține sănătatea prostatei și funcția urinară. Îl ia dimineața și seara, câte zece mililitri. Am luat direct cura completă, de trei cutii: o sută nouăzeci de lei, cu transport gratuit, și am plătit la curier. Dacă și voi treceți prin asta, apăsați pe butonul de mai jos."
+ },
+ "V06": {
+  "img": "UGC03",
+  "voice": [
+   "Matilda",
+   "XrExE9yKIg1WjnStVfm6"
+  ],
+  "hook": "El n-o să-ți spună.<br><span>Dar tu vezi.</span>",
+  "caps": [
+   "Contribuie la reducerea disconfortului",
+   "Colet discret",
+   "Plata la livrare",
+   "Cura completă: 190 lei"
+  ],
+  "text": "El n-o să-ți spună niciodată că are o problemă. Dar tu vezi. Drumurile la baie, oboseala de dimineață. Eu nu l-am mai întrebat. I-am comandat direct Prosta Complex, de la Novensa. Are ingrediente naturale, e fabricat în România și contribuie la reducerea disconfortului urinar. Coletul vine discret și plătești la livrare. Cura completă costă o sută nouăzeci de lei, cu transport gratuit. Fă-i cadoul ăsta. Și ție. Apasă pe butonul de mai jos."
+ },
+ "V07": {
+  "img": "UGC04",
+  "voice": [
+   "George",
+   "JBFqnCBsd6RMkjVDRZzb"
+  ],
+  "hook": "Nu cred în minuni.<br><span>Dar asta merge.</span>",
+  "caps": [
+   "Urzică · dovleac · palmier pitic",
+   "Susține prostata",
+   "10 ml dimineața și seara",
+   "Plătești la poștaș"
+  ],
+  "text": "Eu am lucrat toată viața la câmp și nu prea cred în minuni. Dar nici să mă scol de patru ori pe noapte nu mai voiam. Băiatul mi-a luat Prosta Complex. E lichid, cu plante pe care le știm: urzică, dovleac, palmier pitic. Plus zinc, seleniu și vitamina E. Iau zece mililitri dimineața și zece seara. Susține prostata și funcția urinară. Trei cutii, cura completă, o sută nouăzeci de lei, cu transport gratuit, și plătești la poștaș. Comandați de mai jos."
+ },
+ "V08": {
+  "img": "UGC04",
+  "voice": [
+   "George",
+   "JBFqnCBsd6RMkjVDRZzb"
+  ],
+  "hook": "Făcut în<br><span>România 🇷🇴</span>",
+  "caps": [
+   "Ingrediente naturale",
+   "Susține funcția urinară",
+   "Cura de 15 zile",
+   "190 lei · transport gratuit"
+  ],
+  "text": "Ce-i românesc e bun, așa zic eu. Prosta Complex e făcut în România, de Novensa, cu ingrediente naturale: extract de palmier pitic, urzică și dovleac, plus zinc, seleniu și vitamina E. Susține sănătatea prostatei și funcția urinară. Se ia simplu: zece mililitri dimineața, zece seara. Cura completă, de cincisprezece zile, are trei cutii și costă o sută nouăzeci de lei, cu transport gratuit. Plătești doar când primești coletul. Comandă acum."
+ },
+ "V09": {
+  "img": "UGC05",
+  "voice": [
+   "Chris",
+   "iP95p4xoKVk53GoZ742B"
+  ],
+  "hook": "Ai trecut de 50<br><span>și te trezești noaptea?</span>",
+  "caps": [
+   "Nu ești singurul",
+   "Susține sănătatea prostatei",
+   "Durează sub un minut",
+   "3 cutii = 190 lei"
+  ],
+  "text": "Frate, dacă și tu ai trecut de cincizeci de ani și te trezești noaptea să mergi la baie, nu ești singurul. Eu am început cu Prosta Complex. E un supliment lichid, cu palmier pitic, urzică și dovleac, plus zinc și seleniu. Susține sănătatea prostatei și funcția urinară. Zece mililitri dimineața, zece seara. Nu durează nici un minut. Ia cura completă, de trei cutii: o sută nouăzeci de lei, transport gratuit, și plătești la livrare. Apasă acum pe Comandă."
+ },
+ "V10": {
+  "img": "UGC05",
+  "voice": [
+   "Chris",
+   "iP95p4xoKVk53GoZ742B"
+  ],
+  "hook": "STAI!<br><span>Nu da scroll.</span>",
+  "caps": [
+   "O cutie: 66,99 lei",
+   "Cura completă: 190 lei",
+   "Transport GRATUIT",
+   "N-ai ce pierde"
+  ],
+  "text": "Stai, nu da mai departe. Asta e pentru bărbații care s-au săturat să se trezească noaptea. Prosta Complex, de la Novensa. Un supliment lichid, cu ingrediente naturale, care susține sănătatea prostatei și funcția urinară și contribuie la reducerea disconfortului. O cutie costă șaizeci și șase de lei și nouăzeci și nouă de bani. Dar cura completă, de trei cutii, e doar o sută nouăzeci de lei, și transportul e gratuit. Plătești la livrare, deci n-ai ce pierde. Apasă pe Comandă acum."
+ }
+}

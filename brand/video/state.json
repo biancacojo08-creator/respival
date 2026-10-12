@@ -1,0 +1,26 @@
+{
+ "img": {
+  "UGC01": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/96b3816e19c5bb624dc015fabe809621.jpeg",
+  "UGC02": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/28e8ad6d2b231e6f16bda53ed0d60cc0.jpeg",
+  "UGC03": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/755f49b0ff6104321259d2be7079bec3.jpeg",
+  "UGC04": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/a123f0cdef464ed769683eb12601fd51.jpeg",
+  "UGC05": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/3fbb34b1653eb5d6c5c19f2d620e9fb7.jpeg"
+ },
+ "audio": {
+  "V01": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/6df7fd62ca53242c253c324c62df9fee.mp3",
+  "V02": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/634fa5a5a98da0c5b752ff07724d0525.mp3",
+  "V03": "https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/cba478b50baa7acd4afaae1eae3b065f.mp3"
+ },
+ "video_req": {
+  "V01": "9ac3b71e53e7695d0401a5c4a8eb5441",
+  "V02": "15ada89ec48a4eeebf0908cd57ca340c",
+  "V03": "fcbf0c7b7cb7566aef4cf0cb83607d94",
+  "V04": "df35e04285ed8ff24fb11d2dfb2cfcee",
+  "V07": "cb497a573ce782c98f89d287054902ac",
+  "V08": "9d1041c4476d102614df6186af85e147",
+  "V09": "61bd3f536efb235c21af618b22449742",
+  "V10": "5a6c373fcde8b0486c8a5e7cd3fdad6d",
+  "V05": "0700798ca97cc3fb3fa573870be60622",
+  "V06": "fbb7e29c92cf2bfd4ef830b8193fc588"
+ }
+}
