@@ -18,10 +18,10 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
 <ol>
 <li>Apasă <b>Copiază tot codul</b>.</li>
 <li>În Shopify, deschide <b>sections/novensa-premium-home.liquid</b>, apasă <b>Cmd+A</b> (selectează tot) și apoi <b>Cmd+V</b>.</li>
-<li>Verifică: ultima linie trebuie să fie <b>{% endschema %}</b> (linia 299). Apasă <b>Save</b>.</li>
+<li>Verifică: ultima linie trebuie să fie <b>{% endschema %}</b> (linia 309). Apasă <b>Save</b>.</li>
 <li>Reîncarcă pagina Customize și caută <b>Novensa</b> la Add section.</li>
 </ol>
-<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">299 de linii</span></div>
+<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">309 de linii</span></div>
 <textarea id="code" readonly spellcheck="false">{%- comment -%}
   Novensa — pagina principală premium (o singură secțiune).
   Instalare: Online Store → Themes → … → Edit code → Sections → Add a new section
@@ -87,8 +87,14 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
 
   .nv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .nv-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
-  .nv-card .ph{background:var(--tile);aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;padding:26px}
-  .nv-card .ph img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+  .nv-card .ph{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border-bottom:1px solid var(--line)}
+  .nv-card .ph img{height:100%;width:100%;display:block}
+  .nv--ph-white .nv-card .ph{background:#FFFFFF;padding:18px}
+  .nv--ph-white .nv-card .ph img{object-fit:contain}
+  .nv--ph-tint .nv-card .ph{background:var(--tile);padding:18px}
+  .nv--ph-tint .nv-card .ph img{object-fit:contain;mix-blend-mode:multiply}
+  .nv--ph-full .nv-card .ph{background:#FFFFFF;padding:0}
+  .nv--ph-full .nv-card .ph img{object-fit:cover}
   .nv-card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .nv-card h3{font-size:28px}
   .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5}
@@ -134,7 +140,7 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
   @media (max-width:480px){.nv-q .w,.nv-steps{grid-template-columns:1fr}}
 &lt;/style&gt;
 
-&lt;div class=&quot;nv nv--{{ section.settings.palette }}&quot;&gt;
+&lt;div class=&quot;nv nv--{{ section.settings.palette }} nv--ph-{{ section.settings.card_bg }}&quot;&gt;
 
   {%- comment -%} HERO {%- endcomment -%}
   &lt;section class=&quot;nv-hero&quot; style=&quot;padding-block:0&quot;&gt;&lt;div class=&quot;w&quot;&gt;
@@ -281,6 +287,10 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
     { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact3_label&quot;, &quot;label&quot;: &quot;Text cifra 3&quot;, &quot;default&quot;: &quot;produse în laboratoare certificate din România&quot; },
     { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Produse&quot; },
     { &quot;type&quot;: &quot;collection&quot;, &quot;id&quot;: &quot;collection&quot;, &quot;label&quot;: &quot;Colecția afișată&quot; },
+    { &quot;type&quot;: &quot;select&quot;, &quot;id&quot;: &quot;card_bg&quot;, &quot;label&quot;: &quot;Fundal poze produse&quot;, &quot;default&quot;: &quot;white&quot;, &quot;options&quot;: [
+      { &quot;value&quot;: &quot;white&quot;, &quot;label&quot;: &quot;Alb&quot; },
+      { &quot;value&quot;: &quot;full&quot;, &quot;label&quot;: &quot;Poza pe tot cardul&quot; },
+      { &quot;value&quot;: &quot;tint&quot;, &quot;label&quot;: &quot;Gri foarte deschis&quot; } ] },
     { &quot;type&quot;: &quot;range&quot;, &quot;id&quot;: &quot;product_limit&quot;, &quot;label&quot;: &quot;Câte produse&quot;, &quot;min&quot;: 3, &quot;max&quot;: 12, &quot;step&quot;: 3, &quot;default&quot;: 6 },
     { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Produs vedetă&quot; },
     { &quot;type&quot;: &quot;product&quot;, &quot;id&quot;: &quot;spotlight&quot;, &quot;label&quot;: &quot;Produs&quot; },
@@ -325,7 +335,7 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
 <script>
 const t=document.getElementById('code'),s=document.getElementById('st');
 document.getElementById('cp').addEventListener('click',()=>{
-  navigator.clipboard.writeText(t.value).then(()=>{s.textContent='Copiat: 299 de linii. Lipește în Shopify cu Cmd+V.'})
+  navigator.clipboard.writeText(t.value).then(()=>{s.textContent='Copiat: 309 de linii. Lipește în Shopify cu Cmd+V.'})
   .catch(()=>{t.focus();t.select();s.textContent='Codul e selectat. Apasă Cmd+C, apoi lipește în Shopify.'});
 });
 </script>

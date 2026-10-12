@@ -63,8 +63,14 @@
 
   .nv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .nv-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
-  .nv-card .ph{background:var(--tile);aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;padding:26px}
-  .nv-card .ph img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+  .nv-card .ph{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden;border-bottom:1px solid var(--line)}
+  .nv-card .ph img{height:100%;width:100%;display:block}
+  .nv--ph-white .nv-card .ph{background:#FFFFFF;padding:18px}
+  .nv--ph-white .nv-card .ph img{object-fit:contain}
+  .nv--ph-tint .nv-card .ph{background:var(--tile);padding:18px}
+  .nv--ph-tint .nv-card .ph img{object-fit:contain;mix-blend-mode:multiply}
+  .nv--ph-full .nv-card .ph{background:#FFFFFF;padding:0}
+  .nv--ph-full .nv-card .ph img{object-fit:cover}
   .nv-card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
   .nv-card h3{font-size:28px}
   .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5}
@@ -110,7 +116,7 @@
   @media (max-width:480px){.nv-q .w,.nv-steps{grid-template-columns:1fr}}
 </style>
 
-<div class="nv nv--{{ section.settings.palette }}">
+<div class="nv nv--{{ section.settings.palette }} nv--ph-{{ section.settings.card_bg }}">
 
   {%- comment -%} HERO {%- endcomment -%}
   <section class="nv-hero" style="padding-block:0"><div class="w">
@@ -257,6 +263,10 @@
     { "type": "text", "id": "fact3_label", "label": "Text cifra 3", "default": "produse în laboratoare certificate din România" },
     { "type": "header", "content": "Produse" },
     { "type": "collection", "id": "collection", "label": "Colecția afișată" },
+    { "type": "select", "id": "card_bg", "label": "Fundal poze produse", "default": "white", "options": [
+      { "value": "white", "label": "Alb" },
+      { "value": "full", "label": "Poza pe tot cardul" },
+      { "value": "tint", "label": "Gri foarte deschis" } ] },
     { "type": "range", "id": "product_limit", "label": "Câte produse", "min": 3, "max": 12, "step": 3, "default": 6 },
     { "type": "header", "content": "Produs vedetă" },
     { "type": "product", "id": "spotlight", "label": "Produs" },
