@@ -158,6 +158,10 @@ dl.gl dd{margin:2px 0 0;color:var(--muted);font-size:15px}
 .check li::before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border:1.5px solid var(--muted);border-radius:3px}
 .src{font-size:14px;color:var(--muted)}
 .src li{margin-bottom:6px}
+.part-head{padding-block:64px 8px;border-bottom:1px solid var(--line)}
+.toc .sep{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 8px 4px}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.opts button:disabled,#dr-btns button:disabled{cursor:default;opacity:.85}
 @media (max-width:900px){
   .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-inline:16px}
   nav.toc{position:static;max-height:none;padding-block:16px 0;border-bottom:1px solid var(--line)}
@@ -171,7 +175,7 @@ html{scroll-behavior:smooth}
 <div class="wrap">
 <nav class="toc" aria-label="Cuprins">
   <div class="brand">Trading de la Zero</div>
-  <div class="prog" id="progtxt">0 din 13 module terminate</div>
+  <div class="prog" id="progtxt">0 din 24 de module terminate</div>
   <div class="bar"><i id="progbar"></i></div>
   <ol id="toclist">
     <li><a href="#m0"><span class="n">00</span>Adevărul despre trading</a></li>
@@ -187,6 +191,18 @@ html{scroll-behavior:smooth}
     <li><a href="#m10"><span class="n">10</span>Strategie și plan</a></li>
     <li><a href="#m11"><span class="n">11</span>Psihologia trader-ului</a></li>
     <li><a href="#m12"><span class="n">12</span>Practică, taxe, drumul tău</a></li>
+    <li class="sep">Partea a II-a · practică</li>
+    <li><a href="#m13"><span class="n">13</span>Platforma, pas cu pas</a></li>
+    <li><a href="#m14"><span class="n">14</span>Gestionarea tranzacției</a></li>
+    <li><a href="#m15"><span class="n">15</span>Încă trei strategii</a></li>
+    <li><a href="#m16"><span class="n">16</span>Analiza top-down</a></li>
+    <li><a href="#m17"><span class="n">17</span>Cerere, ofertă, lichiditate</a></li>
+    <li><a href="#m18"><span class="n">18</span>Specificul piețelor</a></li>
+    <li><a href="#m19"><span class="n">19</span>Sala de antrenament</a></li>
+    <li><a href="#m20"><span class="n">20</span>Statisticile jurnalului</a></li>
+    <li><a href="#m21"><span class="n">21</span>Capcane și fraude</a></li>
+    <li><a href="#m22"><span class="n">22</span>Declarația Unică</a></li>
+    <li><a href="#m23"><span class="n">23</span>Investiții în ETF-uri</a></li>
     <li><a href="#gloss"><span class="n">A–Z</span>Glosar</a></li>
   </ol>
   <div class="tools">
@@ -199,10 +215,10 @@ html{scroll-behavior:smooth}
   <div class="kicker">Curs gratuit · nivel începător → intermediar</div>
   <h1>Trading de la zero, explicat pe bune</h1>
   <p class="lead">Tot ce ai plăti într-un curs de început: cum funcționează piața, cum citești un grafic, ce înseamnă fiecare termen, cum îți calculezi riscul și cum îți construiești un plan. Cu grafice, exemple numerice, quiz-uri și calculatoare.</p>
-  <div class="meta"><span>13 module + glosar</span><span>~6–8 ore de citit</span><span>45 de întrebări de verificare</span><span>3 calculatoare</span></div>
+  <div class="meta"><span>24 de module + glosar</span><span>~12–14 ore de studiu</span><span>78 de întrebări de verificare</span><span>8 exerciții pe grafice</span><span>6 instrumente interactive</span></div>
   <figure class="hero-chart"><div class="chart" id="ch-hero"></div>
   <figcaption><b>Un grafic cu lumânări japoneze.</b> Fiecare lumânare arată prețul de deschidere, maximul, minimul și închiderea pe o perioadă. Linia albastră e o medie mobilă. Până la finalul cursului vei ști să citești tot ce e pe el.</figcaption></figure>
-  <p class="col" style="font-size:15px;color:var(--muted)">Cum să folosești cursul: citește modulele în ordine, rezolvă quiz-ul de la finalul fiecăruia și bifează „Am terminat”. Progresul se salvează în browserul tău. Butonul <b>Mod prezentare</b> îți arată recapitularea pe slide-uri. Tot ce găsești aici e material educativ, nu sfat de investiții.</p>
+  <p class="col" style="font-size:15px;color:var(--muted)">Partea I (modulele 0–12) e teoria de bază. Partea a II-a (13–23) e practica: platforma, gestionarea tranzacției, exerciții, statistici, capcane, taxe și investiții. Cum să folosești cursul: citește modulele în ordine, rezolvă quiz-ul de la finalul fiecăruia și bifează „Am terminat”. Progresul se salvează în browserul tău. Butonul <b>Mod prezentare</b> îți arată recapitularea pe slide-uri. Tot ce găsești aici e material educativ, nu sfat de investiții.</p>
 </header>
 
 <!-- ================= MODUL 0 ================= -->
@@ -963,7 +979,8 @@ Dacă e atins stopul: −48 $  |  dacă e atinsă ținta: +96 $</div>
 <li><b>Prin broker străin</b> (inclusiv CFD-uri și forex): calculezi singur câștigul net anual și îl declari în <b>Declarația Unică (D212)</b>, până pe 25 mai a anului următor. Cota pentru 2026 este de 16% (a crescut de la 10%).</li>
 <li><b>Dividendele</b>: impozit de 16% începând cu 2026.</li>
 <li><b>CASS</b> (contribuția la sănătate, 10%) se poate datora dacă totalul veniturilor din investiții depășește pragul de 6 salarii minime pe an.</li>
-<li>Pierderile se pot compensa cu câștigurile în anumite condiții; păstrează rapoartele anuale de la broker.</li>
+<li><b>Criptomonedele</b>: tot 16%, declarate de tine.</li>
+<li>Pierderea netă anuală se poate reporta 5 ani. Păstrează rapoartele anuale de la broker. Exemplul complet de calcul e în <a href="#m22">Modulul 22</a>.</li>
 </ul>
 
 <h3>Planul tău de 90 de zile</h3>
@@ -971,14 +988,621 @@ Dacă e atins stopul: −48 $  |  dacă e atinsă ținta: +96 $</div>
 <tr><th>Perioada</th><th>Ce faci</th><th>Rezultat</th></tr>
 <tr><td><b>Săpt. 1–2</b></td><td>Modulele 0–4. Cont gratuit TradingView. Desenează trenduri, suporturi și rezistențe pe 5 piețe, zilnic.</td><td>Recunoști structura pieței</td></tr>
 <tr><td><b>Săpt. 3–4</b></td><td>Modulele 5–8. Adaugă EMA 20/50 și RSI. Notează în fiecare duminică știrile săptămânii.</td><td>Citești un grafic complet</td></tr>
-<tr><td><b>Săpt. 5–6</b></td><td>Modulele 9–11. Scrie planul de tranzacționare de o pagină. Alege o singură strategie.</td><td>Plan scris</td></tr>
-<tr><td><b>Săpt. 7–9</b></td><td>Backtesting manual: 100 de tranzacții pe Bar Replay, toate în jurnal.</td><td>Știi speranța strategiei</td></tr>
+<tr><td><b>Săpt. 5–6</b></td><td>Modulele 9–11 și 13–18. Fă-ți cont demo, exersează ordinele (Modulul 13). Scrie planul de tranzacționare de o pagină. Alege o singură strategie.</td><td>Plan scris</td></tr>
+<tr><td><b>Săpt. 7–9</b></td><td>Exercițiile din Modulul 19, apoi backtesting manual: 100 de tranzacții pe Bar Replay, toate în jurnal. Analizează-le cu Modulul 20.</td><td>Știi speranța strategiei</td></tr>
 <tr><td><b>Săpt. 10–13</b></td><td>Paper trading pe demo: minimum 30–50 de tranzacții reale în timp, cu reguli stricte.</td><td>Știi dacă poți executa planul</td></tr>
 <tr><td><b>După</b></td><td>Doar dacă speranța e pozitivă în ambele teste: cont real mic, risc 0,5% pe tranzacție, cel puțin 3 luni.</td><td>Experiență cu bani reali, risc mic</td></tr>
 </table></div>
 <p>Dacă speranța nu iese pozitivă, nu treci la bani reali. Revii la jurnal, ajustezi o singură regulă și testezi din nou. Și reține că investiția regulată într-un ETF diversificat e o alternativă perfect legitimă la trading.</p>
 </div>
 <div class="quiz" data-quiz="m12"></div>
+</section>
+
+
+<!-- ================= PARTEA II ================= -->
+<div class="part-head" id="partea2">
+<div class="eyebrow">Partea a II-a</div>
+<h2 style="font-size:clamp(32px,5vw,48px)">De la teorie la practică</h2>
+<p class="col" style="color:var(--muted)">Modulele 13–23 te duc din „știu ce înseamnă” în „știu ce fac”: platforma, gestionarea tranzacției, mai multe strategii, exerciții pe grafice, statistici, capcane, taxe și alternativa investițiilor pe termen lung.</p>
+</div>
+
+<!-- ================= MODUL 13 ================= -->
+<section class="mod" id="m13">
+<div class="eyebrow">Modulul 13 · 45 min · practic</div>
+<h2>Platforma, pas cu pas</h2>
+<p class="goal">Ce afli: cum îți faci un cont demo, ce înseamnă fiecare cifră din contul tău, cum completezi corect un ordin și cum folosești TradingView pentru analiză.</p>
+<div class="col">
+<h3>Ce îți trebuie (gratuit)</h3>
+<ol>
+<li><b>TradingView</b> (tradingview.com), cont gratuit: pentru analiză, desenat, Bar Replay și paper trading.</li>
+<li><b>Un cont demo la un broker reglementat</b>: pentru a exersa execuția exact ca în realitate (spread, swap, marjă). Verifică brokerul în registrul ASF sau în registrul ESMA înainte să-ți faci cont.</li>
+</ol>
+<h4>Cum deschizi un cont demo (pașii sunt aproape identici la toți brokerii)</h4>
+<ol>
+<li>Pe site-ul brokerului alegi „Cont demo” sau „Try demo”. Nu ai nevoie de buletin și nu depui bani.</li>
+<li>Alegi moneda contului (EUR, USD sau RON) și suma virtuală. <b>Alege o sumă realistă</b>, apropiată de cât ai investi efectiv (ex: 2.000–5.000 €), nu 100.000. Altfel exersezi un risc pe care nu-l vei avea.</li>
+<li>Alegi platforma: cea web a brokerului, aplicația de mobil sau MetaTrader 4/5 (MT4/MT5), o platformă foarte răspândită în forex.</li>
+<li>Dacă brokerul te sună ulterior să „treci pe real” sau să depui bani, spune nu. Treci pe real doar după planul din Modulul 12.</li>
+</ol>
+
+<h3>Anatomia unei platforme</h3>
+<figure><div class="chart" id="ch-platform"></div>
+<figcaption><b>Zonele pe care le are orice platformă</b>, indiferent de broker: lista de instrumente (1), graficul (2), fereastra de ordin (3), pozițiile deschise și ordinele în așteptare (4), bara de cont (5).</figcaption></figure>
+
+<h3>Cifrele contului tău</h3>
+<div class="box def"><span class="lbl">Definiții</span>
+<p><span class="term">Sold</span> <span class="en">balance</span> — banii din cont fără pozițiile deschise. Se schimbă doar când închizi o poziție.</p>
+<p><span class="term">Capital</span> <span class="en">equity</span> — soldul plus profitul/pierderea pozițiilor deschise. Asta e valoarea reală a contului în acest moment.</p>
+<p><span class="term">Marjă folosită</span> <span class="en">used margin</span> — garanția blocată pentru pozițiile deschise.</p>
+<p><span class="term">Marjă liberă</span> <span class="en">free margin</span> — capital − marjă folosită. Cât mai poți folosi pentru poziții noi.</p>
+<p><span class="term">Nivel de marjă</span> <span class="en">margin level</span> — capital ÷ marjă folosită × 100%. Dacă scade la 50%, brokerul începe să-ți închidă pozițiile (stop out, în UE).</p></div>
+<div class="calc">Sold: 5.000 €   Poziție deschisă: 0,20 loturi EUR/USD, în pierdere cu 80 €
+Capital       = 5.000 − 80 = 4.920 €
+Marjă folosită = 20.000 € / 30 = 667 €
+Marjă liberă   = 4.920 − 667 = 4.253 €
+Nivel de marjă = 4.920 / 667 × 100 = 738%   (foarte departe de 50%, e în regulă)</div>
+
+<h3>Completează un ordin: simulator</h3>
+<p>Mai jos e o fereastră de ordin generică, la fel ca la orice broker. Prețul curent EUR/USD e <b>Bid 1,0850 / Ask 1,0852</b>. Alege o sarcină, completează ordinul și apasă butonul. Simulatorul îți spune exact ce ai greșit.</p>
+<div class="tool" id="ticket">
+<h4>Fereastra de ordin</h4>
+<div class="seg" role="group" aria-label="Sarcina" id="tk-tasks"></div>
+<div class="box ex" id="tk-task" style="margin-top:0"></div>
+<div class="fields">
+<label>Instrument<select id="tk-sym"><option>EUR/USD</option><option>GBP/USD</option><option>US500</option></select></label>
+<label>Tip ordin<select id="tk-type"><option value="market">Market (acum)</option><option value="limit">Limit</option><option value="stop">Stop</option></select></label>
+<label>Volum (loturi)<input id="tk-vol" type="number" step="0.01" min="0.01" value="0.01"></label>
+<label id="tk-l-price">Preț ordin<input id="tk-price" type="number" step="0.0001" value=""></label>
+<label>Stop loss<input id="tk-sl" type="number" step="0.0001" value=""></label>
+<label>Take profit<input id="tk-tp" type="number" step="0.0001" value=""></label>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" id="tk-sell" class="tk-btn" style="border-color:var(--down);color:var(--down);font-weight:600">SELL · 1,0850</button><button type="button" id="tk-buy" class="tk-btn" style="border-color:var(--up);color:var(--up);font-weight:600">BUY · 1,0852</button></div>
+<div class="out" id="tk-info" style="margin-top:12px"></div>
+<div class="fb" id="tk-fb" aria-live="polite" style="font-size:15px"></div>
+</div>
+<div class="box warn"><span class="lbl">După ce ai trimis un ordin</span><p>Verifică întotdeauna în fereastra de poziții că apar <b>SL și TP</b>, că volumul e cel corect și că direcția e cea dorită. Cea mai frecventă greșeală a începătorilor e volumul greșit (1,00 în loc de 0,10 = poziție de 10 ori mai mare).</p></div>
+
+<h3>TradingView: ce folosești de la început</h3>
+<div class="tbl"><table>
+<tr><th>Funcție</th><th>Unde</th><th>La ce folosește</th></tr>
+<tr><td><b>Simbol și interval</b></td><td>Scrii direct pe grafic numele (ex: EURUSD); intervalul din bara de sus (1D, 4h)</td><td>Schimbi instrumentul și timeframe-ul</td></tr>
+<tr><td><b>Linie orizontală</b></td><td>Bara de desen din stânga sau Alt+H</td><td>Suport și rezistență</td></tr>
+<tr><td><b>Linie de trend</b></td><td>Bara de desen sau Alt+T</td><td>Trenduri și canale</td></tr>
+<tr><td><b>Dreptunghi</b></td><td>Bara de desen, la forme</td><td>Zone de suport/rezistență, cerere/ofertă</td></tr>
+<tr><td><b>Fib Retracement</b></td><td>Bara de desen sau Alt+F</td><td>Niveluri Fibonacci</td></tr>
+<tr><td><b>Indicatori</b></td><td>Butonul „Indicators” din bara de sus</td><td>EMA, RSI, MACD, ATR, volum</td></tr>
+<tr><td><b>Long / Short Position</b></td><td>Bara de desen, la instrumentele de prognoză</td><td>Desenezi intrarea, stopul și ținta; îți arată R:R</td></tr>
+<tr><td><b>Bar Replay</b></td><td>Butonul „Replay” din bara de sus</td><td>Backtesting lumânare cu lumânare</td></tr>
+<tr><td><b>Paper Trading</b></td><td>Panoul „Trading Panel” de jos</td><td>Ordine simulate direct pe grafic</td></tr>
+<tr><td><b>Alerte</b></td><td>Iconița ceas sau Alt+A</td><td>Primești notificare când prețul atinge un nivel; nu mai stai cu ochii pe grafic</td></tr>
+</table></div>
+<p>Rutina de lucru recomandată: duminică marchezi nivelurile și pui alerte; în timpul săptămânii reacționezi doar la alerte, verifici checklist-ul și plasezi ordinul cu SL și TP.</p>
+</div>
+<div class="quiz" data-quiz="m13"></div>
+</section>
+
+<!-- ================= MODUL 14 ================= -->
+<section class="mod" id="m14">
+<div class="eyebrow">Modulul 14 · 40 min</div>
+<h2>Gestionarea tranzacției deschise</h2>
+<p class="goal">Ce afli: când muți stopul la break-even, cum iei profit parțial, cum folosești un trailing stop, ce faci la știri și weekend și ce nu ai voie să faci niciodată.</p>
+<div class="col">
+<p>Intrarea durează o secundă; tranzacția durează zile. Ce faci între intrare și ieșire schimbă mult rezultatul. Regula de aur: <b>regulile de gestionare se stabilesc înainte de intrare</b> și sunt scrise în plan. Nu le inventezi în timp ce prețul se mișcă.</p>
+
+<h3>Mutarea stopului la break-even</h3>
+<p>Când prețul a mers în favoarea ta cu un anumit prag (de obicei +1R), muți stop loss-ul la prețul de intrare. Din acel moment, tranzacția nu mai poate pierde (cu excepția gap-urilor).</p>
+<figure><div class="chart" id="ch-be"></div>
+<figcaption><b>Prețul atinge +1R, stopul e mutat la intrare</b>. Apoi prețul revine, atinge break-even-ul și te scoate pe zero, iar după aceea urcă până la țintă. Asta e costul break-even-ului: te protejează, dar te scoate și din tranzacții care ar fi câștigat.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Avantaje</th><th>Dezavantaje</th></tr>
+<tr><td>Liniște psihologică; elimini tranzacțiile câștigătoare care se transformă în pierderi</td><td>Mai multe tranzacții închise pe zero care ar fi atins ținta; rata de câștig scade</td></tr>
+</table></div>
+<p>Nu există răspuns universal. Testează în backtest ambele variante (cu și fără break-even la 1R) și păstrează-o pe cea cu speranța mai bună.</p>
+
+<h3>Profitul parțial</h3>
+<div class="calc">Poziție: 0,20 loturi, risc 60 pips = 120 $ (1R)
+La +1R închizi jumătate: 0,10 loturi × 60 pips = +60 $
+Restul de 0,10 loturi: stop mutat la intrare, țintă 3R (180 pips)
+  · dacă atinge ținta:   +60 $ + 0,10 × 180 × 10 $ = +60 + 180 = +240 $ (+2R)
+  · dacă revine la intrare: +60 $ + 0 = +60 $ (+0,5R)
+  · dacă stopul inițial e atins înainte de 1R: −120 $ (−1R)</div>
+<p>Profitul parțial reduce variația rezultatelor și ajută psihologic, dar reduce câștigul maxim. Ca și break-even-ul, se testează.</p>
+
+<h3>Trailing stop: trei metode</h3>
+<figure><div class="chart" id="ch-trail"></div>
+<figcaption><b>Trailing sub minimele de swing</b>: după fiecare nou HL confirmat, stopul urcă sub el (linia în trepte). Trendul te ține în poziție cât timp structura rămâne intactă; ieși când structura se rupe.</figcaption></figure>
+<ul>
+<li><b>Sub minimele de swing</b> (structură): cel mai logic; urmează trendul cât timp face HL.</li>
+<li><b>Sub o medie mobilă</b>: ieși la închiderea unei lumânări sub EMA 20 (trend rapid) sau EMA 50 (trend lent).</li>
+<li><b>Cu ATR</b> (chandelier stop): stop = cel mai mare maxim de la intrare − 3 × ATR. Se adaptează automat la volatilitate.</li>
+</ul>
+<div class="tbl"><table>
+<tr><th>Metodă de ieșire</th><th>Rata de câștig</th><th>Câștig mediu</th><th>Potrivită pentru</th></tr>
+<tr><td>Țintă fixă (2R)</td><td>Medie</td><td>Fix, 2R</td><td>Range, piețe fără trend clar</td></tr>
+<tr><td>Parțial + break-even</td><td>Mai mare</td><td>Mai mic</td><td>Începători, psihologie</td></tr>
+<tr><td>Trailing stop</td><td>Mai mică</td><td>Mare, uneori 5–10R</td><td>Trenduri puternice</td></tr>
+</table></div>
+
+<h3>Alte reguli de gestionare</h3>
+<ul>
+<li><b>Stopul de timp</b> <span class="en">time stop</span>: dacă tranzacția nu s-a mișcat în favoarea ta după N lumânări (ex: 10 pe D1), o închizi. Banii blocați într-o tranzacție moartă pot fi folosiți mai bine.</li>
+<li><b>Știri majore</b>: dacă ai o poziție deschisă și vine o știre mare pe instrumentul tău, ai trei opțiuni scrise în plan: o închizi înainte, o reduci la jumătate sau o ții cu stopul la break-even. Alege una și respect-o.</li>
+<li><b>Weekend</b>: prețul se poate deschide luni cu un gap peste stop. Pe forex și indici e rar mare; pe crypto (24/7) și pe acțiuni cu rezultate în weekend e mai frecvent.</li>
+<li><b>Ieșirea înainte de stop</b>: e permisă doar dacă regula e scrisă (ex: „închid dacă apare o lumânare de înghițire contrară pe D1”). Nu din frică.</li>
+</ul>
+<h3>Adăugarea la o poziție câștigătoare (piramidare)</h3>
+<p>Traderii avansați adaugă la o poziție care merge bine, la noi semnale în trend. Regula: <b>după adăugare, riscul total trebuie să rămână cel mult 1%</b>. Asta înseamnă că stopul primei poziții trebuie mutat mai întâi în profit sau la break-even.</p>
+<div class="box warn"><span class="lbl">Niciodată</span>
+<ul>
+<li>Nu muți stop loss-ul mai departe ca să „dai spațiu” unei tranzacții în pierdere.</li>
+<li>Nu adaugi la o poziție în pierdere (averaging down).</li>
+<li>Nu scoți stop loss-ul „doar pentru câteva minute”.</li>
+</ul></div>
+</div>
+<div class="quiz" data-quiz="m14"></div>
+</section>
+
+<!-- ================= MODUL 15 ================= -->
+<section class="mod" id="m15">
+<div class="eyebrow">Modulul 15 · 50 min</div>
+<h2>Încă trei strategii complete</h2>
+<p class="goal">Ce afli: spargere cu retest, tranzacționare în range și întoarcere de la suport major, fiecare cu reguli exacte, plus în ce tip de piață funcționează fiecare.</p>
+<div class="col">
+<p>Strategia din Modulul 10 (pullback pe EMA) funcționează în trend. Ai nevoie să înțelegi și alte tipuri, ca să știi ce faci când piața nu e în trend sau ca să alegi strategia care ți se potrivește. Toate trei sunt exemple educative: le testezi tu înainte să le folosești.</p>
+
+<h3>A. Spargere cu retest</h3>
+<div class="box def"><span class="lbl">Reguli (long)</span>
+<ol>
+<li><b>Context</b>: un range sau o formațiune (triunghi, dreptunghi) cu cel puțin 2 atingeri clare ale rezistenței, de preferat în direcția trendului de pe intervalul mare.</li>
+<li><b>Spargerea</b>: o lumânare se închide clar peste rezistență, ideal cu volum peste medie. <b>Nu intri încă.</b></li>
+<li><b>Retestul</b>: aștepți revenirea prețului la nivelul spart.</li>
+<li><b>Declanșator</b>: o lumânare de respingere în zona nivelului (fitil jos lung, înghițire bullish).</li>
+<li><b>Stop</b>: sub minimul retestului sau sub nivel cu 0,5–1 ATR.</li>
+<li><b>Țintă</b>: înălțimea range-ului proiectată de la spargere, sau 2R.</li>
+<li><b>Anulare</b>: dacă prețul se închide înapoi adânc în range, spargerea a fost falsă; nu intri.</li>
+</ol></div>
+<figure><div class="chart" id="ch-s-break"></div>
+<figcaption><b>Spargere cu retest</b>: range, spargere cu volum, revenire la nivel, lumânare de respingere, intrare. Dezavantaj: uneori prețul nu mai revine pentru retest și ratezi mișcarea. E prețul plătit pentru filtrarea spargerilor false.</figcaption></figure>
+
+<h3>B. Tranzacționare în range</h3>
+<div class="box def"><span class="lbl">Reguli</span>
+<ol>
+<li><b>Context</b>: un range clar, cu cel puțin 2 atingeri la suport și 2 la rezistență; mediile mobile sunt plate și împletite cu prețul.</li>
+<li><b>Intrare long</b> la suport (sau short la rezistență), doar după o lumânare de respingere închisă în zonă.</li>
+<li><b>Stop</b>: în afara range-ului, dincolo de fitil, cu o marjă de 0,5 ATR.</li>
+<li><b>Țintă</b>: partea opusă a range-ului, minus o mică marjă (prețul nu atinge mereu exact marginea). Dacă R:R până acolo e sub 1:1,5, nu intri.</li>
+<li><b>Nu intri</b> niciodată în mijlocul range-ului.</li>
+<li><b>Ieșire</b>: dacă range-ul se sparge cu închidere, închizi imediat.</li>
+</ol></div>
+<figure><div class="chart" id="ch-s-range"></div>
+<figcaption><b>Range trading</b>: cumperi la suport, vinzi la rezistență, cu stopul în afara range-ului. Funcționează până când range-ul se sparge; de aceea stopul e obligatoriu.</figcaption></figure>
+
+<h3>C. Întoarcere de la un suport major</h3>
+<div class="box def"><span class="lbl">Reguli (long)</span>
+<ol>
+<li><b>Context</b>: prețul a scăzut mult și ajunge la un suport important de pe <b>graficul săptămânal</b> (minim vechi, număr rotund, zonă testată de mai multe ori).</li>
+<li><b>Semne de epuizare</b> (cel puțin două): divergență bullish pe RSI, dublă bază, ciocan sau înghițire bullish pe D1, volum foarte mare la minim.</li>
+<li><b>Confirmare</b>: prețul face primul HL și sparge ultimul LH (schimbarea structurii).</li>
+<li><b>Intrare</b>: la spargerea ultimului LH sau la retestul lui.</li>
+<li><b>Stop</b>: sub minimul absolut al mișcării.</li>
+<li><b>Risc redus</b>: 0,5% în loc de 1%. Tranzacționezi împotriva trendului, deci șansele sunt mai mici.</li>
+<li><b>Țintă</b>: prima rezistență importantă, minimum 2R.</li>
+</ol></div>
+<figure><div class="chart" id="ch-s-rev"></div>
+<figcaption><b>Întoarcere</b>: scădere lungă, dublă bază la suportul major, spargerea ultimului lower high confirmă schimbarea structurii. Intrarea vine după confirmare, nu la „cumpărat minimul”.</figcaption></figure>
+
+<h3>Ce strategie pentru ce piață</h3>
+<div class="tbl"><table>
+<tr><th>Stare a pieței</th><th>Cum o recunoști</th><th>Strategie potrivită</th><th>Ce să eviți</th></tr>
+<tr><td>Trend puternic</td><td>HH/HL clare, prețul peste EMA 20 și 50, mediile înclinate</td><td>Pullback pe EMA (Modulul 10), steaguri</td><td>Short la „supracumpărat”</td></tr>
+<tr><td>Range</td><td>Atingeri repetate sus și jos, medii plate</td><td>Range trading</td><td>Spargeri fără confirmare</td></tr>
+<tr><td>Ieșire din range</td><td>Strângere Bollinger, triunghi, volum în creștere</td><td>Spargere cu retest</td><td>Intrarea în mijlocul consolidării</td></tr>
+<tr><td>Final de trend</td><td>Divergențe, formațiuni de întoarcere la nivel major</td><td>Întoarcere, cu risc redus</td><td>„Prinderea cuțitului care cade” fără confirmare</td></tr>
+</table></div>
+<div class="box warn"><span class="lbl">Sfat</span><p>Nu încerca toate strategiile deodată. Alege <b>una</b>, testeaz-o 100 de tranzacții, tranzacționeaz-o pe demo, și abia după ce o stăpânești adaugă a doua. Traderii constanți folosesc de obicei 1–3 setup-uri pe care le cunosc foarte bine.</p></div>
+</div>
+<div class="quiz" data-quiz="m15"></div>
+</section>
+
+<!-- ================= MODUL 16 ================= -->
+<section class="mod" id="m16">
+<div class="eyebrow">Modulul 16 · 30 min</div>
+<h2>Analiza pe mai multe intervale, de la cap la coadă</h2>
+<p class="goal">Ce afli: analiza „de sus în jos” pe trei intervale, cu un exemplu complet, și ce combinații de intervale să folosești.</p>
+<div class="col">
+<p>Analiza <b>de sus în jos</b> <span class="en">top-down analysis</span> folosește trei intervale, fiecare cu un rol:</p>
+<div class="tbl"><table>
+<tr><th>Interval</th><th>Rol</th><th>Întrebarea</th></tr>
+<tr><td><b>Mare</b> (ex: W1)</td><td>Direcția</td><td>„Încotro merge piața și unde sunt nivelurile majore?”</td></tr>
+<tr><td><b>Mediu</b> (ex: D1)</td><td>Setup-ul</td><td>„Am o situație din strategia mea, în direcția intervalului mare?”</td></tr>
+<tr><td><b>Mic</b> (ex: H4)</td><td>Momentul</td><td>„Unde exact intru și unde pun stopul?”</td></tr>
+</table></div>
+<p>Regula uzuală: între intervale e un factor de <b>4–6</b>. Combinații: W1 / D1 / H4 (swing), D1 / H4 / H1 (swing scurt), H4 / H1 / M15 (day trading).</p>
+
+<h3>Exemplul complet</h3>
+<figure><div class="chart" id="ch-mtf-w"></div>
+<figcaption><b>Pasul 1, W1 (săptămânal)</b>: trend ascendent clar (HH, HL). Prețul corectează spre zona fostei rezistențe, acum suport (1,0800–1,0830). Concluzie: caut doar long-uri, în zona marcată.</figcaption></figure>
+<figure><div class="chart" id="ch-mtf-d"></div>
+<figcaption><b>Pasul 2, D1 (zilnic)</b>: prețul a intrat în zona de suport de pe W1 după o corecție. Corecția are forma unui mic canal descendent. Concluzie: am un setup de pullback la suport; aștept semnalul de intrare.</figcaption></figure>
+<figure><div class="chart" id="ch-mtf-h"></div>
+<figcaption><b>Pasul 3, H4</b>: în zona de suport, prețul face un HL și sparge linia de trend descendentă a corecției. Intrare la retest, stop sub minimul de pe H4, țintă la ultimul maxim de pe D1. Pe H4 stopul e mult mai strâns decât ar fi fost pe D1, deci R:R e mai bun pentru același risc de 1%.</figcaption></figure>
+<div class="box warn"><span class="lbl">Capcane</span>
+<ul>
+<li><b>Conflictul de intervale</b>: dacă W1 e în uptrend și H4 îți dă un short frumos, nu-l lua. Intervalul mare câștigă.</li>
+<li><b>Prea multe intervale</b>: dacă te uiți la M1, M5, M15, H1, H4 și D1, găsești mereu un motiv și pentru long, și pentru short. Trei ajung.</li>
+<li>Coboară pe intervalul mic doar când prețul e deja în zona de interes de pe intervalul mare.</li>
+</ul></div>
+</div>
+<div class="quiz" data-quiz="m16"></div>
+</section>
+
+<!-- ================= MODUL 17 ================= -->
+<section class="mod" id="m17">
+<div class="eyebrow">Modulul 17 · 40 min · intermediar</div>
+<h2>Cerere, ofertă și lichiditate</h2>
+<p class="goal">Ce afli: zonele de cerere și ofertă, unde stau stopurile și de ce prețul le „vânează”, ce sunt FVG, order block, BOS și CHoCH și ce e adevărat și ce e mit în „Smart Money Concepts”.</p>
+<div class="col">
+<h3>Zonele de cerere și ofertă</h3>
+<div class="box def"><span class="lbl">Definiții</span>
+<p><span class="term">Zonă de cerere</span> <span class="en">demand zone</span> — o zonă de unde prețul a pornit <b>brusc în sus</b>. Probabil au rămas acolo ordine de cumpărare neexecutate.</p>
+<p><span class="term">Zonă de ofertă</span> <span class="en">supply zone</span> — o zonă de unde prețul a pornit brusc în jos.</p>
+<p><span class="term">Baza</span> <span class="en">base</span> — cele câteva lumânări mici, de consolidare, chiar înainte de mișcarea bruscă. Zona se desenează în jurul bazei.</p></div>
+<figure><div class="chart" id="ch-sd"></div>
+<figcaption><b>Zonă de cerere</b>: o bază de 3 lumânări mici, urmată de o plecare explozivă în sus. Când prețul revine pentru prima dată în zonă, adesea reacționează din nou.</figcaption></figure>
+<p>Cum evaluezi o zonă (cu cât mai multe, cu atât mai bine):</p>
+<ul>
+<li><b>Plecare puternică</b>: lumânări mari, în aceeași direcție, imediat după bază.</li>
+<li><b>Bază scurtă</b>: 1–4 lumânări. O bază lungă e de fapt un range.</li>
+<li><b>Zonă proaspătă</b> <span class="en">fresh</span>: prețul nu a revenit încă în ea. Fiecare test consumă ordinele rămase.</li>
+<li><b>În direcția trendului mare</b>.</li>
+</ul>
+<p>Zonele de cerere/ofertă sunt, în esență, o variantă mai precisă a suportului și rezistenței: în loc de „unde s-a întors prețul de multe ori”, întrebi „de unde a plecat prețul cu forță”.</p>
+
+<h3>Lichiditatea: unde stau stopurile</h3>
+<p>Ca să cumpere o poziție mare, o instituție are nevoie de vânzători. Cei mai mulți vânzători apar în locurile unde se declanșează ordinele de tip stop. Stopurile se adună în locuri previzibile:</p>
+<ul>
+<li>sub minime egale (<i>equal lows</i>) și peste maxime egale (<i>equal highs</i>);</li>
+<li>sub suporturi și peste rezistențe evidente;</li>
+<li>la numere rotunde;</li>
+<li>la maximul/minimul zilei sau al săptămânii anterioare.</li>
+</ul>
+<figure><div class="chart" id="ch-sweep"></div>
+<figcaption><b>Măturarea lichidității</b> <span class="en">liquidity sweep / stop hunt</span>: două maxime egale atrag stopurile vânzătorilor short și ordinele buy stop ale celor care vor să cumpere „spargerea”. Prețul trece scurt peste ele, umple ordinele, apoi se întoarce. E aceeași idee ca spargerea falsă din Modulul 4.</figcaption></figure>
+<div class="box ex"><span class="lbl">Ce înveți de aici pentru stopul tău</span><p>Nu-ți pune stopul exact sub un minim evident sau exact la număr rotund. Pune-l puțin mai jos, cu o marjă (ex: 0,3–0,5 ATR), și recalculează mărimea poziției. Și nu cumpăra prima atingere a unei spargeri peste maxime egale; așteaptă închiderea și retestul.</p></div>
+
+<h3>Termenii „Smart Money Concepts” (SMC)</h3>
+<p>Vei întâlni des acești termeni pe YouTube și TikTok. Iată ce înseamnă, pe limba Modulelor 4–7:</p>
+<div class="tbl"><table>
+<tr><th>Termen SMC</th><th>Ce înseamnă</th><th>Echivalent clasic</th></tr>
+<tr><td><b>BOS</b> <span class="en">break of structure</span></td><td>Prețul sparge ultimul vârf în direcția trendului</td><td>Un nou HH (uptrend) sau LL (downtrend)</td></tr>
+<tr><td><b>CHoCH</b> <span class="en">change of character</span></td><td>Prima spargere împotriva trendului</td><td>Spargerea ultimului HL; posibil sfârșit de trend</td></tr>
+<tr><td><b>Order block</b></td><td>Ultima lumânare de sens opus înainte de o mișcare puternică</td><td>Baza unei zone de cerere/ofertă</td></tr>
+<tr><td><b>FVG</b> <span class="en">fair value gap</span>, imbalance</td><td>Un gol între maximul lumânării 1 și minimul lumânării 3, lăsat de o lumânare 2 foarte mare</td><td>Mișcare impulsivă; prețul revine adesea să-l „umple” parțial</td></tr>
+<tr><td><b>Liquidity sweep</b></td><td>Prețul trece scurt de un maxim/minim evident și se întoarce</td><td>Spargere falsă</td></tr>
+<tr><td><b>Premium / discount</b></td><td>Peste / sub 50% din ultimul impuls</td><td>Retragerea Fibonacci de 50%</td></tr>
+</table></div>
+<figure><div class="chart" id="ch-fvg"></div>
+<figcaption><b>FVG</b>: între maximul lumânării 1 și minimul lumânării 3 rămâne un spațiu prin care prețul a trecut foarte repede (zona colorată). Prețul revine adesea în această zonă înainte să continue.</figcaption></figure>
+<div class="box warn"><span class="lbl">Mituri</span>
+<ul>
+<li>„Băncile îți vânează personal stopul.” Nu. Stopurile tuturor se adună în aceleași locuri, iar prețul trece pe acolo pentru că acolo sunt ordinele.</li>
+<li>„SMC are win rate de 80–90%.” Nicio metodă nu are. Conceptele sunt utile, dar sunt tot suport/rezistență, structură și spargeri false, cu alte nume.</li>
+<li>Fiecare termen nou nu adaugă un avantaj nou. Testează ca pe orice strategie.</li>
+</ul></div>
+</div>
+<div class="quiz" data-quiz="m17"></div>
+</section>
+
+<!-- ================= MODUL 18 ================= -->
+<section class="mod" id="m18">
+<div class="eyebrow">Modulul 18 · 45 min</div>
+<h2>Specificul fiecărei piețe</h2>
+<p class="goal">Ce afli: ce mișcă forex-ul, acțiunile, indicii, aurul, petrolul și crypto, plus particularitățile la care trebuie să fii atent pe fiecare.</p>
+<div class="col">
+<div class="tbl"><table>
+<tr><th>Piață</th><th>Program (ora RO)</th><th>Volatilitate</th><th>Ce o mișcă</th><th>Pentru începători</th></tr>
+<tr><td><b>Forex majore</b></td><td>24/5</td><td>Mică–medie</td><td>Dobânzi, inflație, date economice</td><td>Da: lichid, spread mic</td></tr>
+<tr><td><b>Indici</b> (S&amp;P 500, DAX)</td><td>Aproape 24/5 prin CFD/futures; cel mai activ la deschiderea bursei</td><td>Medie</td><td>Economie, dobânzi, rezultate ale marilor companii</td><td>Da</td></tr>
+<tr><td><b>Acțiuni</b></td><td>Programul bursei</td><td>Medie–mare</td><td>Rezultatele companiei, sectorul, piața generală</td><td>Da, cu atenție la rezultate</td></tr>
+<tr><td><b>Aur</b></td><td>Aproape 24/5</td><td>Mare</td><td>Dolarul, dobânzile reale, frica</td><td>După ce ai experiență</td></tr>
+<tr><td><b>Petrol</b></td><td>Aproape 24/5</td><td>Mare</td><td>OPEC+, stocuri, geopolitică</td><td>După ce ai experiență</td></tr>
+<tr><td><b>Crypto</b></td><td>24/7</td><td>Foarte mare</td><td>Sentiment, lichiditate, reglementare</td><td>Doar cu sume foarte mici</td></tr>
+</table></div>
+
+<h3>Forex</h3>
+<ul>
+<li><b>Moneda de bază și moneda cotată</b>: în EUR/USD = 1,0850, EUR e moneda de bază, USD e cea cotată. 1 euro costă 1,0850 dolari. Când cumperi EUR/USD, cumperi euro și vinzi dolari.</li>
+<li><b>Majore</b>: perechile cu USD și o monedă importantă (EUR/USD, GBP/USD, USD/JPY, USD/CHF, AUD/USD, USD/CAD, NZD/USD). <b>Minore (cross-uri)</b>: fără USD (EUR/GBP, EUR/JPY). <b>Exotice</b>: cu monede ale piețelor emergente (USD/TRY, EUR/RON). Exoticele au spread mare și swap mare.</li>
+<li><b>Motorul principal</b>: diferența de dobândă dintre cele două țări și așteptările legate de ea.</li>
+<li><b>Monede legate de mărfuri</b>: AUD (minereu, aur), CAD (petrol), NZD (produse agricole).</li>
+<li><b>Monede de refugiu</b>: USD, JPY, CHF se apreciază de obicei când piețele intră în panică.</li>
+</ul>
+<h4>Corelații uzuale (aproximative, se schimbă în timp)</h4>
+<div class="tbl"><table>
+<tr><th>Pereche</th><th>Corelație tipică</th><th>Ce înseamnă pentru tine</th></tr>
+<tr><td>EUR/USD și GBP/USD</td><td class="pos">Puternic pozitivă</td><td>Long pe ambele = practic aceeași tranzacție de două ori</td></tr>
+<tr><td>EUR/USD și USD/CHF</td><td class="neg">Puternic negativă</td><td>Long EUR/USD + long USD/CHF se anulează reciproc</td></tr>
+<tr><td>AUD/USD și aurul</td><td class="pos">Pozitivă</td><td>Aurul în creștere susține adesea AUD</td></tr>
+<tr><td>USD/JPY și randamentele obligațiunilor SUA</td><td class="pos">Pozitivă</td><td>Randamente mai mari în SUA → dolar mai puternic față de yen</td></tr>
+</table></div>
+
+<h3>Acțiuni</h3>
+<ul>
+<li><b>Sezonul rezultatelor</b> <span class="en">earnings season</span>: de patru ori pe an companiile publică rezultatele trimestriale. Prețul poate sări 5–20% peste noapte. Verifică mereu data următoarelor rezultate înainte să intri (pe site-ul companiei sau în calendarul de rezultate).</li>
+<li><b>Pre-market și after-hours</b>: pe bursele americane se tranzacționează și înainte de deschidere (de la 11:00 ora României) și după închidere (până la 03:00), cu lichiditate mică și spread mare.</li>
+<li><b>Data ex-dividend</b>: în ziua în care acțiunea nu mai dă dreptul la dividend, prețul scade aproximativ cu valoarea dividendului. Nu e o „scădere” reală.</li>
+<li><b>Split</b>: o acțiune de 1.000 $ devine 10 acțiuni de 100 $. Valoarea totală nu se schimbă.</li>
+<li><b>Beta</b>: cât de mult se mișcă acțiunea față de piață. Beta 1,5 = de obicei se mișcă cu 50% mai mult decât indicele.</li>
+</ul>
+<figure><div class="chart" id="ch-gap"></div>
+<figcaption><b>Gap la rezultate</b>: acțiunea se închide la 100 $ și se deschide a doua zi la 88 $ după rezultate slabe. Un stop la 96 $ nu te protejează: se execută la primul preț disponibil, ~88 $. Pierderea e de 3 ori mai mare decât ai planificat.</figcaption></figure>
+
+<h3>Indici</h3>
+<ul>
+<li>Un indice e ponderat după capitalizare: în S&amp;P 500 și Nasdaq 100, câteva companii foarte mari (tehnologie) influențează mult indicele.</li>
+<li>Pe termen lung, indicii americani au avut o tendință ascendentă. Short-ul pe indici e, istoric, mai greu decât long-ul.</li>
+<li>Cele mai mari mișcări apar la deschiderea bursei (16:30 pentru SUA, 10:00 pentru DAX, ora României) și la datele macro.</li>
+<li>La CFD-uri pe indici verifică <b>valoarea unui punct</b> pentru 1 contract (diferă de la broker la broker).</li>
+</ul>
+
+<h3>Aur (XAU/USD)</h3>
+<ul>
+<li>Se mișcă de obicei invers față de dolar și față de <b>dobânzile reale</b> (dobânda minus inflația): aurul nu plătește dobândă, deci devine mai atractiv când dobânzile reale scad.</li>
+<li>E un activ de refugiu: crește adesea în perioade de criză și tensiuni geopolitice.</li>
+<li>Volatil: mișcări de 1–2% pe zi sunt obișnuite. La mulți brokeri, 1 lot = 100 uncii, deci 1 $ mișcare = 100 $ pe lot. Calculează atent mărimea.</li>
+</ul>
+<h3>Petrol (WTI, Brent)</h3>
+<ul>
+<li>Se mișcă la deciziile OPEC+, la datele despre stocuri (raportul EIA, miercurea, de obicei la 17:30 ora României) și la evenimente geopolitice.</li>
+<li>Contractele futures expiră lunar. CFD-urile pe petrol fac „rollover”, iar diferența de preț între contracte poate apărea ca ajustare în cont.</li>
+</ul>
+<h3>Criptomonede</h3>
+<ul>
+<li>Piață 24/7: mișcări mari în weekend, când lichiditatea e mică.</li>
+<li>Volatilitate foarte mare: scăderi de 50–80% au avut loc de mai multe ori la Bitcoin.</li>
+<li><b>Riscul platformei</b>: platforme mari s-au prăbușit cu banii clienților (FTX, 2022). În UE, regulamentul MiCA impune autorizarea furnizorilor de servicii crypto; verifică autorizarea.</li>
+<li>Levierul maxim pentru retail pe CFD-uri crypto în UE este 2:1.</li>
+<li>În România, câștigurile din crypto se impozitează cu 16% începând cu 2026.</li>
+</ul>
+</div>
+<div class="quiz" data-quiz="m18"></div>
+</section>
+
+<!-- ================= MODUL 19 ================= -->
+<section class="mod" id="m19">
+<div class="eyebrow">Modulul 19 · 30–60 min · exerciții</div>
+<h2>Sala de antrenament: „Ce faci aici?”</h2>
+<p class="goal">Ce faci: 8 situații pe grafice. Graficul se oprește într-un punct. Tu decizi: long, short sau nu intri. Apoi vezi ce a urmat și explicația.</p>
+<div class="col">
+<p>Aplică tot ce ai învățat: trendul, nivelurile, lumânarea, contextul, R:R. Nu ghici. Pentru fiecare situație, întreabă-te: <i>Care e trendul? Sunt la un nivel? Am un declanșator? Unde ar fi stopul și ținta?</i> Răspunsul corect e cel pe care l-ar da un trader disciplinat <b>înainte</b> să vadă viitorul. Uneori o decizie corectă pierde, și asta e normal.</p>
+</div>
+<div class="tool" id="drill" style="max-width:820px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px"><h4 id="dr-title" style="margin:0"></h4><span class="mono" id="dr-score" style="color:var(--muted);font-size:13px"></span></div>
+<p id="dr-ctx" style="margin:10px 0"></p>
+<div class="chart" id="dr-chart"></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px" id="dr-btns">
+<button type="button" data-a="long" style="border-color:var(--up);color:var(--up);font-weight:600">▲ Long</button>
+<button type="button" data-a="short" style="border-color:var(--down);color:var(--down);font-weight:600">▼ Short</button>
+<button type="button" data-a="none" style="font-weight:600">Nu intru</button>
+</div>
+<div class="fb" id="dr-fb" aria-live="polite" style="font-size:15px;margin-top:12px"></div>
+<div style="display:flex;gap:10px;margin-top:12px"><button type="button" id="dr-prev">← Anterioara</button><button type="button" id="dr-next" class="primary">Următoarea →</button></div>
+</div>
+<div class="quiz" data-quiz="m19"></div>
+</section>
+
+<!-- ================= MODUL 20 ================= -->
+<section class="mod" id="m20">
+<div class="eyebrow">Modulul 20 · 35 min</div>
+<h2>Statisticile jurnalului</h2>
+<p class="goal">Ce afli: indicatorii care îți spun dacă strategia funcționează, cum îi calculezi, cum îi interpretezi și când să oprești o strategie. Plus un analizor în care îți introduci rezultatele.</p>
+<div class="col">
+<h3>Indicatorii de performanță</h3>
+<div class="tbl"><table>
+<tr><th>Indicator</th><th>Formula</th><th>Ce e bine</th></tr>
+<tr><td><b>Rata de câștig</b> <span class="en">win rate</span></td><td>Câștigătoare ÷ total</td><td>Contează doar împreună cu R:R</td></tr>
+<tr><td><b>Câștig mediu / pierdere medie</b></td><td>Media R a câștigătoarelor / a pierzătoarelor</td><td>Pierderea medie aproape de −1R (stopurile sunt respectate)</td></tr>
+<tr><td><b>Speranța</b> <span class="en">expectancy</span></td><td>Media tuturor rezultatelor în R</td><td>Peste 0; peste +0,2R e bine</td></tr>
+<tr><td><b>Profit factor</b></td><td>Suma câștigurilor ÷ suma pierderilor (în valoare absolută)</td><td>Peste 1 = profitabil; 1,5–2 = bun; peste 3 = suspect de frumos (eșantion mic?)</td></tr>
+<tr><td><b>Drawdown maxim</b></td><td>Cea mai mare scădere de la un vârf al curbei de capital</td><td>Cât poți suporta psihologic; compară cu backtestul</td></tr>
+<tr><td><b>Cea mai lungă serie de pierderi</b></td><td>Numărul maxim de pierderi consecutive</td><td>Te pregătește pentru ce va veni</td></tr>
+<tr><td><b>SQN</b> (Van Tharp)</td><td>√N × medie(R) ÷ deviația standard(R)</td><td>Peste 1,6 = ok; peste 2,5 = foarte bun (cu N ≥ 30)</td></tr>
+</table></div>
+<p>Dacă pierderea medie e mult peste −1R (ex: −1,4R), înseamnă că muți stopul sau ai slippage mare. Dacă e −0,6R, probabil închizi din frică înainte de stop.</p>
+</div>
+<div class="tool" id="ana">
+<h4>Analizorul tău</h4>
+<label style="display:grid;gap:4px;font-size:13px;color:var(--muted)">Rezultatele tranzacțiilor în R, separate prin virgulă sau spațiu (exemplul de mai jos e fictiv)
+<textarea id="ana-in" rows="3" style="font:inherit;font-family:var(--f-mono);font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);width:100%">2, -1, -1, 2.1, -1, 0, 1.5, -1, -1, -1, 3, -1, 2, -0.5, -1, 2, 1.8, -1, -1, 2.2, -1, 0, -1, 2, -1, 4, -1, -1, 1.2, -1</textarea></label>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin:12px 0"><button type="button" class="primary" id="ana-run">Calculează</button><button type="button" id="ana-copy">Copiază modelul de jurnal (CSV)</button></div>
+<div class="out" id="ana-out"></div>
+<div class="chart" id="ana-chart" style="margin-top:12px"></div>
+<p class="src" id="ana-copyfb" style="margin:8px 0 0" aria-live="polite"></p>
+</div>
+<div class="col">
+<h3>Cum citești statisticile</h3>
+<ul>
+<li><b>Mărimea eșantionului</b>: sub 30 de tranzacții, statisticile sunt aproape doar zgomot. Peste 100 încep să însemne ceva.</li>
+<li><b>Segmentează</b>: calculează separat pe setup, pe instrument, pe zi a săptămânii, pe oră. Mulți traderi descoperă că un singur setup le aduce tot profitul, iar restul îl pierd.</li>
+<li><b>Compară cu backtestul</b>: dacă rezultatele reale sunt mult sub cele din backtest, problema e de obicei execuția (nu respecți regulile), nu strategia.</li>
+<li><b>Notează respectarea planului</b>: compară tranzacțiile „conform planului” cu cele „în afara planului”. Diferența e de obicei foarte mare.</li>
+</ul>
+<h3>Când oprești o strategie</h3>
+<p>Stabilește dinainte, din backtest: <b>dacă drawdown-ul real depășește de 1,5 ori drawdown-ul maxim din backtest</b> sau dacă după 50 de tranzacții speranța e clar negativă, oprești tranzacționarea reală, revii pe demo și analizezi. Nu oprești strategia după 4 pierderi la rând dacă backtestul arăta serii de 8.</p>
+<p>Ai și un <b>jurnal în Excel</b> gata făcut, cu formule care calculează automat aceste statistici. L-am atașat separat în conversație, ca fișier.</p>
+</div>
+<div class="quiz" data-quiz="m20"></div>
+</section>
+
+<!-- ================= MODUL 21 ================= -->
+<section class="mod" id="m21">
+<div class="eyebrow">Modulul 21 · 35 min · protecție</div>
+<h2>Capcane, fraude și oferte prea bune</h2>
+<p class="goal">Ce afli: cum fac bani grupurile de semnale, ce sunt prop firm-urile și cât de des plătesc, de ce boții „garantați” explodează, ce fraude circulă în România și unde verifici o firmă.</p>
+<div class="col">
+<h3>Grupurile de semnale</h3>
+<p>Grupuri pe Telegram, WhatsApp sau Discord care îți spun „cumpără EUR/USD acum, SL, TP”. Cum câștigă bani organizatorii:</p>
+<ul>
+<li><b>Abonamente</b>: plătești lunar, indiferent de rezultate.</li>
+<li><b>Comisioane de la broker</b> <span class="en">IB / affiliate</span>: primesc bani pentru fiecare lot pe care îl tranzacționezi la brokerul recomandat. Cu cât tranzacționezi mai mult, cu atât câștigă mai mult, chiar dacă tu pierzi.</li>
+<li><b>Pump and dump</b> (mai ales pe crypto): cumpără înainte, vă spun vouă să cumpărați, vând în creșterea provocată de voi.</li>
+</ul>
+<p>Rezultatele afișate sunt aproape mereu alese: se arată câștigurile, pierderile se șterg, sau se postează semnale contradictorii în grupuri diferite. Chiar și un semnal bun nu te învață nimic.</p>
+
+<h3>Prop firm-urile (firmele care „te finanțează”)</h3>
+<p>Plătești o taxă (de obicei 50–600 $) pentru o „provocare” pe un cont demo. Dacă atingi o țintă de profit (ex: +8–10%) fără să încalci regulile de pierdere (ex: −5% pe zi, −10% total), primești un cont „finanțat” și o parte din profit (ex: 80%).</p>
+<ul>
+<li>O analiză pe peste 300.000 de conturi de la 10 firme (FPFX Tech) a arătat că doar <b>~14% trec provocarea</b> și doar <b>~7% primesc vreodată o plată</b>.</li>
+<li>Modelul de afaceri se bazează în mare parte pe taxele celor care pică.</li>
+<li>Unele firme s-au închis sau au fost acuzate de autorități; de exemplu, CFTC a acționat în 2023 împotriva My Forex Funds.</li>
+<li><b>Când are sens</b>: doar după ce ai minimum 100 de tranzacții profitabile pe demo cu riscul pe care l-ai folosi în provocare. Tratează taxa ca pe o pierdere probabilă, nu ca pe o investiție.</li>
+</ul>
+
+<h3>Boți, „AI trading” și strategiile martingale</h3>
+<p>Un bot care promite „5% pe lună garantat” folosește de obicei <b>martingale</b> sau <b>grid</b>: după fiecare pierdere dublează poziția, ca să recupereze tot la primul câștig. Curba arată perfect luni întregi, apoi o singură serie lungă de pierderi golește contul.</p>
+<figure><div class="chart" id="ch-mart"></div>
+<figcaption><b>Curba de capital tipică a unui martingale</b> (simulare): creștere lină și constantă, apoi prăbușire bruscă. Cumpărătorii de boți văd doar prima parte în reclame.</figcaption></figure>
+
+<h3>Fraudele frecvente în România</h3>
+<ul>
+<li><b>Reclame false cu persoane cunoscute</b> (politicieni, oameni de afaceri, vedete, prezentatori TV), adesea create cu AI (deepfake), care promovează „platforme de investiții”. Toate sunt fraude.</li>
+<li><b>„Managerul de cont”</b> care te sună, te ajută să instalezi AnyDesk sau TeamViewer și te convinge să depui tot mai mult. Niciodată nu instala programe de acces la distanță la cererea cuiva.</li>
+<li><b>Platforme false</b> care îți arată profituri mari pe ecran, dar nu-ți permit retragerea fără „taxe” suplimentare.</li>
+<li><b>Fraude sentimentale + investiții</b> <span class="en">pig butchering</span>: o persoană cunoscută online te „învață” să investești în crypto pe o platformă controlată de ea.</li>
+<li><b>Firme clonă</b>: folosesc numele și chiar numărul de licență ale unei firme reale, cu alt site sau alt număr de telefon.</li>
+<li><b>„Recuperarea fondurilor”</b>: după ce ai pierdut bani, te contactează cineva care promite să-i recupereze contra unui avans. Este a doua fraudă.</li>
+</ul>
+<div class="box warn"><span class="lbl">Semnale de alarmă (oricare e suficient)</span>
+<ul class="check">
+<li>Randament garantat sau „fără risc”</li>
+<li>Presiune: „oferta expiră azi”, „locuri limitate”</li>
+<li>Te contactează ei, nu tu pe ei</li>
+<li>Îți cer să instalezi un program de acces la distanță</li>
+<li>Plata în crypto sau către o persoană fizică</li>
+<li>Nu găsești firma în registrele oficiale sau domeniul site-ului diferă de cel din registru</li>
+<li>Retragerea cere „taxe” sau „impozite” plătite în avans</li>
+</ul></div>
+<h3>Unde verifici</h3>
+<ul>
+<li><b>ASF</b> (asfromania.ro): registrul entităților autorizate și lista de avertizări.</li>
+<li><b>ESMA</b>: registrele firmelor de investiții din UE.</li>
+<li><b>FCA</b> (Marea Britanie) și <b>IOSCO I-SCAN</b>: liste internaționale de firme neautorizate.</li>
+</ul>
+<p>Dacă ai fost deja fraudat: oprește orice plată, sună imediat la banca ta (poți cere anularea tranzacțiilor cu cardul), fă plângere la Poliție și sesizare la ASF. Nu răspunde ofertelor de „recuperare”.</p>
+
+<h3>Influencerii de trading</h3>
+<p>Ce vezi pe rețelele sociale e o selecție: câștigurile, mașinile, nu și pierderile. Mulți câștigă din cursuri, semnale și comisioane de la brokeri, nu din trading. Întrebare utilă: „Dacă ar câștiga constant din trading, de ce ar vinde cursuri?”</p>
+</div>
+<div class="quiz" data-quiz="m21"></div>
+</section>
+
+<!-- ================= MODUL 22 ================= -->
+<section class="mod" id="m22">
+<div class="eyebrow">Modulul 22 · 30 min · România</div>
+<h2>Declarația Unică, pe un exemplu</h2>
+<p class="goal">Ce afli: cine depune Declarația Unică (D212) pentru câștiguri din trading, cum calculezi câștigul net în lei, impozitul de 16%, reportarea pierderilor și CASS.</p>
+<div class="col">
+<div class="box warn"><span class="lbl">Important</span><p>Regulile de mai jos sunt cele aplicabile veniturilor din 2026, conform modificărilor din 2025 (Legea 141/2025), așa cum le prezintă ghidurile publicate. Exemplul are rol educativ. Înainte de depunere, verifică pe anaf.ro sau cu un contabil, pentru că detaliile (cursul de schimb folosit, plafoanele CASS) se pot schimba.</p></div>
+<h3>Cine depune</h3>
+<ul>
+<li><b>Broker străin</b> (orice broker care nu reține impozitul în România, inclusiv pentru CFD-uri, forex, acțiuni, ETF-uri): calculezi și declari tu câștigul net anual.</li>
+<li><b>Broker român</b>: impozitul (3% / 6%) e reținut la sursă. Totuși, poate fi nevoie să depui D212 pentru CASS, dacă depășești pragul.</li>
+<li><b>Crypto</b>: declari tu, cu aceeași cotă de 16%.</li>
+<li>Termen: <b>25 mai</b> a anului următor (pentru veniturile din 2026: 25 mai 2027). Depunerea se face online, prin SPV (Spațiul Privat Virtual) de pe anaf.ro.</li>
+</ul>
+<h3>Pașii</h3>
+<ol>
+<li>Descarci de la broker <b>raportul anual</b> (annual statement / realized P&amp;L), cu toate tranzacțiile închise în anul respectiv.</li>
+<li>Pentru fiecare tranzacție, calculezi rezultatul <b>în lei</b>, folosind cursul BNR. Pentru acțiuni: costul de cumpărare la cursul zilei de cumpărare, încasarea la cursul zilei de vânzare. Comisioanele se includ în cost.</li>
+<li>Aduni câștigurile și scazi pierderile: <b>câștigul net anual</b>.</li>
+<li>Dacă ai pierderi nete reportate din anii anteriori, le poți compensa (în limitele legii; vezi mai jos).</li>
+<li>Impozit = 16% × câștigul net.</li>
+<li>Verifici dacă datorezi CASS.</li>
+</ol>
+<h3>Exemplu de calcul</h3>
+<div class="tbl"><table>
+<tr><th>Tranzacția</th><th class="num">În USD</th><th class="num">Curs BNR</th><th class="num">În lei</th></tr>
+<tr><td>Cumpărat 10 acțiuni la 180 $</td><td class="num">−1.800</td><td class="num">4,60</td><td class="num">−8.280,00</td></tr>
+<tr><td>Vândut aceleași 10 acțiuni la 210 $</td><td class="num">+2.100</td><td class="num">4,40</td><td class="num">+9.240,00</td></tr>
+<tr><td><b>Rezultat 1</b></td><td></td><td></td><td class="num pos"><b>+960,00</b></td></tr>
+<tr><td>CFD EUR/USD închis în profit</td><td class="num">+350</td><td class="num">4,45</td><td class="num pos">+1.557,50</td></tr>
+<tr><td>CFD US500 închis în pierdere</td><td class="num">−200</td><td class="num">4,50</td><td class="num neg">−900,00</td></tr>
+<tr><td>Cumpărat 20 acțiuni la 50 $, vândut la 45 $</td><td class="num">−1.000 / +900</td><td class="num">4,55 / 4,48</td><td class="num neg">−518,00</td></tr>
+</table></div>
+<div class="calc">Câștiguri: 960,00 + 1.557,50            = 2.517,50 lei
+Pierderi:  900,00 + 518,00             = 1.418,00 lei
+Câștig net anual: 2.517,50 − 1.418,00  = 1.099,50 lei
+Impozit 16%: 1.099,50 × 0,16           = 175,92 ≈ 176 lei</div>
+<p>Observă rezultatul 1: în dolari ai câștigat 300 $, dar în lei doar 960 lei, pentru că dolarul s-a depreciat între cumpărare și vânzare. Cursul valutar contează.</p>
+<h3>Pierderile</h3>
+<p>Dacă la final de an ai <b>pierdere netă</b>, nu plătești impozit. Pierderea netă se poate reporta în următorii 5 ani și compensa cu câștigurile viitoare, conform ghidurilor publicate în cel mult 70% din câștigul net al fiecărui an. Declară pierderea chiar dacă nu datorezi nimic, ca să o poți folosi ulterior.</p>
+<h3>CASS (contribuția la sănătate)</h3>
+<ul>
+<li>Se datorează dacă totalul veniturilor tale din afara salariului (investiții, chirii, dividende etc.) depășește <b>6 salarii minime brute</b> pe an.</li>
+<li>Se plătește 10% dintr-o bază fixă: 6, 12 sau 24 de salarii minime, în funcție de pragul atins. Nu e 10% din câștig.</li>
+<li>Dacă ești angajat, CASS-ul de pe salariu nu te scutește de această contribuție.</li>
+</ul>
+<div class="calc">Exemplu ilustrativ, cu salariul minim de 4.325 lei (verifică valoarea folosită de ANAF în anul declarării):
+Prag 6 salarii = 25.950 lei
+Câștigurile tale totale din investiții = 30.000 lei  → peste prag
+CASS = 10% × 25.950 = 2.595 lei</div>
+</div>
+<div class="quiz" data-quiz="m22"></div>
+</section>
+
+<!-- ================= MODUL 23 ================= -->
+<section class="mod" id="m23">
+<div class="eyebrow">Modulul 23 · 35 min</div>
+<h2>Alternativa: investiții pe termen lung în ETF-uri</h2>
+<p class="goal">Ce afli: cum funcționează investiția regulată în ETF-uri, cum alegi un ETF (TER, UCITS, Acc/Dist), opțiunile din România și cum împarți banii între investiții și trading.</p>
+<div class="col">
+<p>Statisticile din Modulul 0 arată că majoritatea traderilor pierd și că majoritatea profesioniștilor nu bat indicele. Investiția pasivă, pe termen lung, într-un ETF pe un indice larg e strategia care a funcționat istoric pentru cei mai mulți oameni, cu cel mai puțin timp și stres. Merită s-o cunoști chiar dacă alegi să faci și trading.</p>
+
+<h3>Ordinea corectă a banilor</h3>
+<ol>
+<li><b>Fondul de urgență</b>: 3–6 luni de cheltuieli, într-un cont de economii sau titluri de stat pe termen scurt.</li>
+<li><b>Datoriile scumpe</b> (card de credit, credite de consum) se plătesc înainte să investești.</li>
+<li><b>Investiții pe termen lung</b>: ETF-uri, pensie facultativă (Pilonul III), titluri de stat.</li>
+<li><b>Trading</b>: doar o mică parte (ex: 5–10% din economii), bani pe care îți permiți să-i pierzi.</li>
+</ol>
+
+<h3>Cum alegi un ETF</h3>
+<div class="tbl"><table>
+<tr><th>Criteriu</th><th>Ce înseamnă</th><th>Ce cauți</th></tr>
+<tr><td><b>Indicele</b></td><td>Ce urmărește ETF-ul</td><td>Indici largi: MSCI World (țări dezvoltate), FTSE All-World / MSCI ACWI (toată lumea), S&amp;P 500 (SUA)</td></tr>
+<tr><td><b>TER</b> <span class="en">total expense ratio</span></td><td>Costul anual, inclus în preț</td><td>Cât mai mic: 0,05–0,25% pe an</td></tr>
+<tr><td><b>UCITS</b></td><td>Standardul european pentru fonduri</td><td>Ca investitor din UE cumperi ETF-uri UCITS; multe ETF-uri americane nu îți sunt disponibile (lipsește documentul KID)</td></tr>
+<tr><td><b>Domiciliul</b></td><td>Țara în care e înregistrat fondul</td><td>Irlanda e frecvent preferată pentru ETF-urile pe acțiuni americane, pentru că reține un impozit mai mic pe dividendele din SUA</td></tr>
+<tr><td><b>Acc vs. Dist</b></td><td>Acumulare (reinvestește dividendele) vs. distribuție (le plătește)</td><td>Acc: mai simplu și fără impozit pe dividende până la vânzare; Dist: dacă vrei venit periodic</td></tr>
+<tr><td><b>Mărimea fondului</b></td><td>Activele administrate (AUM)</td><td>Peste câteva sute de milioane de euro; fondurile mici pot fi închise</td></tr>
+<tr><td><b>Replicarea</b></td><td>Fizică (deține acțiunile) sau sintetică (prin swap-uri)</td><td>Ambele sunt reglementate; fizică e mai ușor de înțeles</td></tr>
+</table></div>
+
+<h3>Investiția lunară (DCA)</h3>
+<p><b>Dollar-cost averaging</b>: investești aceeași sumă în fiecare lună, indiferent de preț. Când prețul e mic, cumperi mai multe unități; când e mare, mai puține. Elimini problema „când intru?” și transformi investiția într-un obicei.</p>
+<div class="tool" id="dca">
+<h4>Calculator de dobândă compusă</h4>
+<div class="fields">
+<label>Sumă lunară (lei)<input id="dca-m" type="number" value="500" min="0" step="50"></label>
+<label>Ani<input id="dca-y" type="number" value="20" min="1" max="50" step="1"></label>
+<label>Randament anual presupus (%)<input id="dca-r" type="number" value="6" min="0" max="15" step="0.5"></label>
+<label>Sumă inițială (lei)<input id="dca-i" type="number" value="0" min="0" step="500"></label>
+</div>
+<div class="out" id="dca-out"></div>
+<div class="chart" id="dca-chart" style="margin-top:12px"></div>
+<p class="src" style="margin:8px 0 0">Randamentul e o presupunere ilustrativă, nu o promisiune. Indicii de acțiuni au avut ani cu −20% sau −40%. Rezultatul real poate fi mai mic sau mai mare, iar inflația reduce puterea de cumpărare.</p>
+</div>
+
+<h3>Opțiuni în România</h3>
+<ul>
+<li><b>ETF-uri UCITS</b> prin brokeri locali sau internaționali.</li>
+<li><b>ETF-uri pe BVB</b>, de exemplu ETF-ul pe indicele BET (acțiunile românești mari). La broker român, impozitul se reține la sursă.</li>
+<li><b>Titluri de stat</b> (Fidelis, Tezaur): dobândă fixă, scutite de impozit. Bune pentru fondul de urgență și partea sigură.</li>
+<li><b>Pilonul III</b> (pensia facultativă): contribuțiile de până la 400 € pe an sunt deductibile fiscal.</li>
+</ul>
+<div class="box ex"><span class="lbl">Un exemplu de împărțire (nu e o recomandare personalizată)</span><p>Fond de urgență în titluri de stat → 80–90% din investiții într-un ETF global ieftin, cu sumă lunară automată → 5–10% pentru învățarea trading-ului, cu reguli stricte. Dacă trading-ul nu iese profitabil după un an de practică onestă, acei bani merg tot în ETF.</p></div>
+</div>
+<div class="quiz" data-quiz="m23"></div>
 </section>
 
 <!-- ================= GLOSAR ================= -->
@@ -999,6 +1623,9 @@ Dacă e atins stopul: −48 $  |  dacă e atinsă ținta: +96 $</div>
 <li>Chague, De-Losso, Giovannetti, „Day Trading for a Living?”, FGV EESP, 2020: <a href="https://econpapers.repec.org/RePEc:fgv:eesptd:525" target="_blank" rel="noopener">econpapers.repec.org</a></li>
 <li>Impozitarea câștigurilor din tranzacționare în România: <a href="https://www.primet.ro/impozitarea-veniturilor-din-tranzactionarea-titlurilor-de-valoare" target="_blank" rel="noopener">primet.ro</a>, <a href="https://www.zf.ro/zf-deschiderea-de-astazi/zf-deschiderea-de-astazi-la-bursa-ghidul-platii-impozitelor-la-bursa-23018296" target="_blank" rel="noopener">zf.ro</a>, <a href="https://www.avocatnet.ro/t12890/castiguri-de-capital.html" target="_blank" rel="noopener">avocatnet.ro</a></li>
 <li>Definițiile indicatorilor (RSI, MACD, Bollinger, ATR) urmează formulele originale ale autorilor: J. Welles Wilder (RSI, ATR), Gerald Appel (MACD), John Bollinger.</li>
+<li>Declarația Unică 2026, cote și CASS: <a href="https://facetotibanii.ro/impozit-castiguri-investitii/" target="_blank" rel="noopener">facetotibanii.ro</a>, <a href="https://financialmarket.ro/finante-personale/educatie-financiara/declaratia-unica-2026-ce-trebuie-sa-stie-fiecare-investitor-despre-impozitele-pe-venituri-din-investitii/" target="_blank" rel="noopener">financialmarket.ro</a>, <a href="https://www.noulcodfiscal.ro/articole/venituri-din-investitii.html" target="_blank" rel="noopener">noulcodfiscal.ro</a></li>
+<li>Salariul minim de 4.325 lei din 1 iulie 2026: <a href="https://economedia.ro/document-salariul-minim-creste-la-4-325-lei-de-la-1-iulie-2026.html" target="_blank" rel="noopener">economedia.ro</a></li>
+<li>Ratele de reușită la prop firms (analiza FPFX Tech, 300.000+ conturi): <a href="https://track360.io/blog/prop-trading-industry-statistics-2026" target="_blank" rel="noopener">track360.io</a>, <a href="https://www.financemagnates.com/forex/only-1-in-20-traders-pass-prop-firm-challenges-reports-the-funded-trader/" target="_blank" rel="noopener">financemagnates.com</a></li>
 <li>Toate graficele din curs sunt generate ilustrativ și nu reprezintă prețuri reale.</li>
 </ul>
 <p class="src col">Material educativ. Nu reprezintă recomandare de investiții. Tranzacționarea cu levier implică un risc ridicat de pierdere a întregului capital.</p>
@@ -1269,8 +1896,240 @@ const PAT=[
   el('text',{x:L,y:H-6,class:'axis'},s,'tranzacția 0');el('text',{x:W-Rp,y:H-6,'text-anchor':'end',class:'axis'},s,'tranzacția 100');
   $('sim-chart').innerHTML='';$('sim-chart').appendChild(s)}
   ['sim-wr','sim-rr','sim-risk'].forEach(i=>$(i).addEventListener('change',run));$('sim-run').onclick=run;run()})();
+window.TDZ={chart,gen,ema,sma,rsi,fromArr,el,svgRoot,rng,fmt};
 })();
 </script>
+
+<script>
+(function(){
+const T=window.TDZ;if(!T)return;const{chart,gen,ema,fromArr,el,svgRoot,rng,fmt}=T;const $=id=>document.getElementById(id);
+const setC=(d,i,o,h,l,c)=>{d[i]={o,h,l,c,v:d[i].v};if(d[i+1])d[i+1].o=c};
+const lowest=(d,a,b)=>{let m=a;for(let i=a;i<=b;i++)if(d[i].l<d[m].l)m=i;return m};
+const highest=(d,a,b)=>{let m=a;for(let i=a;i<=b;i++)if(d[i].h>d[m].h)m=i;return m};
+
+/* ---------- platforma ---------- */
+(function(){const host=$('ch-platform');if(!host)return;const W=760,H=360,s=svgRoot(W,H,'Zonele unei platforme');
+  const box=(x,y,w,h,n,t,sub)=>{el('rect',{x,y,width:w,height:h,rx:6,class:'svgbg',stroke:'var(--line)','stroke-width':1.5},s);el('circle',{cx:x+16,cy:y+16,r:10,class:'dot-acc'},s);el('text',{x:x+16,y:y+20,'text-anchor':'middle',class:'lbl-t',style:'fill:var(--surface)'},s,n);el('text',{x:x+32,y:y+20,class:'lbl-t'},s,t);(sub||[]).forEach((l,k)=>el('text',{x:x+12,y:y+44+k*17,class:'lbl-m'},s,l))};
+  box(8,8,170,250,'1','Instrumente',['EUR/USD  1,0850  1,0852','GBP/USD  1,2710  1,2712','US500    5.120   5.121','XAU/USD  2.350   2.351','…','Bid / Ask pentru fiecare']);
+  box(186,8,380,250,'2','Grafic',['lumânări, desene, indicatori']);
+  const d=gen([[0,100],[8,104],[12,102],[20,107],[24,105],[30,109]],{seed:8,vol:.5,wick:.5});const X=i=>200+i*11.6,Y=p=>230-(p-98)*14;
+  d.forEach((c,i)=>{const up=c.c>=c.o;el('line',{x1:X(i),x2:X(i),y1:Y(c.h),y2:Y(c.l),class:up?'wick-up':'wick-down'},s);el('rect',{x:X(i)-3.5,y:Y(Math.max(c.o,c.c)),width:7,height:Math.max(1,Math.abs(Y(c.o)-Y(c.c))),class:up?'c-up':'c-down'},s)});
+  box(574,8,178,250,'3','Ordin',['Instrument','Tip: Market / Limit / Stop','Volum (loturi)','Stop loss','Take profit','']);
+  el('rect',{x:586,y:200,width:74,height:30,rx:5,class:'c-down'},s);el('text',{x:623,y:220,'text-anchor':'middle',class:'lbl-t',style:'fill:var(--surface)'},s,'SELL');
+  el('rect',{x:666,y:200,width:74,height:30,rx:5,class:'c-up'},s);el('text',{x:703,y:220,'text-anchor':'middle',class:'lbl-t',style:'fill:var(--surface)'},s,'BUY');
+  box(8,266,744,58,'4','Poziții / Ordine',['EUR/USD  Buy 0,20  la 1,0852   SL 1,0820   TP 1,0910   Profit: −4,00 €']);
+  el('rect',{x:8,y:330,width:744,height:24,rx:6,fill:'var(--soft)'},s);el('circle',{cx:24,cy:342,r:9,class:'dot-acc'},s);el('text',{x:24,y:346,'text-anchor':'middle',class:'lbl-t',style:'fill:var(--surface)'},s,'5');
+  el('text',{x:40,y:346,class:'lbl-m',style:'fill:var(--ink)'},s,'Sold 5.000 €   Capital 4.996 €   Marjă 723 €   Marjă liberă 4.273 €   Nivel marjă 691%');
+  host.appendChild(s)})();
+
+/* ---------- fereastra de ordin ---------- */
+(function(){if(!$('ticket'))return;const BID=1.0850,ASK=1.0852;
+  const tasks=[
+   {n:'Sarcina 1',t:'Deschide un <b>long la piață</b> pe EUR/USD, <b>0,20 loturi</b>, cu stop loss la <b>1,0820</b> și take profit la <b>1,0910</b>.',e:{sym:'EUR/USD',type:'market',dir:'buy',vol:.2,sl:1.0820,tp:1.0910}},
+   {n:'Sarcina 2',t:'Vrei să cumperi EUR/USD <b>mai ieftin</b>, la <b>1,0800</b>. Plasează ordinul potrivit: <b>0,10 loturi</b>, SL <b>1,0770</b>, TP <b>1,0860</b>.',e:{sym:'EUR/USD',type:'limit',dir:'buy',vol:.1,price:1.0800,sl:1.0770,tp:1.0860}},
+   {n:'Sarcina 3',t:'Vrei să vinzi EUR/USD <b>doar dacă scade sub 1,0820</b>. Plasează ordinul potrivit: <b>0,05 loturi</b>, SL <b>1,0850</b>, TP <b>1,0760</b>.',e:{sym:'EUR/USD',type:'stop',dir:'sell',vol:.05,price:1.0820,sl:1.0850,tp:1.0760}}];
+  let cur=0;const seg=$('tk-tasks');
+  tasks.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t.n;b.onclick=()=>pick(i);seg.appendChild(b)});
+  function pick(i){cur=i;[...seg.children].forEach((b,k)=>b.setAttribute('aria-pressed',k===i));$('tk-task').innerHTML='<span class="lbl">'+tasks[i].n+'</span><p>'+tasks[i].t+'</p>';$('tk-fb').innerHTML='';sync()}
+  function sync(){const pend=$('tk-type').value!=='market';$('tk-l-price').hidden=!pend;info()}
+  function vals(){return{sym:$('tk-sym').value,type:$('tk-type').value,vol:+$('tk-vol').value,price:+$('tk-price').value,sl:+$('tk-sl').value,tp:+$('tk-tp').value}}
+  function info(dir){const v=vals();const entry=v.type==='market'?(dir==='sell'?BID:ASK):v.price;if(!entry||!v.sl||!v.vol){$('tk-info').innerHTML='';return}
+    const pips=Math.abs(entry-v.sl)*10000,risk=pips*v.vol*10;$('tk-info').innerHTML=[['Unități',(v.vol*100000).toLocaleString('ro-RO')],['Distanța la SL',fmt(pips,1)+' pips'],['Risc la SL','≈ '+fmt(risk)+' $'],['Marjă la 30:1','≈ '+fmt(v.vol*100000*entry/30)+' $']].map(r=>`<div><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')}
+  const eq=(a,b)=>Math.abs(a-b)<1e-6;
+  function check(dir){const v=vals(),e=tasks[cur].e,err=[];info(dir);
+    if(v.sym!==e.sym)err.push('Instrumentul trebuie să fie '+e.sym+'.');
+    if(v.type!==e.type)err.push(e.type==='market'?'Tipul trebuie să fie Market: vrei să intri acum.':e.type==='limit'?'Vrei un preț <b>mai bun</b> decât cel curent, deci ordin <b>Limit</b>.':'Vrei să intri doar la <b>confirmarea</b> mișcării, deci ordin <b>Stop</b>.');
+    if(dir!==e.dir)err.push('Direcția e greșită: trebuia să apeși <b>'+(e.dir==='buy'?'BUY':'SELL')+'</b>.');
+    if(!eq(v.vol,e.vol))err.push('Volumul trebuie să fie '+fmt(e.vol)+' loturi'+(v.vol>=e.vol*5?' (atenție: ai pus o poziție de '+fmt(v.vol/e.vol,0)+' ori mai mare!)':'')+'.');
+    if(e.type!=='market'&&!eq(v.price,e.price))err.push('Prețul ordinului trebuie să fie '+fmt(e.price,4)+'.');
+    const entry=v.type==='market'?(dir==='sell'?BID:ASK):v.price;
+    if(v.type==='limit'&&dir==='buy'&&v.price>=ASK)err.push('Un buy limit se pune <b>sub</b> prețul curent.');
+    if(v.type==='stop'&&dir==='sell'&&v.price>=BID)err.push('Un sell stop se pune <b>sub</b> prețul curent.');
+    if(!v.sl)err.push('Lipsește stop loss-ul. Fără el, pierderea nu are limită.');
+    else{if(dir==='buy'&&v.sl>=entry)err.push('La un long, stop loss-ul se pune <b>sub</b> prețul de intrare.');if(dir==='sell'&&v.sl<=entry)err.push('La un short, stop loss-ul se pune <b>peste</b> prețul de intrare.');if(!eq(v.sl,e.sl))err.push('Stop loss-ul cerut e '+fmt(e.sl,4)+'.')}
+    if(!v.tp)err.push('Lipsește take profit-ul.');else if(!eq(v.tp,e.tp))err.push('Take profit-ul cerut e '+fmt(e.tp,4)+'.');
+    $('tk-fb').innerHTML=err.length?'<b class="neg">Ordinul nu e corect:</b><ul style="margin:6px 0 0">'+[...new Set(err)].map(x=>'<li>'+x+'</li>').join('')+'</ul>':'<b class="pos">Perfect.</b> Ordinul e corect. Într-o platformă reală, acum verifici în fereastra de poziții că SL și TP apar.'+(cur<2?' Treci la sarcina următoare.':'')}
+  ['tk-sym','tk-type','tk-vol','tk-price','tk-sl','tk-tp'].forEach(i=>{$(i).addEventListener('input',()=>{sync()});$(i).addEventListener('change',sync)});
+  $('tk-buy').onclick=()=>check('buy');$('tk-sell').onclick=()=>check('sell');pick(0)})();
+
+/* ---------- gestionare ---------- */
+(function(){const d=gen([[0,104.5],[8,99.2],[10,100],[16,103.6],[21,99.8],[22,100.4],[30,107]],{seed:52,vol:.35,wick:.4});
+  const entry=d[10].c,stop=entry-3,r1=entry+3,tp=entry+6;
+  chart('ch-be',d,{h:270,hlines:[{y:entry,i1:10,i2:16,label:'intrare',cls:'ln-ink',tcls:'t-ink',solid:1,lx:10},{y:stop,i1:10,i2:16,label:'stop inițial',cls:'ln-down',tcls:'t-down',lx:10,below:1},{y:entry,i1:16,label:'stop mutat la break-even',cls:'ln-warn',tcls:'t-warn',lx:17,below:1},{y:r1,i1:10,label:'+1R',cls:'ln-muted',tcls:'t-muted',lx:11},{y:tp,i1:10,label:'țintă +2R',cls:'ln-up',tcls:'t-up',lx:11}],marks:[{i:16,text:'+1R atins',pos:'above'},{i:lowest(d,19,23),text:'scos pe zero',pos:'below'}],label:'Break-even'})})();
+(function(){const d=gen([[0,100],[5,106],[8,103],[13,110],[16,107],[21,115],[24,111.5],[29,119],[32,115.5],[36,121],[41,112]],{seed:61,vol:.45,wick:.45});
+  const entryI=8;let stop=d[lowest(d,4,8)].l-.4;const path=[[entryI,stop]];let exit=null;
+  for(let k=entryI+1;k<d.length;k++){if(d[k].l<stop){exit=k;path.push([k,stop]);break}const i=k-2;if(i>entryI&&d[i].l<d[i-1].l&&d[i].l<d[i-2].l&&d[i].l<d[i+1].l&&d[i].l<d[i+2].l&&d[i].l-.3>stop){path.push([k,stop]);stop=d[i].l-.3;path.push([k,stop])}}
+  if(!exit)path.push([d.length-1,stop]);
+  chart('ch-trail',d,{h:280,marks:[{i:entryI,text:'intrare',pos:'below'}].concat(exit?[{i:exit,text:'ieșire: structura ruptă',pos:'below',anchor:'end'}]:[]),after:c=>{el('path',{d:path.map((p,k)=>(k?'L':'M')+c.X(p[0])+' '+c.Y(p[1])).join(''),class:'ln-down','stroke-width':2},c.s);el('text',{x:c.X(path[2]?path[2][0]:entryI)+4,y:c.Y(path[2]?path[2][1]:stop)+14,class:'lbl-t t-down'},c.s,'trailing stop')},label:'Trailing stop'})})();
+
+/* ---------- strategii ---------- */
+(function(){const d=gen([[0,100],[5,109.6],[10,101],[15,109.7],[20,102],[25,109.5],[27,113],[30,110.4],[31,111],[40,120]],{seed:71,vol:.35,wick:.4,vk:35});
+  const lo=lowest(d,29,31);setC(d,lo,d[lo].o,d[lo].o+.3,109.6,Math.max(d[lo].o,110.8)+.4);const entry=d[lo].c,stop=109.2,tp=entry+2*(entry-stop);
+  chart('ch-s-break',d,{h:250,zones:[{y1:109.3,y2:110.7,cls:'zone-down',i2:26,label:'rezistență'},{y1:109.3,y2:110.7,cls:'zone-up',i1:27}],hlines:[{y:entry,i1:lo,label:'intrare',cls:'ln-ink',tcls:'t-ink',solid:1,lx:lo+2},{y:stop,i1:lo,label:'stop',cls:'ln-down',tcls:'t-down',lx:lo+2,below:1},{y:tp,i1:lo,label:'țintă 2R',cls:'ln-up',tcls:'t-up',lx:lo+2}],marks:[{i:27,text:'spargere',pos:'above'},{i:lo,text:'retest',pos:'below'}],panel:{type:'vol',title:'Volum',h:60},label:'Spargere cu retest'})})();
+(function(){const d=gen([[0,105],[5,109.6],[10,100.4],[15,109.5],[20,100.5],[25,109.6],[30,100.6],[35,109.2],[38,105]],{seed:73,vol:.4,wick:.4});
+  const lows=[lowest(d,8,12),lowest(d,18,22),lowest(d,28,32)],highs=[highest(d,13,17),highest(d,23,27),highest(d,33,37)];
+  chart('ch-s-range',d,{h:250,zones:[{y1:109.2,y2:110.6,cls:'zone-down',label:'vinde aici'},{y1:99.6,y2:101,cls:'zone-up',label:'cumpără aici'}],hlines:[{y:105.1,label:'mijlocul range-ului: nu intra',cls:'ln-muted',tcls:'t-muted',lx:1}],marks:lows.map(i=>({i,text:'▲',pos:'below',cls:'t-up',dot:'dot-up'})).concat(highs.map(i=>({i,text:'▼',pos:'above',cls:'t-down',dot:'dot-down'}))),label:'Range trading'})})();
+(function(){const d=gen([[0,130],[8,120],[11,124],[18,112],[21,116],[27,104],[31,109],[35,104.4],[38,110.5],[41,108.6],[46,118]],{seed:75,vol:.45,wick:.5});
+  const b1=lowest(d,25,29),b2=lowest(d,33,37),lh=highest(d,29,33),br=(()=>{for(let i=b2;i<d.length;i++)if(d[i].c>d[lh].h)return i;return 38})();
+  chart('ch-s-rev',d,{h:260,zones:[{y1:102.6,y2:105,cls:'zone-up',label:'suport major (W1)'}],hlines:[{y:d[lh].h,i1:lh,i2:br+3,label:'ultimul lower high',cls:'ln-warn',tcls:'t-warn',lx:lh}],marks:[{i:b1,text:'bază 1',pos:'below'},{i:b2,text:'bază 2',pos:'below'},{i:br,text:'confirmare',pos:'above'}],label:'Întoarcere la suport'})})();
+
+/* ---------- MTF ---------- */
+(function(){const dw=gen([[0,1.02],[10,1.07],[15,1.05],[25,1.10],[30,1.08],[40,1.12],[48,1.084]],{seed:81,vol:.003,wick:.004});
+  chart('ch-mtf-w',dw,{h:230,dec:4,zones:[{y1:1.080,y2:1.083,cls:'zone-up',label:'fostă rezistență → suport'}],hlines:[{y:1.0815,i2:26,cls:'ln-muted',lx:2}],marks:[{i:highest(dw,22,28),text:'HH',pos:'above'},{i:lowest(dw,28,32),text:'HL',pos:'below'},{i:highest(dw,38,42),text:'HH',pos:'above'}],label:'W1'});
+  const dd=gen([[0,1.104],[8,1.095],[11,1.099],[19,1.088],[22,1.0915],[30,1.0825]],{seed:83,vol:.0012,wick:.0014});
+  chart('ch-mtf-d',dd,{h:230,dec:4,zones:[{y1:1.080,y2:1.083,cls:'zone-up',label:'zona de pe W1'}],lines:[{a:[highest(dd,0,3),'H'],b:[highest(dd,9,13),'H'],ext:30,cls:'ln-acc'},{a:[lowest(dd,6,9),'L'],b:[lowest(dd,17,20),'L'],ext:30,cls:'ln-acc',label:'canal de corecție',below:1,tcls:'t-acc'}],label:'D1'});
+  const dh=gen([[0,1.0895],[8,1.0818],[12,1.0858],[18,1.0822],[24,1.0878],[27,1.0858],[36,1.0935]],{seed:85,vol:.0006,wick:.0007});
+  const h0=highest(dh,0,2),h1=highest(dh,10,14),l2=lowest(dh,16,20),rt=lowest(dh,25,29),entry=dh[rt].c,stop=dh[l2].l-.0006,tp=entry+2*(entry-stop);
+  chart('ch-mtf-h',dh,{h:250,dec:4,lines:[{a:[h0,'H'],b:[h1,'H'],ext:26,cls:'ln-acc',label:'linia corecției',tcls:'t-acc'}],hlines:[{y:entry,i1:rt,label:'intrare',cls:'ln-ink',tcls:'t-ink',solid:1,lx:rt+1},{y:stop,i1:rt,label:'stop',cls:'ln-down',tcls:'t-down',lx:rt+1,below:1},{y:tp,i1:rt,label:'țintă',cls:'ln-up',tcls:'t-up',lx:rt+1}],marks:[{i:l2,text:'HL',pos:'below'},{i:rt,text:'retest',pos:'below',anchor:'end'}],label:'H4'})})();
+
+/* ---------- cerere/oferta, lichiditate ---------- */
+(function(){const d=gen([[0,108],[8,101.2],[9,100.8],[12,100.9],[16,111],[22,113],[30,102.2],[33,104.5],[40,112]],{seed:91,vol:.35,wick:.4});
+  for(let i=9;i<=12;i++){const m=100.6+((i*37)%7)/10;setC(d,i,d[i].o,Math.max(d[i].o,m)+.25,Math.min(d[i].o,m)-.3,m)}
+  for(let i=13;i<=15;i++){const c=d[i-1].c+3;setC(d,i,d[i-1].c,c+.3,d[i-1].c-.1,c)}
+  const zl=Math.min(...[9,10,11,12].map(i=>d[i].l)),zh=Math.max(...[9,10,11,12].map(i=>Math.max(d[i].o,d[i].c)))+.2,ret=lowest(d,27,33);
+  chart('ch-sd',d,{h:250,zones:[{y1:zl,y2:zh,i1:9,cls:'zone-up',label:'zonă de cerere'}],boxes:[{i1:9,i2:12,label:'bază'}],marks:[{i:14,text:'plecare explozivă',pos:'above',anchor:'end'},{i:ret,text:'prima revenire',pos:'below'}],label:'Zonă de cerere'})})();
+(function(){const d=gen([[0,103],[6,109.8],[10,105],[14,109.8],[18,105.5],[21,109.4],[22,110],[23,108],[30,99]],{seed:93,vol:.35,wick:.3});
+  const h1=highest(d,4,8),h2=highest(d,12,16);const top=Math.max(d[h1].h,d[h2].h);setC(d,22,d[22].o,top+1.6,Math.min(d[22].o,108.9)-.2,108.9);
+  chart('ch-sweep',d,{h:250,hlines:[{y:top,i1:h1,i2:24,label:'maxime egale: aici stau stopurile',cls:'ln-warn',tcls:'t-warn',lx:h1}],marks:[{i:h1,text:'1',pos:'above'},{i:h2,text:'2',pos:'above'},{i:22,text:'măturare',pos:'above'}],label:'Măturarea lichidității'})})();
+(function(){const d=fromArr([[100,100.6,99.6,100.3],[100.3,101.0,100.0,100.8],[100.8,104.6,100.7,104.4],[104.4,105.2,102.4,104.9],[104.9,105.4,104.0,104.3],[104.3,104.5,101.9,102.6],[102.6,104.0,102.3,103.8],[103.8,105.8,103.6,105.6],[105.6,106.6,105.3,106.4]]);
+  chart('ch-fvg',d,{h:220,bw:.5,zones:[{y1:101.0,y2:102.4,i1:1,cls:'zone-acc',label:'FVG'}],marks:[{i:1,text:'1',pos:'above'},{i:2,text:'2',pos:'above'},{i:3,text:'3',pos:'above'},{i:5,text:'revenire în FVG',pos:'below'}],label:'Fair value gap'})})();
+
+/* ---------- gap ---------- */
+(function(){const d=gen([[0,95],[10,99],[14,97.5],[20,100.2],[21,88.4],[28,86]],{seed:95,vol:.4,wick:.4});setC(d,20,d[20].o,100.6,d[20].o-.3,100);setC(d,21,88.2,89,86.9,87.6);
+  chart('ch-gap',d,{h:250,hlines:[{y:96,i1:12,label:'stop loss la 96 $',cls:'ln-down',tcls:'t-down',lx:12,below:1}],marks:[{i:20,text:'închidere 100 $',pos:'above'},{i:21,text:'deschidere 88 $',pos:'below'}],label:'Gap la rezultate'})})();
+
+/* ---------- martingale ---------- */
+(function(){const host=$('ch-mart');if(!host)return;const r=rng(7);let eq=10000,base=50,bet=base,streak=0;const c=[eq];
+  for(let i=0;i<400&&eq>0;i++){let win=r()<.49;if(i<300&&streak>=6)win=true;if(i>=300&&i<312)win=false;const b=Math.min(bet,eq);if(win){eq+=b;bet=base;streak=0}else{eq-=b;bet*=2;streak++}c.push(eq)}
+  const W=760,H=240,L=10,R=64,Tp=12,B=22,s=svgRoot(W,H,'Martingale');const mx=Math.max(...c)*1.05,X=i=>L+i/400*(W-L-R),Y=v=>Tp+(mx-v)/mx*(H-Tp-B);
+  for(let k=0;k<=4;k++){const v=mx*k/4;el('line',{x1:L,x2:W-R,y1:Y(v),y2:Y(v),class:'gridl'},s);el('text',{x:W-R+6,y:Y(v)+3.5,class:'axis'},s,fmt(v,0))}
+  el('path',{d:c.map((v,i)=>(i?'L':'M')+X(i)+' '+Y(v)).join(''),class:'ln-acc','stroke-width':2},s);
+  el('text',{x:X(150),y:Y(c[150])-14,'text-anchor':'middle',class:'lbl-t t-up'},s,'„merge perfect”');el('text',{x:X(c.length-1)-6,y:Y(0)-8,'text-anchor':'end',class:'lbl-t t-down'},s,'o serie de pierderi → cont golit');
+  el('text',{x:L,y:H-6,class:'axis'},s,'tranzacția 0');el('text',{x:W-R,y:H-6,'text-anchor':'end',class:'axis'},s,'tranzacția 400');host.appendChild(s)})();
+
+/* ---------- exerciții ---------- */
+(function(){if(!$('drill'))return;
+ const SC=[
+  {t:'Retest după spargere',ctx:'Graficul zilnic. Rezistența de la 110 a fost spartă acum câteva zile. Prețul a revenit la 110, iar ultima lumânare s-a închis cu un fitil inferior lung.',pts:[[0,100],[6,109.5],[10,103],[15,109.7],[19,104],[24,110],[27,114.5],[31,111],[34,114],[42,121]],seed:101,cut:32,a:'long',shape:d=>setC(d,31,d[31].o,d[31].o+.4,109.7,d[31].o+.9),zones:[{y1:109.3,y2:110.7,cls:'zone-acc'}],e:'Long corect. Trend ascendent (HH, HL), rezistență spartă care devine suport, retest și lumânare de respingere. Stopul sub fitil, ținta la 2R. Exact setup-ul de spargere cu retest din Modulul 15.'},
+  {t:'Mijlocul range-ului',ctx:'Prețul oscilează de 6 săptămâni între 100 și 110. Acum e la 105, iar ultima lumânare e verde.',pts:[[0,105],[5,109.6],[10,100.5],[15,109.4],[20,100.6],[25,109.5],[29,105],[33,101],[38,109],[44,103]],seed:103,cut:30,a:'none',zones:[{y1:109.3,y2:110.6,cls:'zone-down'},{y1:99.6,y2:101,cls:'zone-up'}],e:'Nu intri. În mijlocul range-ului nu ai nivel, stopul ar fi departe, iar ținta aproape. Prețul a mers apoi la suport și la rezistență, unde ar fi fost intrările corecte.'},
+  {t:'Rally în downtrend, la rezistență',ctx:'Trend descendent clar pe D1. Prețul a urcat înapoi la 115, unde fusese un suport important, iar ultima lumânare are un fitil superior lung și se închide jos.',pts:[[0,130],[6,121],[10,125],[16,115],[20,119.6],[26,110],[30,115],[36,104],[40,106],[44,99]],seed:105,cut:31,a:'short',shape:d=>setC(d,30,d[30].o,116.8,d[30].o-.6,d[30].o-.4),zones:[{y1:114.5,y2:115.9,cls:'zone-down'}],e:'Short corect. Downtrend (LH, LL), suport spart care acționează ca rezistență, stea căzătoare. Intrare în direcția trendului, la nivel, cu declanșator. Stopul peste fitil.'},
+  {t:'Steag în trend puternic',ctx:'O creștere bruscă de la 100 la 118, apoi 10 zile de consolidare ușor descendentă. Ultima lumânare a închis peste limita de sus a consolidării, cu volum mare.',pts:[[0,100],[8,118],[11,116.5],[14,117.8],[17,115.5],[20,116.6],[22,119.6],[29,128],[33,126]],seed:107,cut:23,a:'long',e:'Long corect. Steag bullish într-un trend puternic, spargere cu închidere. Stopul sub ultimul minim al steagului, ținta = lungimea catargului.'},
+  {t:'După o creștere uriașă',ctx:'Acțiunea a crescut 28% în 6 săptămâni, fără nicio corecție. Ultima lumânare e cea mai mare verde din tot graficul. Toată lumea vorbește despre ea.',pts:[[0,100],[20,112],[29,121],[30,128],[38,117],[46,124]],seed:109,cut:31,a:'none',e:'Nu intri. Nu ai nivel, nu ai setup, iar stopul logic ar fi foarte departe (R:R slab). E FOMO clasic. Prețul a corectat după aceea, iar o intrare bună ar fi fost la pullback, conform strategiei din Modulul 10.'},
+  {t:'Cap și umeri confirmat',ctx:'După un trend ascendent lung s-au format trei vârfuri, cel din mijloc cel mai înalt. Ultima lumânare s-a închis clar sub linia gâtului.',pts:[[0,88],[7,99.5],[11,94.6],[18,106.5],[24,95.2],[30,100],[35,95],[37,93.4],[44,85],[48,87]],seed:12,cut:38,a:'short',e:'Short corect. Formațiunea e confirmată de închiderea sub linia gâtului: primul lower low după un lower high. Stopul peste umărul drept sau, mai strâns, peste linia gâtului; ținta = înălțimea capului proiectată în jos.'},
+  {t:'Lumânare verde în downtrend',ctx:'Trend descendent puternic. Azi a apărut o lumânare verde mare, în mijlocul mișcării, departe de orice suport.',pts:[[0,130],[10,120],[13,123],[22,112],[25,115],[30,106],[31,108],[38,98],[42,100]],seed:111,cut:32,a:'none',e:'Nu intri. Un long ar fi împotriva trendului și fără nivel. Un short nu are încă setup: aștepți o revenire la rezistență și un semnal de respingere. O lumânare izolată, fără context, nu e semnal.'},
+  {t:'A treia atingere a suportului',ctx:'Range de câteva săptămâni cu suport la 100. Prețul atinge suportul pentru a treia oară și formează o înghițire bullish închisă în zonă. Trendul pe W1 e ascendent.',pts:[[0,106],[5,109.5],[10,100.4],[15,109.2],[20,100.6],[24,103],[27,100.3],[28,101.6],[35,109],[40,108]],seed:113,cut:29,a:'long',shape:d=>{setC(d,27,101.4,101.6,99.9,100.4);setC(d,28,100.3,102.4,100.1,102.2)},zones:[{y1:99.6,y2:101,cls:'zone-up'}],e:'Long corect. Suport testat de mai multe ori, model de înghițire bullish în zonă, trend mare ascendent. Stopul sub fitil, ținta la rezistența de sus a range-ului.'}];
+ let i=0,score=new Map();
+ function data(s){const d=gen(s.pts,{seed:s.seed,vol:.4,wick:.45});if(s.shape)s.shape(d);return d}
+ function show(k){i=(k+SC.length)%SC.length;const s=SC[i],d=data(s);$('dr-title').textContent=`Situația ${i+1} din ${SC.length}: ${s.t}`;$('dr-ctx').textContent=s.ctx;$('dr-fb').innerHTML='';
+  chart('dr-chart',d.slice(0,s.cut),{h:280,extra:d.length-s.cut,zones:s.zones||[],ma:[{p:20,type:'ema'}],label:s.t});[...$('dr-btns').children].forEach(b=>{b.disabled=false;b.classList.remove('ok','bad')});upd()}
+ function upd(){const ok=[...score.values()].filter(Boolean).length;$('dr-score').textContent=`Scor: ${ok} / ${score.size} răspunse`}
+ function answer(a){const s=SC[i],d=data(s),last=d[s.cut-1];const n=d.length;const opts={h:280,zones:(s.zones||[]).slice(),ma:[{p:20,type:'ema'}],boxes:[{i1:s.cut,i2:n-1,label:'ce a urmat'}],label:s.t};
+  if(s.a!=='none'){const lo=d[lowest(d,s.cut-3,s.cut-1)].l,hi=d[highest(d,s.cut-3,s.cut-1)].h,entry=last.c,stop=s.a==='long'?lo-.4:hi+.4,tp=entry+2*(entry-stop);
+   opts.hlines=[{y:entry,i1:s.cut-1,label:'intrare',cls:'ln-ink',tcls:'t-ink',solid:1,lx:s.cut},{y:stop,i1:s.cut-1,label:'stop',cls:'ln-down',tcls:'t-down',lx:s.cut,below:s.a==='long'},{y:tp,i1:s.cut-1,label:'țintă 2R',cls:'ln-up',tcls:'t-up',lx:s.cut,below:s.a!=='long'}]}
+  chart('dr-chart',d,opts);const good=a===s.a;if(!score.has(i))score.set(i,good);
+  [...$('dr-btns').children].forEach(b=>{b.disabled=true;if(b.dataset.a===s.a)b.classList.add('ok');else if(b.dataset.a===a)b.classList.add('bad')});
+  $('dr-fb').innerHTML=(good?'<b class="pos">Corect.</b> ':'<b class="neg">Nu e decizia potrivită.</b> ')+s.e;upd()}
+ [...$('dr-btns').children].forEach(b=>b.onclick=()=>answer(b.dataset.a));$('dr-prev').onclick=()=>show(i-1);$('dr-next').onclick=()=>show(i+1);show(0)})();
+
+/* ---------- analizor jurnal ---------- */
+(function(){if(!$('ana'))return;
+ function run(){const R=$('ana-in').value.split(/[\s,;]+/).map(x=>parseFloat(x.replace(/[^0-9.\-]/g,''))).filter(x=>!isNaN(x));
+  if(!R.length){$('ana-out').innerHTML='<div><span class="k">Eroare</span><span class="v">Introdu cel puțin un număr</span></div>';return}
+  const n=R.length,w=R.filter(x=>x>0),l=R.filter(x=>x<0),sum=R.reduce((a,b)=>a+b,0),mean=sum/n,sd=Math.sqrt(R.reduce((a,b)=>a+(b-mean)**2,0)/Math.max(1,n-1));
+  const gp=w.reduce((a,b)=>a+b,0),gl=-l.reduce((a,b)=>a+b,0);let eq=0,pk=0,dd=0,st=0,mst=0;const curve=[0];R.forEach(x=>{eq+=x;curve.push(eq);pk=Math.max(pk,eq);dd=Math.max(dd,pk-eq);if(x<0){st++;mst=Math.max(mst,st)}else st=0});
+  const sqn=sd?Math.sqrt(n)*mean/sd:0;
+  const rows=[['Tranzacții',n,''],['Rata de câștig',fmt(w.length/n*100,1)+'%',''],['Câștig mediu',w.length?'+'+fmt(gp/w.length)+'R':'—','pos'],['Pierdere medie',l.length?'−'+fmt(gl/l.length)+'R':'—','neg'],['Speranța',(mean>=0?'+':'')+fmt(mean)+'R',mean>=0?'pos':'neg'],['Total',(sum>=0?'+':'')+fmt(sum,1)+'R',sum>=0?'pos':'neg'],['Profit factor',gl?fmt(gp/gl):'∞',gp>=gl?'pos':'neg'],['Drawdown maxim','−'+fmt(dd,1)+'R','neg'],['Serie max. pierderi',mst,''],['SQN',fmt(sqn),'']];
+  $('ana-out').innerHTML=rows.map(r=>`<div><span class="k">${r[0]}</span><span class="v ${r[2]}">${r[1]}</span></div>`).join('');
+  const W=760,H=220,L=10,Rp=56,Tp=12,B=22,s=svgRoot(W,H,'Curba de capital în R');let mn=Math.min(0,...curve),mx=Math.max(1,...curve);const pad=(mx-mn)*.1;mn-=pad;mx+=pad;
+  const X=i=>L+i/(curve.length-1||1)*(W-L-Rp),Y=v=>Tp+(mx-v)/(mx-mn)*(H-Tp-B);
+  for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4;el('line',{x1:L,x2:W-Rp,y1:Y(v),y2:Y(v),class:'gridl'},s);el('text',{x:W-Rp+6,y:Y(v)+3.5,class:'axis'},s,fmt(v,1)+'R')}
+  el('line',{x1:L,x2:W-Rp,y1:Y(0),y2:Y(0),class:'ln-muted dash'},s);
+  el('path',{d:curve.map((v,i)=>(i?'L':'M')+X(i)+' '+Y(v)).join(''),class:sum>=0?'ln-up':'ln-down','stroke-width':2},s);
+  el('circle',{cx:X(curve.length-1),cy:Y(eq),r:3.5,class:sum>=0?'dot-up':'dot-down'},s);
+  el('text',{x:L,y:H-6,class:'axis'},s,'start');el('text',{x:W-Rp,y:H-6,'text-anchor':'end',class:'axis'},s,'tranzacția '+n);
+  $('ana-chart').innerHTML='';$('ana-chart').appendChild(s)}
+ $('ana-run').onclick=run;run();
+ const csv='Data,Instrument,Direcție,Setup,Interval,Intrare,Stop,Țintă,Mărime,Ieșire,Rezultat (R),Rezultat (bani),Conform planului (da/nu),Emoție,Greșeală,Lecție';
+ $('ana-copy').onclick=()=>{const fb=$('ana-copyfb');const done=()=>fb.textContent='Am copiat capul de tabel. Lipește-l în prima celulă dintr-un Excel sau Google Sheets gol, apoi folosește „Date → Text în coloane”, cu virgula ca separator.';
+  try{navigator.clipboard.writeText(csv).then(done,()=>{fb.textContent=csv})}catch(e){fb.textContent=csv}}})();
+
+/* ---------- DCA ---------- */
+(function(){if(!$('dca'))return;
+ function run(){const m=+$('dca-m').value||0,y=Math.max(1,Math.min(50,+$('dca-y').value||1)),r=(+$('dca-r').value||0)/100/12,init=+$('dca-i').value||0;
+  let v=init,c=init;const pts=[[0,v,c]];for(let k=1;k<=y*12;k++){v=v*(1+r)+m;c+=m;if(k%12===0)pts.push([k/12,v,c])}
+  $('dca-out').innerHTML=[['Total depus',fmt(c,0)+' lei',''],['Valoare finală estimată',fmt(v,0)+' lei','pos'],['Câștig din randament',fmt(v-c,0)+' lei','pos'],['Partea din randament',c?fmt((v-c)/v*100,0)+'%':'—','']].map(x=>`<div><span class="k">${x[0]}</span><span class="v ${x[2]}">${x[1]}</span></div>`).join('');
+  const W=760,H=240,L=10,R=80,Tp=12,B=22,s=svgRoot(W,H,'Dobândă compusă');const mx=Math.max(...pts.map(p=>p[1]))*1.08||1,X=t=>L+t/y*(W-L-R),Y=val=>Tp+(mx-val)/mx*(H-Tp-B);
+  for(let k=0;k<=4;k++){const val=mx*k/4;el('line',{x1:L,x2:W-R,y1:Y(val),y2:Y(val),class:'gridl'},s);el('text',{x:W-R+6,y:Y(val)+3.5,class:'axis'},s,fmt(val,0))}
+  el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join('')+`L${X(y)} ${Y(0)}L${X(0)} ${Y(0)}Z`,class:'zone-up',style:'opacity:.25'},s);
+  el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[2])).join('')+`L${X(y)} ${Y(0)}L${X(0)} ${Y(0)}Z`,class:'zone-acc',style:'opacity:.35'},s);
+  el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join(''),class:'ln-up','stroke-width':2},s);
+  el('text',{x:X(y)-6,y:Y(pts[pts.length-1][1])-8,'text-anchor':'end',class:'lbl-t t-up'},s,'valoare totală');el('text',{x:X(y)-6,y:Y(pts[pts.length-1][2]/2),'text-anchor':'end',class:'lbl-t t-acc'},s,'bani depuși');
+  el('text',{x:L,y:H-6,class:'axis'},s,'anul 0');el('text',{x:W-R,y:H-6,'text-anchor':'end',class:'axis'},s,'anul '+y);
+  $('dca-chart').innerHTML='';$('dca-chart').appendChild(s)}
+ ['dca-m','dca-y','dca-r','dca-i'].forEach(k=>$(k).addEventListener('input',run));run()})();
+
+/* ---------- quiz, glosar, slide-uri suplimentare ---------- */
+window.TDZ_Q={
+m13:[['Ai sold 5.000 € și o poziție deschisă în profit cu 200 €. Cât e capitalul (equity)?',['4.800 €','5.000 €','5.200 €','200 €'],2,'Capital = sold + profitul/pierderea pozițiilor deschise.'],
+ ['Prețul e 1,0850 și vrei să cumperi doar dacă urcă peste 1,0900. Ce ordin pui?',['Buy limit la 1,0900','Buy stop la 1,0900','Sell limit la 1,0900','Market'],1,'Buy stop, peste prețul curent, la confirmarea creșterii.'],
+ ['Care e cea mai frecventă greșeală la completarea unui ordin?',['Culoarea graficului','Volumul greșit, ex. 1,00 în loc de 0,10','Alegerea intervalului','Numele contului'],1,'O poziție de 10 ori mai mare înseamnă un risc de 10 ori mai mare.']],
+m14:[['Ce faci dacă tranzacția e în pierdere și prețul se apropie de stop?',['Muți stopul mai jos','Lași stopul unde e','Dublezi poziția','Scoți stopul'],1,'Stopul nu se mută niciodată în direcția pierderii.'],
+ ['Care e dezavantajul mutării stopului la break-even?',['Nu există','Te scoate pe zero din tranzacții care ar fi câștigat','Crește riscul','E interzis'],1,'Rata de câștig scade; testează ambele variante.'],
+ ['Trailing stop sub minimele de swing: când ieși?',['La prima lumânare roșie','Când prețul sparge ultimul HL','După 3 zile','La +1R'],1,'Ieși când structura de trend se rupe.']],
+m15:[['La spargere cu retest, când intri?',['Imediat la atingerea rezistenței','La lumânarea de respingere de la retest','Înainte de spargere','Niciodată'],1,'Retestul filtrează spargerile false.'],
+ ['În range trading, unde nu intri niciodată?',['La suport','La rezistență','În mijlocul range-ului','Cu stop'],2,'În mijloc nu ai nivel și R:R e slab.'],
+ ['De ce la strategia de întoarcere riști doar 0,5%?',['Pentru că e împotriva trendului, deci mai riscantă','Pentru că e mai profitabilă','Așa cere brokerul','Nu contează'],0,'Tranzacțiile contra trendului reușesc mai rar.']],
+m16:[['Ce rol are intervalul mare în analiza top-down?',['Momentul intrării','Direcția și nivelurile majore','Mărimea poziției','Nimic'],1,'Intervalul mare decide direcția.'],
+ ['W1 e în uptrend, H4 îți arată un short frumos. Ce faci?',['Iei short-ul','Nu iei short-ul','Iei long și short','Dublezi riscul'],1,'Intervalul mare câștigă.'],
+ ['Ce factor e recomandat între intervale?',['1–2','4–6','20–30','100'],1,'Ex: W1 / D1 / H4.']],
+m17:[['Ce e o zonă de cerere?',['Zona de unde prețul a pornit brusc în sus','Orice minim','Zona în care volumul e mic','Media mobilă'],0,'Acolo pot fi ordine de cumpărare neexecutate.'],
+ ['Unde se adună de obicei stopurile?',['În mijlocul range-ului','Sub minime egale și peste maxime egale','La întâmplare','Doar la ora 12'],1,'De aceea prețul trece adesea scurt de aceste niveluri.'],
+ ['Ce e un FVG?',['Un indicator de volum','Golul dintre maximul lumânării 1 și minimul lumânării 3, lăsat de o mișcare bruscă','Un tip de ordin','Un broker'],1,'Prețul revine adesea parțial în acest gol.']],
+m18:[['În EUR/USD = 1,0850, care e moneda de bază?',['USD','EUR','Ambele','Niciuna'],1,'1 EUR costă 1,0850 USD.'],
+ ['Ai long pe EUR/USD și long pe GBP/USD. Ce trebuie să știi?',['Sunt independente','Sunt puternic corelate, practic aceeași tranzacție','Se anulează','Nu se poate'],1,'Riscul real e aproape dublu.'],
+ ['Ce se întâmplă cu un stop loss dacă acțiunea face gap peste el la rezultate?',['Se execută exact la nivelul lui','Se execută la primul preț disponibil, poate mult mai rău','Nu se execută niciodată','Brokerul îți dă banii înapoi'],1,'Gap-urile pot face pierderea mult mai mare decât 1R.']],
+m19:[['În exerciții, ce face o decizie „corectă”?',['Faptul că a câștigat','Faptul că respectă trendul, nivelul, declanșatorul și R:R','Faptul că e rapidă','Faptul că e curajoasă'],1,'O decizie bună poate pierde; contează procesul.'],
+ ['Prețul e în mijlocul unui range de 6 săptămâni. Ce faci?',['Long','Short','Nu intri','Long și short'],2,'Aștepți marginile range-ului.'],
+ ['Acțiunea a urcat 28% fără corecție și toată lumea vorbește despre ea. Ce e asta?',['Setup perfect','FOMO','Retest','Divergență'],1,'Fără nivel și cu stop departe, R:R e slab.']],
+m20:[['Câștiguri totale 30R, pierderi totale 20R. Cât e profit factor?',['0,67','1,5','10','50'],1,'30 / 20 = 1,5.'],
+ ['Pierderea ta medie e −1,4R deși stopul e mereu la 1R. Ce înseamnă?',['Totul e în regulă','Probabil muți stopul sau ai slippage mare','Strategia e excelentă','Ai prea puține tranzacții'],1,'Pierderea medie ar trebui să fie aproape de −1R.'],
+ ['Când oprești strategia, conform regulii din curs?',['După 4 pierderi la rând','Când drawdown-ul real depășește de 1,5 ori pe cel din backtest','Niciodată','După o zi proastă'],1,'Regula se stabilește dinainte, din backtest.']],
+m21:[['Cum câștigă bani multe grupuri de semnale?',['Doar din trading','Din abonamente și comisioane de la brokeri pentru volumul tău','Din donații','Din reclame la TV'],1,'Câștigă din tranzacțiile tale, chiar dacă tu pierzi.'],
+ ['Câți traderi primesc vreodată o plată de la prop firms, conform analizei FPFX?',['~70%','~40%','~7%','~0%'],2,'~14% trec provocarea, ~7% primesc plată.'],
+ ['Cineva care te-a ajutat să „investești” îți cere să instalezi AnyDesk. Ce faci?',['Instalezi','Refuzi; e un semnal clar de fraudă','Îi trimiți parola','Depui mai mult'],1,'Nu instala niciodată programe de acces la distanță la cererea cuiva.']],
+m22:[['Ai câștig net de 2.000 lei de la un broker străin pe 2026. Cât e impozitul?',['60 lei','120 lei','200 lei','320 lei'],3,'16% × 2.000 = 320 lei.'],
+ ['Ai pierdere netă pe an. Ce faci?',['Nu declari nimic','O declari, ca s-o poți reporta în anii următori','Plătești impozit oricum','O ascunzi'],1,'Pierderea se poate reporta 5 ani, în limitele legii.'],
+ ['Cum se calculează CASS pentru venituri din investiții?',['10% din tot câștigul','10% dintr-o bază fixă de 6, 12 sau 24 de salarii minime, dacă depășești pragul','Nu există','16%'],1,'E o sumă fixă pe praguri.']],
+m23:[['Ce înseamnă TER?',['Taxa de intrare','Costul anual al ETF-ului','Randamentul garantat','Tipul de ordin'],1,'Caută TER cât mai mic.'],
+ ['Ce face un ETF de tip Acc?',['Plătește dividendele lunar','Reinvestește automat dividendele','Folosește levier','E doar pe crypto'],1,'Acc = acumulare.'],
+ ['Ce vine înaintea investițiilor și a trading-ului?',['Fondul de urgență și plata datoriilor scumpe','Un curs scump','Un credit','Un bot'],0,'3–6 luni de cheltuieli puse deoparte, apoi investiții.']]
+};
+window.TDZ_G=[
+['Sold','Balance','Banii din cont fără rezultatul pozițiilor deschise.'],['Capital (equity)','Equity','Soldul plus profitul/pierderea pozițiilor deschise.'],['Marjă liberă','Free margin','Capital minus marjă folosită; cât mai poți folosi.'],['Nivel de marjă','Margin level','Capital ÷ marjă folosită × 100%; la 50% începe închiderea forțată (UE).'],
+['MetaTrader','MT4 / MT5','Platformă de tranzacționare foarte răspândită în forex și CFD.'],['Bar Replay','Bar Replay','Funcție TradingView care redă graficul lumânare cu lumânare, pentru backtesting.'],['Alertă','Alert','Notificare automată când prețul atinge un nivel.'],
+['Profit parțial','Partial take profit','Închiderea unei părți din poziție la o țintă intermediară.'],['Stop de timp','Time stop','Ieșirea dintr-o tranzacție care nu se mișcă după un număr de lumânări.'],['Piramidare','Pyramiding','Adăugarea la o poziție câștigătoare, cu risc total controlat.'],['Chandelier stop','Chandelier exit','Trailing stop = cel mai mare maxim − un multiplu de ATR.'],
+['Analiză top-down','Top-down analysis','Analiza de la intervalul mare la cel mic: direcție, setup, moment.'],
+['Zonă de cerere / ofertă','Demand / supply zone','Zonă de unde prețul a plecat brusc în sus / în jos.'],['Lichiditate (stopuri)','Liquidity pool','Zone unde se adună stopuri și ordine, de obicei la maxime/minime evidente.'],['Măturarea lichidității','Liquidity sweep / stop hunt','Trecerea scurtă a prețului peste un nivel evident și întoarcerea.'],['FVG','Fair value gap','Gol lăsat de o lumânare foarte mare între lumânările vecine.'],['Order block','Order block','Ultima lumânare de sens opus înainte de o mișcare puternică.'],['BOS / CHoCH','Break of structure / Change of character','Spargere a structurii în direcția trendului / prima spargere împotriva lui.'],
+['Moneda de bază / cotată','Base / quote currency','Prima / a doua monedă dintr-o pereche valutară.'],['Pereche exotică','Exotic pair','Pereche cu monedă a unei piețe emergente; spread și swap mari.'],['Ex-dividend','Ex-dividend date','Ziua de la care acțiunea nu mai dă dreptul la dividend; prețul scade cu aproximativ dividendul.'],['Sezonul rezultatelor','Earnings season','Perioadele în care companiile publică rezultatele trimestriale.'],['Beta','Beta','Cât de mult se mișcă o acțiune față de piață.'],['Rollover','Rollover','Trecerea de la un contract futures care expiră la următorul.'],['MiCA','Markets in Crypto-Assets','Regulamentul UE pentru furnizorii de servicii crypto.'],
+['Profit factor','Profit factor','Suma câștigurilor ÷ suma pierderilor.'],['SQN','System Quality Number','√N × media R ÷ deviația standard R (Van Tharp).'],
+['Martingale','Martingale','Dublarea poziției după fiecare pierdere; duce în final la golirea contului.'],['Grid','Grid trading','Ordine plasate la intervale fixe în ambele direcții; risc mare fără stop.'],['Prop firm','Proprietary trading firm','Firmă care oferă un cont „finanțat” după o provocare plătită.'],['IB / afiliat','Introducing broker','Persoană plătită de broker pentru clienții și volumul aduși.'],['Pig butchering','Pig butchering','Fraudă în care o relație online e folosită ca să te atragă într-o platformă falsă.'],
+['Declarația Unică','D212','Formularul ANAF în care persoanele fizice declară veniturile și contribuțiile.'],['SPV','Spațiul Privat Virtual','Contul online de pe anaf.ro prin care depui declarațiile.'],
+['TER','Total expense ratio','Costul anual al unui fond, în procente.'],['UCITS','UCITS','Standardul european pentru fonduri de investiții.'],['Acc / Dist','Accumulating / Distributing','ETF care reinvestește / plătește dividendele.'],['DCA','Dollar-cost averaging','Investiția aceleiași sume la intervale regulate.'],['Dobândă compusă','Compound interest','Câștigul obținut și din câștigurile anterioare reinvestite.'],['Pilonul III','Pensie facultativă','Pensie privată voluntară; contribuții deductibile până la 400 € pe an.'],['Titluri de stat','Government bonds','Împrumuturi către stat (Fidelis, Tezaur), cu dobândă fixă.']];
+window.TDZ_S=[
+ {n:'13 · Platforma',t:'De la cont demo la ordin corect',b:['Cont demo cu o sumă realistă','Equity = sold ± pozițiile deschise','Verifică volumul, SL și TP după fiecare ordin','TradingView: niveluri, alerte, Bar Replay']},
+ {n:'14 · Gestionare',t:'Ce faci după intrare',b:['Regulile de gestionare se scriu înainte','Break-even: liniște, dar mai multe ieșiri pe zero','Parțial la 1R, rest cu trailing','Niciodată: stop mutat în pierdere, medie în jos']},
+ {n:'15 · Strategii',t:'Strategia potrivită pentru piață',b:['Trend → pullback pe EMA, steaguri','Range → cumperi la suport, vinzi la rezistență','Ieșire din range → spargere cu retest','Final de trend → întoarcere, risc 0,5%']},
+ {n:'16 · Top-down',t:'Trei intervale, trei roluri',b:['Mare: direcția','Mediu: setup-ul','Mic: momentul intrării','Intervalul mare câștigă conflictul']},
+ {n:'17 · Lichiditate',t:'Unde stau ordinele',b:['Zone de cerere/ofertă: de unde a plecat prețul cu forță','Stopurile se adună la maxime/minime evidente','Măturarea lichidității = spargere falsă','SMC = concepte clasice cu nume noi']},
+ {n:'18 · Piețe',t:'Fiecare piață are particularități',b:['Forex: dobânzi, corelații','Acțiuni: rezultate, gap-uri','Aur: dolar și dobânzi reale','Crypto: 24/7, volatilitate, riscul platformei']},
+ {n:'19 · Antrenament',big:'Decizie bună ≠ rezultat bun.',b:['Trend, nivel, declanșator, R:R','„Nu intru” e adesea răspunsul corect']},
+ {n:'20 · Statistici',t:'Cifrele care contează',b:['Speranța și profit factor-ul','Drawdown și seria de pierderi','Minimum 30, ideal 100+ tranzacții','Oprire: DD real > 1,5 × DD din backtest']},
+ {n:'21 · Capcane',t:'Dacă sună prea bine, e fals',b:['Semnale plătite: câștigă din volumul tău','Prop firms: ~7% primesc plată','Martingale: merge perfect până nu mai merge','Verifică pe ASF; nu instala AnyDesk']},
+ {n:'22 · Taxe',t:'Declarația Unică',b:['Broker străin: 16% din câștigul net anual','Calcul în lei, la cursul BNR','Pierderea se reportează 5 ani','CASS pe praguri de salarii minime']},
+ {n:'23 · ETF',big:'Bazele întâi: fond de urgență, apoi ETF, apoi trading.',b:['TER mic, UCITS, indice larg','Investiție lunară automată (DCA)','Trading: 5–10% din economii']}];
+})();
+</script>
+
 
 <script>
 (function(){
@@ -1278,7 +2137,7 @@ const $=id=>document.getElementById(id);
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
 /* ---------- quiz ---------- */
-const Q={
+const Q=Object.assign({
 m0:[
  ['Ce procent din conturile de retail pierdeau bani pe CFD-uri, conform ESMA (2018)?',['10–20%','30–45%','74–89%','Aproape 0% dacă folosești levier mic'],2,'ESMA a raportat 74–89%. Brokerii din UE sunt obligați să afișeze procentul lor real.'],
  ['Care e scopul principal al primului an de trading?',['Să dublezi contul','Să înveți fără să-ți distrugi capitalul','Să găsești o strategie cu 90% câștig','Să renunți la job'],1,'Supraviețuirea și învățarea vin înaintea profitului.'],
@@ -1337,7 +2196,7 @@ m12:[
  ['Câte tranzacții minimum în backtest pentru o concluzie decentă?',['5','20','100','1.000.000'],2,'Sub 100, rezultatul e dominat de noroc.'],
  ['De ce rezultatele din backtest sunt de obicei mai bune decât cele reale?',['Datele sunt false','Fără emoții, fără slippage, setup-uri văzute mai clar','Brokerul trișează','Nu sunt mai bune'],1,'Scade 20–30% pentru realism.'],
  ['Ai câștigat 4.000 lei vânzând acțiuni prin broker român, deținute 8 luni. Ce impozit se aplică în 2026?',['0%','3%, reținut la sursă','6%, reținut la sursă','16%, declarat de tine'],2,'Sub 365 de zile, prin broker român: 6% reținut la sursă.']]
-};
+},window.TDZ_Q||{});
 document.querySelectorAll('.quiz').forEach(box=>{const key=box.dataset.quiz,qs=Q[key];if(!qs)return;
   box.innerHTML=`<h4>Verifică-te</h4><div class="src" style="margin-bottom:6px">${qs.length} întrebări · alege un răspuns</div>`;
   qs.forEach((q,qi)=>{const w=document.createElement('div');w.className='q';const p=document.createElement('p');p.textContent=(qi+1)+'. '+q[0];w.appendChild(p);
@@ -1348,10 +2207,10 @@ document.querySelectorAll('.quiz').forEach(box=>{const key=box.dataset.quiz,qs=Q
   const id='done-'+key;const lab=document.createElement('label');lab.className='donebox';lab.innerHTML=`<input type="checkbox" id="${id}"> Am terminat acest modul`;box.appendChild(lab)});
 
 /* ---------- progres ---------- */
-const MODS=['m0','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12'];
+const MODS=Array.from({length:24},(_,i)=>'m'+i);
 const done=new Set(store.get('tdz-done')||[]);
 function paint(){MODS.forEach(m=>{const cb=$('done-'+m);if(cb)cb.checked=done.has(m);const a=document.querySelector(`#toclist a[href="#${m}"]`);if(a)a.classList.toggle('done',done.has(m))});
-  $('progtxt').textContent=`${done.size} din ${MODS.length} module terminate`;$('progbar').style.width=(done.size/MODS.length*100)+'%'}
+  $('progtxt').textContent=`${done.size} din ${MODS.length} de module terminate`;$('progbar').style.width=(done.size/MODS.length*100)+'%'}
 MODS.forEach(m=>{const cb=$('done-'+m);if(cb)cb.addEventListener('change',()=>{cb.checked?done.add(m):done.delete(m);store.set('tdz-done',[...done]);paint()})});paint();
 
 /* ---------- glosar ---------- */
@@ -1478,7 +2337,7 @@ const G=[
 ['VWAP','Volume Weighted Average Price','Prețul mediu al zilei, ponderat cu volumul.'],
 ['Win rate','Win rate','Procentul tranzacțiilor câștigătoare.']
 ];
-G.sort((a,b)=>a[0].localeCompare(b[0],'ro'));
+G.push(...(window.TDZ_G||[]));G.sort((a,b)=>a[0].localeCompare(b[0],'ro'));
 function renderG(q){q=(q||'').trim().toLowerCase();const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const nq=norm(q);
   const list=G.filter(g=>!nq||norm(g[0]+' '+g[1]+' '+g[2]).includes(nq));
   $('glist').innerHTML=list.map(g=>`<div><dt>${g[0]}${g[1]&&g[1]!=='—'&&g[1]!==g[0]?`<span class="en">${g[1]}</span>`:''}</dt><dd>${g[2]}</dd></div>`).join('');
@@ -1487,7 +2346,7 @@ $('gq').addEventListener('input',e=>renderG(e.target.value));renderG('');
 
 /* ---------- prezentare ---------- */
 const S=[
- {n:'Trading de la zero',big:'Trading-ul e un joc de probabilități și de control al riscului.',b:['13 module, de la „ce e o bursă” la plan de tranzacționare','Scopul primului an: să înveți fără să-ți distrugi contul']},
+ {n:'Trading de la zero',big:'Trading-ul e un joc de probabilități și de control al riscului.',b:['24 de module: teorie (0–12) și practică (13–23)','Scopul primului an: să înveți fără să-ți distrugi contul']},
  {n:'00 · Realitatea',t:'Ce spun cifrele',b:['74–89% din conturile de retail pierd pe CFD-uri (ESMA, 2018)','97% dintre day traderii activi 300+ zile au pierdut (Brazilia, 2020)','~9 din 10 fonduri active nu bat indicele pe 15 ani','Cauze: risc prea mare, levier, lipsa planului, costuri, emoții']},
  {n:'01 · Piețele',t:'Ce poți tranzacționa',b:['Acțiuni, ETF-uri, indici, forex, mărfuri, obligațiuni, crypto','Derivate: futures, opțiuni, CFD','Broker reglementat: ASF în România, licență UE','Forex 24/5; vârf de volum Londra + New York (15:00–19:00 RO)']},
  {n:'02 · Ordinul',t:'Cum intri și ieși',b:['Cumperi la ASK, vinzi la BID; diferența = spread','Long câștigă la creștere, short la scădere','Limit = preț mai bun · Stop = confirmare','1 lot = 100.000 unități; 1 pip EUR/USD pe 1 lot = 10 $','Levierul amplifică și câștigul, și pierderea']},
@@ -1502,6 +2361,7 @@ const S=[
  {n:'11 · Psihologie',t:'Reguli în loc de voință',b:['FOMO, revenge trading, overtrading','Ține pierderile scurte, lasă câștigurile să curgă','Notează-te pe respectarea planului, nu pe rezultat','Limită zilnică de pierdere']},
  {n:'12 · Practică',t:'Drumul de 90 de zile',b:['Săpt. 1–6: teorie + plan scris','Săpt. 7–9: 100 de tranzacții în backtest','Săpt. 10–13: 30–50 de tranzacții pe demo','Bani reali doar cu speranță pozitivă, risc 0,5%']}
 ];
+S.push(...(window.TDZ_S||[]));
 let cur=0;function show(i){cur=Math.max(0,Math.min(S.length-1,i));const s=S[cur];const el=$('slide');
   el.innerHTML=`<div class="sn">${s.n}</div>${s.big?`<div class="big" style="margin:14px 0 22px">${s.big}</div>`:`<h2>${s.t}</h2>`}<ul>${s.b.map(x=>`<li>${x}</li>`).join('')}</ul>`;
   $('dNum').textContent=`${cur+1} / ${S.length}`;$('dPrev').disabled=cur===0;$('dNext').disabled=cur===S.length-1}
