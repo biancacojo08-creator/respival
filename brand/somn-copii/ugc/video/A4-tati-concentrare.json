@@ -1,0 +1,19 @@
+{
+ "script": "Tați, fiți atenți. Copilul care e obraznic dimineața și nu se poate concentra la ore, de cele mai multe ori pur și simplu nu a dormit destul. Somnul e baza. La noi, regula e simplă: ecranele se închid la opt, apoi o linguriță de NovoKids Somn Liniștit, cu tei, floarea pasiunii și miere. Seara e calmă, iar dimineața pleacă la școală odihnit. Nu mai negociați la culcare. Comandați acum, e la reducere.",
+ "hooks": [
+  {
+   "text": "TAȚI, FIȚI ATENȚI!",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "SOMNUL E BAZA",
+   "at_word": "Somnul",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ ACUM · −44%",
+   "last": 3
+  }
+ ]
+}

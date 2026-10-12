@@ -1,0 +1,19 @@
+{
+ "script": "Țipete, uși trântite, „nu vreau la somn!”. Vă sună cunoscut? Obrăznicia de seară are de multe ori o cauză simplă: e prea obosit ca să se mai liniștească singur. Aici intervine ritualul: lumina mică, o poveste și o linguriță de NovoKids Somn Liniștit. Tei, floarea pasiunii și miere, pentru relaxare naturală. Seara se termină cu o poveste, nu cu o ceartă. Linkul e mai jos, acum la jumătate de preț.",
+ "hooks": [
+  {
+   "text": "ȚIPETE ȘI UȘI TRÂNTITE?",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "OBRĂZNICIA VINE DIN OBOSEALĂ",
+   "at_word": "Obrăznicia",
+   "dur": 3
+  },
+  {
+   "text": "LA JUMĂTATE DE PREȚ",
+   "last": 3
+  }
+ ]
+}

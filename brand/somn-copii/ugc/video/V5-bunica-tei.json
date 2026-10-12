@@ -1,0 +1,19 @@
+{
+ "script": "Pe vremea mea, seara le dădeam copiilor ceai de tei. Acum nepoțica are aceeași rețetă, doar mai simplu: NovoKids Somn Liniștit. Tot tei, plus floarea pasiunii și miere, într-un sirop cu gust bun. O linguriță seara și gata, nu mai fierbi ceai la zece noaptea. Natural și făcut la noi, în România. Dacă vreți și voi, linkul e mai jos.",
+ "hooks": [
+  {
+   "text": "REȚETA BUNICII, ÎNTR-O LINGURIȚĂ",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "TEI + FLOAREA PASIUNII + MIERE",
+   "at_word": "NovoKids",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ ACUM · −44%",
+   "last": 3
+  }
+ ]
+}

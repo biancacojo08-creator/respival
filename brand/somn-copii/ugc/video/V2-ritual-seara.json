@@ -1,0 +1,19 @@
+{
+ "script": "Ritualul nostru de seară durează două minute. Pijama, dinții spălați, lumina mică, fără telefon. Apoi o linguriță de NovoKids Somn Liniștit: tei, floarea pasiunii și miere, fără coloranți, făcut în România. Și o poveste scurtă. Atât. Are gust de miere, așa că o ia fără mofturi. Se dă copiilor de peste un an. Dacă și la voi seara e o luptă, linkul e mai jos.",
+ "hooks": [
+  {
+   "text": "RITUALUL DE SEARĂ ÎN 2 MINUTE",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "O LINGURIȚĂ DE NOVOKIDS",
+   "at_word": "linguriță",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ ACUM · −44%",
+   "last": 3
+  }
+ ]
+}

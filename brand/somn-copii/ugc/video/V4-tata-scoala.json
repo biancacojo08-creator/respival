@@ -1,0 +1,19 @@
+{
+ "script": "Știți cât de greu era să-l scol pentru școală? Alarma, a doua alarmă, plânsete. Și seara nu mai adormea. Am înțeles un lucru: dimineața bună începe de cu seară. Fără ecrane după opt, o poveste, și o linguriță de NovoKids Somn Liniștit. Sirop natural cu tei, floarea pasiunii și miere. Un copil odihnit e alt copil dimineața. Linkul e mai jos, acum e la reducere.",
+ "hooks": [
+  {
+   "text": "DIMINEȚI GRELE ÎNAINTE DE ȘCOALĂ?",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "DIMINEAȚA BUNĂ ÎNCEPE DE CU SEARĂ",
+   "at_word": "înțeles",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ ACUM · −44%",
+   "last": 3
+  }
+ ]
+}

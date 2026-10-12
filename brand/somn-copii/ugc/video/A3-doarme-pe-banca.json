@@ -1,0 +1,19 @@
+{
+ "script": "Doamna învățătoare mi-a zis că doarme pe bancă. Atunci am înțeles: problema nu era la școală, era seara, acasă. Adormea la miezul nopții. Un copil nedormit nu are cum să fie atent la ore. Așa că am comandat asta: NovoKids Somn Liniștit. Sirop natural cu tei, floarea pasiunii și miere, o linguriță seara pentru relaxare. Dacă și al vostru e obosit la ore, nu mai amânați. E redus aproape la jumătate, plata la livrare.",
+ "hooks": [
+  {
+   "text": "„DOARME PE BANCĂ LA ȘCOALĂ”",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "NEDORMIT = NEATENT LA ORE",
+   "at_word": "nedormit",
+   "dur": 3
+  },
+  {
+   "text": "−44% · PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

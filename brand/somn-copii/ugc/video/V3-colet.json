@@ -1,0 +1,19 @@
+{
+ "script": "Mi-a venit coletul! Știu că o să mă întrebați ce e, așa că uitați: NovoKids Somn Liniștit. Cutiuța asta mică, cât palma, o sută de mililitri. Sirop natural cu tei, floarea pasiunii și miere, fără coloranți. Se ia o linguriță seara, înainte de poveste, pentru serile agitate, când cel mic are energie până la miezul nopții. Are gust de miere, deci nu e nicio luptă să-l ia. Și acum e redus aproape la jumătate. Linkul e mai jos, plata la livrare.",
+ "hooks": [
+  {
+   "text": "MI-A VENIT COLETUL!",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "SIROP 100% NATURAL",
+   "at_word": "NovoKids",
+   "dur": 3
+  },
+  {
+   "text": "−44% · PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "script": "Stop. Dacă și la voi e ora unsprezece și cel mic sare încă în pat, ascultați asta. Un copil care nu doarme destul e un copil iritat, plângăcios și obraznic a doua zi. Nu e vina lui. E oboseala. Noi am schimbat seara: fără ecrane, și o linguriță de NovoKids Somn Liniștit, cu tei, floarea pasiunii și miere. Ajută la relaxare, ca să adoarmă mai ușor. Nu mai pierdeți nopțile. Comandați acum, e la reducere, plătiți la livrare.",
+ "hooks": [
+  {
+   "text": "STOP! ASCULTĂ ASTA",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "NU E VINA LUI. E OBOSEALA.",
+   "at_word": "vina",
+   "dur": 3
+  },
+  {
+   "text": "−44% · PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

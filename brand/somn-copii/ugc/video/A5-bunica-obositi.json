@@ -1,0 +1,19 @@
+{
+ "script": "Să vă spun ceva ce nu vă spune nimeni: copiii nu sunt obraznici, sunt obosiți. Am crescut trei copii și acum am nepoți, și asta am învățat. Pe vremea mea, seara era ceai de tei. Acum e NovoKids Somn Liniștit: tei, floarea pasiunii și miere, într-un sirop pe care îl beau cu plăcere. O linguriță seara și casa se liniștește. Mămici, ascultați-o pe bunica. Comandați acum, cât mai e reducerea.",
+ "hooks": [
+  {
+   "text": "NU SUNT OBRAZNICI. SUNT OBOSIȚI.",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "SFATUL BUNICII",
+   "at_word": "NovoKids",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ ACUM · −44%",
+   "last": 3
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "script": "Știți momentul ăla, la unsprezece noaptea, când cel mic tot nu vrea să doarmă? Încă o apă, încă o poveste... Uite ce folosim noi acum: NovoKids Somn Liniștit. Sirop natural cu tei, floarea pasiunii și miere. O linguriță seara, înainte de poveste, și seara devine mult mai calmă. Acum e la reducere, sub șaizeci și șapte de lei. Comandați de pe link, plătiți la livrare.",
+ "hooks": [
+  {
+   "text": "ORA 23:00 ȘI ÎNCĂ NU DOARME?",
+   "start": 0,
+   "end": 3
+  },
+  {
+   "text": "TEI + FLOAREA PASIUNII + MIERE",
+   "at_word": "NovoKids",
+   "dur": 3
+  },
+  {
+   "text": "−44% · PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}
