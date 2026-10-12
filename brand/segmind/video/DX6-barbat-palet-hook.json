@@ -1,0 +1,24 @@
+{
+ "script": "Glicemia mare, pofta de dulce, burta care crește de la un an la altul… La cincizeci și șase de ani credeam că așa trebuie să fie. După masă mă lua somnul pe palet și seara nu mă puteam opri din dulce. Fata mea mi-a comandat Diabexum Forte. Ingrediente naturale, susține echilibrul glicemic și metabolic. Nu-i minune, dar acum mă simt mai echilibrat, am energie până la sfârșitul turei și nu mai caut dulce după fiecare masă. Dacă te regăsești, încearcă-l. Plata la livrare.",
+ "hooks": [
+  {
+   "text": "GLICEMIE MARE • POFTĂ DE DULCE • BURTĂ",
+   "start": 0,
+   "end": 4
+  },
+  {
+   "text": "LA 56 DE ANI CREDEAM CĂ E NORMAL",
+   "at_word": "cincizeci",
+   "dur": 3
+  },
+  {
+   "text": "ENERGIE PÂNĂ LA FINALUL TUREI",
+   "at_word": "energie",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}
