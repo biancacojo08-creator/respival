@@ -264,4 +264,4 @@ function build(P) {
   return ads;
 }
 
-module.exports = { build };
+module.exports = { build, lib: { PERIOD, BLK, BLK2, GOLD, GOLDL, GOLDD, RED, CREAM, GREY, GRAD, page, logo, tape, foot, ticketIco, truckIco, giftIco } };
