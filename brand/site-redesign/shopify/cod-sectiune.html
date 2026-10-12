@@ -1,0 +1,323 @@
+<title>Cod secțiune Novensa</title>
+<style>
+:root{--bg:#F6F8F5;--fg:#11281F;--muted:#56665E;--line:#D8E0D9;--brand:#1C4A35;--brand-ink:#fff;--code:#FFFFFF}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E1813;--fg:#E7EFEA;--muted:#9BB0A5;--line:#25362E;--brand:#7FC4A1;--brand-ink:#0B1A13;--code:#14211B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1813;--fg:#E7EFEA;--muted:#9BB0A5;--line:#25362E;--brand:#7FC4A1;--brand-ink:#0B1A13;--code:#14211B;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:900px;margin:0 auto;padding-inline:16px;padding-block:32px;display:flex;flex-direction:column;gap:18px}
+h1{font-size:26px;margin:0}
+ol{margin:0;padding-left:20px;color:var(--muted)} ol b{color:var(--fg)}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button{background:var(--brand);color:var(--brand-ink);border:0;border-radius:999px;padding:14px 26px;font:600 16px/1 inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+#st{color:var(--muted);font-size:14px}
+textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:14px;font:12.5px/1.5 ui-monospace,Menlo,monospace;resize:vertical}
+</style>
+<div class="w">
+<h1>Secțiunea „Novensa – Pagina premium”</h1>
+<ol>
+<li>Apasă <b>Copiază tot codul</b>.</li>
+<li>În Shopify, deschide <b>sections/novensa-premium-home.liquid</b>, apasă <b>Cmd+A</b> (selectează tot) și apoi <b>Cmd+V</b>.</li>
+<li>Verifică: ultima linie trebuie să fie <b>{% endschema %}</b> (linia 290). Apasă <b>Save</b>.</li>
+<li>Reîncarcă pagina Customize și caută <b>Novensa</b> la Add section.</li>
+</ol>
+<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">290 de linii</span></div>
+<textarea id="code" readonly spellcheck="false">{%- comment -%}
+  Novensa — pagina principală premium (o singură secțiune).
+  Instalare: Online Store → Themes → … → Edit code → Sections → Add a new section
+  → nume: novensa-premium-home → lipește tot acest fișier → Save.
+  Apoi Customize → Home page → Add section → „Novensa – Pagina premium”.
+{%- endcomment -%}
+
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap&quot;&gt;
+
+&lt;style&gt;
+  .nv{--bg:#F6F8F5;--surface:#FFFFFF;--tile:#EEF2EC;--ink:#11281F;--muted:#56665E;--line:#D8E0D9;--brand:{{ section.settings.brand_color }};--sage:#DCE6DE;--gold:#A8843F;
+      --display:&quot;Instrument Serif&quot;,Georgia,serif;--body:&quot;Figtree&quot;,system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif;--mono:&quot;IBM Plex Mono&quot;,ui-monospace,Menlo,monospace;
+      background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+  .nv *{box-sizing:border-box}
+  .nv a{color:inherit;text-decoration:none}
+  .nv p{margin:0}
+  .nv h1,.nv h2,.nv h3{font-family:var(--display);font-weight:400;line-height:1.05;letter-spacing:0;text-wrap:balance;margin:0;color:var(--ink)}
+  .nv .w{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  .nv .eb{font:500 12px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .nv .btn{display:inline-flex;align-items:center;border-radius:999px;padding:14px 26px;font:600 15px/1 var(--body);border:1px solid var(--brand);cursor:pointer}
+  .nv .btn--p{background:var(--brand);color:#fff}
+  .nv .btn--g{color:var(--brand);background:transparent}
+  .nv .btn--g:hover{background:var(--sage)}
+  .nv section{padding-block:88px}
+
+  .nv-hero .w{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:64px 72px}
+  .nv-hero .w&gt;*{min-width:0}
+  .nv-hero h1{font-size:clamp(44px,6.4vw,86px);margin-block:18px 22px}
+  .nv-hero h1 em{font-style:italic;color:var(--brand)}
+  .nv-hero .lede{font-size:18px;color:var(--muted);max-width:30em}
+  .nv-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .nv-facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+  .nv-facts div{font-size:13px;color:var(--muted);max-width:12em;line-height:1.4}
+  .nv-facts b{display:block;font:400 30px/1 var(--display);color:var(--ink);margin-bottom:6px}
+  .nv-stage{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:50% 50% 24px 24px;background:radial-gradient(120% 90% at 50% 15%,#fff 0%,var(--tile) 70%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:9%;overflow:hidden}
+  .nv-stage img{height:auto;filter:drop-shadow(0 18px 24px rgba(17,40,31,.18));position:relative}
+  .nv-stage .s1{width:23%;margin-right:-3%}.nv-stage .s2{width:31%;z-index:2}.nv-stage .s3{width:22%;margin-left:-3%}
+  .nv-stage .tag{position:absolute;z-index:3;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 12px/1 var(--mono);color:var(--ink)}
+  .nv-stage .t1{top:14%;left:8%}.nv-stage .t2{top:26%;right:6%}
+
+  .nv-q{background:var(--brand);color:#fff;padding:0!important}
+  .nv-q .w{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:26px}
+  .nv-q div{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:500;line-height:1.35}
+  .nv-q svg{flex:none;width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+  .nv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+  .nv-head h2{font-size:clamp(34px,4.2vw,54px);margin-top:12px}
+  .nv-head p{color:var(--muted);max-width:32em}
+  .nv-link{color:var(--brand);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+  .nv-needs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .nv-need{background:var(--surface);padding:26px 24px;display:flex;flex-direction:column;gap:6px;min-height:130px}
+  .nv-need:hover{background:var(--tile)}
+  .nv-need b{font-weight:600;font-size:16px}
+  .nv-need span{font-size:13px;color:var(--muted);margin-top:auto}
+
+  .nv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .nv-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .nv-card .ph{background:var(--tile);aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;padding:26px}
+  .nv-card .ph img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+  .nv-card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .nv-card h3{font-size:28px}
+  .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5}
+  .nv-card .rate{font-size:13px;color:var(--muted)}
+  .nv-card .rate i{color:#B8862F;font-style:normal;letter-spacing:2px;margin-right:6px}
+  .nv-card .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+  .nv-card .price b{font-size:20px;font-weight:700}
+  .nv-card .price s{font-size:13px;color:var(--muted);margin-left:6px}
+  .nv-card .add{background:var(--brand);color:#fff;border:0;border-radius:999px;padding:11px 18px;font:600 14px/1 var(--body);cursor:pointer}
+
+  .nv-spot{background:var(--sage)}
+  .nv-spot .w{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+  .nv-spot .w&gt;*{min-width:0}
+  .nv-spot .pic{background:radial-gradient(70% 70% at 50% 40%,#fff,var(--tile));border-radius:28px;aspect-ratio:1/1.05;display:flex;align-items:center;justify-content:center;padding:12%}
+  .nv-spot .pic img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply}
+  .nv-spot h2{font-size:clamp(40px,5vw,68px);margin-block:14px 18px}
+  .nv-spot .lede{color:var(--muted);font-size:17px;max-width:32em}
+  .nv-spec{margin:30px 0 0;border-top:1px solid var(--line)}
+  .nv-spec div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--line);font-size:15px}
+  .nv-spec dt{font:500 12px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .nv-spec dd{margin:0}
+
+  .nv-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+  .nv-step{border-top:1px solid var(--ink);padding-top:20px;counter-increment:s}
+  .nv-step::before{content:&quot;0&quot; counter(s);display:block;font:500 12px/1 var(--mono);letter-spacing:.1em;color:var(--gold);margin-bottom:22px}
+  .nv-step h3{font-size:28px;margin-bottom:10px}
+  .nv-step p{color:var(--muted);font-size:15px}
+
+  .nv-consult{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(32px,5vw,60px);display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+  .nv-consult h2{font-size:clamp(34px,4vw,52px);color:var(--bg)}
+  .nv-consult p{opacity:.75;margin-top:14px;max-width:30em}
+  .nv-consult .ph{font:400 clamp(34px,4.4vw,56px)/1 var(--display);color:var(--bg)}
+  .nv-consult .hr{font:500 12px/1 var(--mono);letter-spacing:.08em;opacity:.7;margin-top:12px;text-transform:uppercase}
+  .nv-legal{font-size:12px;color:var(--muted);line-height:1.6;padding-block:28px;border-top:1px solid var(--line);margin-top:88px}
+
+  @media (max-width:980px){.nv-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){
+    .nv-hero .w,.nv-spot .w,.nv-consult{grid-template-columns:1fr}
+    .nv-q .w,.nv-needs,.nv-steps{grid-template-columns:1fr 1fr}
+    .nv-spec div{grid-template-columns:1fr;gap:2px}
+  }
+  @media (max-width:620px){.nv-grid{grid-template-columns:1fr}}
+  @media (max-width:480px){.nv-q .w,.nv-steps{grid-template-columns:1fr}}
+&lt;/style&gt;
+
+&lt;div class=&quot;nv&quot;&gt;
+
+  {%- comment -%} HERO {%- endcomment -%}
+  &lt;section class=&quot;nv-hero&quot; style=&quot;padding-block:0&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div&gt;
+      &lt;span class=&quot;eb&quot;&gt;{{ section.settings.hero_eyebrow }}&lt;/span&gt;
+      &lt;h1&gt;{{ section.settings.hero_title | remove: &#x27;&lt;p&gt;&#x27; | remove: &#x27;&lt;/p&gt;&#x27; }}&lt;/h1&gt;
+      &lt;p class=&quot;lede&quot;&gt;{{ section.settings.hero_text }}&lt;/p&gt;
+      &lt;div class=&quot;nv-ctas&quot;&gt;
+        &lt;a class=&quot;btn btn--p&quot; href=&quot;{{ section.settings.collection.url | default: routes.all_products_collection_url }}&quot;&gt;Vezi produsele&lt;/a&gt;
+        &lt;a class=&quot;btn btn--g&quot; href=&quot;#nv-nevoi&quot;&gt;Alege după nevoie&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;nv-facts&quot;&gt;
+        &lt;div&gt;&lt;b&gt;{{ section.settings.fact1_value }}&lt;/b&gt;{{ section.settings.fact1_label }}&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;{{ section.settings.fact2_value }}&lt;/b&gt;{{ section.settings.fact2_label }}&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;{{ section.settings.fact3_value }}&lt;/b&gt;{{ section.settings.fact3_label }}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nv-stage&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;span class=&quot;tag t1&quot;&gt;Control de calitate pe fiecare lot&lt;/span&gt;
+      &lt;span class=&quot;tag t2&quot;&gt;Formulă Elite+&lt;/span&gt;
+      {%- for i in (1..3) -%}
+        {%- assign key = &#x27;hero_img_&#x27; | append: i -%}
+        {%- assign img = section.settings[key] -%}
+        {%- assign cls = &#x27;s&#x27; | append: i -%}
+        {%- if img != blank -%}{{ img | image_url: width: 700 | image_tag: class: cls, loading: &#x27;eager&#x27;, alt: &#x27;&#x27; }}{%- endif -%}
+      {%- endfor -%}
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  {%- comment -%} BANDĂ CALITATE {%- endcomment -%}
+  &lt;section class=&quot;nv-q&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3&quot;/&gt;&lt;/svg&gt;Formule dezvoltate de biochimiști&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z&quot;/&gt;&lt;path d=&quot;M9 12l2 2 4-4&quot;/&gt;&lt;/svg&gt;Laboratoare certificate din România&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;rect x=&quot;4&quot; y=&quot;3&quot; width=&quot;16&quot; height=&quot;18&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M8 8h8M8 12h8M8 16h5&quot;/&gt;&lt;/svg&gt;Control de calitate pe fiecare lot&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3 7h11v9H3zM14 10h4l3 3v3h-7&quot;/&gt;&lt;circle cx=&quot;7&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;circle cx=&quot;17&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;/svg&gt;Transport în 24h, plata la livrare&lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  {%- comment -%} NEVOI (blocuri „Nevoie”) {%- endcomment -%}
+  &lt;section id=&quot;nv-nevoi&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div class=&quot;nv-head&quot;&gt;
+      &lt;div&gt;&lt;span class=&quot;eb&quot;&gt;Alege după nevoie&lt;/span&gt;&lt;h2&gt;Găsește suportul potrivit&lt;/h2&gt;&lt;/div&gt;
+      &lt;p&gt;Fiecare produs Novensa are un singur rol, clar. Începe de la ce simți și îți arătăm formula potrivită.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nv-needs&quot;&gt;
+      {%- for block in section.blocks -%}{%- if block.type == &#x27;need&#x27; -%}
+        &lt;a class=&quot;nv-need&quot; href=&quot;{{ block.settings.link | default: &#x27;#&#x27; }}&quot; {{ block.shopify_attributes }}&gt;&lt;b&gt;{{ block.settings.title }}&lt;/b&gt;&lt;span&gt;{{ block.settings.product_name }}&lt;/span&gt;&lt;/a&gt;
+      {%- endif -%}{%- endfor -%}
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  {%- comment -%} PRODUSE din colecția aleasă {%- endcomment -%}
+  &lt;section style=&quot;padding-top:0&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div class=&quot;nv-head&quot;&gt;
+      &lt;div&gt;&lt;span class=&quot;eb&quot;&gt;Cele mai alese&lt;/span&gt;&lt;h2&gt;Produsele Novensa&lt;/h2&gt;&lt;/div&gt;
+      &lt;a class=&quot;nv-link&quot; href=&quot;{{ section.settings.collection.url | default: routes.all_products_collection_url }}&quot;&gt;Vezi toate produsele&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nv-grid&quot;&gt;
+      {%- assign src = section.settings.collection.products | default: collections.all.products -%}
+      {%- for product in src limit: section.settings.product_limit -%}
+        &lt;article class=&quot;nv-card&quot;&gt;
+          &lt;a class=&quot;ph&quot; href=&quot;{{ product.url }}&quot;&gt;{%- if product.featured_image -%}{{ product.featured_image | image_url: width: 600 | image_tag: loading: &#x27;lazy&#x27;, alt: product.title }}{%- endif -%}&lt;/a&gt;
+          &lt;div class=&quot;bd&quot;&gt;
+            &lt;h3&gt;&lt;a href=&quot;{{ product.url }}&quot;&gt;{{ product.metafields.custom.nume_scurt | default: product.title }}&lt;/a&gt;&lt;/h3&gt;
+            {%- if product.metafields.custom.descriere_scurta != blank -%}&lt;p class=&quot;desc&quot;&gt;{{ product.metafields.custom.descriere_scurta }}&lt;/p&gt;{%- endif -%}
+            {%- assign rc = product.metafields.reviews.rating_count.value -%}
+            {%- if rc and rc &gt; 0 -%}&lt;p class=&quot;rate&quot;&gt;&lt;i&gt;★★★★★&lt;/i&gt;{{ rc }} recenzii&lt;/p&gt;{%- endif -%}
+            &lt;div class=&quot;buy&quot;&gt;
+              &lt;span class=&quot;price&quot;&gt;&lt;b&gt;{{ product.price | money }}&lt;/b&gt;{%- if product.compare_at_price &gt; product.price -%}&lt;s&gt;{{ product.compare_at_price | money }}&lt;/s&gt;{%- endif -%}&lt;/span&gt;
+              {%- form &#x27;product&#x27;, product -%}
+                &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;{{ product.selected_or_first_available_variant.id }}&quot;&gt;
+                &lt;button class=&quot;add&quot; type=&quot;submit&quot; {% unless product.available %}disabled{% endunless %}&gt;{% if product.available %}Adaugă în coș{% else %}Indisponibil{% endif %}&lt;/button&gt;
+              {%- endform -%}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      {%- endfor -%}
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  {%- comment -%} PRODUS VEDETĂ {%- endcomment -%}
+  {%- assign sp = section.settings.spotlight -%}
+  {%- if sp != blank -%}
+  &lt;section class=&quot;nv-spot&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div class=&quot;pic&quot;&gt;{%- if sp.featured_image -%}{{ sp.featured_image | image_url: width: 800 | image_tag: loading: &#x27;lazy&#x27;, alt: sp.title }}{%- endif -%}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;span class=&quot;eb&quot;&gt;{{ section.settings.spot_eyebrow }}&lt;/span&gt;
+      &lt;h2&gt;{{ section.settings.spot_title | default: sp.title }}&lt;/h2&gt;
+      &lt;p class=&quot;lede&quot;&gt;{{ section.settings.spot_text }}&lt;/p&gt;
+      &lt;dl class=&quot;nv-spec&quot;&gt;
+        {%- for block in section.blocks -%}{%- if block.type == &#x27;spec&#x27; -%}
+          &lt;div {{ block.shopify_attributes }}&gt;&lt;dt&gt;{{ block.settings.label }}&lt;/dt&gt;&lt;dd&gt;{{ block.settings.value }}&lt;/dd&gt;&lt;/div&gt;
+        {%- endif -%}{%- endfor -%}
+      &lt;/dl&gt;
+      &lt;div class=&quot;nv-ctas&quot;&gt;&lt;a class=&quot;btn btn--p&quot; href=&quot;{{ sp.url }}&quot;&gt;Comandă · {{ sp.price | money }}&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+  {%- endif -%}
+
+  {%- comment -%} PROCES {%- endcomment -%}
+  &lt;section&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div class=&quot;nv-head&quot;&gt;
+      &lt;div&gt;&lt;span class=&quot;eb&quot;&gt;De la formulă la raft&lt;/span&gt;&lt;h2&gt;Cum ajunge un produs Novensa la tine&lt;/h2&gt;&lt;/div&gt;
+      &lt;p&gt;Fiecare lot trece prin aceiași patru pași, de fiecare dată.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;nv-steps&quot;&gt;
+      &lt;div class=&quot;nv-step&quot;&gt;&lt;h3&gt;Formulare&lt;/h3&gt;&lt;p&gt;Biochimiștii dezvoltă formula special pentru Novensa, cu un singur rol clar pentru fiecare produs.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;nv-step&quot;&gt;&lt;h3&gt;Producție&lt;/h3&gt;&lt;p&gt;Produsul e fabricat în laboratoare certificate din România.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;nv-step&quot;&gt;&lt;h3&gt;Control&lt;/h3&gt;&lt;p&gt;Fiecare lot trece prin control de calitate înainte să plece din laborator.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;nv-step&quot;&gt;&lt;h3&gt;Livrare&lt;/h3&gt;&lt;p&gt;Loturi noi în fiecare lună, expediate în 24h, cu plata la livrare.&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  {%- comment -%} CONSULTANȚĂ {%- endcomment -%}
+  &lt;section style=&quot;padding-top:0&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div class=&quot;nv-consult&quot;&gt;
+      &lt;div&gt;&lt;h2&gt;Nu știi ce ți se potrivește?&lt;/h2&gt;&lt;p&gt;Sună-ne și un consultant Novensa te ajută să alegi produsul și îți explică cum se administrează.&lt;/p&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;a class=&quot;ph&quot; href=&quot;tel:{{ section.settings.phone | remove: &#x27; &#x27; | remove: &#x27;.&#x27; }}&quot;&gt;{{ section.settings.phone }}&lt;/a&gt;&lt;div class=&quot;hr&quot;&gt;Comenzi și asistență telefonică&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;nv-legal&quot;&gt;Suplimentele alimentare nu înlocuiesc o dietă variată și echilibrată și un stil de viață sănătos. Informațiile de pe acest site au scop informativ și nu înlocuiesc consultul medical. Dacă aveți o afecțiune, consultați medicul.&lt;/p&gt;
+  &lt;/div&gt;&lt;/section&gt;
+&lt;/div&gt;
+
+{% schema %}
+{
+  &quot;name&quot;: &quot;Novensa – Pagina premium&quot;,
+  &quot;tag&quot;: &quot;div&quot;,
+  &quot;settings&quot;: [
+    { &quot;type&quot;: &quot;color&quot;, &quot;id&quot;: &quot;brand_color&quot;, &quot;label&quot;: &quot;Culoare brand&quot;, &quot;default&quot;: &quot;#1C4A35&quot; },
+    { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Hero&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;hero_eyebrow&quot;, &quot;label&quot;: &quot;Text mic deasupra titlului&quot;, &quot;default&quot;: &quot;Laborator românesc · Formule proprii&quot; },
+    { &quot;type&quot;: &quot;richtext&quot;, &quot;id&quot;: &quot;hero_title&quot;, &quot;label&quot;: &quot;Titlu (folosește italic pentru cuvântul accentuat)&quot;, &quot;default&quot;: &quot;&lt;p&gt;Suplimente formulate cu &lt;em&gt;rigoarea&lt;/em&gt; unei farmacii.&lt;/p&gt;&quot; },
+    { &quot;type&quot;: &quot;textarea&quot;, &quot;id&quot;: &quot;hero_text&quot;, &quot;label&quot;: &quot;Text&quot;, &quot;default&quot;: &quot;Formule dezvoltate de biochimiști, produse în laboratoare certificate din România și verificate lot cu lot. Pentru inimă, metabolism, respirație și vitalitate.&quot; },
+    { &quot;type&quot;: &quot;image_picker&quot;, &quot;id&quot;: &quot;hero_img_1&quot;, &quot;label&quot;: &quot;Produs stânga (PNG fără fundal)&quot; },
+    { &quot;type&quot;: &quot;image_picker&quot;, &quot;id&quot;: &quot;hero_img_2&quot;, &quot;label&quot;: &quot;Produs centru (PNG fără fundal)&quot; },
+    { &quot;type&quot;: &quot;image_picker&quot;, &quot;id&quot;: &quot;hero_img_3&quot;, &quot;label&quot;: &quot;Produs dreapta (PNG fără fundal)&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact1_value&quot;, &quot;label&quot;: &quot;Cifra 1&quot;, &quot;default&quot;: &quot;751&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact1_label&quot;, &quot;label&quot;: &quot;Text cifra 1&quot;, &quot;default&quot;: &quot;recenzii de la clienți, în magazin&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact2_value&quot;, &quot;label&quot;: &quot;Cifra 2&quot;, &quot;default&quot;: &quot;Lunar&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact2_label&quot;, &quot;label&quot;: &quot;Text cifra 2&quot;, &quot;default&quot;: &quot;loturi noi, produse proaspăt&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact3_value&quot;, &quot;label&quot;: &quot;Cifra 3&quot;, &quot;default&quot;: &quot;100%&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact3_label&quot;, &quot;label&quot;: &quot;Text cifra 3&quot;, &quot;default&quot;: &quot;produse în laboratoare certificate din România&quot; },
+    { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Produse&quot; },
+    { &quot;type&quot;: &quot;collection&quot;, &quot;id&quot;: &quot;collection&quot;, &quot;label&quot;: &quot;Colecția afișată&quot; },
+    { &quot;type&quot;: &quot;range&quot;, &quot;id&quot;: &quot;product_limit&quot;, &quot;label&quot;: &quot;Câte produse&quot;, &quot;min&quot;: 3, &quot;max&quot;: 12, &quot;step&quot;: 3, &quot;default&quot;: 6 },
+    { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Produs vedetă&quot; },
+    { &quot;type&quot;: &quot;product&quot;, &quot;id&quot;: &quot;spotlight&quot;, &quot;label&quot;: &quot;Produs&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;spot_eyebrow&quot;, &quot;label&quot;: &quot;Text mic&quot;, &quot;default&quot;: &quot;Gama Elite+&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;spot_title&quot;, &quot;label&quot;: &quot;Titlu (gol = numele produsului)&quot;, &quot;default&quot;: &quot;Diabexum Forte Elite+&quot; },
+    { &quot;type&quot;: &quot;textarea&quot;, &quot;id&quot;: &quot;spot_text&quot;, &quot;label&quot;: &quot;Text&quot;, &quot;default&quot;: &quot;Formula noastră avansată pentru echilibrul glicemic și metabolic. Un complex de ingrediente naturale, într-o capsulă pe care o iei simplu, în fiecare zi.&quot; },
+    { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Contact&quot; },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;phone&quot;, &quot;label&quot;: &quot;Telefon&quot;, &quot;default&quot;: &quot;0371 234 979&quot; }
+  ],
+  &quot;blocks&quot;: [
+    { &quot;type&quot;: &quot;need&quot;, &quot;name&quot;: &quot;Nevoie&quot;, &quot;settings&quot;: [
+      { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;title&quot;, &quot;label&quot;: &quot;Nevoie&quot;, &quot;default&quot;: &quot;Respirație&quot; },
+      { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;product_name&quot;, &quot;label&quot;: &quot;Produs&quot;, &quot;default&quot;: &quot;Respival&quot; },
+      { &quot;type&quot;: &quot;url&quot;, &quot;id&quot;: &quot;link&quot;, &quot;label&quot;: &quot;Link&quot; }
+    ]},
+    { &quot;type&quot;: &quot;spec&quot;, &quot;name&quot;: &quot;Detaliu produs vedetă&quot;, &quot;settings&quot;: [
+      { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;label&quot;, &quot;label&quot;: &quot;Etichetă&quot;, &quot;default&quot;: &quot;Rol&quot; },
+      { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;value&quot;, &quot;label&quot;: &quot;Valoare&quot;, &quot;default&quot;: &quot;Susține echilibrul glicemic și metabolic&quot; }
+    ]}
+  ],
+  &quot;presets&quot;: [{
+    &quot;name&quot;: &quot;Novensa – Pagina premium&quot;,
+    &quot;blocks&quot;: [
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Respirație&quot;, &quot;product_name&quot;: &quot;Respival&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Inimă și circulație&quot;, &quot;product_name&quot;: &quot;Cardio Balance&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Metabolism și glicemie&quot;, &quot;product_name&quot;: &quot;Diabexum Forte Elite+&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Vitalitate masculină&quot;, &quot;product_name&quot;: &quot;Power Man&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Prostată&quot;, &quot;product_name&quot;: &quot;Prosta Complex&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Ficat și digestie&quot;, &quot;product_name&quot;: &quot;Ceai Hepato Nova Detox&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Îngrijirea pielii&quot;, &quot;product_name&quot;: &quot;Cremă și ulei cu extracte din plante&quot; } },
+      { &quot;type&quot;: &quot;need&quot;, &quot;settings&quot;: { &quot;title&quot;: &quot;Copii&quot;, &quot;product_name&quot;: &quot;Somn liniștit · NovaKids&quot; } },
+      { &quot;type&quot;: &quot;spec&quot;, &quot;settings&quot;: { &quot;label&quot;: &quot;Rol&quot;, &quot;value&quot;: &quot;Susține echilibrul glicemic și metabolic&quot; } },
+      { &quot;type&quot;: &quot;spec&quot;, &quot;settings&quot;: { &quot;label&quot;: &quot;Formulă&quot;, &quot;value&quot;: &quot;Complex de ingrediente naturale · Formulă avansată&quot; } },
+      { &quot;type&quot;: &quot;spec&quot;, &quot;settings&quot;: { &quot;label&quot;: &quot;Ambalaj&quot;, &quot;value&quot;: &quot;30 capsule · 12,54 g&quot; } },
+      { &quot;type&quot;: &quot;spec&quot;, &quot;settings&quot;: { &quot;label&quot;: &quot;Producție&quot;, &quot;value&quot;: &quot;Laborator certificat din România, control pe fiecare lot&quot; } }
+    ]
+  }]
+}
+{% endschema %}
+</textarea>
+</div>
+<script>
+const t=document.getElementById('code'),s=document.getElementById('st');
+document.getElementById('cp').addEventListener('click',()=>{
+  navigator.clipboard.writeText(t.value).then(()=>{s.textContent='Copiat: 290 de linii. Lipește în Shopify cu Cmd+V.'})
+  .catch(()=>{t.focus();t.select();s.textContent='Codul e selectat. Apasă Cmd+C, apoi lipește în Shopify.'});
+});
+</script>
