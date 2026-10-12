@@ -71,13 +71,14 @@
   .nv--ph-tint .nv-card .ph img{object-fit:contain;mix-blend-mode:multiply}
   .nv--ph-full .nv-card .ph{background:#FFFFFF;padding:0}
   .nv--ph-full .nv-card .ph img{object-fit:cover}
-  .nv-card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .nv-card h3{font-size:28px}
-  .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5}
+  .nv-card .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .nv-card h3{font:600 17px/1.35 var(--body);color:var(--ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(17px*1.35*2)}
+  .nv-card h3 a:hover{color:var(--brand)}
+  .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .nv-card .rate{font-size:13px;color:var(--muted)}
   .nv-card .rate i{color:#B8862F;font-style:normal;letter-spacing:2px;margin-right:6px}
   .nv-card .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
-  .nv-card .price b{font-size:20px;font-weight:700}
+  .nv-card .price b{font-size:18px;font-weight:700;color:var(--ink)}
   .nv-card .price s{font-size:13px;color:var(--muted);margin-left:6px}
   .nv-card .add{background:var(--brand);color:var(--brand-ink);border:0;border-radius:4px;padding:11px 18px;font:600 14px/1 var(--body);cursor:pointer}
 
@@ -263,7 +264,7 @@
     { "type": "text", "id": "fact3_label", "label": "Text cifra 3", "default": "produse în laboratoare certificate din România" },
     { "type": "header", "content": "Produse" },
     { "type": "collection", "id": "collection", "label": "Colecția afișată" },
-    { "type": "select", "id": "card_bg", "label": "Fundal poze produse", "default": "white", "options": [
+    { "type": "select", "id": "card_bg", "label": "Fundal poze produse", "default": "tint", "options": [
       { "value": "white", "label": "Alb" },
       { "value": "full", "label": "Poza pe tot cardul" },
       { "value": "tint", "label": "Gri foarte deschis" } ] },

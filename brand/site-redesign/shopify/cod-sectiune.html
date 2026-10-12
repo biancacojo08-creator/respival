@@ -18,10 +18,10 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
 <ol>
 <li>Apasă <b>Copiază tot codul</b>.</li>
 <li>În Shopify, deschide <b>sections/novensa-premium-home.liquid</b>, apasă <b>Cmd+A</b> (selectează tot) și apoi <b>Cmd+V</b>.</li>
-<li>Verifică: ultima linie trebuie să fie <b>{% endschema %}</b> (linia 309). Apasă <b>Save</b>.</li>
+<li>Verifică: ultima linie trebuie să fie <b>{% endschema %}</b> (linia 310). Apasă <b>Save</b>.</li>
 <li>Reîncarcă pagina Customize și caută <b>Novensa</b> la Add section.</li>
 </ol>
-<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">309 de linii</span></div>
+<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">310 de linii</span></div>
 <textarea id="code" readonly spellcheck="false">{%- comment -%}
   Novensa — pagina principală premium (o singură secțiune).
   Instalare: Online Store → Themes → … → Edit code → Sections → Add a new section
@@ -95,13 +95,14 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
   .nv--ph-tint .nv-card .ph img{object-fit:contain;mix-blend-mode:multiply}
   .nv--ph-full .nv-card .ph{background:#FFFFFF;padding:0}
   .nv--ph-full .nv-card .ph img{object-fit:cover}
-  .nv-card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
-  .nv-card h3{font-size:28px}
-  .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5}
+  .nv-card .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .nv-card h3{font:600 17px/1.35 var(--body);color:var(--ink);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:calc(17px*1.35*2)}
+  .nv-card h3 a:hover{color:var(--brand)}
+  .nv-card .desc{color:var(--muted);font-size:14px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .nv-card .rate{font-size:13px;color:var(--muted)}
   .nv-card .rate i{color:#B8862F;font-style:normal;letter-spacing:2px;margin-right:6px}
   .nv-card .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
-  .nv-card .price b{font-size:20px;font-weight:700}
+  .nv-card .price b{font-size:18px;font-weight:700;color:var(--ink)}
   .nv-card .price s{font-size:13px;color:var(--muted);margin-left:6px}
   .nv-card .add{background:var(--brand);color:var(--brand-ink);border:0;border-radius:4px;padding:11px 18px;font:600 14px/1 var(--body);cursor:pointer}
 
@@ -287,7 +288,7 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
     { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;fact3_label&quot;, &quot;label&quot;: &quot;Text cifra 3&quot;, &quot;default&quot;: &quot;produse în laboratoare certificate din România&quot; },
     { &quot;type&quot;: &quot;header&quot;, &quot;content&quot;: &quot;Produse&quot; },
     { &quot;type&quot;: &quot;collection&quot;, &quot;id&quot;: &quot;collection&quot;, &quot;label&quot;: &quot;Colecția afișată&quot; },
-    { &quot;type&quot;: &quot;select&quot;, &quot;id&quot;: &quot;card_bg&quot;, &quot;label&quot;: &quot;Fundal poze produse&quot;, &quot;default&quot;: &quot;white&quot;, &quot;options&quot;: [
+    { &quot;type&quot;: &quot;select&quot;, &quot;id&quot;: &quot;card_bg&quot;, &quot;label&quot;: &quot;Fundal poze produse&quot;, &quot;default&quot;: &quot;tint&quot;, &quot;options&quot;: [
       { &quot;value&quot;: &quot;white&quot;, &quot;label&quot;: &quot;Alb&quot; },
       { &quot;value&quot;: &quot;full&quot;, &quot;label&quot;: &quot;Poza pe tot cardul&quot; },
       { &quot;value&quot;: &quot;tint&quot;, &quot;label&quot;: &quot;Gri foarte deschis&quot; } ] },
@@ -335,7 +336,7 @@ textarea{width:100%;min-height:55vh;background:var(--code);color:var(--fg);borde
 <script>
 const t=document.getElementById('code'),s=document.getElementById('st');
 document.getElementById('cp').addEventListener('click',()=>{
-  navigator.clipboard.writeText(t.value).then(()=>{s.textContent='Copiat: 309 de linii. Lipește în Shopify cu Cmd+V.'})
+  navigator.clipboard.writeText(t.value).then(()=>{s.textContent='Copiat: 310 de linii. Lipește în Shopify cu Cmd+V.'})
   .catch(()=>{t.focus();t.select();s.textContent='Codul e selectat. Apasă Cmd+C, apoi lipește în Shopify.'});
 });
 </script>
