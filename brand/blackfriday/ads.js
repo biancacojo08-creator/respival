@@ -1,5 +1,5 @@
 // Black Friday 2026 (9–16 noiembrie) – 10 reclame 1:1 (1080x1080) pentru fiecare produs din products.js.
-// Transport gratuit la orice comandă, pachete avantajoase + cadouri (cadourile nu sunt numite).
+// Transport gratuit la orice comandă, pachete avantajoase + tichete răzuibile cadou, toate câștigătoare.
 // Render: node render.js [produs] [id-filter]
 const PERIOD = '9–16 noiembrie';
 
@@ -45,9 +45,12 @@ const tape = (txt = `Black Friday · ${PERIOD} · Transport gratuit la orice com
   `<div class="tape">${Array(4).fill(`<span>${txt}</span><span>★</span>`).join('')}</div>`;
 const foot = () => `<div class="foot"><span>Transport gratuit</span><span>Plata la livrare</span><span>Ofertă ${PERIOD}</span></div>`;
 const price = (p, size, gold = false, unit = .36) => { const g = gold ? ' class="gold"' : ''; return `<span${g} style="font:900 ${size}px/1 Archivo;letter-spacing:${-size / 26}px">${p}</span><span${g} style="font:900 ${Math.round(size * unit)}px Archivo;letter-spacing:0"> lei</span>`; };
-const cad = k => k ? `+ ${k === 1 ? 'cadou' : `${k} cadouri`}` : '';
+const cad = k => k ? `+ ${k === 1 ? 'tichet răzuibil' : `${k} tichete răzuibile`}` : '';
+const win = k => k === 1 ? 'câștigător' : 'toate câștigătoare';
 
 // icons
+// tichet răzuibil: bilet auriu cu zona argintie răzuită parțial
+const ticketIco = (s = 60) => `<svg width="${s}" height="${s * .62}" viewBox="0 0 80 50"><path d="M4 4h72v14a7 7 0 0 0 0 14v14H4V32a7 7 0 0 0 0-14z" fill="${GOLD}"/><rect x="14" y="13" width="44" height="24" rx="4" fill="#c9c9c9"/><path d="M14 30c8-6 14 2 22-5s14 1 22-4v12c0 2-2 4-4 4H18c-2 0-4-2-4-4z" fill="${BLK}" opacity=".85"/><text x="36" y="34" font-family="Archivo" font-weight="900" font-size="14" fill="${GOLDL}" text-anchor="middle">★</text><circle cx="66" cy="25" r="3" fill="${BLK}"/></svg>`;
 const giftIco = (s = 46, c = GOLD, bg = BLK) => `<svg width="${s}" height="${s}" viewBox="0 0 64 64"><path d="M32 18c-3-9-15-13-16-5-1 5 9 5 16 5zm0 0c3-9 15-13 16-5 1 5-9 5-16 5z" fill="none" stroke="${c}" stroke-width="4" stroke-linejoin="round"/><rect x="6" y="18" width="52" height="12" rx="3" fill="${c}"/><rect x="10" y="30" width="44" height="28" rx="3" fill="${c}"/><rect x="29" y="18" width="6" height="40" fill="${bg}"/></svg>`;
 const truckIco = (s = 60, c = GOLD, bg = BLK) => `<svg width="${s * 1.6}" height="${s}" viewBox="0 0 64 40"><rect x="2" y="4" width="38" height="25" rx="3" fill="${c}"/><path d="M42 12h11l9 10v7H42z" fill="${c}"/><path d="M46 15h6l5 6H46z" fill="${bg}"/><circle cx="14" cy="32" r="6" fill="${c}" stroke="${bg}" stroke-width="3"/><circle cx="51" cy="32" r="6" fill="${c}" stroke="${bg}" stroke-width="3"/></svg>`;
 
@@ -75,7 +78,7 @@ function build(P) {
     ? price(o.price, size, gold)
     : `<span class="${gold ? 'gold' : ''}" style="font:900 ${size}px/1 Archivo;letter-spacing:${-size / 22}px">${o.big}</span>${o.n > 1 ? `<span class="${gold ? 'gold' : ''}" style="font:900 ${Math.round(size * .34)}px Archivo;letter-spacing:1px"> GRATUIT</span>` : ''}`;
   const subline = o => o.price ? (o.was ? `în loc de <span class="strike">${o.was} lei</span>` : '') : o.sub;
-  const giftLine = (k, size = 30) => k ? `<div class="line" style="font-size:${size}px">${giftIco(size * 1.5)}<span class="gold">${cad(k)}</span> <span style="font:700 ${size * .8}px Inter;text-transform:none;color:${GREY}">de Black Friday</span></div>` : '';
+  const giftLine = (k, size = 30) => k ? `<div class="line" style="font-size:${size}px">${ticketIco(size * 1.6)}<div style="display:flex;flex-direction:column;gap:4px"><span class="gold">${cad(k)}</span><span style="font:700 ${size * .72}px Inter;text-transform:none;color:${GREY}">${win(k) === 'câștigător' ? 'Tichetul e câștigător' : 'Toate tichetele sunt câștigătoare'}</span></div></div>` : '';
   const shipLine = (size = 28) => `<div class="line" style="font-size:${size}px">${truckIco(size * .95)}<span>Transport gratuit</span></div>`;
   const packName = o => o.price ? o.title : (o.n === 1 ? o.title : `${o.title} · ${o.n} ${P.many}`);
   const ads = [];
@@ -94,7 +97,7 @@ function build(P) {
     `${tape()}<div class="glow" style="width:900px;height:900px;left:420px;top:-240px"></div>
     ${logo(56, 104)}
     <div class="abs big gold" style="left:52px;top:180px;font-size:138px">Black<br>Friday</div>
-    <div class="abs" style="left:58px;top:450px;width:560px;font:700 28px/1.35 Inter">${P.name}<br><span style="color:${GOLDL}">Pachete avantajoase + cadouri<br>Transport gratuit la orice comandă</span></div>
+    <div class="abs" style="left:58px;top:450px;width:560px;font:700 28px/1.35 Inter">${P.name}<br><span style="color:${GOLDL}">Tichete răzuibile cadou, toate câștigătoare<br>Transport gratuit la orice comandă</span></div>
     ${stack(Math.min(best.n, 3), 380, 880, 140)}
     ${P.packs.map((o, i) => `<div class="card${o.best ? ' best' : ''}" style="left:${56 + i * (cw + gap)}px">
       <div class="t">${o.title}</div>
@@ -132,8 +135,8 @@ function build(P) {
     ${priced ? `<div class="abs" style="left:60px;top:575px;font:700 32px Inter;color:${GREY}">${subline(second)}</div>` : ''}
     ${name(60, priced ? 630 : 612, 28)}
     <div class="abs" style="left:60px;top:690px">${giftLine(second.gifts, 32)}</div>
-    <div class="abs" style="left:60px;top:768px">${shipLine(28)}</div>
-    <div class="btn" style="left:56px;top:850px">Vreau oferta →</div>
+    <div class="abs" style="left:60px;top:782px">${shipLine(28)}</div>
+    <div class="btn" style="left:56px;top:862px">Vreau oferta →</div>
     ${stack(second.n, 560, 870, 250)}
     ${disc()}${foot()}`);
 
@@ -151,9 +154,9 @@ function build(P) {
          <div class="abs gold" style="left:56px;top:445px;font:900 84px/1 Archivo;letter-spacing:2px">GRATUIT</div>
          <div class="abs" style="left:58px;top:545px;font:700 32px Inter;color:${GREY}">${best.sub}</div>
          ${name(60, 612, 28)}
-         <div class="abs" style="left:58px;top:660px;width:540px;font:600 26px/1.35 Inter;color:${GREY}">Cura completă, cu cadouri și transport gratuit.</div>`}
+         <div class="abs" style="left:58px;top:660px;width:540px;font:600 26px/1.35 Inter;color:${GREY}">Cura completă, cu tichete răzuibile câștigătoare și transport gratuit.</div>`}
     <div class="abs" style="left:60px;top:${priced ? 745 : 755}px">${giftLine(best.gifts, 32)}</div>
-    <div class="abs" style="left:800px;top:96px;z-index:5;width:230px;height:230px;border-radius:50%;background:${GRAD};color:${BLK};display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;font:900 64px/1 Archivo;text-transform:uppercase;transform:rotate(8deg);box-shadow:0 0 0 6px ${BLK},0 0 0 8px ${GOLD}"><span>+${best.gifts}</span><span style="font-size:30px;margin-top:4px">cadouri</span></div>
+    <div class="abs" style="left:800px;top:96px;z-index:5;width:230px;height:230px;border-radius:50%;background:${GRAD};color:${BLK};display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;font:900 64px/1 Archivo;text-transform:uppercase;transform:rotate(8deg);box-shadow:0 0 0 6px ${BLK},0 0 0 8px ${GOLD}"><span>+${best.gifts}</span><span style="font-size:28px;margin-top:4px">tichete</span><span style="font:800 17px Inter;text-transform:none;margin-top:4px">toate câștigătoare</span></div>
     ${stack(Math.min(best.n, 4), priced ? 470 : 430, 870, priced ? 360 : 400)}
     <div class="btn" style="left:56px;top:850px">Comandă acum →</div>
     ${foot()}`);
@@ -185,7 +188,7 @@ function build(P) {
     <div class="abs" style="left:56px;top:216px">${truckIco(84)}</div>
     <div class="abs big gold" style="left:50px;top:330px;font-size:112px;z-index:5">Transport<br>gratuit</div>
     <div class="abs big" style="left:54px;top:560px;font-size:58px;letter-spacing:-1px">la orice comandă</div>
-    <div class="abs" style="left:58px;top:650px">${P.packs.map(o => `<div class="row"><span>${packName(o)}</span><b>${o.price ? `${o.price} lei` : (o.gifts ? cad(o.gifts) : '✓')}</b></div>`).join('')}</div>
+    <div class="abs" style="left:58px;top:650px">${P.packs.map(o => `<div class="row"><span>${packName(o)}</span><b>${o.price ? `${o.price} lei` : (o.gifts ? `+ ${o.gifts} ${o.gifts === 1 ? 'tichet' : 'tichete'}` : '✓')}</b></div>`).join('')}</div>
     ${stack(Math.min(best.n, 3), 360, 900, 600)}
     ${foot()}`);
 
@@ -199,7 +202,7 @@ function build(P) {
     <div class="abs serif" style="left:56px;top:176px;width:980px;font-size:60px">Ce primești de <span class="gold">Black Friday</span></div>
     <div class="abs" style="left:56px;top:320px;width:600px">
       <div class="li"><i>✓</i><div>${best.n} ${P.many} ${P.name}<small>${priced ? best.extra : best.sub}</small></div></div>
-      ${Array.from({ length: best.gifts }, () => `<div class="li"><i>✓</i><div>Cadou de Black Friday</div><em>Gratuit</em></div>`).join('')}
+      ${Array.from({ length: best.gifts }, () => `<div class="li"><i>✓</i><div>Tichet răzuibil cadou<small>100% câștigător</small></div><em>Gratuit</em></div>`).join('')}
       <div class="li"><i>✓</i><div>Transport gratuit</div><em>0 lei</em></div>
       <div class="li" style="border:none"><i>✓</i><div>Plata la livrare</div></div></div>
     <div class="abs" style="left:58px;top:820px;font:800 34px Archivo;text-transform:uppercase">${priced
@@ -234,8 +237,8 @@ function build(P) {
     <div class="abs" style="left:58px;top:430px;display:flex;flex-direction:column;gap:22px">${P.checks.map(c => `<div class="ck"><i>✓</i><span>${c}</span></div>`).join('')}</div>
     <div class="abs" style="left:56px;top:720px;width:580px;padding:22px 28px;border-radius:22px;border:2px solid ${GOLD};background:${BLK2}">
       <div style="font:900 22px Archivo;letter-spacing:2px;color:${GOLDL}">BLACK FRIDAY · ${PERIOD.toUpperCase()}</div>
-      <div style="font:900 40px Archivo;text-transform:uppercase;margin-top:8px">${priced ? `${best.title}: <span class="gold">${best.price} lei</span>` : `<span class="gold">${second.big} gratuit</span> + cadou`}</div>
-      <div style="font:700 22px Inter;color:${GREY};margin-top:6px">+ cadouri · transport gratuit la orice comandă</div></div>
+      <div style="font:900 40px Archivo;text-transform:uppercase;margin-top:8px">${priced ? `${best.title}: <span class="gold">${best.price} lei</span>` : `<span class="gold">${second.big} gratuit</span> + tichet`}</div>
+      <div style="font:700 22px Inter;color:${GREY};margin-top:6px">+ tichete răzuibile, toate câștigătoare · transport gratuit</div></div>
     ${stack(1, 640, 860, 220)}
     ${disc()}${foot()}`);
 

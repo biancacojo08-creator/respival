@@ -1,5 +1,5 @@
 // Produsele Novensa pentru Black Friday 2026 (9–16 noiembrie).
-// Cadourile NU sunt numite (încă nu s-a decis ce se dă): apare doar „+ cadou” / „+ 2 cadouri”.
+// Cadoul = tichete răzuibile, toate câștigătoare: „+ tichet răzuibil” / „+ 2 tichete răzuibile”.
 // La PROSTA COMPLEX se afișează prețurile din BLACK-FRIDAY.md. La celelalte, fără prețuri
 // (ca în seriile 1+1 de până acum): oferta e 1 buc. / 1+1 GRATUIT / 2+2 GRATUIT.
 const noPrice = (one, many) => [
