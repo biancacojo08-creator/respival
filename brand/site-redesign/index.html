@@ -1,0 +1,352 @@
+<title>Novensa Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: farmacie premium — coloană de 1200px, alb rece cu nuanță de salvie, verde-pădure ca singură culoare de brand, auriu doar pe detalii */
+:root{
+  --bg:#F6F8F5; --surface:#FFFFFF; --tile:#EEF2EC; --ink:#11281F; --muted:#56665E; --line:#D8E0D9;
+  --brand:#1C4A35; --brand-ink:#FFFFFF; --sage:#DCE6DE; --gold:#A8843F; --star:#B8862F;
+  --display:"Instrument Serif", "Times New Roman", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --wrap:1200px; --logo-fx:none;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1813; --surface:#14211B; --tile:#E9EEE8; --ink:#E7EFEA; --muted:#9BB0A5; --line:#25362E;
+  --brand:#7FC4A1; --brand-ink:#0B1A13; --sage:#1B2C24; --gold:#D3B06B; --star:#D3B06B; --logo-fx:brightness(2.4) saturate(.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1813; --surface:#14211B; --tile:#E9EEE8; --ink:#E7EFEA; --muted:#9BB0A5; --line:#25362E;
+  --brand:#7FC4A1; --brand-ink:#0B1A13; --sage:#1B2C24; --gold:#D3B06B; --star:#D3B06B; --logo-fx:brightness(2.4) saturate(.7); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;text-wrap:balance;margin:0}
+p{margin:0}
+.eyebrow{font:500 12px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;font:600 15px/1 var(--body);border:1px solid var(--brand);transition:background .2s,color .2s}
+.btn-primary{background:var(--brand);color:var(--brand-ink)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{color:var(--brand)}
+.btn-ghost:hover{background:var(--sage)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* prototip */
+.proto{background:var(--ink);color:var(--bg);font:500 12px/1 var(--mono);letter-spacing:.08em;text-align:center;padding:9px 16px}
+
+/* bara utilitară + header */
+.util{border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:9px;flex-wrap:wrap}
+.util b{color:var(--ink);font-weight:600}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:32px;padding-block:16px}
+.logo{display:flex;align-items:center}
+.logo img,footer img{height:30px;width:auto;filter:var(--logo-fx)}
+nav.main{display:flex;gap:26px;font-size:15px;font-weight:500;color:var(--muted);flex:1}
+nav.main a:hover{color:var(--ink)}
+.hd-icons{display:flex;gap:18px;align-items:center;color:var(--ink)}
+.hd-icons svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
+.cart{position:relative}
+.cart i{position:absolute;top:-6px;right:-8px;background:var(--brand);color:var(--brand-ink);font:600 10px/16px var(--body);width:16px;height:16px;border-radius:50%;text-align:center;font-style:normal}
+@media (max-width:900px){nav.main{display:none}header.site .wrap{justify-content:space-between}}
+
+/* hero */
+.hero .wrap>*{min-width:0}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:64px 72px}
+.hero h1{font-size:clamp(44px,6.4vw,86px);letter-spacing:-.01em;margin-block:18px 22px}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero .lede{font-size:18px;color:var(--muted);max-width:30em}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.hero .facts div{font-size:13px;color:var(--muted);max-width:12em;line-height:1.4}
+.hero .facts b{display:block;font:400 30px/1 var(--display);color:var(--ink);margin-bottom:6px}
+.stage{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:50% 50% 24px 24px;background:radial-gradient(120% 90% at 50% 15%,var(--surface) 0%,var(--tile) 70%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:9%;overflow:hidden}
+.stage::after{content:"";position:absolute;left:12%;right:12%;bottom:8%;height:7%;border-radius:50%;background:radial-gradient(closest-side,rgba(17,40,31,.22),transparent)}
+.stage img{position:relative;z-index:1;height:auto;filter:drop-shadow(0 18px 24px rgba(17,40,31,.18))}
+.stage .s1{width:23%;margin-right:-3%;z-index:1}
+.stage .s2{width:31%;z-index:2}
+.stage .s3{width:22%;margin-left:-3%;z-index:1}
+.stage .tag{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 12px/1 var(--mono);letter-spacing:.04em;color:var(--ink);box-shadow:0 6px 20px rgba(17,40,31,.08)}
+.stage .t1{top:14%;left:8%}
+.stage .t2{top:26%;right:6%}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}}
+
+/* bandă calitate */
+.quality{background:var(--brand);color:var(--brand-ink)}
+.quality .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:26px}
+.quality div{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:500;line-height:1.35}
+.quality svg{flex:none;width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.5;opacity:.9}
+@media (max-width:900px){.quality .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.quality .wrap{grid-template-columns:1fr}}
+
+section{padding-block:88px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(34px,4.2vw,54px);margin-top:12px}
+.sec-head p{color:var(--muted);max-width:32em}
+.link{color:var(--brand);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+/* nevoi */
+.needs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.need{background:var(--surface);padding:26px 24px;display:flex;flex-direction:column;gap:14px;min-height:150px;transition:background .2s}
+.need:hover{background:var(--tile)}
+:root[data-theme="dark"] .need:hover{background:var(--sage)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .need:hover{background:var(--sage)}}
+.need svg{width:30px;height:30px;stroke:var(--brand);fill:none;stroke-width:1.4}
+.need b{font-weight:600;font-size:16px}
+.need span{font-size:13px;color:var(--muted);margin-top:auto}
+@media (max-width:900px){.needs{grid-template-columns:1fr 1fr}}
+
+/* produse */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card .ph{background:var(--tile);aspect-ratio:4/3.4;display:flex;align-items:center;justify-content:center;padding:26px;position:relative}
+.card .ph img{height:100%;width:100%;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(17,40,31,.15))}
+.card .ph .need-tag{position:absolute;top:16px;left:16px;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#1C4A35;background:rgba(255,255,255,.75);border-radius:999px;padding:7px 10px}
+.card .ph .pend{font:500 12px/1.4 var(--mono);color:#56665E;text-align:center;border:1px dashed #A9B8AE;border-radius:14px;padding:30px 22px}
+.card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:30px}
+.card .desc{color:var(--muted);font-size:14px;line-height:1.5}
+.card .meta{font:400 12px/1 var(--mono);color:var(--muted);letter-spacing:.03em}
+.card .rate{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.card .rate .st{color:var(--star);letter-spacing:2px}
+.card .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.price{font-variant-numeric:tabular-nums}
+.price b{font-size:20px;font-weight:700}
+.price s{font-size:13px;color:var(--muted);margin-left:6px}
+.add{background:var(--brand);color:var(--brand-ink);border:0;border-radius:999px;padding:11px 18px;font:600 14px/1 var(--body);cursor:pointer}
+.add:hover{filter:brightness(1.08)}
+@media (max-width:980px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.grid{grid-template-columns:1fr}}
+
+/* spotlight */
+.spot{background:var(--sage)}
+.spot .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.spot .pic{background:radial-gradient(70% 70% at 50% 40%,var(--surface),var(--tile));border-radius:28px;aspect-ratio:1/1.05;max-width:100%;display:flex;align-items:center;justify-content:center;padding:12%}
+.spot .pic img{height:100%;width:100%;object-fit:contain;filter:drop-shadow(0 20px 26px rgba(17,40,31,.2))}
+.spot h2{font-size:clamp(40px,5vw,68px);margin-block:14px 18px}
+.spot .lede{color:var(--muted);font-size:17px;max-width:32em}
+.spec{margin-top:30px;border-top:1px solid var(--line)}
+.spec div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-block:14px;border-bottom:1px solid var(--line);font-size:15px}
+.spec dt,.spec span:first-child{font:500 12px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.spot .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+@media (max-width:900px){.spot .wrap{grid-template-columns:1fr}.spec div{grid-template-columns:1fr;gap:2px}}
+
+/* proces */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.step{border-top:1px solid var(--ink);padding-top:20px;counter-increment:s}
+.step::before{content:"0" counter(s);display:block;font:500 12px/1 var(--mono);letter-spacing:.1em;color:var(--gold);margin-bottom:22px}
+.step h3{font-size:28px;margin-bottom:10px}
+.step p{color:var(--muted);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* recenzii */
+.proof{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
+.proof .big{font:400 clamp(72px,10vw,140px)/.9 var(--display);color:var(--brand)}
+.proof .big small{font:500 14px/1.4 var(--body);display:block;color:var(--muted);margin-top:14px}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:150px 1fr 54px;gap:16px;align-items:center;font-size:14px}
+.bar .tr{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--brand);border-radius:4px}
+.bar .n{text-align:right;font:500 13px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.proof{grid-template-columns:1fr}.bar{grid-template-columns:110px 1fr 46px}}
+
+/* consultanță */
+.consult{background:var(--ink);color:var(--bg);border-radius:28px;padding:clamp(32px,5vw,60px);display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+.consult h2{font-size:clamp(34px,4vw,52px)}
+.consult p{opacity:.75;margin-top:14px;max-width:30em}
+.consult .phone{font:400 clamp(34px,4.4vw,56px)/1 var(--display);user-select:all}
+.consult .hours{font:500 12px/1 var(--mono);letter-spacing:.08em;opacity:.7;margin-top:12px;text-transform:uppercase}
+@media (max-width:900px){.consult{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);margin-top:88px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-block:56px 28px}
+footer h4{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px}
+footer .about{font-size:14px;color:var(--muted);max-width:28em;margin-top:16px}
+.legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:22px;font-size:12px;color:var(--muted);line-height:1.6}
+@media (max-width:900px){footer .wrap{grid-template-columns:1fr 1fr}}
+
+@media (prefers-reduced-motion: no-preference){
+  .stage img{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .stage .s2{animation-delay:.08s}.stage .s3{animation-delay:.16s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+}
+</style>
+
+<div class="proto">PROTOTIP · PROPUNERE DE REDESIGN NOVENSA-ROMANIA.RO</div>
+
+<div class="util"><div class="wrap">
+  <span>Transport în 24h · Plata la livrare · Calitate garantată și retur ușor</span>
+  <span>Comenzi și consultanță: <b>0371 234 979</b></span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Novensa"><img src="img/logo.png" alt="Novensa" width="110" height="30"></a>
+  <nav class="main" aria-label="Meniu principal">
+    <a href="#produse">Produse</a><a href="#nevoi">După nevoie</a><a href="#calitate">Calitate</a><a href="#despre">Despre Novensa</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="hd-icons">
+    <svg viewBox="0 0 24 24" aria-label="Caută"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <svg viewBox="0 0 24 24" aria-label="Cont"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+    <span class="cart"><svg viewBox="0 0 24 24" aria-label="Coș"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><i id="cartn">0</i></span>
+  </div>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding-block:0"><div class="wrap">
+  <div>
+    <span class="eyebrow">Laborator românesc · Formule proprii</span>
+    <h1>Suplimente formulate cu <em>rigoarea</em> unei farmacii.</h1>
+    <p class="lede">Formule dezvoltate de biochimiști, produse în laboratoare certificate din România și verificate lot cu lot. Pentru inimă, metabolism, respirație și vitalitate.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#produse">Vezi produsele</a>
+      <a class="btn btn-ghost" href="#nevoi">Alege după nevoie</a>
+    </div>
+    <div class="facts">
+      <div><b>751</b>recenzii de la clienți, în magazin</div>
+      <div><b>Lunar</b>loturi noi, produse proaspăt</div>
+      <div><b>100%</b>produse în laboratoare certificate din România</div>
+    </div>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <span class="tag t1">Control de calitate pe fiecare lot</span>
+    <span class="tag t2">Formulă Elite+</span>
+    <img class="s1" src="img/prosta.webp" alt="">
+    <img class="s2" src="img/diabexum.webp" alt="">
+    <img class="s3" src="img/powerman.webp" alt="">
+  </div>
+</div></section>
+
+<div class="quality" id="calitate"><div class="wrap">
+  <div><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/></svg>Formule dezvoltate de biochimiști</div>
+  <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Laboratoare certificate din România</div>
+  <div><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Control de calitate pe fiecare lot</div>
+  <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Transport în 24h, plata la livrare</div>
+</div></div>
+
+<section id="nevoi"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">Alege după nevoie</span><h2>Găsește suportul potrivit</h2></div>
+    <p>Fiecare produs Novensa are un singur rol, clar. Începe de la ce simți și îți arătăm formula potrivită.</p>
+  </div>
+  <div class="needs">
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M16 5v10M16 15c-3 0-6 3-6 8 0 3-4 4-5 2-1-3 0-12 5-15M16 15c3 0 6 3 6 8 0 3 4 4 5 2 1-3 0-12-5-15"/></svg><b>Respirație</b><span>Respival</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M16 27C6 20 4 14 6 10s7-5 10-1c3-4 8-3 10 1s0 10-10 17z"/><path d="M8 16h4l2-3 3 6 2-3h5"/></svg><b>Inimă și circulație</b><span>Cardio Balance</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z"/><path d="M12 20l3-3 2 2 4-4"/></svg><b>Metabolism și glicemie</b><span>Diabexum Forte Elite+</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><circle cx="13" cy="19" r="7"/><path d="M18 14l8-8M20 6h6v6"/></svg><b>Vitalitate masculină</b><span>Power Man</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M10 5h12v6a6 6 0 0 1-12 0z"/><path d="M16 17v6M11 27h10M13 23h6"/></svg><b>Prostată</b><span>Prosta Complex</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M6 14c0-5 5-8 11-8 5 0 9 3 9 7 0 6-6 13-14 13-4 0-6-3-6-6z"/><path d="M11 18c3 0 6-2 8-5"/></svg><b>Ficat și digestie</b><span>Ceai Hepato Nova Detox</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><path d="M6 20c4-1 6-4 10-4s6 3 10 4"/><path d="M6 25c4-1 6-4 10-4s6 3 10 4"/><path d="M16 4c-3 4-3 7 0 9 3-2 3-5 0-9z"/></svg><b>Îngrijirea pielii</b><span>Cremă și ulei cu extracte din plante</span></a>
+    <a class="need" href="#produse"><svg viewBox="0 0 32 32"><circle cx="16" cy="11" r="5"/><path d="M8 27c1-5 4-8 8-8s7 3 8 8"/><path d="M22 6l2-2M10 6L8 4"/></svg><b>Copii</b><span>Somn liniștit · NovaKids</span></a>
+  </div>
+</div></section>
+
+<section id="produse" style="padding-top:0"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">Cele mai alese</span><h2>Produsele Novensa</h2></div>
+    <a class="link" href="#produse">Vezi toate cele 12 produse</a>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="ph"><span class="need-tag">Respirație</span><div class="pend">Fotografie packshot Respival<br>pe fundal alb, de adăugat</div></div>
+      <div class="bd"><h3>Respival</h3><p class="desc">Spray oral cu extracte din plante, pentru confort respirator.</p>
+        <div class="rate"><span class="st">★★★★★</span>603 recenzii</div>
+        <div class="buy"><span class="price"><b>67,99 lei</b><s>99,58 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+    <article class="card">
+      <div class="ph"><span class="need-tag">Inimă și circulație</span><img src="img/cardio.webp" alt="Cardio Balance, 60 capsule" style="mix-blend-mode:multiply"></div>
+      <div class="bd"><h3>Cardio Balance</h3><p class="desc">Capsule pentru susținerea sistemului cardiovascular.</p><p class="meta">60 CAPSULE</p>
+        <div class="rate"><span class="st">★★★★★</span>32 recenzii</div>
+        <div class="buy"><span class="price"><b>69,99 lei</b><s>74,99 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+    <article class="card">
+      <div class="ph"><span class="need-tag">Metabolism</span><img src="img/diabexum.webp" alt="Diabexum Forte Elite+, 30 capsule"></div>
+      <div class="bd"><h3>Diabexum Forte Elite+</h3><p class="desc">Susține echilibrul glicemic și metabolic. Complex de ingrediente naturale.</p><p class="meta">30 CAPSULE · FORMULĂ AVANSATĂ</p>
+        <div class="rate"><span class="st">★★★★★</span>Nou</div>
+        <div class="buy"><span class="price"><b>59,99 lei</b><s>99,99 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+    <article class="card">
+      <div class="ph"><span class="need-tag">Vitalitate masculină</span><img src="img/powerman.webp" alt="Power Man spray oral, 30 ml"></div>
+      <div class="bd"><h3>Power Man</h3><p class="desc">Spray oral pentru vitalitate și energie masculină. Discret, două pufuri.</p><p class="meta">30 ML · SPRAY ORAL</p>
+        <div class="rate"><span class="st">★★★★★</span>23 recenzii</div>
+        <div class="buy"><span class="price"><b>62,99 lei</b><s>99,00 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+    <article class="card">
+      <div class="ph"><span class="need-tag">Prostată</span><img src="img/prosta.webp" alt="Prosta Complex, supliment lichid 100 ml"></div>
+      <div class="bd"><h3>Prosta Complex</h3><p class="desc">Supliment lichid pentru sănătatea prostatei și confort urinar.</p><p class="meta">100 ML · SUPLIMENT LICHID</p>
+        <div class="rate"><span class="st">★★★★★</span>14 recenzii</div>
+        <div class="buy"><span class="price"><b>66,99 lei</b><s>99,99 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+    <article class="card">
+      <div class="ph"><span class="need-tag">Ficat și digestie</span><img src="img/hepato.webp" alt="Ceai Hepato Nova Detox, 30 plicuri"></div>
+      <div class="bd"><h3>Hepato Nova Detox</h3><p class="desc">Ceai din plante pentru ficat și digestie.</p><p class="meta">30 PLICURI · 45 G</p>
+        <div class="rate"><span class="st">★★★★★</span>43 recenzii</div>
+        <div class="buy"><span class="price"><b>46,99 lei</b><s>89,95 lei</s></span><button class="add" type="button">Adaugă în coș</button></div></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="spot"><div class="wrap">
+  <div class="pic"><img src="img/diabexum.webp" alt="Flacon Diabexum Forte Elite+"></div>
+  <div>
+    <span class="eyebrow">Gama Elite+</span>
+    <h2>Diabexum Forte Elite+</h2>
+    <p class="lede">Formula noastră avansată pentru echilibrul glicemic și metabolic. Un complex de ingrediente naturale, într-o capsulă pe care o iei simplu, în fiecare zi.</p>
+    <dl class="spec">
+      <div><dt>Rol</dt><dd style="margin:0">Susține echilibrul glicemic și metabolic</dd></div>
+      <div><dt>Formulă</dt><dd style="margin:0">Complex de ingrediente naturale · Formulă avansată</dd></div>
+      <div><dt>Ambalaj</dt><dd style="margin:0">30 capsule · 12,54 g</dd></div>
+      <div><dt>Producție</dt><dd style="margin:0">Laborator certificat din România, control pe fiecare lot</dd></div>
+    </dl>
+    <div class="ctas"><a class="btn btn-primary" href="#produse">Comandă · 59,99 lei</a><a class="btn btn-ghost" href="#produse">Ingrediente și mod de utilizare</a></div>
+  </div>
+</div></section>
+
+<section id="despre"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="eyebrow">De la formulă la raft</span><h2>Cum ajunge un produs Novensa la tine</h2></div>
+    <p>Fiecare lot trece prin aceiași patru pași, de fiecare dată.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><h3>Formulare</h3><p>Biochimiștii dezvoltă formula special pentru Novensa, cu un singur rol clar pentru fiecare produs.</p></div>
+    <div class="step"><h3>Producție</h3><p>Produsul e fabricat în laboratoare certificate din România.</p></div>
+    <div class="step"><h3>Control</h3><p>Fiecare lot trece prin control de calitate înainte să plece din laborator.</p></div>
+    <div class="step"><h3>Livrare</h3><p>Loturi noi în fiecare lună, expediate în 24h, cu plata la livrare.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap proof">
+  <div><span class="eyebrow">Ce spun clienții</span><p class="big">751<small>recenzii lăsate de clienți în magazinul Novensa</small></p></div>
+  <div class="bars" aria-label="Recenzii pe produs">
+    <div class="bar"><span>Respival</span><span class="tr"><i style="width:100%"></i></span><span class="n">603</span></div>
+    <div class="bar"><span>Hepato Nova</span><span class="tr"><i style="width:7.1%"></i></span><span class="n">43</span></div>
+    <div class="bar"><span>Cardio Balance</span><span class="tr"><i style="width:5.3%"></i></span><span class="n">32</span></div>
+    <div class="bar"><span>Power Man</span><span class="tr"><i style="width:3.8%"></i></span><span class="n">23</span></div>
+    <div class="bar"><span>Sirop copii</span><span class="tr"><i style="width:3.6%"></i></span><span class="n">22</span></div>
+    <div class="bar"><span>Prosta Complex</span><span class="tr"><i style="width:2.3%"></i></span><span class="n">14</span></div>
+  </div>
+</div></section>
+
+<section id="contact" style="padding-top:0"><div class="wrap">
+  <div class="consult">
+    <div><h2>Nu știi ce ți se potrivește?</h2><p>Sună-ne și un consultant Novensa te ajută să alegi produsul și îți explică cum se administrează.</p></div>
+    <div><div class="phone">0371 234 979</div><div class="hours">Comenzi și asistență telefonică</div></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><img src="img/logo.png" alt="Novensa" width="110" height="30" style="height:30px;width:auto"><p class="about">Novensa · Inovație, sănătate, natură. Suplimente alimentare formulate de biochimiști și produse în România.</p></div>
+  <div><h4>Produse</h4><ul><li>Respirație</li><li>Inimă și circulație</li><li>Metabolism</li><li>Vitalitate masculină</li></ul></div>
+  <div><h4>Comenzi</h4><ul><li>Livrare și plată</li><li>Retur și formular de retragere</li><li>Întrebări frecvente</li></ul></div>
+  <div><h4>Legal</h4><ul><li>Termeni și condiții</li><li>Politica de confidențialitate</li><li>Politica de cookies</li><li>ANPC · SOL</li></ul></div>
+  <p class="legal">Suplimentele alimentare nu înlocuiesc o dietă variată și echilibrată și un stil de viață sănătos. Informațiile de pe acest site au scop informativ și nu înlocuiesc consultul medical. Dacă aveți o afecțiune, consultați medicul. © 2026 Novensa · novensa-romania.ro</p>
+</div></footer>
+
+<script>
+let n=0;const c=document.getElementById('cartn');
+document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{n++;c.textContent=n;b.textContent='Adăugat ✓';setTimeout(()=>b.textContent='Adaugă în coș',1400)}));
+</script>
