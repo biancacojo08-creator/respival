@@ -23,11 +23,11 @@ const css = `
 .cap.p{background:${PINK};color:#111}
 .cut{position:absolute;left:50%;transform:translateX(-50%) rotate(2deg);bottom:${H * 0.1}px;width:max-content;background:#111;color:${GOLD};font:900 46px A;text-transform:uppercase;padding:12px 26px;border-radius:14px;border:3px solid ${GOLD}}
 .end{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#3a2430,#0d0b0c 70%)}
-.end .jar{position:absolute;left:50%;transform:translateX(-50%);top:${H * 0.15}px;height:${H * 0.44}px;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.7),0 0 0 4px ${GOLD}}
+.end .jar{position:absolute;left:50%;transform:translateX(-50%);top:${H * 0.13}px;height:${H * 0.37}px;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.7),0 0 0 4px ${GOLD}}
 .end .t1{position:absolute;left:0;right:0;top:${H * 0.055}px;text-align:center;font:900 54px/1 A;color:#fff;text-transform:uppercase;letter-spacing:-1px}
 .end .t1 b{color:${PINK}}
-.end .tg{position:absolute;left:50%;top:${H * 0.62}px;transform:translateX(-50%) rotate(-3deg);background:#E3262E;color:#fff;font:900 36px A;padding:12px 24px;border-radius:12px;white-space:nowrap}
-.end .t2{position:absolute;left:0;right:0;top:${H * 0.7}px;text-align:center;font:800 30px/1.3 A;color:#fff}
+.end .tg{position:absolute;left:50%;top:${H * 0.635}px;transform:translateX(-50%) rotate(-3deg);background:#E3262E;color:#fff;font:900 36px A;padding:12px 24px;border-radius:12px;white-space:nowrap}
+.end .t2{position:absolute;left:0;right:0;top:${H * 0.705}px;text-align:center;font:800 28px/1.25 A;color:#fff}
 .end .cta{position:absolute;left:40px;right:40px;bottom:${H * 0.1}px;text-align:center;background:${PINK};color:#111;font:900 50px A;text-transform:uppercase;padding:22px;border-radius:999px;box-shadow:0 8px 0 #a43a6c}
 .end .chk{position:absolute;left:0;right:0;bottom:${H * 0.045}px;text-align:center;font:700 21px I;color:#eee}
 `;
@@ -73,6 +73,8 @@ const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-
   layers.forEach(([n, a, z]) => add(n, a, z));
   add('cut', CUT[0], CUT[1]);
   add('end', dur - END, dur + 1);
+  execFileSync('python3', [path.join(D, 'subs.py'), id, String(W), String(H)], { stdio: 'inherit' });
+  fc += `[${last}]ass=${path.join(tmp, 'subs.ass')}:fontsdir=${path.join(D, 'subfont')}[sub];`; last = 'sub';
   fs.mkdirSync(path.join(D, 'final'), { recursive: true });
   args.push('-filter_complex', fc.slice(0, -1), '-map', `[${last}]`, '-map', '0:a', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-t', dur.toFixed(2), path.join(D, 'final', id + '.mp4'));
   execFileSync('ffmpeg', args, { stdio: ['ignore', 'ignore', 'inherit'] });
