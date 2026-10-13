@@ -36,3 +36,9 @@
 - Floare de bumbac aurie ca emblemă, buchet de bumbac cu frunze verde-salvie, nume scris de mână (font **Pinyon Script**).
 - Auriul se tipărește tot ca folie: chenarul, punctele, emblema și liniile.
 - Generare: `python3 build.py && node render.js`. Rezultă ambele variante, clasică și romantică.
+
+## Varianta ilustrată (`Velura-CottonCloud-ilustrat*`), aleasă de client
+- Fundalul este ilustrația în acuarelă `assets/fundal-cotton-cloud.jpg`: cer, nori și bumbac, 3392 × 5056 px, generată cu Segmind nano-banana-pro. Pe față e la marginea paginii, cu bleed. Pe spate apare sub un card crem semi-transparent.
+- Fonturi: **Bodoni Moda** pentru logo și pentru numele aromei (italic), **Manrope** pentru texte. Culoarea textului e bleumarin `#26324A`.
+- Așezare: logo centrat sus, numele aromei aliniat la stânga în zona liberă a cerului, „PARFUM DE RUFE · ℮ 200 ml” vertical pe marginea din dreapta, bumbacul ilustrat jos.
+- Linia aurie de sub numele aromei se tipărește ca folie.

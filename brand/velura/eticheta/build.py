@@ -23,7 +23,8 @@ GOLD = "#B8955C"      # se tipărește ca folie aurie mată
 TODO = "#D6007E"      # magenta = de completat
 
 FONTS = {"Manrope": HERE / "fonts" / "Manrope.ttf", "Cormorant Garamond": HERE / "fonts" / "CormorantGaramond.ttf",
-         "CormorantItalic": HERE / "fonts" / "CormorantGaramond-Italic.ttf", "Pinyon Script": HERE / "fonts" / "PinyonScript.ttf"}
+         "CormorantItalic": HERE / "fonts" / "CormorantGaramond-Italic.ttf", "Pinyon Script": HERE / "fonts" / "PinyonScript.ttf",
+         "Bodoni Moda": HERE / "fonts" / "BodoniModa.ttf"}
 _cache = {}
 
 
@@ -31,7 +32,9 @@ def measure(s, size, family="Manrope", weight=500, ls=0.0):
     key = (family, weight)
     if key not in _cache:
         f = ImageFont.truetype(str(FONTS[family]), 200)
-        if family != "Pinyon Script":
+        if family == "Bodoni Moda":
+            f.set_variation_by_axes([11, weight])
+        elif family != "Pinyon Script":
             f.set_variation_by_axes([weight])
         _cache[key] = f
     return _cache[key].getlength(s) / 200 * size + ls * len(s)
@@ -214,11 +217,39 @@ def front_romantic(o):
     o.append('</g>')
 
 
+
+HEAD_FONT = "Cormorant Garamond"
+NAVY = "#26324A"
+BG_IMG = "assets/fundal-cotton-cloud.jpg"
+
+
+def front_ilustrat(o):
+    x0 = PANEL
+    cx = x0 + PANEL / 2
+    BD = "Bodoni Moda"
+    o.append('<g id="FATA">')
+    o.append(f'<image id="ilustratie" href="{BG_IMG}" x="{X(x0):.2f}" y="0" width="{PANEL + BL:.2f}" height="{H}" '
+             f'preserveAspectRatio="xMidYMid slice"/>')
+    # logo sus
+    o.append(t(cx, 14.5, "VELURA", 9.2, NAVY, 600, BD, "middle", ls=1.9, extra='id="LOGO"'))
+    o.append(t(cx, 19.6, "MAISON DE LINGE", 1.65, NAVY, 700, anchor="middle", ls=0.65))
+    # numele aromei, aliniat la stânga, în cerul liber
+    o.append(t(x0 + 7, 52.5, "Cotton", 12, NAVY, 400, BD, extra='id="AROMA-1"', italic=True))
+    o.append(t(x0 + 15, 63, "Cloud", 12, NAVY, 400, BD, extra='id="AROMA-2"', italic=True))
+    o.append(f'<rect x="{X(x0 + 7.4):.2f}" y="{Y(66.6):.2f}" width="10" height="0.45" fill="{GOLD}"/>')
+    o.append(t(x0 + 19.4, 67.3, "FRESH · MOSC ALB", 1.75, NAVY, 700, ls=0.45))
+    # text vertical pe marginea din dreapta
+    vx, vy = X(x0 + PANEL - 5), Y(40)
+    o.append(f'<text x="{vx:.2f}" y="{vy:.2f}" font-family="Manrope" font-weight="700" font-size="1.75" fill="{NAVY}" '
+             f'letter-spacing="0.55" text-anchor="middle" transform="rotate(90 {vx:.2f} {vy:.2f})">PARFUM DE RUFE  ·  ℮ 200 ml</text>')
+    o.append('</g>')
+
+
 def back(o):
     x, wdt = 5.0, PANEL - 10.0
     o.append('<g id="SPATE">')
-    o.append(t(x, 9.6, "VELURA", 4.2, INK, 600, "Cormorant Garamond", ls=0.8))
-    o.append(t(x + wdt, 9.6, "Cotton Cloud", 3.9, INK, 500, "Cormorant Garamond", "end", italic=True))
+    o.append(t(x, 9.6, "VELURA", 4.2 if HEAD_FONT == "Cormorant Garamond" else 3.6, INK, 600, HEAD_FONT, ls=0.8))
+    o.append(t(x + wdt, 9.6, "Cotton Cloud", 3.9 if HEAD_FONT == "Cormorant Garamond" else 3.3, INK, 500, HEAD_FONT, "end", italic=True))
     o.append(f'<rect x="{X(x):.2f}" y="{Y(11.6):.2f}" width="{wdt:.2f}" height="0.45" fill="{GOLD}"/>')
 
     y = 16.3
@@ -287,6 +318,8 @@ def build(guides, variant="clasic"):
          '@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond-Italic.ttf);font-weight:300 700;font-style:italic}'
          '@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf);font-weight:200 800}'
          '@font-face{font-family:"Pinyon Script";src:url(fonts/PinyonScript.ttf)}'
+         '@font-face{font-family:"Bodoni Moda";src:url(fonts/BodoniModa.ttf);font-weight:400 900}'
+         '@font-face{font-family:"Bodoni Moda";src:url(fonts/BodoniModa-Italic.ttf);font-weight:400 900;font-style:italic}'
          '</style>'
          f'<linearGradient id="cer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{SKY_TOP}"/>'
          f'<stop offset="0.55" stop-color="{SKY_MID}"/><stop offset="1" stop-color="{SKY_LOW}"/></linearGradient>'
@@ -295,13 +328,19 @@ def build(guides, variant="clasic"):
          '<radialGradient id="puf" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#FFFFFF"/>'
          '<stop offset="0.7" stop-color="#FAFBFC"/><stop offset="1" stop-color="#E4E9EE"/></radialGradient></defs>',
          f'<rect id="FUNDAL" x="0" y="0" width="{W}" height="{H}" fill="{IVORY}"/>']
+    global HEAD_FONT
+    HEAD_FONT = "Bodoni Moda" if variant == "ilustrat" else "Cormorant Garamond"
+    if variant == "ilustrat":
+        o.append(f'<image href="{BG_IMG}" x="0" y="0" width="{X(PANEL):.2f}" height="{H}" preserveAspectRatio="xMidYMax slice"/>')
+        o.append(f'<rect id="card-spate" x="{X(2.4):.2f}" y="{Y(2.4):.2f}" width="{PANEL - 4.8:.2f}" height="{TH - 4.8:.2f}" rx="2.4" '
+                 f'fill="#FFFDF9" fill-opacity="0.93"/>')
     if variant == "romantic":
         o.append(f'<rect x="0" y="0" width="{W}" height="{H}" fill="{BLUE}"/>')
         o.append(dots_bg(1.5, W, 1.5, H))
         o.append(f'<rect id="card-spate" x="{X(2.4):.2f}" y="{Y(2.4):.2f}" width="{PANEL - 4.8:.2f}" height="{TH - 4.8:.2f}" rx="2.4" '
                  f'fill="#FFFDF9" stroke="{GOLD}" stroke-width="0.3"/>')
     back(o)
-    (front_romantic if variant == "romantic" else front)(o)
+    {"romantic": front_romantic, "ilustrat": front_ilustrat}.get(variant, front)(o)
     if guides:
         o.append('<g id="GHIDAJE-ascunde-la-print" fill="none" stroke-width="0.2">'
                  f'<rect x="{BL}" y="{BL}" width="{TW}" height="{TH}" stroke="#0070F3"/>'
@@ -318,4 +357,6 @@ if __name__ == "__main__":
     (HERE / "Velura-CottonCloud-eticheta-print.svg").write_text(build(False), encoding="utf-8")
     (HERE / "Velura-CottonCloud-romantic.svg").write_text(build(True, "romantic"), encoding="utf-8")
     (HERE / "Velura-CottonCloud-romantic-print.svg").write_text(build(False, "romantic"), encoding="utf-8")
+    (HERE / "Velura-CottonCloud-ilustrat.svg").write_text(build(True, "ilustrat"), encoding="utf-8")
+    (HERE / "Velura-CottonCloud-ilustrat-print.svg").write_text(build(False, "ilustrat"), encoding="utf-8")
     print("ok")
