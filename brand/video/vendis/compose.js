@@ -29,6 +29,9 @@ const css = `
 .end .tg{position:absolute;left:50%;top:${H * 0.635}px;transform:translateX(-50%) rotate(-3deg);background:#E3262E;color:#fff;font:900 36px A;padding:12px 24px;border-radius:12px;white-space:nowrap}
 .end .t2{position:absolute;left:0;right:0;top:${H * 0.705}px;text-align:center;font:800 28px/1.25 A;color:#fff}
 .end .cta{position:absolute;left:40px;right:40px;bottom:${H * 0.1}px;text-align:center;background:${PINK};color:#111;font:900 50px A;text-transform:uppercase;padding:22px;border-radius:999px;box-shadow:0 8px 0 #a43a6c}
+.end .old{position:absolute;left:0;right:0;top:${H * 0.515}px;text-align:center;font:800 30px A;color:#bbb;text-decoration:line-through;text-decoration-color:#E3262E;text-decoration-thickness:4px}
+.end .now{position:absolute;left:0;right:0;top:${H * 0.555}px;text-align:center;font:900 92px/1 A;color:#fff;letter-spacing:-2px}.end .now small{font-size:40px;letter-spacing:0}
+.end .off{position:absolute;right:${W * 0.14}px;top:${H * 0.11}px;width:130px;height:130px;border-radius:50%;background:#E3262E;color:#fff;font:900 44px/130px A;text-align:center;transform:rotate(12deg);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .end .chk{position:absolute;left:0;right:0;bottom:${H * 0.045}px;text-align:center;font:700 21px I;color:#eee}
 `;
 const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>${body}</body></html>`;
@@ -54,7 +57,8 @@ const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-
   }
   await shot('cut', `<div class="cut">15% Keratină</div>`);
   await shot('end', `<div class="end"><div class="t1">Salvează-ți <b>părul</b></div><img class="jar" src="../../img/jar.jpg">
-    <div class="tg">MASCĂ CU 15% KERATINĂ</div><div class="t2">Pentru păr ars, despicat<br>și fără strălucire</div>
+    ${S.price ? `<div class="off">−50%</div><div class="old">${S.price.old} lei</div><div class="now">${S.price.now}<small> lei</small></div>` :
+    `<div class="tg">MASCĂ CU 15% KERATINĂ</div><div class="t2">Pentru păr ars, despicat<br>și fără strălucire</div>`}
     <div class="cta">Comandă acum ↓</div><div class="chk">✓ Păr vopsit &amp; decolorat &nbsp; ✓ 200 ml &nbsp; ✓ Efect de salon</div></div>`);
   await b.close();
 
@@ -73,7 +77,7 @@ const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-
   layers.forEach(([n, a, z]) => add(n, a, z));
   add('cut', CUT[0], CUT[1]);
   add('end', dur - END, dur + 1);
-  execFileSync('python3', [path.join(D, 'subs.py'), id, String(W), String(H)], { stdio: 'inherit' });
+  execFileSync('python3', [path.join(D, 'subs.py'), id, String(W), String(H), String(dur - END)], { stdio: 'inherit' });
   fc += `[${last}]ass=${path.join(tmp, 'subs.ass')}:fontsdir=${path.join(D, 'subfont')}[sub];`; last = 'sub';
   fs.mkdirSync(path.join(D, 'final'), { recursive: true });
   args.push('-filter_complex', fc.slice(0, -1), '-map', `[${last}]`, '-map', '0:a', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-t', dur.toFixed(2), path.join(D, 'final', id + '.mp4'));
