@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+:root{--mm:5.2px}
+html,body{margin:0}
+body{width:900px;height:1200px;background:radial-gradient(ellipse at 50% 35%,#FFFFFF 0%,#F7F1EA 55%,#EDE3D8 100%);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;font-family:sans-serif}
+.scene{position:relative;width:calc(80*var(--mm));height:calc(196*var(--mm));margin-bottom:90px}
+.shadow{position:absolute;left:50%;bottom:-18px;width:calc(96*var(--mm));height:38px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(70,55,45,.35),rgba(70,55,45,0) 70%);filter:blur(4px)}
+.cap{position:absolute;left:50%;top:0;transform:translateX(-50%);width:calc(38*var(--mm));height:calc(24*var(--mm));border-radius:10px 10px 4px 4px;
+ background:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 3px,rgba(255,255,255,0) 3px 9px),linear-gradient(90deg,#DCDCDC,#FFFFFF 28%,#FCFCFC 55%,#D2D2D2);box-shadow:inset 0 -2px 0 rgba(0,0,0,.06)}
+.collar{position:absolute;left:50%;top:calc(24*var(--mm));transform:translateX(-50%);width:calc(44*var(--mm));height:calc(5*var(--mm));border-radius:3px;background:linear-gradient(90deg,#D6D6D6,#FFFFFF 30%,#F7F7F7 60%,#CFCFCF)}
+.body{position:absolute;left:0;right:0;top:calc(29*var(--mm));bottom:0;border-radius:calc(22*var(--mm)) calc(22*var(--mm)) calc(6*var(--mm)) calc(6*var(--mm))/calc(14*var(--mm)) calc(14*var(--mm)) calc(4*var(--mm)) calc(4*var(--mm));
+ background:linear-gradient(90deg,#D9D9D9 0%,#F4F4F4 12%,#FFFFFF 30%,#FFFFFF 58%,#EDEDED 82%,#CFCFCF 100%);overflow:hidden}
+.label{position:absolute;left:calc(3*var(--mm));right:calc(3*var(--mm));top:calc(26*var(--mm));height:calc(118*var(--mm));overflow:hidden}
+.label img{width:100%;height:100%;object-fit:cover;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,.10) 9%,rgba(0,0,0,0) 24%,rgba(0,0,0,0) 62%,rgba(0,0,0,.12) 84%,rgba(0,0,0,.34) 100%);mix-blend-mode:multiply}
+.gloss{position:absolute;top:0;bottom:0;left:27%;width:7%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.38),rgba(255,255,255,0))}
+.gloss.body-g{left:24%;width:6%}
+</style></head><body>
+<div class="scene">
+ <div class="shadow"></div>
+ <div class="cap"></div><div class="collar"></div>
+ <div class="body"><div class="gloss body-g"></div>
+  <div class="label"><img src="../eticheta/assets/_fata-ilustrat.png"><div class="shade"></div><div class="gloss"></div></div>
+ </div>
+</div></body></html>
