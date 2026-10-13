@@ -30,3 +30,9 @@
 4. **Codul EAN-13** de la GS1 România (zona albă are 31 × 21 mm, cam 83% din mărimea standard).
 5. **Simbolul de reciclare** al sticlei (PP 05 sau HDPE 02).
 6. LOT și EXP se imprimă pe sticlă sau pe etichetă la producție.
+
+## Varianta romantică (`Velura-CottonCloud-romantic*`)
+- Fundal albastru pudrat `#C7D5E3`, cu buline albe și nori. Pe față un cartuș crem în arcadă, cu chenar auriu plin și puncte aurii. Pe spate un card crem cu margine aurie.
+- Floare de bumbac aurie ca emblemă, buchet de bumbac cu frunze verde-salvie, nume scris de mână (font **Pinyon Script**).
+- Auriul se tipărește tot ca folie: chenarul, punctele, emblema și liniile.
+- Generare: `python3 build.py && node render.js`. Rezultă ambele variante, clasică și romantică.

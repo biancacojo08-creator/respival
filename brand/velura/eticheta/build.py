@@ -23,7 +23,7 @@ GOLD = "#B8955C"      # se tipărește ca folie aurie mată
 TODO = "#D6007E"      # magenta = de completat
 
 FONTS = {"Manrope": HERE / "fonts" / "Manrope.ttf", "Cormorant Garamond": HERE / "fonts" / "CormorantGaramond.ttf",
-         "CormorantItalic": HERE / "fonts" / "CormorantGaramond-Italic.ttf"}
+         "CormorantItalic": HERE / "fonts" / "CormorantGaramond-Italic.ttf", "Pinyon Script": HERE / "fonts" / "PinyonScript.ttf"}
 _cache = {}
 
 
@@ -31,7 +31,8 @@ def measure(s, size, family="Manrope", weight=500, ls=0.0):
     key = (family, weight)
     if key not in _cache:
         f = ImageFont.truetype(str(FONTS[family]), 200)
-        f.set_variation_by_axes([weight])
+        if family != "Pinyon Script":
+            f.set_variation_by_axes([weight])
         _cache[key] = f
     return _cache[key].getlength(s) / 200 * size + ls * len(s)
 
@@ -136,6 +137,83 @@ def front(o):
     o.append('</g>')
 
 
+
+BLUE = "#C7D5E3"      # fundal față, varianta romantică
+SAGE = "#9FB394"
+SAGE_D = "#7E9673"
+
+
+def leaf(x, y, length, width, angle, fill=SAGE, vein=SAGE_D):
+    d = f"M0,0 Q{length / 2:.2f},{-width:.2f} {length:.2f},0 Q{length / 2:.2f},{width:.2f} 0,0 Z"
+    return (f'<g transform="translate({X(x):.2f},{Y(y):.2f}) rotate({angle})"><path d="{d}" fill="{fill}"/>'
+            f'<path d="M0,0 L{length * 0.85:.2f},0" stroke="{vein}" stroke-width="0.15"/></g>')
+
+
+def cotton(cx, cy, s):
+    """Floare de bumbac: puf alb din 5 lobi, sepale aurii, cu umbră fină."""
+    o = []
+    for a in (-150, -95, -30, 30, 95, 150):
+        o.append(f'<path d="M0,0 L{s * 0.95:.2f},{-s * 0.22:.2f} L{s * 0.7:.2f},0 L{s * 0.95:.2f},{s * 0.22:.2f} Z" '
+                 f'fill="{GOLD}" transform="translate({X(cx):.2f},{Y(cy + s * 0.25):.2f}) rotate({a + 90})"/>')
+    lobes = [(-0.42, -0.05, 0.42), (0.42, -0.05, 0.42), (-0.22, -0.42, 0.4), (0.22, -0.42, 0.4), (0.0, 0.08, 0.44)]
+    for dx, dy, r in lobes:
+        o.append(f'<circle cx="{X(cx + dx * s):.2f}" cy="{Y(cy + dy * s):.2f}" r="{r * s:.2f}" fill="url(#puf)" stroke="#D9DEE4" stroke-width="0.12"/>')
+    return "".join(o)
+
+
+def dots_bg(x0, x1, y0, y1, step=3.6, r=0.38, fill="#FFFFFF", op=0.7):
+    o, row = [], 0
+    y = y0
+    while y <= y1:
+        x = x0 + (step / 2 if row % 2 else 0)
+        while x <= x1:
+            o.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{r}"/>')
+            x += step
+        y += step
+        row += 1
+    return f'<g fill="{fill}" opacity="{op}">' + "".join(o) + "</g>"
+
+
+def front_romantic(o):
+    x0 = PANEL
+    cx = x0 + PANEL / 2
+    CG = "Cormorant Garamond"
+    o.append('<g id="FATA">')
+    # fundal albastru-pudrat cu buline albe și nori
+    for (dx, dy, sc, op) in [(-26, 12, 14, 0.75), (25, 30, 11, 0.65), (-27, 70, 10, 0.6), (27, 92, 13, 0.7), (-24, 104, 9, 0.6)]:
+        o.append(cloud(cx + dx, dy, sc, "#FFFFFF", op))
+    # cartușul în arcadă
+    ax0, ax1, ay0, ay1 = x0 + 7.5, x0 + PANEL - 7.5, 6.5, 104
+    o.append(f'<path d="{arch(ax0 - 1.3, ax1 + 1.3, ay0 - 1.3, ay1 + 1.3)}" fill="{GOLD}"/>')
+    o.append(f'<path d="{arch(ax0, ax1, ay0, ay1)}" fill="#FFFDF9"/>')
+    o.append(f'<path d="{arch(ax0 + 1.6, ax1 - 1.6, ay0 + 1.6, ay1 - 1.6)}" fill="none" stroke="{GOLD}" stroke-width="0.8" '
+             f'stroke-dasharray="0 1.75" stroke-linecap="round"/>')
+    o.append(f'<path d="{arch(ax0 + 3.2, ax1 - 3.2, ay0 + 3.2, ay1 - 3.2)}" fill="none" stroke="{GOLD}" stroke-width="0.2"/>')
+    # emblemă: floare de bumbac aurie mică
+    o.append(cotton(cx, 17.2, 3.2))
+    o.append(t(cx, 27.6, "VELURA", 7.4, INK, 600, CG, "middle", ls=1.5, extra='id="LOGO"'))
+    o.append(t(cx, 31.6, "maison de linge", 3.0, GOLD, 600, CG, "middle", ls=0.15, italic=True))
+    # buchet: bumbac, frunze, nori
+    o.append(cloud(cx + 1, 49, 19, "#E6EDF3", 0.95))
+    for (lx, ly, ln, lw, la) in [(-3, 51, 15, 2.8, -152), (3, 51, 15, 2.8, -28), (-2, 53.5, 12, 2.3, 168),
+                                 (2, 53.5, 12, 2.3, 12), (-1, 55, 9, 1.8, 130), (1, 55, 9, 1.8, 50)]:
+        o.append(leaf(cx + lx, ly, ln, lw, la))
+    o.append(f'<path d="M{X(cx):.2f},{Y(58):.2f} L{X(cx):.2f},{Y(45):.2f} M{X(cx):.2f},{Y(52):.2f} Q{X(cx - 5):.2f},{Y(49):.2f} {X(cx - 10):.2f},{Y(45.5):.2f} '
+             f'M{X(cx):.2f},{Y(52):.2f} Q{X(cx + 5):.2f},{Y(49):.2f} {X(cx + 10):.2f},{Y(45.5):.2f}" stroke="{SAGE_D}" stroke-width="0.4" fill="none"/>')
+    o.append(cotton(cx - 10.5, 44, 5.2))
+    o.append(cotton(cx + 10.5, 44, 5.2))
+    o.append(cotton(cx, 40.5, 6.6))
+    # nume aromă, scris de mână
+    o.append(t(cx - 2.5, 68.5, "Cotton", 13.5, INK, 400, "Pinyon Script", "middle", extra='id="AROMA-1"'))
+    o.append(t(cx + 5, 79.5, "Cloud", 13.5, INK, 400, "Pinyon Script", "middle", extra='id="AROMA-2"'))
+    o.append(t(cx, 85.4, "Fresh / Musk", 2.9, MINK, 600, CG, "middle", ls=0.1))
+    o.append(t(cx, 90.3, "Bumbac, Floare de crin,", 2.9, INK, 500, CG, "middle", italic=True))
+    o.append(t(cx, 93.9, "Mosc alb, Aer de dimineață", 2.9, INK, 500, CG, "middle", italic=True))
+    o.append(f'<line x1="{X(cx - 12):.2f}" y1="{Y(96.4):.2f}" x2="{X(cx + 12):.2f}" y2="{Y(96.4):.2f}" stroke="{GOLD}" stroke-width="0.25"/>')
+    o.append(t(cx, 100.3, "℮ 200 ml  ·  parfum de rufe", 2.6, INK, 600, CG, "middle", ls=0.1))
+    o.append('</g>')
+
+
 def back(o):
     x, wdt = 5.0, PANEL - 10.0
     o.append('<g id="SPATE">')
@@ -202,20 +280,28 @@ def back(o):
     o.append('</g>')
 
 
-def build(guides):
+def build(guides, variant="clasic"):
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">',
          '<defs><style>'
          '@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond.ttf);font-weight:300 700}'
          '@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond-Italic.ttf);font-weight:300 700;font-style:italic}'
          '@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf);font-weight:200 800}'
+         '@font-face{font-family:"Pinyon Script";src:url(fonts/PinyonScript.ttf)}'
          '</style>'
          f'<linearGradient id="cer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{SKY_TOP}"/>'
          f'<stop offset="0.55" stop-color="{SKY_MID}"/><stop offset="1" stop-color="{SKY_LOW}"/></linearGradient>'
          '<radialGradient id="soare"><stop offset="0" stop-color="#FFF6EA" stop-opacity="0.95"/>'
-         '<stop offset="1" stop-color="#FFF6EA" stop-opacity="0"/></radialGradient></defs>',
+         '<stop offset="1" stop-color="#FFF6EA" stop-opacity="0"/></radialGradient>'
+         '<radialGradient id="puf" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#FFFFFF"/>'
+         '<stop offset="0.7" stop-color="#FAFBFC"/><stop offset="1" stop-color="#E4E9EE"/></radialGradient></defs>',
          f'<rect id="FUNDAL" x="0" y="0" width="{W}" height="{H}" fill="{IVORY}"/>']
+    if variant == "romantic":
+        o.append(f'<rect x="0" y="0" width="{W}" height="{H}" fill="{BLUE}"/>')
+        o.append(dots_bg(1.5, W, 1.5, H))
+        o.append(f'<rect id="card-spate" x="{X(2.4):.2f}" y="{Y(2.4):.2f}" width="{PANEL - 4.8:.2f}" height="{TH - 4.8:.2f}" rx="2.4" '
+                 f'fill="#FFFDF9" stroke="{GOLD}" stroke-width="0.3"/>')
     back(o)
-    front(o)
+    (front_romantic if variant == "romantic" else front)(o)
     if guides:
         o.append('<g id="GHIDAJE-ascunde-la-print" fill="none" stroke-width="0.2">'
                  f'<rect x="{BL}" y="{BL}" width="{TW}" height="{TH}" stroke="#0070F3"/>'
@@ -230,4 +316,6 @@ def build(guides):
 if __name__ == "__main__":
     (HERE / "Velura-CottonCloud-eticheta.svg").write_text(build(True), encoding="utf-8")
     (HERE / "Velura-CottonCloud-eticheta-print.svg").write_text(build(False), encoding="utf-8")
+    (HERE / "Velura-CottonCloud-romantic.svg").write_text(build(True, "romantic"), encoding="utf-8")
+    (HERE / "Velura-CottonCloud-romantic-print.svg").write_text(build(False, "romantic"), encoding="utf-8")
     print("ok")
