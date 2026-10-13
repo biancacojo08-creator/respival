@@ -12,14 +12,18 @@ TW, TH, BL = 136.0, 110.0, 3.0
 W, H = TW + 2 * BL, TH + 2 * BL
 PANEL = 68.0
 
-MIST = "#C9D3DB"      # culoarea aromei Cotton Cloud
-MIST_DEEP = "#B4C1CB"
+IVORY = "#F6EFE6"     # fundalul etichetei (crem cald)
+SKY_TOP = "#BCCEDB"   # cerul Cotton Cloud (sus)
+SKY_MID = "#DDE5EA"
+SKY_LOW = "#F3DDCF"   # răsărit piersicuț (jos)
+BLUSH = "#EEDFD3"
 INK = "#2B2522"       # Espresso
 MINK = "#5E5048"
 GOLD = "#B8955C"      # se tipărește ca folie aurie mată
 TODO = "#D6007E"      # magenta = de completat
 
-FONTS = {"Manrope": HERE / "fonts" / "Manrope.ttf", "Cormorant Garamond": HERE / "fonts" / "CormorantGaramond.ttf"}
+FONTS = {"Manrope": HERE / "fonts" / "Manrope.ttf", "Cormorant Garamond": HERE / "fonts" / "CormorantGaramond.ttf",
+         "CormorantItalic": HERE / "fonts" / "CormorantGaramond-Italic.ttf"}
 _cache = {}
 
 
@@ -44,7 +48,9 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def t(x, y, s, size, fill=INK, weight=500, family="Manrope", anchor="start", ls=0.0, extra=""):
+def t(x, y, s, size, fill=INK, weight=500, family="Manrope", anchor="start", ls=0.0, extra="", italic=False):
+    if italic:
+        extra += ' font-style="italic"'
     return (f'<text x="{X(x):.2f}" y="{Y(y):.2f}" font-family="{family}" font-weight="{weight}" '
             f'font-size="{size}" fill="{fill}" text-anchor="{anchor}" letter-spacing="{ls}" {extra}>{esc(s)}</text>')
 
@@ -90,30 +96,43 @@ def ghs07(x, y, s):
             f'<circle cx="{cx:.2f}" cy="{cy + s * 0.22:.2f}" r="{s * 0.055:.2f}" fill="#000"/></g>')
 
 
+def arch(x0, x1, ytop, ybot):
+    r = (x1 - x0) / 2
+    return (f"M{X(x0):.2f},{Y(ybot):.2f} L{X(x0):.2f},{Y(ytop + r):.2f} "
+            f"A{r:.2f},{r:.2f} 0 0 1 {X(x1):.2f},{Y(ytop + r):.2f} L{X(x1):.2f},{Y(ybot):.2f} Z")
+
+
 def front(o):
     x0 = PANEL
     cx = x0 + PANEL / 2
+    CG, IT = "Cormorant Garamond", True
     o.append('<g id="FATA">')
-    # cadru auriu subțire
-    o.append(f'<rect x="{X(x0 + 4):.2f}" y="{Y(4):.2f}" width="{PANEL - 8:.2f}" height="{TH - 8:.2f}" fill="none" stroke="{GOLD}" stroke-width="0.3"/>')
-    o.append(t(cx, 16, "PARFUM CONCENTRAT PENTRU RUFE", 1.9, MINK, 700, anchor="middle", ls=0.42))
-    o.append(t(cx, 30.5, "VELURA", 11.5, INK, 600, "Cormorant Garamond", "middle", ls=2.3, extra='id="LOGO"'))
-    # ornament auriu
-    o.append(f'<line x1="{X(cx - 11):.2f}" y1="{Y(35):.2f}" x2="{X(cx - 2.2):.2f}" y2="{Y(35):.2f}" stroke="{GOLD}" stroke-width="0.35"/>')
-    o.append(f'<line x1="{X(cx + 2.2):.2f}" y1="{Y(35):.2f}" x2="{X(cx + 11):.2f}" y2="{Y(35):.2f}" stroke="{GOLD}" stroke-width="0.35"/>')
-    o.append(f'<path d="M{X(cx):.2f},{Y(33.7):.2f} L{X(cx + 1.3):.2f},{Y(35):.2f} L{X(cx):.2f},{Y(36.3):.2f} L{X(cx - 1.3):.2f},{Y(35):.2f} Z" fill="{GOLD}"/>')
-    o.append(t(cx, 40.1, "MAISON DE LINGE · ROMÂNIA", 1.6, MINK, 600, anchor="middle", ls=0.5))
-    # nori
-    o.append(cloud(cx - 7, 56, 15, "#FFFFFF", 0.95))
-    o.append(cloud(cx + 9, 61.5, 10, "#FFFFFF", 0.7))
-    o.append(cloud(cx - 15, 63, 6.5, "#FFFFFF", 0.55))
+    # chenar auriu rotunjit (folie)
+    o.append(f'<rect x="{X(x0 + 3.6):.2f}" y="{Y(3.6):.2f}" width="{PANEL - 7.2:.2f}" height="{TH - 7.2:.2f}" rx="2.4" '
+             f'fill="none" stroke="{GOLD}" stroke-width="0.3"/>')
+    o.append(t(cx, 12.2, "MAISON DE LINGE", 1.7, MINK, 600, anchor="middle", ls=0.7))
+    o.append(t(cx, 25, "VELURA", 11.5, INK, 600, CG, "middle", ls=2.3, extra='id="LOGO"'))
+    o.append(t(cx, 31.4, "parfum de rufe", 3.9, MINK, 500, CG, "middle", ls=0.1, italic=IT))
+    # fereastra în arcadă: cer de dimineață cu nori
+    ax0, ax1, ay0, ay1 = x0 + 12, x0 + PANEL - 12, 36.5, 80.5
+    o.append('<clipPath id="clip-arcada"><path d="' + arch(ax0, ax1, ay0, ay1) + '"/></clipPath>')
+    o.append('<g id="ARCADA" clip-path="url(#clip-arcada)">')
+    o.append(f'<rect x="{X(ax0):.2f}" y="{Y(ay0):.2f}" width="{ax1 - ax0:.2f}" height="{ay1 - ay0:.2f}" fill="url(#cer)"/>')
+    o.append(f'<ellipse cx="{X(cx):.2f}" cy="{Y(ay1 - 4):.2f}" rx="26" ry="15" fill="url(#soare)"/>')
+    o.append(cloud(cx - 7, 52, 17, "#FFFFFF", 0.96))
+    o.append(cloud(cx + 12, 60, 11, "#FFFFFF", 0.85))
+    o.append(cloud(cx - 14, 66.5, 8, "#FFFFFF", 0.7))
+    o.append(cloud(cx + 6, 73, 13, "#FFFFFF", 0.9))
+    o.append('</g>')
+    o.append(f'<path d="{arch(ax0 - 1.4, ax1 + 1.4, ay0 - 1.4, ay1 + 1.4)}" fill="none" stroke="{GOLD}" stroke-width="0.35"/>')
     # nume aromă
-    o.append(t(cx, 80, "Cotton Cloud", 8.6, INK, 500, "Cormorant Garamond", "middle", ls=0.15, extra='id="AROMA"'))
-    o.append(t(cx, 86, "BUMBAC CURAT · AER PROASPĂT · MOSC ALB", 1.75, MINK, 700, anchor="middle", ls=0.3))
-    # bandă aurie (folie)
-    o.append(f'<rect id="banda-folie" x="{X(x0 + 4):.2f}" y="{Y(TH - 16):.2f}" width="{PANEL - 8:.2f}" height="1.1" fill="{GOLD}"/>')
-    o.append(t(x0 + 8, TH - 8.4, "200 ml ℮", 2.6, INK, 700))
-    o.append(t(x0 + PANEL - 8, TH - 8.4, "1 capac = 1 mașină", 2.0, MINK, 600, anchor="end"))
+    o.append(t(cx, 92.3, "Cotton Cloud", 10.2, INK, 500, CG, "middle", ls=0.1, italic=IT, extra='id="AROMA"'))
+    o.append(t(cx, 97.6, "bumbac curat · aer proaspăt · mosc alb", 2.9, MINK, 500, CG, "middle", ls=0.12, italic=IT))
+    # ornament + cantitate
+    o.append(f'<line x1="{X(cx - 13):.2f}" y1="{Y(101.1):.2f}" x2="{X(cx - 2):.2f}" y2="{Y(101.1):.2f}" stroke="{GOLD}" stroke-width="0.3"/>')
+    o.append(f'<line x1="{X(cx + 2):.2f}" y1="{Y(101.1):.2f}" x2="{X(cx + 13):.2f}" y2="{Y(101.1):.2f}" stroke="{GOLD}" stroke-width="0.3"/>')
+    o.append(f'<path d="M{X(cx):.2f},{Y(100.1):.2f} L{X(cx + 1):.2f},{Y(101.1):.2f} L{X(cx):.2f},{Y(102.1):.2f} L{X(cx - 1):.2f},{Y(101.1):.2f} Z" fill="{GOLD}"/>')
+    o.append(t(cx, 105.4, "200 ml ℮  ·  CONCENTRAT", 1.9, INK, 700, anchor="middle", ls=0.35))
     o.append('</g>')
 
 
@@ -121,7 +140,7 @@ def back(o):
     x, wdt = 5.0, PANEL - 10.0
     o.append('<g id="SPATE">')
     o.append(t(x, 9.6, "VELURA", 4.2, INK, 600, "Cormorant Garamond", ls=0.8))
-    o.append(t(x + wdt, 9.6, "Cotton Cloud", 3.4, INK, 500, "Cormorant Garamond", "end"))
+    o.append(t(x + wdt, 9.6, "Cotton Cloud", 3.9, INK, 500, "Cormorant Garamond", "end", italic=True))
     o.append(f'<rect x="{X(x):.2f}" y="{Y(11.6):.2f}" width="{wdt:.2f}" height="0.45" fill="{GOLD}"/>')
 
     y = 16.3
@@ -132,7 +151,7 @@ def back(o):
     # tabel doze
     rows = [("3–4 kg", "5 ml (⅓ capac)"), ("6–7 kg", "10 ml (⅔ capac)"), ("9–10 kg", "15 ml (1 capac)")]
     rh = 2.7
-    o.append(f'<rect x="{X(x):.2f}" y="{Y(y):.2f}" width="{wdt:.2f}" height="{rh * 3:.2f}" fill="#FFFFFF" opacity="0.55" rx="0.8"/>')
+    o.append(f'<rect x="{X(x):.2f}" y="{Y(y):.2f}" width="{wdt:.2f}" height="{rh * 3:.2f}" fill="{BLUSH}" rx="1"/>')
     for i, (a, b) in enumerate(rows):
         yy = y + i * rh + 1.95
         o.append(t(x + 2, yy, a, 2.0, INK, 700))
@@ -187,13 +206,14 @@ def build(guides):
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">',
          '<defs><style>'
          '@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond.ttf);font-weight:300 700}'
+         '@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond-Italic.ttf);font-weight:300 700;font-style:italic}'
          '@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf);font-weight:200 800}'
-         '</style></defs>',
-         f'<rect id="FUNDAL" x="0" y="0" width="{W}" height="{H}" fill="{MIST}"/>',
-         # textură subtilă de bumbac: linii foarte fine
-         '<g id="textura" opacity="0.18" stroke="#FFFFFF" stroke-width="0.12">'
-         + "".join(f'<line x1="0" y1="{yy:.2f}" x2="{W}" y2="{yy:.2f}"/>' for yy in [i * 1.4 for i in range(int(H / 1.4) + 1)])
-         + '</g>']
+         '</style>'
+         f'<linearGradient id="cer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{SKY_TOP}"/>'
+         f'<stop offset="0.55" stop-color="{SKY_MID}"/><stop offset="1" stop-color="{SKY_LOW}"/></linearGradient>'
+         '<radialGradient id="soare"><stop offset="0" stop-color="#FFF6EA" stop-opacity="0.95"/>'
+         '<stop offset="1" stop-color="#FFF6EA" stop-opacity="0"/></radialGradient></defs>',
+         f'<rect id="FUNDAL" x="0" y="0" width="{W}" height="{H}" fill="{IVORY}"/>']
     back(o)
     front(o)
     if guides:

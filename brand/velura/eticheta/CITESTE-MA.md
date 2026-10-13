@@ -8,7 +8,7 @@
 | `Velura-CottonCloud-eticheta-print.pdf` | PDF 142 × 116 mm (cu bleed), pentru verificare sau tipar |
 | `Velura-CottonCloud-eticheta-300dpi.png` | Imagine la 300 dpi |
 | `Velura-CottonCloud-eticheta-preview.png` | Previzualizare cu ghidaje |
-| `fonts/` | Cormorant Garamond (logo, nume aromă) și Manrope (texte). **Trebuie instalate** înainte de deschiderea SVG-ului. |
+| `fonts/` | Cormorant Garamond, inclusiv Italic (logo, nume aromă) și Manrope (texte). **Trebuie instalate** înainte de deschiderea SVG-ului. |
 | `build.py`, `render.js` | Scripturile care generează fișierele (`python3 build.py && node render.js`) |
 
 ## Dimensiuni
@@ -18,8 +18,8 @@
 - ⚠️ **Dimensiunile sunt estimate.** Se ajustează după sticla reală, la cererea tipografiei sau a producătorului.
 
 ## Culori și finisaje
-- Fundal Cotton Mist `#C9D3DB`, text Espresso `#2B2522`.
-- **Auriul `#B8955C` (cadru, ornament, banda de jos) se tipărește ca folie aurie mată (hot foil)**, nu cu cerneală.
+- Fundal crem cald `#F6EFE6`, text Espresso `#2B2522`. Fereastra în arcadă: cer de dimineață (degradeu `#BCCEDB` → `#DDE5EA` → `#F3DDCF`) cu nori albi.
+- **Auriul `#B8955C` (chenarul rotunjit, conturul arcadei, ornamentul) se tipărește ca folie aurie mată (hot foil)**, nu cu cerneală.
 - Hârtie: etichetă autoadezivă **PP albă, rezistentă la apă**, cu finisaj mat.
 - Pictograma CLP: romb cu chenar roșu `#E30613`, pe fundal alb. Latura are 10,5 mm, peste minimul legal de 10 mm.
 
