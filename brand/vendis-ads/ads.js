@@ -65,6 +65,14 @@ const SPLIT = `
 .tophead .list{position:static;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .tophead .list div{font:800 28px/1.15 A;padding:14px 16px;gap:12px;background:rgba(255,255,255,.06);width:auto}
 .tophead .list i{font-size:32px}
+.full{position:absolute;left:0;right:0;top:0;bottom:250px;overflow:hidden}.full img{width:100%;height:100%;object-fit:cover}
+.fade{position:absolute;left:0;right:0;top:0;height:520px;background:linear-gradient(180deg,rgba(13,11,12,.92),rgba(13,11,12,.7) 50%,transparent)}
+.fade.light{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.65) 55%,transparent)}
+.tx{position:absolute;left:50px;right:50px;top:44px}
+.tx .logo{position:static;display:inline-block;font-size:24px;padding:6px 14px;margin-bottom:22px}
+.tx .h{position:static;font-size:72px;text-shadow:none}
+.tx .sub{position:static;margin-top:18px;font:600 34px/1.3 I;text-shadow:none}
+.dark{color:var(--ink)}.dark .logo{border-color:var(--ink);background:transparent}.dark .sub{color:#2a2226}
 .wide{position:absolute;left:0;right:0;top:560px;bottom:250px;overflow:hidden}.wide img{width:100%;height:100%;object-fit:cover}
 `;
 const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${CSS}${SPLIT}</style></head><body>${body}</body></html>`;
@@ -118,4 +126,39 @@ module.exports = [
   { id: 'A10-vopsit', html: split('L', 'bruneta-selfie', '45% 50%', `
     <div class="h" style="font-size:44px">Păr vopsit?<br>Păstrează&#8209;i <span class="p">strălucirea</span></div>
     <div class="sub">Culoare mai vie, păr mai moale, fără frizz.</div>`) },
+
+  // ---------- product-only set (no people) ----------
 ];
+const full = (file, pos, tx, light = false, extra = '') => page(`<div class="full"><img src="img/${file}.jpg" style="object-position:${pos}"></div>
+  <div class="fade ${light ? 'light' : ''}"></div><div class="tx ${light ? 'dark' : ''}"><div class="logo">VENDIS HAIR</div>${tx}</div>${extra}${foot()}`);
+module.exports.push(
+  { id: 'B01-aur', html: full('p-auriu', '50% 0%', `
+    <div class="h">Strălucire de <span class="p">aur</span> pentru părul tău</div>
+    <div class="sub">15% keratină pentru păr deteriorat și fără strălucire.</div>`) },
+  { id: 'B02-ritual', html: full('p-baie', '50% 75%', `
+    <div class="h">Ritual de salon.<br><span class="p">Acasă.</span></div>
+    <div class="sub">Aplici, lași câteva minute, clătești. Atât.</div>`, true) },
+  { id: 'B03-tot', html: full('p-flatlay', '50% 20%', `
+    <div class="h" style="font-size:62px">Tot ce-i lipsește părului tău, <span class="p">într-un borcan</span></div>`, true) },
+  { id: 'B04-colet', html: full('p-colet', '50% 75%', `
+    <div class="h">Cel mai bun cadou pentru <span class="p">părul tău</span></div>
+    <div class="sub">Acum la jumătate de preț.</div>`) },
+  { id: 'B05-keratina', html: page(`<div class="tophead"><div class="logo">VENDIS HAIR</div>
+    <div class="h" style="font-size:150px;line-height:.9;color:var(--pink)">15%</div><div class="h" style="font-size:88px">Keratină</div>
+    <div class="sub" style="position:static;margin-top:16px;font:600 32px I">Pentru păr deteriorat și fără strălucire.</div></div>
+    <div class="wide"><img src="img/hero-d.jpg" style="object-position:72% 50%"></div>${foot()}`) },
+  { id: 'B06-pret', html: split('L', 'borcan-real', '45% 50%', `
+    <div class="h">Jumătate de preț</div><div class="big">−50%</div>
+    <div style="font:900 84px/1 A">49,99<span style="font-size:36px"> lei</span></div>
+    <div class="sub">în loc de 99,98 lei</div>`) },
+  { id: 'B07-probleme', html: full('p-auriu', '50% 0%', `
+    <div class="list" style="position:static;gap:12px"><div><i>✗</i>Păr ars?</div><div><i>✗</i>Vârfuri despicate?</div><div><i>✗</i>Fără strălucire?</div></div>
+    <div class="sub" style="font:900 40px A;color:var(--pink);text-transform:uppercase">Ai nevoie de keratină.</div>`) },
+  { id: 'B08-pasi', html: full('p-baie', '50% 80%', `
+    <div class="h" style="font-size:60px">Cum o <span class="p">folosești</span></div>
+    <div class="sub" style="font:800 34px/1.45 A;color:var(--ink)">1. Speli părul cu șampon<br>2. Aplici masca pe lungimi și vârfuri<br>3. Lași câteva minute și clătești</div>`, true) },
+  { id: 'B09-beneficii', html: full('p-flatlay', '50% 15%', `
+    <div class="sub" style="font:800 36px/1.5 A;color:var(--ink);margin-top:0"><span style="color:#d0458a">✓</span> Hrănește firul în profunzime<br><span style="color:#d0458a">✓</span> Strălucire intensă<br><span style="color:#d0458a">✓</span> Mai puțin frizz<br><span style="color:#d0458a">✓</span> Ideală pentru păr vopsit</div>`, true) },
+  { id: 'B10-recomand', html: full('p-colet', '50% 80%', `
+    <div class="note" style="position:static;font-size:52px;padding:30px 34px 24px;transform:rotate(-2deg);max-width:820px">O folosesc eu însămi de ani de zile. Chiar ajută!<small>♥ recomandarea mea sinceră</small></div>`) },
+);
