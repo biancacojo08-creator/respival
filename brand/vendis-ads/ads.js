@@ -39,48 +39,83 @@ html,body{width:${W}px;height:${H}px;overflow:hidden;background:var(--ink);color
 const foot = (old = true) => `
 <div class="chk"><span>15% keratină</span><span>200 ml</span><span>păr deteriorat</span></div>
 <div class="foot"><div class="price">${old ? '<s>99,98 lei</s>' : ''}<b>49,99<small> lei</small></b></div><div class="cta">Comandă acum</div></div>`;
-const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${CSS}</style></head><body>${body}</body></html>`;
+const SPLIT = `
+.col{position:absolute;top:0;bottom:250px;width:440px;padding:44px 36px;justify-content:center;background:linear-gradient(180deg,#1d1418,#0d0b0c);display:flex;flex-direction:column;gap:26px}
+.col .logo{position:absolute;top:44px;left:36px;font-size:24px;padding:6px 14px}
+.col .h{position:static;font-size:58px;line-height:1.02;letter-spacing:-1px;text-shadow:none}
+.col .h span{margin-top:8px}
+.col .sub{position:static;font:600 30px/1.3 I;text-shadow:none;color:#eee}
+.col .sub b{color:var(--pink)}
+.col .list{position:static;gap:14px}
+.col .list div{font:800 28px/1.15 A;padding:14px 16px;gap:14px;background:rgba(255,255,255,.06)}
+.col .list b{width:44px;height:44px;font-size:26px;line-height:44px}
+.col .list i{font-size:32px}
+.col .note{position:static;font-size:50px;padding:34px 30px 26px;margin-top:30px}
+.col .note small{font-size:36px}
+.col .pov{position:static;font-size:38px;padding:24px 26px}
+.col .big{font:900 128px/0.9 A;color:var(--red);letter-spacing:-6px}
+.ph{position:absolute;top:0;bottom:250px;width:640px;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.L .col{left:0}.L .ph{right:0}.R .col{right:0}.R .ph{left:0}
+.foot{height:250px;padding-top:50px}
+.chk{bottom:auto;top:1112px;z-index:2;text-shadow:none;color:#ddd;font-size:24px}
+.tophead{position:absolute;left:0;right:0;top:0;height:560px;padding:44px 50px;background:linear-gradient(180deg,#1d1418,#0d0b0c)}
+.tophead .logo{position:static;display:inline-block;font-size:24px;padding:6px 14px;margin-bottom:24px}
+.tophead .h{position:static;font-size:76px;text-shadow:none}
+.tophead .list{position:static;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tophead .list div{font:800 28px/1.15 A;padding:14px 16px;gap:12px;background:rgba(255,255,255,.06);width:auto}
+.tophead .list i{font-size:32px}
+.wide{position:absolute;left:0;right:0;top:560px;bottom:250px;overflow:hidden}.wide img{width:100%;height:100%;object-fit:cover}
+`;
+const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${CSS}${SPLIT}</style></head><body>${body}</body></html>`;
 const img = (f, pos = 'center') => `<img class="bg" src="img/${f}.jpg" style="object-position:${pos}">`;
 const LOGO = '<div class="logo">VENDIS HAIR</div>';
 
+const split = (side, file, pos, col) => page(`<div class="${side}"><div class="ph"><img src="img/${file}.jpg" style="object-position:${pos}"></div>
+  <div class="col"><div class="logo">VENDIS HAIR</div>${col}</div></div>${foot()}`);
+
 module.exports = [
-  { id: 'A01-paie', html: page(`${img('blonda-cenusie', '50% 30%')}<div class="shade-top"></div><div class="shade-bot"></div>${LOGO}
-    <div class="h" style="top:140px">Părul tău arată ca <span>paiele?</span></div>
-    <div class="sub" style="top:400px">Ars de decolorare, uscat, fără strălucire.<br>Masca cu <b style="color:var(--pink)">15% keratină</b> îl face moale și lucios din nou.</div>${foot()}`) },
+  { id: 'A01-paie', html: split('L', 'blonda-cenusie', '50% 50%', `
+    <div class="h">Părul tău arată ca <span>paiele?</span></div>
+    <div class="sub">Ars de decolorare, uscat, fără strălucire.</div>
+    <div class="sub">Masca cu <b>15% keratină</b> îl face moale și lucios din nou.</div>`) },
 
-  { id: 'A02-de-ani', html: page(`${img('borcan-real', '50% 60%')}<div class="shade-bot"></div>${LOGO}
-    <div class="note" style="left:80px;right:80px;top:150px">O folosesc eu însămi de ani de zile. De-asta o recomand din tot sufletul. Chiar ajută!<small>♥ poză reală, fără filtre</small></div>${foot()}`) },
+  { id: 'A02-de-ani', html: split('R', 'borcan-real', '45% 50%', `
+    <div class="note">O folosesc eu însămi de ani de zile. De-asta o recomand din tot sufletul. Chiar ajută!<small>♥ poză reală, fără filtre</small></div>`) },
 
-  { id: 'A03-reducere', html: page(`${img('hero-m', '50% 50%')}<div class="shade-top"></div>${LOGO}
-    <div class="h" style="top:140px">Reducere<br><span>−50%</span></div>
-    <div class="sub" style="top:390px">Masca de păr cu 15% keratină,<br>acum la jumătate de preț.</div>
-    <div class="sticker" style="right:60px;top:700px"><span>DOAR</span><b>49,99</b><span>LEI</span></div>${foot()}`) },
+  { id: 'A03-reducere', html: split('L', 'hero-m', '50% 50%', `
+    <div class="h">Reducere</div><div class="big">−50%</div>
+    <div class="sub">Masca de păr cu <b>15% keratină</b>, acum la jumătate de preț.</div>
+    <div class="sticker" style="position:relative;transform:rotate(-8deg);width:210px;height:210px;margin-top:10px"><span>DOAR</span><b style="font-size:72px">49,99</b><span>LEI</span></div>`) },
 
-  { id: 'A04-beneficii', html: page(`${img('roscata', '35% 50%')}<div class="shade-top" style="height:100%;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.35) 70%,transparent)"></div>${LOGO}
-    <div class="h" style="top:140px;font-size:80px">Ce face<br><span class="p">pentru părul tău</span></div>
-    <div class="list" style="top:430px"><div><i>✓</i>Hrănește firul în profunzime</div><div><i>✓</i>Strălucire intensă</div><div><i>✓</i>Mai puțin frizz</div><div><i>✓</i>Vârfuri cu aspect sănătos</div><div><i>✓</i>Ideală pentru păr vopsit</div></div>${foot()}`) },
+  { id: 'A04-beneficii', html: page(`<div class="tophead"><div class="logo">VENDIS HAIR</div>
+    <div class="h">Ce face pentru <span class="p">părul tău</span></div>
+    <div class="list"><div><i>✓</i>Hrănește firul în profunzime</div><div><i>✓</i>Strălucire intensă</div><div><i>✓</i>Mai puțin frizz</div><div><i>✓</i>Vârfuri cu aspect sănătos</div></div></div>
+    <div class="wide"><img src="img/hero-d.jpg" style="object-position:70% 50%"></div>${foot()}`) },
 
-  { id: 'A05-salon', html: page(`${img('blonda-miere', '50% 40%')}<div class="shade-top"></div><div class="shade-bot"></div>${LOGO}
-    <div class="h" style="top:140px">Tratament de salon.<br><span class="p">Acasă.</span></div>
-    <div class="sub" style="top:470px">Fără programare. Fără sute de lei.<br>Doar câteva minute după șampon.</div>${foot()}`) },
+  { id: 'A05-salon', html: split('R', 'blonda-miere', '62% 50%', `
+    <div class="h" style="font-size:52px">Tratament de salon. <span class="p">Acasă.</span></div>
+    <div class="sub">Fără programare.<br>Fără sute de lei.</div>
+    <div class="sub">Doar câteva minute după șampon.</div>`) },
 
-  { id: 'A06-semne', html: page(`${img('bruneta-baie', '50% 30%')}<div class="shade-top" style="height:100%;background:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.3) 60%,rgba(0,0,0,.6))"></div>${LOGO}
-    <div class="h" style="top:140px;font-size:76px">3 semne că părul tău cere <span>keratină</span></div>
-    <div class="list" style="top:520px"><div><b>1</b>Se rupe la periat</div><div><b>2</b>Are vârfuri despicate</div><div><b>3</b>E tern, fără strălucire</div></div>${foot()}`) },
+  { id: 'A06-semne', html: split('L', 'bruneta-baie', '50% 50%', `
+    <div class="h" style="font-size:52px">3 semne că părul tău cere <span>keratină</span></div>
+    <div class="list"><div><b>1</b>Se rupe la periat</div><div><b>2</b>Are vârfuri despicate</div><div><b>3</b>E tern, fără strălucire</div></div>`) },
 
-  { id: 'A07-varfuri', html: page(`${img('saten', '50% 35%')}<div class="shade-top"></div><div class="shade-bot"></div>${LOGO}
-    <div class="h" style="top:140px">Vârfuri despicate?<br><span>Nu tăia!</span></div>
-    <div class="sub" style="top:520px">Hrănește-le cu 15% keratină și redă-le aspectul sănătos.</div>${foot()}`) },
+  { id: 'A07-varfuri', html: split('R', 'saten', '62% 50%', `
+    <div class="h" style="font-size:54px">Vârfuri despicate? <span>Nu tăia!</span></div>
+    <div class="sub">Hrănește-le cu <b>15% keratină</b> și redă-le aspectul sănătos.</div>`) },
 
-  { id: 'A08-pasi', html: page(`${img('hero-d', '82% 50%')}<div class="shade-top" style="height:100%;background:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.4) 55%,rgba(0,0,0,.65))"></div>${LOGO}
-    <div class="h" style="top:140px;font-size:84px">Cum o <span class="p">folosești</span></div>
-    <div class="list" style="top:360px"><div><b>1</b>Speli părul cu șampon</div><div><b>2</b>Aplici masca pe lungimi și vârfuri</div><div><b>3</b>Lași câteva minute și clătești</div></div>
-    <div class="sub" style="top:850px;font-size:44px;color:var(--gold)">Gata. Păr moale și lucios.</div>${foot()}`) },
+  { id: 'A08-pasi', html: split('L', 'roscata', '42% 50%', `
+    <div class="h">Cum o <span class="p">folosești</span></div>
+    <div class="list"><div><b>1</b>Speli părul cu șampon</div><div><b>2</b>Aplici masca pe lungimi și vârfuri</div><div><b>3</b>Lași câteva minute și clătești</div></div>
+    <div class="sub" style="color:var(--gold)">Gata. Păr moale și lucios.</div>`) },
 
-  { id: 'A09-pov', html: page(`${img('blonda-living', '50% 40%')}<div class="shade-bot"></div>
-    <div class="pov" style="top:70px">POV: ți-ai găsit în sfârșit <b>masca de păr</b> pe care o cumperi iar și iar</div>${foot()}`) },
+  { id: 'A09-pov', html: split('R', 'blonda-living', '40% 50%', `
+    <div class="pov">POV: ți-ai găsit în sfârșit <b>masca de păr</b> pe care o cumperi iar și iar</div>
+    <div class="sub">Păr moale, lucios și ușor de pieptănat.</div>`) },
 
-  { id: 'A10-vopsit', html: page(`${img('bruneta-selfie', '50% 30%')}<div class="shade-top"></div><div class="shade-bot"></div>${LOGO}
-    <div class="h" style="top:140px;font-size:84px">Păr vopsit?<br>Păstrează-i <span class="p">strălucirea</span></div>
-    <div class="sub" style="top:470px">Culoare mai vie, păr mai moale,<br>fără frizz.</div>${foot()}`) },
+  { id: 'A10-vopsit', html: split('L', 'bruneta-selfie', '45% 50%', `
+    <div class="h" style="font-size:44px">Păr vopsit?<br>Păstrează&#8209;i <span class="p">strălucirea</span></div>
+    <div class="sub">Culoare mai vie, păr mai moale, fără frizz.</div>`) },
 ];
