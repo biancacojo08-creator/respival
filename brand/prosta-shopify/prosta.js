@@ -60,20 +60,20 @@ imgs.push({ id: '01-prezentare', html: page(`
   .disk{position:absolute;left:250px;top:250px;width:580px;height:580px;border-radius:50%;background:${C.blueTint}}
   .ring{position:absolute;left:222px;top:222px;width:636px;height:636px;border-radius:50%;border:1.5px solid ${C.gold};opacity:.55}`,
   `${logo(463, 52)}
-  <div class="abs label" style="left:0;right:0;top:122px;text-align:center">Supliment lichid cu plante și minerale</div>
+  <div class="abs label" style="left:0;right:0;top:122px;text-align:center">Supliment lichid cu 4 plante</div>
   <div class="abs h" style="left:0;right:0;top:152px;text-align:center;font-size:56px">Sănătatea prostatei, <em>în fiecare zi</em></div>
   <div class="ring"></div><div class="disk"></div>
   ${prod(660, 390, 262)}
   <div class="abs" style="left:0;right:0;top:938px;display:flex;justify-content:center;gap:14px">
-    <div class="badge">Serenoa + urzică + dovleac</div>
+    <div class="badge">4 extracte din plante</div>
     <div class="badge">Lichid · 100 ml</div>
     <div class="badge">Fabricat în România</div></div>
   ${disc()}`) });
 
 // 2. Beneficii
 const ben = [
-  [I.root, 'Susține prostata', 'Serenoa repens și semințe de dovleac, cele mai cunoscute plante pentru prostată', 60, 300],
-  [I.drop, 'Funcție urinară normală', 'urzica susține funcția urinară, zi și noapte', 60, 610],
+  [I.root, 'Susține prostata', 'pufuliță-cu-flori-mici, Serenoa repens și Pygeum africanum', 60, 300],
+  [I.drop, 'Funcție urinară normală', 'Serenoa repens și urzica susțin funcția urinară', 60, 610],
   [I.leaf, 'Mai puțin disconfort', 'contribuie la reducerea disconfortului urinar', 740, 300],
   [I.cup, 'Formă lichidă', '10 ml dimineața și seara, fără capsule de înghițit', 740, 610],
 ];
@@ -92,14 +92,19 @@ imgs.push({ id: '02-beneficii', html: page(`
   ${disc()}`) });
 
 // 3. Ingrediente + mod de folosire
-const ing = [[I.root, 'Serenoa repens'], [I.leaf, 'Urzică'], [I.bean, 'Dovleac'], [I.mineral, 'Zinc'], [I.mineral, 'Seleniu'], [I.drop, 'Vitamina E']];
+const ing = [
+  [I.flower, 'Pufuliță-cu-flori-mici', 'Epilobium parviflorum', 'folosită tradițional pentru sănătatea prostatei'],
+  [I.root, 'Palmier-pitic', 'Serenoa repens', 'sprijină funcția urinară și confortul bărbaților maturi'],
+  [I.leaf, 'Pygeum africanum', 'extract din scoarță', 'bogat în fitosteroli, pentru sănătatea prostatei'],
+  [I.fan, 'Urzică', 'Urtica dioica', 'susține funcția urinară'],
+];
 imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
-  .grid{position:absolute;left:60px;top:300px;width:600px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid{position:absolute;left:60px;top:290px;width:620px;display:grid;grid-template-columns:1fr;gap:12px}
   .it{display:flex;align-items:center;gap:14px;background:${C.raised};border-radius:12px;padding:12px 16px;box-shadow:0 8px 24px rgba(20,32,26,.06)}
   .it.wide{grid-column:span 2}
   .it .ic{width:50px;height:50px}
-  .it b{font:700 21px Jakarta;color:${C.ink}}
-  .use{position:absolute;left:60px;top:660px;width:600px;background:${C.brand};border-radius:24px;padding:28px 32px;color:#fff;display:flex;gap:24px;align-items:center}
+  .it b{display:block;font:700 21px Jakarta;color:${C.ink}}.it b i{font:italic 400 17px Jakarta;color:${C.muted};margin-left:6px}.it span{display:block;margin-top:3px;font:400 17px/1.35 Jakarta;color:${C.muted}}
+  .use{position:absolute;left:60px;top:770px;width:600px;background:${C.brand};border-radius:24px;padding:22px 30px;color:#fff;display:flex;gap:24px;align-items:center}
   .use .ic{width:84px;height:84px;background:rgba(255,255,255,.12)}
   .use small{display:block;font:700 15px Jakarta;letter-spacing:2.4px;color:#E2C68A;text-transform:uppercase}
   .use b{display:block;margin-top:6px;font:600 30px/1.1 Newsreader}
@@ -107,9 +112,9 @@ imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
   .bg{position:absolute;right:0;top:0;width:400px;height:1080px;background:${C.blueTint}}`,
   `<div class="bg"></div>${logo(60, 52)}
   <div class="abs label" style="left:60px;top:132px">Formula</div>
-  <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">Plante și minerale,<br><em>într‑o formulă lichidă</em></div>
-  <div class="grid">${ing.map(([ic, n], i) => `<div class="it"><div class="ic">${ic}</div><b>${n}</b></div>`).join('')}</div>
-  <div class="abs" style="left:62px;top:590px;font:600 18px Jakarta;color:#55635B">3 plante, 2 minerale și vitamina E.</div>
+  <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">4 plante pentru prostată,<br><em>într‑o formulă lichidă</em></div>
+  <div class="grid">${ing.map(([ic, n, l, d]) => `<div class="it"><div class="ic">${ic}</div><div><b>${n}<i>${l}</i></b><span>${d}</span></div></div>`).join('')}</div>
+  <div class="abs" style="left:62px;top:690px;width:600px;line-height:1.35;font:600 18px Jakarta;color:#55635B">Extracte apoase în izoglucoză (vehicul pentru absorbție). Conservant: sorbat de potasiu.</div>
   <div class="use"><div class="ic">${sv('<path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11Z"/>', '#fff')}</div><div><small>Mod de folosire</small><b>10 ml, de 2 ori pe zi</b><span>Dimineața și seara.</span></div></div>
   ${prod(660, 708, 230, 3)}
   ${disc()}`) });
