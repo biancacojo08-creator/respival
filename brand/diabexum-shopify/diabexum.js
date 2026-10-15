@@ -119,7 +119,7 @@ imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
   <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">4 ingrediente active,<br><em>într‑o capsulă</em></div>
   <div class="grid">${ing.map(([ic, n, l, d]) => `<div class="it"><div class="ic">${ic}</div><div><b>${n}<i>${l}</i></b><span>${d}</span></div></div>`).join('')}</div>
   <div class="abs" style="left:62px;top:690px;width:600px;line-height:1.35;font:600 18px Jakarta;color:#55635B">Un flacon conține 30 de capsule.</div>
-  <div class="use"><div class="ic">${sv('<rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m10 9.2 4 5.6"/>', '#fff')}</div><div><small>Mod de folosire</small><b>Conform dozei de pe ambalaj</b><span>Cu un pahar cu apă. Dacă urmați un tratament, întrebați medicul.</span></div></div>
+  <div class="use"><div class="ic">${sv('<rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m10 9.2 4 5.6"/>', '#fff')}</div><div><small>Mod de folosire</small><b>1 capsulă, de 1–3 ori pe zi</b><span>După mese, cu un pahar cu apă. Dacă urmați un tratament, întrebați medicul.</span></div></div>
   ${prod(600, 712, 250, 3)}
   ${disc()}`) });
 
