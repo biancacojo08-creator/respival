@@ -1,5 +1,4 @@
 // Imagini Shopify pentru Diabexum Forte Elite+ (capsule), 2000x2000. Paleta Novensa (brand/paleta-novensa) + bleumarinul de pe etichetă ca accent.
-// 03 (ingrediente + mod de folosire) așteaptă lista de ingrediente și doza.
 // Render: node render.js [id-filter]
 const C = {
   surface: '#F4F6F1', raised: '#FFFFFF', tint: '#E3EBDD', ink: '#14201A', muted: '#55635B',
@@ -53,6 +52,9 @@ const I = {
   mineral: sv('<path d="M12 3 20 9l-3 11H7L4 9Z"/><path d="M4 9h16M12 3l-3 6 3 11 3-11Z"/>'),
   wave: sv('<path d="M3 12h4l2-5 3 10 2-5h7"/>'),
   capsule: sv('<rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m10 9.2 4 5.6"/>'),
+  cactus: sv('<path d="M10 21V6a2 2 0 0 1 4 0v15M10 13H7a2 2 0 0 1-2-2V9M14 11h3a2 2 0 0 0 2-2V7M7 21h10"/>'),
+  shell: sv('<path d="M12 20c-5 0-8-3-8-7 0-5 4-9 8-9s8 4 8 9c0 4-3 7-8 7Z"/><path d="M12 20V5M12 20 7 7M12 20l5-13"/>'),
+  stick: sv('<path d="M5 19 19 5M8 20l12-12M4 16 16 4"/>'),
   clock: sv('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
 };
 
@@ -95,10 +97,10 @@ imgs.push({ id: '02-beneficii', html: page(`
 
 // 3. Ingrediente + mod de folosire
 const ing = [
-  [I.flower, 'Pufuliță-cu-flori-mici', 'Epilobium parviflorum', 'folosită tradițional pentru sănătatea prostatei'],
-  [I.root, 'Palmier-pitic', 'Serenoa repens', 'sprijină funcția urinară și confortul bărbaților maturi'],
-  [I.leaf, 'Pygeum africanum', 'extract din scoarță', 'bogat în fitosteroli, pentru sănătatea prostatei'],
-  [I.fan, 'Urzică', 'Urtica dioica', 'susține funcția urinară'],
+  [I.cactus, 'Nopal', 'Opuntia ficus-indica', 'bogat în fibre, contribuie la senzația de sațietate'],
+  [I.shell, 'Chitosan', 'fibră naturală', 'contribuie la menținerea nivelului normal al colesterolului'],
+  [I.mineral, 'Crom picolinat', 'mineral esențial', 'contribuie la menținerea nivelului normal al glicemiei'],
+  [I.stick, 'Scorțișoară', 'Cinnamomum cassia', 'folosită tradițional pentru echilibrul glicemic'],
 ];
 imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
   .grid{position:absolute;left:60px;top:290px;width:620px;display:grid;grid-template-columns:1fr;gap:12px}
@@ -114,11 +116,11 @@ imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
   .bg{position:absolute;right:0;top:0;width:400px;height:1080px;background:${C.blueTint}}`,
   `<div class="bg"></div>${logo(60, 52)}
   <div class="abs label" style="left:60px;top:132px">Formula</div>
-  <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">4 plante pentru prostată,<br><em>într‑o formulă lichidă</em></div>
+  <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">4 ingrediente active,<br><em>într‑o capsulă</em></div>
   <div class="grid">${ing.map(([ic, n, l, d]) => `<div class="it"><div class="ic">${ic}</div><div><b>${n}<i>${l}</i></b><span>${d}</span></div></div>`).join('')}</div>
-  <div class="abs" style="left:62px;top:690px;width:600px;line-height:1.35;font:600 18px Jakarta;color:#55635B">Extracte apoase în izoglucoză (vehicul pentru absorbție). Conservant: sorbat de potasiu.</div>
-  <div class="use"><div class="ic">${sv('<path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11Z"/>', '#fff')}</div><div><small>Mod de folosire</small><b>10 ml, de 2 ori pe zi</b><span>Dimineața și seara.</span></div></div>
-  ${prod(660, 708, 230, 3)}
+  <div class="abs" style="left:62px;top:690px;width:600px;line-height:1.35;font:600 18px Jakarta;color:#55635B">Un flacon conține 30 de capsule.</div>
+  <div class="use"><div class="ic">${sv('<rect x="3.5" y="8.5" width="17" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="m10 9.2 4 5.6"/>', '#fff')}</div><div><small>Mod de folosire</small><b>Conform dozei de pe ambalaj</b><span>Cu un pahar cu apă. Dacă urmați un tratament, întrebați medicul.</span></div></div>
+  ${prod(600, 712, 250, 3)}
   ${disc()}`) });
 
-module.exports = imgs.filter(i => !i.id.startsWith('03'));
+module.exports = imgs;
