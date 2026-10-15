@@ -75,7 +75,7 @@ const ben = [
   [I.root, 'Susține prostata', 'Serenoa repens și semințe de dovleac, cele mai cunoscute plante pentru prostată', 60, 300],
   [I.drop, 'Funcție urinară normală', 'urzica susține funcția urinară, zi și noapte', 60, 610],
   [I.leaf, 'Mai puțin disconfort', 'contribuie la reducerea disconfortului urinar', 740, 300],
-  [I.cup, 'Formă lichidă', 'picături în puțină apă, fără capsule de înghițit', 740, 610],
+  [I.cup, 'Formă lichidă', '10 ml dimineața și seara, fără capsule de înghițit', 740, 610],
 ];
 imgs.push({ id: '02-beneficii', html: page(`
   .card{position:absolute;width:280px;background:${C.raised};border-radius:12px;padding:26px 24px;box-shadow:0 8px 24px rgba(20,32,26,.08)}
@@ -110,7 +110,7 @@ imgs.push({ id: '03-ingrediente-mod-de-folosire', html: page(`
   <div class="abs h" style="left:60px;top:162px;width:620px;font-size:52px">Plante și minerale,<br><em>într‑o formulă lichidă</em></div>
   <div class="grid">${ing.map(([ic, n], i) => `<div class="it"><div class="ic">${ic}</div><b>${n}</b></div>`).join('')}</div>
   <div class="abs" style="left:62px;top:590px;font:600 18px Jakarta;color:#55635B">3 plante, 2 minerale și vitamina E.</div>
-  <div class="use"><div class="ic">${sv('<path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11Z"/>', '#fff')}</div><div><small>Mod de folosire</small><b>30 de picături (1 ml), de 2 ori pe zi</b><span>Diluate în puțină apă.</span></div></div>
+  <div class="use"><div class="ic">${sv('<path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11Z"/>', '#fff')}</div><div><small>Mod de folosire</small><b>10 ml, de 2 ori pe zi</b><span>Dimineața și seara.</span></div></div>
   ${prod(660, 708, 230, 3)}
   ${disc()}`) });
 
