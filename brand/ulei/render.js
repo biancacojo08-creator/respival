@@ -1,0 +1,21 @@
+// Renders every ad in ads.js to brand/ulei/png/<id>.png (1080x1350) and jpg/<id>.jpg.
+const fs = require('fs'), path = require('path');
+const { chromium } = require('/opt/node-tools/node_modules/playwright');
+const ads = require('./ads.js');
+(async () => {
+  const only = process.argv.slice(2);
+  const browser = await chromium.launch();
+  const pg = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
+  for (const d of ['html', 'png', 'jpg']) fs.mkdirSync(path.join(__dirname, d), { recursive: true });
+  for (const ad of ads) {
+    if (only.length && !only.some(o => ad.id.includes(o))) continue;
+    const file = path.join(__dirname, 'html', ad.id + '.html');
+    fs.writeFileSync(file, ad.html);
+    await pg.goto('file://' + file);
+    await pg.evaluate(() => document.fonts.ready);
+    await pg.screenshot({ path: path.join(__dirname, 'png', ad.id + '.png') });
+    await pg.screenshot({ path: path.join(__dirname, 'jpg', ad.id + '.jpg'), type: 'jpeg', quality: 90 });
+    console.log('ok', ad.id);
+  }
+  await browser.close();
+})();
