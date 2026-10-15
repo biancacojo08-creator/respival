@@ -1,0 +1,314 @@
+<title>Cod pagină produs Novensa</title>
+<style>
+:root{--bg:#F6F8F5;--fg:#11281F;--muted:#56665E;--line:#D8E0D9;--brand:#12304F;--brand-ink:#fff;--code:#FFFFFF}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E1813;--fg:#E7EFEA;--muted:#9BB0A5;--line:#25362E;--brand:#8FB4DA;--brand-ink:#0B1420;--code:#14211B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1813;--fg:#E7EFEA;--muted:#9BB0A5;--line:#25362E;--brand:#8FB4DA;--brand-ink:#0B1420;--code:#14211B;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:900px;margin:0 auto;padding-inline:16px;padding-block:32px;display:flex;flex-direction:column;gap:18px}
+h1{font-size:26px;margin:0} h2{font-size:18px;margin:8px 0 0}
+ol{margin:0;padding-left:20px;color:var(--muted);display:flex;flex-direction:column;gap:6px} ol b{color:var(--fg)}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button{background:var(--brand);color:var(--brand-ink);border:0;border-radius:6px;padding:14px 26px;font:600 16px/1 inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+#st{color:var(--muted);font-size:14px}
+textarea{width:100%;min-height:50vh;background:var(--code);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:14px;font:12.5px/1.5 ui-monospace,Menlo,monospace;resize:vertical}
+</style>
+<div class="w">
+<h1>Secțiunea „Novensa – Pagină produs”</h1>
+<h2>1. Adaugă codul</h2>
+<ol>
+<li>Apasă <b>Copiază tot codul</b>.</li>
+<li>Shopify → tema <b>Copy of Craft</b> → <b>Edit code</b> → <b>Sections</b> → <b>Add a new section</b> → nume <b>novensa-product</b>.</li>
+<li>În fișierul nou: <b>Cmd+A</b>, apoi <b>Cmd+V</b>. Ultima linie trebuie să fie <b>{% endschema %}</b> (linia 275). <b>Save</b>.</li>
+</ol>
+<h2>2. Fă un șablon doar pentru un produs</h2>
+<ol>
+<li><b>Customize</b> → sus, din lista de pagini alege <b>Products</b> → <b>Create template</b> → nume <b>premium</b>, bazat pe Default product → <b>Create</b>.</li>
+<li>În șablonul <b>premium</b>: ascunde secțiunea <b>Product information</b> (iconița cu ochi) → <b>Add section</b> → <b>Novensa – Pagină produs</b> → trage-o sus. <b>Save</b>.</li>
+<li>În <b>Products</b> (din admin), deschide produsul ales → în dreapta, la <b>Theme template</b>, alege <b>premium</b> → <b>Save</b>.</li>
+<li>Deschide pagina produsului ca să vezi rezultatul. Celelalte produse rămân neschimbate.</li>
+</ol>
+<div class="bar"><button id="cp" type="button">Copiază tot codul</button><span id="st">275 de linii</span></div>
+<textarea id="code" readonly spellcheck="false">{%- comment -%}
+  Novensa — pagina de produs premium (o singură secțiune).
+  Instalare: Edit code → Sections → Add a new section → novensa-product → lipește tot → Save.
+  Customize → sus alege Products → Default product → ascunde „Product information”
+  → Add section → „Novensa – Pagină produs”.
+  Texte opționale pe produs (Settings → Custom data → Products, tip „Multi-line text”):
+  custom.beneficii (câte unul pe rând), custom.ingrediente, custom.mod_de_administrare, custom.atentionari
+{%- endcomment -%}
+
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap&quot;&gt;
+
+&lt;style&gt;
+  .np{--display:&quot;Plus Jakarta Sans&quot;,system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif;--body:&quot;Plus Jakarta Sans&quot;,system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif;--mono:&quot;Plus Jakarta Sans&quot;,system-ui,sans-serif;
+      background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+  .np--clinic{--soft:#EAF0F7;--chip:#E7EEF7;--bg:#FFFFFF;--surface:#FFFFFF;--tile:#F2F4F7;--ink:#0E1B2C;--muted:#5A6676;--line:#E1E5EB;--brand:#12304F;--brand-ink:#FFFFFF;--gold:#8C7346;--band:#0E1B2C}
+  .np--forest{--soft:#E8F0EA;--chip:#E6EFE8;--bg:#FAFAF8;--surface:#FFFFFF;--tile:#EFF1EE;--ink:#0F2219;--muted:#55635B;--line:#E0E4DF;--brand:#143A2A;--brand-ink:#FFFFFF;--gold:#957640;--band:#0F2219}
+  .np--graphite{--soft:#EEF2F3;--chip:#EBF0F1;--bg:#FFFFFF;--surface:#FFFFFF;--tile:#F3F3F2;--ink:#18191B;--muted:#5F6368;--line:#E4E4E2;--brand:#1E3A44;--brand-ink:#FFFFFF;--gold:#8A7656;--band:#18191B}
+  .np *{box-sizing:border-box}
+  .np a{color:inherit}
+  .np p{margin:0}
+  .np .w{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  .np .eb{font:700 12px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+
+  .np-top{background:linear-gradient(180deg,var(--soft) 0%,var(--bg) 70%)}
+  .np-top .w{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding-block:40px 72px;align-items:start}
+  .np-top .w&gt;*{min-width:0}
+
+  .np-gal{position:sticky;top:90px;display:flex;flex-direction:column;gap:12px}
+  .np-main{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px -30px rgba(14,27,44,.35);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .np-main img{width:100%;height:100%;object-fit:contain;display:block}
+  .np-thumbs{display:flex;gap:10px;flex-wrap:wrap}
+  .np-thumbs button{width:72px;height:72px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer}
+  .np-thumbs button[aria-current=&quot;true&quot;]{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .np-thumbs img{width:100%;height:100%;object-fit:contain;display:block}
+
+  .np-info{display:flex;flex-direction:column;gap:18px}
+  .np-info h1{font:800 clamp(28px,3.2vw,40px)/1.12 var(--display);margin:0;color:var(--ink);text-wrap:balance;letter-spacing:-.02em}
+  .np-rate{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+  .np-rate i{font-style:normal;color:#B8862F;letter-spacing:2px}
+  .np-lede{color:var(--muted);font-size:17px;max-width:34em}
+  .np-ben{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .np-ben li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;font-size:14px;font-weight:600;line-height:1.35;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .np-ben svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--chip);stroke:var(--brand);fill:none;stroke-width:2.2}
+
+  .np-buy{border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 18px 40px -28px rgba(14,27,44,.35);display:flex;flex-direction:column;gap:16px;background:var(--surface)}
+  .np-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+  .np-price b{font-size:32px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .np-price s{color:var(--muted);font-size:16px}
+  .np-price .save{font:700 12px/1 var(--body);color:#fff;background:#C0392B;border-radius:999px;padding:7px 11px}
+  .np-var select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:4px;font:500 15px var(--body);background:var(--surface);color:var(--ink)}
+  .np-row{display:flex;gap:12px;flex-wrap:wrap}
+  .np-qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px}
+  .np-qty button{width:44px;height:50px;border:0;background:transparent;font-size:20px;cursor:pointer;color:var(--ink)}
+  .np-qty input{width:44px;height:50px;border:0;text-align:center;font:600 16px var(--body);background:transparent;color:var(--ink);-moz-appearance:textfield}
+  .np-qty input::-webkit-outer-spin-button,.np-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+  .np-add{flex:1;min-width:200px;height:54px;border:0;border-radius:10px;background:var(--brand);color:var(--brand-ink);font:600 16px var(--body);cursor:pointer}
+  .np-add:disabled{opacity:.5;cursor:not-allowed}
+  .np-buy .shopify-payment-button__button{border-radius:10px!important;min-height:54px}
+  .np-app{display:flex;flex-direction:column;gap:10px}
+  .np-app:empty{display:none}
+  .np-trust{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:13px;color:var(--muted)}
+  .np-trust div{display:flex;gap:10px;align-items:center;font-weight:500;color:var(--ink)}
+  .np-trust svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--chip);stroke:var(--brand);fill:none;stroke-width:1.8;flex:none}
+
+  .np-acc{border-top:1px solid var(--line)}
+  .np-acc details{border-bottom:1px solid var(--line)}
+  .np-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-weight:700;font-size:16px}
+  .np-acc summary::-webkit-details-marker{display:none}
+  .np-acc summary::after{content:&quot;+&quot;;font:400 22px/1 var(--body);color:var(--muted)}
+  .np-acc details[open] summary::after{content:&quot;–&quot;}
+  .np-acc .c{padding-bottom:20px;color:var(--muted);font-size:15px;line-height:1.65}
+  .np-acc .c p+p{margin-top:10px}
+
+  .np-q{background:var(--band);color:#fff}
+  .np-q .w{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:26px}
+  .np-q div{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:500;line-height:1.35}
+  .np-q svg{flex:none;width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+  .np-legal{font-size:12px;color:var(--muted);line-height:1.6;padding-block:24px}
+
+  .np-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:none;align-items:center;gap:12px}
+  .np-sticky .t{flex:1;min-width:0;font-size:13px;line-height:1.3}
+  .np-sticky .t b{display:block;font-size:16px}
+  .np-sticky button{height:46px;padding:0 20px;border:0;border-radius:10px;background:var(--brand);color:var(--brand-ink);font:600 15px var(--body)}
+
+  @media (max-width:900px){
+    .np-top .w{grid-template-columns:1fr;gap:28px;padding-top:20px}
+    .np-gal{position:static}
+    .np-q .w{grid-template-columns:1fr 1fr}
+    .np-sticky.on{display:flex}
+  }
+  @media (max-width:480px){.np-ben{grid-template-columns:1fr}.np-trust{grid-template-columns:1fr}.np-q .w{grid-template-columns:1fr}}
+&lt;/style&gt;
+
+{%- assign current = product.selected_or_first_available_variant -%}
+{%- assign rc = product.metafields.reviews.rating_count.value -%}
+{%- assign rv = product.metafields.reviews.rating.value -%}
+
+&lt;div class=&quot;np np--{{ section.settings.palette }}&quot; id=&quot;np-{{ section.id }}&quot;&gt;
+  &lt;section class=&quot;np-top&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+
+    {%- comment -%} GALERIE {%- endcomment -%}
+    &lt;div class=&quot;np-gal&quot;&gt;
+      &lt;div class=&quot;np-main&quot;&gt;
+        {%- if product.featured_media -%}{{ product.featured_media | image_url: width: 1200 | image_tag: id: &#x27;np-main-img&#x27;, loading: &#x27;eager&#x27;, alt: product.title, sizes: &#x27;(max-width: 900px) 100vw, 600px&#x27; }}{%- endif -%}
+      &lt;/div&gt;
+      {%- if product.media.size &gt; 1 -%}
+      &lt;div class=&quot;np-thumbs&quot;&gt;
+        {%- for m in product.media -%}{%- if m.media_type == &#x27;image&#x27; -%}
+          &lt;button type=&quot;button&quot; data-src=&quot;{{ m | image_url: width: 1200 }}&quot; aria-label=&quot;Imaginea {{ forloop.index }}&quot; aria-current=&quot;{% if forloop.first %}true{% else %}false{% endif %}&quot;&gt;{{ m | image_url: width: 160 | image_tag: loading: &#x27;lazy&#x27;, alt: &#x27;&#x27; }}&lt;/button&gt;
+        {%- endif -%}{%- endfor -%}
+      &lt;/div&gt;
+      {%- endif -%}
+    &lt;/div&gt;
+
+    {%- comment -%} INFO + CUMPĂRARE {%- endcomment -%}
+    &lt;div class=&quot;np-info&quot;&gt;
+      &lt;span class=&quot;eb&quot;&gt;{{ product.type | default: section.settings.eyebrow }}&lt;/span&gt;
+      &lt;h1&gt;{{ product.metafields.custom.nume_scurt | default: product.title }}&lt;/h1&gt;
+      {%- if rc and rc &gt; 0 -%}
+        &lt;div class=&quot;np-rate&quot;&gt;&lt;i&gt;★★★★★&lt;/i&gt;{% if rv %}{{ rv.rating | round: 1 }} din 5 · {% endif %}{{ rc }} recenzii&lt;/div&gt;
+      {%- endif -%}
+      {%- if product.metafields.custom.descriere_scurta != blank -%}&lt;p class=&quot;np-lede&quot;&gt;{{ product.metafields.custom.descriere_scurta }}&lt;/p&gt;{%- endif -%}
+
+      {%- assign ben = product.metafields.custom.beneficii.value -%}
+      {%- if ben != blank -%}
+        &lt;ul class=&quot;np-ben&quot;&gt;
+          {%- assign lines = ben | newline_to_br | split: &#x27;&lt;br /&gt;&#x27; -%}
+          {%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}
+            &lt;li&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M5 12.5l4.5 4.5L19 7.5&quot;/&gt;&lt;/svg&gt;&lt;span&gt;{{ t }}&lt;/span&gt;&lt;/li&gt;
+          {%- endif -%}{%- endfor -%}
+        &lt;/ul&gt;
+      {%- endif -%}
+
+      &lt;div class=&quot;np-buy&quot;&gt;
+        &lt;div class=&quot;np-price&quot;&gt;
+          &lt;b data-np-price&gt;{{ current.price | money }}&lt;/b&gt;
+          &lt;s data-np-compare {% unless current.compare_at_price &gt; current.price %}hidden{% endunless %}&gt;{{ current.compare_at_price | money }}&lt;/s&gt;
+          {%- if current.compare_at_price &gt; current.price -%}
+            {%- assign saved = current.compare_at_price | minus: current.price -%}
+            &lt;span class=&quot;save&quot; data-np-save&gt;Economisești {{ saved | money }}&lt;/span&gt;
+          {%- endif -%}
+        &lt;/div&gt;
+
+        {%- form &#x27;product&#x27;, product, id: &#x27;np-form&#x27;, novalidate: &#x27;novalidate&#x27; -%}
+          &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;{{ current.id }}&quot; data-np-id&gt;
+          {%- unless product.has_only_default_variant -%}
+            &lt;div class=&quot;np-var&quot; style=&quot;margin-bottom:12px&quot;&gt;
+              &lt;select aria-label=&quot;Variantă&quot; data-np-select&gt;
+                {%- for v in product.variants -%}
+                  &lt;option value=&quot;{{ v.id }}&quot; data-price=&quot;{{ v.price | money }}&quot; data-compare=&quot;{% if v.compare_at_price &gt; v.price %}{{ v.compare_at_price | money }}{% endif %}&quot; {% if v.id == current.id %}selected{% endif %} {% unless v.available %}disabled{% endunless %}&gt;{{ v.title }}{% unless v.available %} · indisponibil{% endunless %}&lt;/option&gt;
+                {%- endfor -%}
+              &lt;/select&gt;
+            &lt;/div&gt;
+          {%- endunless -%}
+          &lt;div class=&quot;np-row&quot; {% unless section.settings.show_add_to_cart %}hidden{% endunless %}&gt;
+            &lt;div class=&quot;np-qty&quot;&gt;
+              &lt;button type=&quot;button&quot; data-np-qty=&quot;-1&quot; aria-label=&quot;Scade cantitatea&quot;&gt;−&lt;/button&gt;
+              &lt;input type=&quot;number&quot; name=&quot;quantity&quot; value=&quot;1&quot; min=&quot;1&quot; aria-label=&quot;Cantitate&quot; data-np-q&gt;
+              &lt;button type=&quot;button&quot; data-np-qty=&quot;1&quot; aria-label=&quot;Crește cantitatea&quot;&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;button class=&quot;np-add&quot; type=&quot;submit&quot; name=&quot;add&quot; {% unless current.available %}disabled{% endunless %}&gt;
+              {%- if current.available -%}Adaugă în coș{%- else -%}Stoc epuizat{%- endif -%}
+            &lt;/button&gt;
+          &lt;/div&gt;
+          {%- if section.settings.show_buy_now -%}&lt;div style=&quot;margin-top:12px&quot;&gt;{{ form | payment_button }}&lt;/div&gt;{%- endif -%}
+        {%- endform -%}
+
+        &lt;div class=&quot;np-app&quot;&gt;
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when &#x27;@app&#x27; -%}{% render block %}
+            {%- endcase -%}
+          {%- endfor -%}
+        &lt;/div&gt;
+
+        &lt;div class=&quot;np-trust&quot;&gt;
+          &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3 7h11v9H3zM14 10h4l3 3v3h-7&quot;/&gt;&lt;circle cx=&quot;7&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;circle cx=&quot;17&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;/svg&gt;Transport în 24h&lt;/div&gt;
+          &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;6&quot; width=&quot;18&quot; height=&quot;12&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M3 10h18&quot;/&gt;&lt;/svg&gt;Plata la livrare sau card&lt;/div&gt;
+          &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z&quot;/&gt;&lt;path d=&quot;M9 12l2 2 4-4&quot;/&gt;&lt;/svg&gt;Laborator certificat din România&lt;/div&gt;
+          &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M4 12a8 8 0 1 0 2.3-5.6&quot;/&gt;&lt;path d=&quot;M4 4v4h4&quot;/&gt;&lt;/svg&gt;Retur ușor&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      {%- comment -%} ACORDEON {%- endcomment -%}
+      &lt;div class=&quot;np-acc&quot;&gt;
+        {%- if product.description != blank -%}
+          &lt;details open&gt;&lt;summary&gt;Descriere&lt;/summary&gt;&lt;div class=&quot;c&quot;&gt;{{ product.description }}&lt;/div&gt;&lt;/details&gt;
+        {%- endif -%}
+        {%- if product.metafields.custom.ingrediente != blank -%}
+          &lt;details&gt;&lt;summary&gt;Ingrediente&lt;/summary&gt;&lt;div class=&quot;c&quot;&gt;{{ product.metafields.custom.ingrediente | newline_to_br }}&lt;/div&gt;&lt;/details&gt;
+        {%- endif -%}
+        {%- if product.metafields.custom.mod_de_administrare != blank -%}
+          &lt;details&gt;&lt;summary&gt;Mod de administrare&lt;/summary&gt;&lt;div class=&quot;c&quot;&gt;{{ product.metafields.custom.mod_de_administrare | newline_to_br }}&lt;/div&gt;&lt;/details&gt;
+        {%- endif -%}
+        &lt;details&gt;&lt;summary&gt;Atenționări&lt;/summary&gt;&lt;div class=&quot;c&quot;&gt;
+          {%- if product.metafields.custom.atentionari != blank -%}{{ product.metafields.custom.atentionari | newline_to_br }}{%- else -%}
+          Nu depășiți doza zilnică recomandată. Suplimentele alimentare nu trebuie utilizate ca înlocuitor pentru o dietă variată și echilibrată și un stil de viață sănătos. A nu se lăsa la îndemâna și vederea copiilor mici. A se păstra la temperatura camerei, ferit de lumină și umiditate.{%- endif -%}
+        &lt;/div&gt;&lt;/details&gt;
+        &lt;details&gt;&lt;summary&gt;Livrare și retur&lt;/summary&gt;&lt;div class=&quot;c&quot;&gt;
+          &lt;p&gt;Comenzile se expediază în 24h, prin curier, cu plata la livrare sau online cu cardul.&lt;/p&gt;
+          &lt;p&gt;Ai dreptul de retragere în 14 zile de la primire. Pentru întrebări sună la {{ section.settings.phone }}.&lt;/p&gt;
+        &lt;/div&gt;&lt;/details&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  &lt;section class=&quot;np-q&quot;&gt;&lt;div class=&quot;w&quot;&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3&quot;/&gt;&lt;/svg&gt;Formule dezvoltate de biochimiști&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z&quot;/&gt;&lt;path d=&quot;M9 12l2 2 4-4&quot;/&gt;&lt;/svg&gt;Laboratoare certificate din România&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;rect x=&quot;4&quot; y=&quot;3&quot; width=&quot;16&quot; height=&quot;18&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M8 8h8M8 12h8M8 16h5&quot;/&gt;&lt;/svg&gt;Control de calitate pe fiecare lot&lt;/div&gt;
+    &lt;div&gt;&lt;svg viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M3 7h11v9H3zM14 10h4l3 3v3h-7&quot;/&gt;&lt;circle cx=&quot;7&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;circle cx=&quot;17&quot; cy=&quot;18&quot; r=&quot;1.6&quot;/&gt;&lt;/svg&gt;Transport în 24h, plata la livrare&lt;/div&gt;
+  &lt;/div&gt;&lt;/section&gt;
+
+  &lt;div class=&quot;w&quot;&gt;&lt;p class=&quot;np-legal&quot;&gt;Suplimentele alimentare nu înlocuiesc o dietă variată și echilibrată și un stil de viață sănătos. Informațiile de pe această pagină au scop informativ și nu înlocuiesc consultul medical.&lt;/p&gt;&lt;/div&gt;
+
+  &lt;div class=&quot;np-sticky&quot; data-np-sticky&gt;
+    &lt;div class=&quot;t&quot;&gt;{{ product.metafields.custom.nume_scurt | default: product.title | truncate: 40 }}&lt;b data-np-price&gt;{{ current.price | money }}&lt;/b&gt;&lt;/div&gt;
+    &lt;button type=&quot;button&quot; data-np-sticky-add {% unless current.available %}disabled{% endunless %}&gt;Adaugă în coș&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  var root=document.getElementById(&#x27;np-{{ section.id }}&#x27;); if(!root) return;
+  var main=root.querySelector(&#x27;#np-main-img&#x27;);
+  root.querySelectorAll(&#x27;.np-thumbs button&#x27;).forEach(function(b){
+    b.addEventListener(&#x27;click&#x27;,function(){
+      if(main){main.src=b.dataset.src;main.removeAttribute(&#x27;srcset&#x27;);}
+      root.querySelectorAll(&#x27;.np-thumbs button&#x27;).forEach(function(x){x.setAttribute(&#x27;aria-current&#x27;,&#x27;false&#x27;)});
+      b.setAttribute(&#x27;aria-current&#x27;,&#x27;true&#x27;);
+    });
+  });
+  var q=root.querySelector(&#x27;[data-np-q]&#x27;);
+  root.querySelectorAll(&#x27;[data-np-qty]&#x27;).forEach(function(b){
+    b.addEventListener(&#x27;click&#x27;,function(){var v=Math.max(1,(parseInt(q.value,10)||1)+parseInt(b.dataset.npQty,10));q.value=v;});
+  });
+  var sel=root.querySelector(&#x27;[data-np-select]&#x27;);
+  if(sel){sel.addEventListener(&#x27;change&#x27;,function(){
+    var o=sel.options[sel.selectedIndex];
+    root.querySelector(&#x27;[data-np-id]&#x27;).value=o.value;
+    root.querySelectorAll(&#x27;[data-np-price]&#x27;).forEach(function(p){p.textContent=o.dataset.price});
+    var c=root.querySelector(&#x27;[data-np-compare]&#x27;); if(c){c.textContent=o.dataset.compare;c.hidden=!o.dataset.compare;}
+    var s=root.querySelector(&#x27;[data-np-save]&#x27;); if(s){s.hidden=!o.dataset.compare;}
+  });}
+  var sticky=root.querySelector(&#x27;[data-np-sticky]&#x27;), buy=root.querySelector(&#x27;.np-buy&#x27;);
+  if(sticky&amp;&amp;buy&amp;&amp;&#x27;IntersectionObserver&#x27; in window){
+    new IntersectionObserver(function(e){sticky.classList.toggle(&#x27;on&#x27;,!e[0].isIntersecting&amp;&amp;e[0].boundingClientRect.top&lt;0)}).observe(buy);
+    root.querySelector(&#x27;[data-np-sticky-add]&#x27;).addEventListener(&#x27;click&#x27;,function(){var f=document.getElementById(&#x27;np-form&#x27;);if(f.requestSubmit)f.requestSubmit();else f.submit();});
+  }
+})();
+&lt;/script&gt;
+
+{% schema %}
+{
+  &quot;name&quot;: &quot;Novensa – Pagină produs&quot;,
+  &quot;tag&quot;: &quot;div&quot;,
+  &quot;enabled_on&quot;: { &quot;templates&quot;: [&quot;product&quot;] },
+  &quot;settings&quot;: [
+    { &quot;type&quot;: &quot;select&quot;, &quot;id&quot;: &quot;palette&quot;, &quot;label&quot;: &quot;Set de culori&quot;, &quot;default&quot;: &quot;clinic&quot;, &quot;options&quot;: [
+      { &quot;value&quot;: &quot;clinic&quot;, &quot;label&quot;: &quot;Bleumarin clinic&quot; },
+      { &quot;value&quot;: &quot;forest&quot;, &quot;label&quot;: &quot;Verde farmacie&quot; },
+      { &quot;value&quot;: &quot;graphite&quot;, &quot;label&quot;: &quot;Grafit&quot; } ] },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;eyebrow&quot;, &quot;label&quot;: &quot;Text mic deasupra numelui (dacă produsul nu are „Tip”)&quot;, &quot;default&quot;: &quot;Supliment alimentar&quot; },
+    { &quot;type&quot;: &quot;checkbox&quot;, &quot;id&quot;: &quot;show_add_to_cart&quot;, &quot;label&quot;: &quot;Arată „Adaugă în coș” și cantitatea&quot;, &quot;default&quot;: true },
+    { &quot;type&quot;: &quot;checkbox&quot;, &quot;id&quot;: &quot;show_buy_now&quot;, &quot;label&quot;: &quot;Arată butonul Shopify „Cumpără acum”&quot;, &quot;default&quot;: false },
+    { &quot;type&quot;: &quot;text&quot;, &quot;id&quot;: &quot;phone&quot;, &quot;label&quot;: &quot;Telefon&quot;, &quot;default&quot;: &quot;0371 234 979&quot; }
+  ],
+  &quot;blocks&quot;: [ { &quot;type&quot;: &quot;@app&quot; } ],
+  &quot;presets&quot;: [{ &quot;name&quot;: &quot;Novensa – Pagină produs&quot; }]
+}
+{% endschema %}
+</textarea>
+</div>
+<script>
+const t=document.getElementById('code'),st=document.getElementById('st');
+document.getElementById('cp').addEventListener('click',()=>{
+  navigator.clipboard.writeText(t.value).then(()=>{st.textContent='Copiat: 275 de linii. Lipește în Shopify cu Cmd+V.'})
+  .catch(()=>{t.focus();t.select();st.textContent='Codul e selectat. Apasă Cmd+C, apoi lipește în Shopify.'});
+});
+</script>

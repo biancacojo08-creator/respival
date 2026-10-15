@@ -1,0 +1,24 @@
+{
+ "script": "Am cincizeci de ani și o singură frază de la doctor m-a speriat: „Inima nu așteaptă să ai șaizeci.” De atunci am schimbat câteva lucruri: mai multă mișcare, mai puțină sare… și Cardio Balance. Două capsule pe zi, ingrediente naturale. Mă simt mai echilibrată, mai liniștită și am energie până seara. Nu așteptați să vă sperie și pe voi. Comandați Cardio Balance, plătiți la livrare.",
+ "hooks": [
+  {
+   "text": "„INIMA NU AȘTEAPTĂ SĂ AI 60”",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "2 CAPSULE PE ZI • NATURAL",
+   "at_word": "Două",
+   "dur": 3
+  },
+  {
+   "text": "ECHILIBRU • LINIȘTE • ENERGIE",
+   "at_word": "echilibrată,",
+   "dur": 3.5
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

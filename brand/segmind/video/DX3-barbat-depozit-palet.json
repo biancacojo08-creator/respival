@@ -1,0 +1,24 @@
+{
+ "script": "Am cincizeci și șase de ani și lucrez de douăzeci în depozite. Așa ceva n-am văzut. Trei paleți întregi de Diabexum au venit luni… și șeful zice că până vineri nu mai rămâne nimic. Eu îl iau de vreo lună, că mă lua pofta de dulce după masă și mă simțeam greu. Acum mă simt mai echilibrat și am mai multă energie la muncă. Nu-i minune, e un supliment natural. Dar dacă vreți să-l încercați, grăbiți-vă. Plata la livrare.",
+ "hooks": [
+  {
+   "text": "20 DE ANI ÎN DEPOZIT. AȘA CEVA N-AM VĂZUT",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "PÂNĂ VINERI NU MAI RĂMÂNE NIMIC",
+   "at_word": "șeful",
+   "dur": 3
+  },
+  {
+   "text": "MAI ECHILIBRAT • MAI MULTĂ ENERGIE",
+   "at_word": "echilibrat",
+   "dur": 3.5
+  },
+  {
+   "text": "STOC LIMITAT • PLATA LA LIVRARE",
+   "last": 3.5
+  }
+ ]
+}

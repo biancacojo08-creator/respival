@@ -1,0 +1,24 @@
+{
+ "script": "Am șaptezeci și doi de ani și urc dealul ăsta de două ori pe zi. Vreți să știți cum? Nu-i doar de la aerul curat… Fata mea mi-a adus Cardio Balance de la oraș. Două capsule pe zi, naturale. De atunci am suflu, am putere și nu mă mai opresc la fiecare zece pași. Băieți, nu lăsați vârsta să vă țină în casă. Comandați-l, plătiți la livrare!",
+ "hooks": [
+  {
+   "text": "72 DE ANI ȘI URCĂ DEALUL ZILNIC",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "SECRETUL LUI",
+   "at_word": "Fata",
+   "dur": 2.5
+  },
+  {
+   "text": "SUFLU • PUTERE • ENERGIE",
+   "at_word": "suflu,",
+   "dur": 3.5
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="142.0mm" height="116.0mm" viewBox="0 0 142.0 116.0">
+<defs><style>@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond.ttf);font-weight:300 700}@font-face{font-family:"Cormorant Garamond";src:url(fonts/CormorantGaramond-Italic.ttf);font-weight:300 700;font-style:italic}@font-face{font-family:Manrope;src:url(fonts/Manrope.ttf);font-weight:200 800}@font-face{font-family:"Pinyon Script";src:url(fonts/PinyonScript.ttf)}@font-face{font-family:"Bodoni Moda";src:url(fonts/BodoniModa.ttf);font-weight:400 900}@font-face{font-family:"Bodoni Moda";src:url(fonts/BodoniModa-Italic.ttf);font-weight:400 900;font-style:italic}</style><linearGradient id="cer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BCCEDB"/><stop offset="0.55" stop-color="#DDE5EA"/><stop offset="1" stop-color="#F3DDCF"/></linearGradient><radialGradient id="soare"><stop offset="0" stop-color="#FFF6EA" stop-opacity="0.95"/><stop offset="1" stop-color="#FFF6EA" stop-opacity="0"/></radialGradient><radialGradient id="puf" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.7" stop-color="#FAFBFC"/><stop offset="1" stop-color="#E4E9EE"/></radialGradient></defs>
+<rect id="FUNDAL" x="0" y="0" width="142.0" height="116.0" fill="#F6EFE6"/>
+<g id="SPATE">
+<text x="8.00" y="12.60" font-family="Cormorant Garamond" font-weight="600" font-size="4.2" fill="#2B2522" text-anchor="start" letter-spacing="0.8" >VELURA</text>
+<text x="66.00" y="12.60" font-family="Cormorant Garamond" font-weight="500" font-size="3.9" fill="#2B2522" text-anchor="end" letter-spacing="0.0"  font-style="italic">Cotton Cloud</text>
+<rect x="8.00" y="14.60" width="58.00" height="0.45" fill="#B8955C"/>
+<text x="8.00" y="19.30" font-family="Manrope" font-size="2.0" fill="#2B2522"><tspan font-weight="800">MOD DE UTILIZARE:</tspan><tspan font-weight="500"> Agitați înainte de folosire. Turnați în</tspan></text>
+<text x="8.00" y="21.74" font-family="Manrope" font-weight="500" font-size="2.0" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >compartimentul pentru balsam sau direct în tambur.</text>
+<rect x="8.00" y="24.78" width="58.00" height="8.10" fill="#EEDFD3" rx="1"/>
+<text x="10.00" y="26.73" font-family="Manrope" font-weight="700" font-size="2.0" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >3–4 kg</text>
+<text x="64.00" y="26.73" font-family="Manrope" font-weight="500" font-size="2.0" fill="#2B2522" text-anchor="end" letter-spacing="0.0" >5 ml (⅓ capac)</text>
+<text x="10.00" y="29.43" font-family="Manrope" font-weight="700" font-size="2.0" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >6–7 kg</text>
+<text x="64.00" y="29.43" font-family="Manrope" font-weight="500" font-size="2.0" fill="#2B2522" text-anchor="end" letter-spacing="0.0" >10 ml (⅔ capac)</text>
+<text x="10.00" y="32.13" font-family="Manrope" font-weight="700" font-size="2.0" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >9–10 kg</text>
+<text x="64.00" y="32.13" font-family="Manrope" font-weight="500" font-size="2.0" fill="#2B2522" text-anchor="end" letter-spacing="0.0" >15 ml (1 capac)</text>
+<g id="pictograma-GHS07"><path d="M13.25,34.48 L18.50,39.73 L13.25,44.98 L8.00,39.73 Z" fill="#FFFFFF" stroke="#E30613" stroke-width="0.74" stroke-linejoin="miter"/><rect x="12.78" y="36.69" width="0.94" height="3.99" rx="0.21" fill="#000"/><circle cx="13.25" cy="42.04" r="0.58" fill="#000"/></g>
+<text x="20.20" y="37.88" font-family="Manrope" font-weight="800" font-size="2.5" fill="#2B2522" text-anchor="start" letter-spacing="0.2" >ATENȚIE</text>
+<text x="20.20" y="40.78" font-family="Manrope" font-weight="700" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >[H317] Poate provoca o reacție alergică a</text>
+<text x="20.20" y="43.52" font-family="Manrope" font-weight="700" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >pielii.</text>
+<text x="8.00" y="46.57" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >[P101] Dacă este necesară consultarea medicului,</text>
+<text x="8.00" y="49.31" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >țineți la îndemână recipientul sau eticheta produsului.</text>
+<text x="8.00" y="52.06" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >[P102] A nu se lăsa la îndemâna copiilor. [P302+P352]</text>
+<text x="8.00" y="54.80" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >ÎN CAZ DE CONTACT CU PIELEA: spălați cu multă apă.</text>
+<text x="8.00" y="57.55" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >[P501] Aruncați conținutul/recipientul la un centru de</text>
+<text x="8.00" y="60.30" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >colectare autorizat.</text>
+<text x="8.00" y="63.34" font-family="Manrope" font-size="2.25" fill="#D6007E"><tspan font-weight="800">CONȚINE:</tspan><tspan font-weight="500"> [lista substanțelor alergene din FDS-ul</tspan></text>
+<text x="8.00" y="66.08" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >producătorului, ex. hexyl cinnamal, linalool, amestec</text>
+<text x="8.00" y="68.83" font-family="Manrope" font-weight="500" font-size="2.25" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >CMIT/MIT (3:1)]</text>
+<text x="8.00" y="71.87" font-family="Manrope" font-size="1.9" fill="#D6007E"><tspan font-weight="800">COMPOZIȚIE:</tspan><tspan font-weight="500"> [&lt;5% agenți de suprafață cationici], parfum,</tspan></text>
+<text x="8.00" y="74.19" font-family="Manrope" font-weight="500" font-size="1.9" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >conservanți [denumiri INCI].</text>
+<text x="8.00" y="78.41" font-family="Manrope" font-weight="800" font-size="2.2" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >UFI: [XXXX-XXXX-XXXX-XXXX]</text>
+<rect id="EAN-13" x="35.00" y="86.50" width="31.0" height="21.0" fill="#FFFFFF"/>
+<rect x="37.20" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="37.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="38.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="39.00" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="39.60" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="40.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="40.80" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="41.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="42.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="42.60" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="43.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="43.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="44.40" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="45.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="45.60" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="46.20" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="46.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="47.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="48.00" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="48.60" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="49.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="49.80" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="50.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="51.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="51.60" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="52.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="52.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="53.40" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="54.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="54.60" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="55.20" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="55.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="56.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="57.00" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="57.60" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="58.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="58.80" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="59.40" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="60.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="60.60" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="61.20" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="61.80" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="62.40" y="88.00" width="0.5" height="15.5" fill="#D6007E" opacity="0.8"/>
+<rect x="63.00" y="88.00" width="0.3" height="15.5" fill="#D6007E" opacity="0.8"/>
+<text x="50.50" y="106.20" font-family="Manrope" font-weight="700" font-size="1.8" fill="#D6007E" text-anchor="middle" letter-spacing="0.0" >[cod EAN-13]</text>
+<text x="8.00" y="87.90" font-family="Manrope" font-weight="500" font-size="1.75" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >A se păstra la 5–25°C, ferit de</text>
+<text x="8.00" y="90.04" font-family="Manrope" font-weight="500" font-size="1.75" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >soare și îngheț. Valabilitate:</text>
+<text x="8.00" y="92.17" font-family="Manrope" font-weight="500" font-size="1.75" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >24 de luni.</text>
+<text x="8.00" y="94.61" font-family="Manrope" font-weight="500" font-size="1.75" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >Distribuitor: [FIRMA SRL,</text>
+<text x="8.00" y="96.74" font-family="Manrope" font-weight="500" font-size="1.75" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >adresa, telefon] · Fabricat în</text>
+<text x="8.00" y="98.88" font-family="Manrope" font-weight="500" font-size="1.75" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >România</text>
+<text x="8.00" y="102.21" font-family="Manrope" font-weight="800" font-size="1.75" fill="#2B2522" text-anchor="start" letter-spacing="0.0" >LOT / EXP: pe ambalaj</text>
+<text x="8.00" y="104.61" font-family="Manrope" font-weight="700" font-size="1.75" fill="#D6007E" text-anchor="start" letter-spacing="0.0" >♻ [PP 05]</text>
+</g>
+<g id="FATA">
+<rect x="74.60" y="6.60" width="60.80" height="102.80" rx="2.4" fill="none" stroke="#B8955C" stroke-width="0.3"/>
+<text x="105.00" y="15.20" font-family="Manrope" font-weight="600" font-size="1.7" fill="#5E5048" text-anchor="middle" letter-spacing="0.7" >MAISON DE LINGE</text>
+<text x="105.00" y="28.00" font-family="Cormorant Garamond" font-weight="600" font-size="11.5" fill="#2B2522" text-anchor="middle" letter-spacing="2.3" id="LOGO">VELURA</text>
+<text x="105.00" y="34.40" font-family="Cormorant Garamond" font-weight="500" font-size="3.9" fill="#5E5048" text-anchor="middle" letter-spacing="0.1"  font-style="italic">parfum de rufe</text>
+<clipPath id="clip-arcada"><path d="M83.00,83.50 L83.00,61.50 A22.00,22.00 0 0 1 127.00,61.50 L127.00,83.50 Z"/></clipPath>
+<g id="ARCADA" clip-path="url(#clip-arcada)">
+<rect x="83.00" y="39.50" width="44.00" height="44.00" fill="url(#cer)"/>
+<ellipse cx="105.00" cy="79.50" rx="26" ry="15" fill="url(#soare)"/>
+<g fill="#FFFFFF" opacity="0.96"><circle cx="88.65" cy="57.04" r="5.44"/><circle cx="94.94" cy="52.96" r="7.14"/><circle cx="102.25" cy="54.66" r="6.12"/><circle cx="107.52" cy="57.72" r="4.42"/><circle cx="98.00" cy="58.40" r="5.78"/><rect x="87.46" y="57.38" width="20.74" height="5.44" rx="2.72"/></g>
+<g fill="#FFFFFF" opacity="0.85"><circle cx="110.95" cy="64.32" r="3.52"/><circle cx="115.02" cy="61.68" r="4.62"/><circle cx="119.75" cy="62.78" r="3.96"/><circle cx="123.16" cy="64.76" r="2.86"/><circle cx="117.00" cy="65.20" r="3.74"/><rect x="110.18" y="64.54" width="13.42" height="3.52" rx="1.76"/></g>
+<g fill="#FFFFFF" opacity="0.7"><circle cx="86.60" cy="70.46" r="2.56"/><circle cx="89.56" cy="68.54" r="3.36"/><circle cx="93.00" cy="69.34" r="2.88"/><circle cx="95.48" cy="70.78" r="2.08"/><circle cx="91.00" cy="71.10" r="2.72"/><rect x="86.04" y="70.62" width="9.76" height="2.56" rx="1.28"/></g>
+<g fill="#FFFFFF" opacity="0.9"><circle cx="103.85" cy="77.56" r="4.16"/><circle cx="108.66" cy="74.44" r="5.46"/><circle cx="114.25" cy="75.74" r="4.68"/><circle cx="118.28" cy="78.08" r="3.38"/><circle cx="111.00" cy="78.60" r="4.42"/><rect x="102.94" y="77.82" width="15.86" height="4.16" rx="2.08"/></g>
+</g>
+<path d="M81.60,84.90 L81.60,61.50 A23.40,23.40 0 0 1 128.40,61.50 L128.40,84.90 Z" fill="none" stroke="#B8955C" stroke-width="0.35"/>
+<text x="105.00" y="95.30" font-family="Cormorant Garamond" font-weight="500" font-size="10.2" fill="#2B2522" text-anchor="middle" letter-spacing="0.1" id="AROMA" font-style="italic">Cotton Cloud</text>
+<text x="105.00" y="100.60" font-family="Cormorant Garamond" font-weight="500" font-size="2.9" fill="#5E5048" text-anchor="middle" letter-spacing="0.12"  font-style="italic">bumbac curat · aer proaspăt · mosc alb</text>
+<line x1="92.00" y1="104.10" x2="103.00" y2="104.10" stroke="#B8955C" stroke-width="0.3"/>
+<line x1="107.00" y1="104.10" x2="118.00" y2="104.10" stroke="#B8955C" stroke-width="0.3"/>
+<path d="M105.00,103.10 L106.00,104.10 L105.00,105.10 L104.00,104.10 Z" fill="#B8955C"/>
+<text x="105.00" y="108.40" font-family="Manrope" font-weight="700" font-size="1.9" fill="#2B2522" text-anchor="middle" letter-spacing="0.35" >200 ml ℮  ·  CONCENTRAT</text>
+</g>
+<g id="GHIDAJE-ascunde-la-print" fill="none" stroke-width="0.2"><rect x="3.0" y="3.0" width="136.0" height="110.0" stroke="#0070F3"/><rect x="0.1" y="0.1" width="141.8" height="115.8" stroke="#E00"/><rect x="6.0" y="6.0" width="130.0" height="104.0" stroke="#16A34A" stroke-dasharray="1 1"/><line x1="71.0" y1="0" x2="71.0" y2="116.0" stroke="#F97316" stroke-dasharray="2 1"/></g>
+</svg>

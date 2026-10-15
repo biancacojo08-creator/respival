@@ -1,0 +1,24 @@
+{
+ "script": "Fetelor, eu scanez colete toată ziua… și vă spun sincer: de o lună, jumătate din ce scanez e Diabexum. Azi au venit trei paleți și i-am pregătit deja aproape pe toți pentru curieri. Ce m-a convins pe mine? Oamenii care sună și comandă din nou. Zic că nu mai au pofte de dulce seara și că se simt mai echilibrați. Am luat și eu unul pentru mama. Natural, simplu, se plătește la livrare. Dacă vreți să prindeți din lotul ăsta, comandați acum.",
+ "hooks": [
+  {
+   "text": "JUMĂTATE DIN COLETE SUNT DIABEXUM",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "3 PALEȚI, APROAPE GATA",
+   "at_word": "trei",
+   "dur": 3
+  },
+  {
+   "text": "OAMENII COMANDĂ DIN NOU",
+   "at_word": "Oamenii",
+   "dur": 3
+  },
+  {
+   "text": "STOC LIMITAT • PLATA LA LIVRARE",
+   "last": 3.5
+  }
+ ]
+}

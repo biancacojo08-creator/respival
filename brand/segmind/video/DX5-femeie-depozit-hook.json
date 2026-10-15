@@ -1,0 +1,24 @@
+{
+ "script": "Glicemia mare la analize, pofta de dulce după fiecare masă și kilogramele care nu mai pleacă, orice ai face? Le aveam pe toate trei. Și credeam că e doar lipsa mea de voință. Nu era. Am început Diabexum Forte, un supliment natural care susține echilibrul glicemic și metabolic. Acum nu mă mai arunc seara pe biscuiți și mă simt mai ușoară. Dacă te regăsești, comandă-l. Se plătește la livrare.",
+ "hooks": [
+  {
+   "text": "3 SEMNE PE CARE NU LE MAI IGNOR",
+   "start": 0,
+   "end": 4
+  },
+  {
+   "text": "NU E LIPSĂ DE VOINȚĂ",
+   "at_word": "Nu",
+   "dur": 2.5
+  },
+  {
+   "text": "GATA CU BISCUIȚII SEARA",
+   "at_word": "biscuiți",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

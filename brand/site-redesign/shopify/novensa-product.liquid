@@ -1,0 +1,274 @@
+{%- comment -%}
+  Novensa — pagina de produs premium (o singură secțiune).
+  Instalare: Edit code → Sections → Add a new section → novensa-product → lipește tot → Save.
+  Customize → sus alege Products → Default product → ascunde „Product information”
+  → Add section → „Novensa – Pagină produs”.
+  Texte opționale pe produs (Settings → Custom data → Products, tip „Multi-line text”):
+  custom.beneficii (câte unul pe rând), custom.ingrediente, custom.mod_de_administrare, custom.atentionari
+{%- endcomment -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+
+<style>
+  .np{--display:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--body:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Plus Jakarta Sans",system-ui,sans-serif;
+      background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+  .np--clinic{--soft:#EAF0F7;--chip:#E7EEF7;--bg:#FFFFFF;--surface:#FFFFFF;--tile:#F2F4F7;--ink:#0E1B2C;--muted:#5A6676;--line:#E1E5EB;--brand:#12304F;--brand-ink:#FFFFFF;--gold:#8C7346;--band:#0E1B2C}
+  .np--forest{--soft:#E8F0EA;--chip:#E6EFE8;--bg:#FAFAF8;--surface:#FFFFFF;--tile:#EFF1EE;--ink:#0F2219;--muted:#55635B;--line:#E0E4DF;--brand:#143A2A;--brand-ink:#FFFFFF;--gold:#957640;--band:#0F2219}
+  .np--graphite{--soft:#EEF2F3;--chip:#EBF0F1;--bg:#FFFFFF;--surface:#FFFFFF;--tile:#F3F3F2;--ink:#18191B;--muted:#5F6368;--line:#E4E4E2;--brand:#1E3A44;--brand-ink:#FFFFFF;--gold:#8A7656;--band:#18191B}
+  .np *{box-sizing:border-box}
+  .np a{color:inherit}
+  .np p{margin:0}
+  .np .w{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  .np .eb{font:700 12px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+
+  .np-top{background:linear-gradient(180deg,var(--soft) 0%,var(--bg) 70%)}
+  .np-top .w{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding-block:40px 72px;align-items:start}
+  .np-top .w>*{min-width:0}
+
+  .np-gal{position:sticky;top:90px;display:flex;flex-direction:column;gap:12px}
+  .np-main{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px -30px rgba(14,27,44,.35);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .np-main img{width:100%;height:100%;object-fit:contain;display:block}
+  .np-thumbs{display:flex;gap:10px;flex-wrap:wrap}
+  .np-thumbs button{width:72px;height:72px;padding:4px;border:1px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer}
+  .np-thumbs button[aria-current="true"]{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand)}
+  .np-thumbs img{width:100%;height:100%;object-fit:contain;display:block}
+
+  .np-info{display:flex;flex-direction:column;gap:18px}
+  .np-info h1{font:800 clamp(28px,3.2vw,40px)/1.12 var(--display);margin:0;color:var(--ink);text-wrap:balance;letter-spacing:-.02em}
+  .np-rate{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+  .np-rate i{font-style:normal;color:#B8862F;letter-spacing:2px}
+  .np-lede{color:var(--muted);font-size:17px;max-width:34em}
+  .np-ben{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .np-ben li{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;font-size:14px;font-weight:600;line-height:1.35;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .np-ben svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--chip);stroke:var(--brand);fill:none;stroke-width:2.2}
+
+  .np-buy{border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 18px 40px -28px rgba(14,27,44,.35);display:flex;flex-direction:column;gap:16px;background:var(--surface)}
+  .np-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+  .np-price b{font-size:32px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+  .np-price s{color:var(--muted);font-size:16px}
+  .np-price .save{font:700 12px/1 var(--body);color:#fff;background:#C0392B;border-radius:999px;padding:7px 11px}
+  .np-var select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:4px;font:500 15px var(--body);background:var(--surface);color:var(--ink)}
+  .np-row{display:flex;gap:12px;flex-wrap:wrap}
+  .np-qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px}
+  .np-qty button{width:44px;height:50px;border:0;background:transparent;font-size:20px;cursor:pointer;color:var(--ink)}
+  .np-qty input{width:44px;height:50px;border:0;text-align:center;font:600 16px var(--body);background:transparent;color:var(--ink);-moz-appearance:textfield}
+  .np-qty input::-webkit-outer-spin-button,.np-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+  .np-add{flex:1;min-width:200px;height:54px;border:0;border-radius:10px;background:var(--brand);color:var(--brand-ink);font:600 16px var(--body);cursor:pointer}
+  .np-add:disabled{opacity:.5;cursor:not-allowed}
+  .np-buy .shopify-payment-button__button{border-radius:10px!important;min-height:54px}
+  .np-app{display:flex;flex-direction:column;gap:10px}
+  .np-app:empty{display:none}
+  .np-trust{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:13px;color:var(--muted)}
+  .np-trust div{display:flex;gap:10px;align-items:center;font-weight:500;color:var(--ink)}
+  .np-trust svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--chip);stroke:var(--brand);fill:none;stroke-width:1.8;flex:none}
+
+  .np-acc{border-top:1px solid var(--line)}
+  .np-acc details{border-bottom:1px solid var(--line)}
+  .np-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-weight:700;font-size:16px}
+  .np-acc summary::-webkit-details-marker{display:none}
+  .np-acc summary::after{content:"+";font:400 22px/1 var(--body);color:var(--muted)}
+  .np-acc details[open] summary::after{content:"–"}
+  .np-acc .c{padding-bottom:20px;color:var(--muted);font-size:15px;line-height:1.65}
+  .np-acc .c p+p{margin-top:10px}
+
+  .np-q{background:var(--band);color:#fff}
+  .np-q .w{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:26px}
+  .np-q div{display:flex;gap:12px;align-items:center;font-size:14px;font-weight:500;line-height:1.35}
+  .np-q svg{flex:none;width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+  .np-legal{font-size:12px;color:var(--muted);line-height:1.6;padding-block:24px}
+
+  .np-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:none;align-items:center;gap:12px}
+  .np-sticky .t{flex:1;min-width:0;font-size:13px;line-height:1.3}
+  .np-sticky .t b{display:block;font-size:16px}
+  .np-sticky button{height:46px;padding:0 20px;border:0;border-radius:10px;background:var(--brand);color:var(--brand-ink);font:600 15px var(--body)}
+
+  @media (max-width:900px){
+    .np-top .w{grid-template-columns:1fr;gap:28px;padding-top:20px}
+    .np-gal{position:static}
+    .np-q .w{grid-template-columns:1fr 1fr}
+    .np-sticky.on{display:flex}
+  }
+  @media (max-width:480px){.np-ben{grid-template-columns:1fr}.np-trust{grid-template-columns:1fr}.np-q .w{grid-template-columns:1fr}}
+</style>
+
+{%- assign current = product.selected_or_first_available_variant -%}
+{%- assign rc = product.metafields.reviews.rating_count.value -%}
+{%- assign rv = product.metafields.reviews.rating.value -%}
+
+<div class="np np--{{ section.settings.palette }}" id="np-{{ section.id }}">
+  <section class="np-top"><div class="w">
+
+    {%- comment -%} GALERIE {%- endcomment -%}
+    <div class="np-gal">
+      <div class="np-main">
+        {%- if product.featured_media -%}{{ product.featured_media | image_url: width: 1200 | image_tag: id: 'np-main-img', loading: 'eager', alt: product.title, sizes: '(max-width: 900px) 100vw, 600px' }}{%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+      <div class="np-thumbs">
+        {%- for m in product.media -%}{%- if m.media_type == 'image' -%}
+          <button type="button" data-src="{{ m | image_url: width: 1200 }}" aria-label="Imaginea {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">{{ m | image_url: width: 160 | image_tag: loading: 'lazy', alt: '' }}</button>
+        {%- endif -%}{%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} INFO + CUMPĂRARE {%- endcomment -%}
+    <div class="np-info">
+      <span class="eb">{{ product.type | default: section.settings.eyebrow }}</span>
+      <h1>{{ product.metafields.custom.nume_scurt | default: product.title }}</h1>
+      {%- if rc and rc > 0 -%}
+        <div class="np-rate"><i>★★★★★</i>{% if rv %}{{ rv.rating | round: 1 }} din 5 · {% endif %}{{ rc }} recenzii</div>
+      {%- endif -%}
+      {%- if product.metafields.custom.descriere_scurta != blank -%}<p class="np-lede">{{ product.metafields.custom.descriere_scurta }}</p>{%- endif -%}
+
+      {%- assign ben = product.metafields.custom.beneficii.value -%}
+      {%- if ben != blank -%}
+        <ul class="np-ben">
+          {%- assign lines = ben | newline_to_br | split: '<br />' -%}
+          {%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}
+            <li><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>{{ t }}</span></li>
+          {%- endif -%}{%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <div class="np-buy">
+        <div class="np-price">
+          <b data-np-price>{{ current.price | money }}</b>
+          <s data-np-compare {% unless current.compare_at_price > current.price %}hidden{% endunless %}>{{ current.compare_at_price | money }}</s>
+          {%- if current.compare_at_price > current.price -%}
+            {%- assign saved = current.compare_at_price | minus: current.price -%}
+            <span class="save" data-np-save>Economisești {{ saved | money }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- form 'product', product, id: 'np-form', novalidate: 'novalidate' -%}
+          <input type="hidden" name="id" value="{{ current.id }}" data-np-id>
+          {%- unless product.has_only_default_variant -%}
+            <div class="np-var" style="margin-bottom:12px">
+              <select aria-label="Variantă" data-np-select>
+                {%- for v in product.variants -%}
+                  <option value="{{ v.id }}" data-price="{{ v.price | money }}" data-compare="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money }}{% endif %}" {% if v.id == current.id %}selected{% endif %} {% unless v.available %}disabled{% endunless %}>{{ v.title }}{% unless v.available %} · indisponibil{% endunless %}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endunless -%}
+          <div class="np-row" {% unless section.settings.show_add_to_cart %}hidden{% endunless %}>
+            <div class="np-qty">
+              <button type="button" data-np-qty="-1" aria-label="Scade cantitatea">−</button>
+              <input type="number" name="quantity" value="1" min="1" aria-label="Cantitate" data-np-q>
+              <button type="button" data-np-qty="1" aria-label="Crește cantitatea">+</button>
+            </div>
+            <button class="np-add" type="submit" name="add" {% unless current.available %}disabled{% endunless %}>
+              {%- if current.available -%}Adaugă în coș{%- else -%}Stoc epuizat{%- endif -%}
+            </button>
+          </div>
+          {%- if section.settings.show_buy_now -%}<div style="margin-top:12px">{{ form | payment_button }}</div>{%- endif -%}
+        {%- endform -%}
+
+        <div class="np-app">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}{% render block %}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="np-trust">
+          <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Transport în 24h</div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Plata la livrare sau card</div>
+          <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Laborator certificat din România</div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg>Retur ușor</div>
+        </div>
+      </div>
+
+      {%- comment -%} ACORDEON {%- endcomment -%}
+      <div class="np-acc">
+        {%- if product.description != blank -%}
+          <details open><summary>Descriere</summary><div class="c">{{ product.description }}</div></details>
+        {%- endif -%}
+        {%- if product.metafields.custom.ingrediente != blank -%}
+          <details><summary>Ingrediente</summary><div class="c">{{ product.metafields.custom.ingrediente | newline_to_br }}</div></details>
+        {%- endif -%}
+        {%- if product.metafields.custom.mod_de_administrare != blank -%}
+          <details><summary>Mod de administrare</summary><div class="c">{{ product.metafields.custom.mod_de_administrare | newline_to_br }}</div></details>
+        {%- endif -%}
+        <details><summary>Atenționări</summary><div class="c">
+          {%- if product.metafields.custom.atentionari != blank -%}{{ product.metafields.custom.atentionari | newline_to_br }}{%- else -%}
+          Nu depășiți doza zilnică recomandată. Suplimentele alimentare nu trebuie utilizate ca înlocuitor pentru o dietă variată și echilibrată și un stil de viață sănătos. A nu se lăsa la îndemâna și vederea copiilor mici. A se păstra la temperatura camerei, ferit de lumină și umiditate.{%- endif -%}
+        </div></details>
+        <details><summary>Livrare și retur</summary><div class="c">
+          <p>Comenzile se expediază în 24h, prin curier, cu plata la livrare sau online cu cardul.</p>
+          <p>Ai dreptul de retragere în 14 zile de la primire. Pentru întrebări sună la {{ section.settings.phone }}.</p>
+        </div></details>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="np-q"><div class="w">
+    <div><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/></svg>Formule dezvoltate de biochimiști</div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Laboratoare certificate din România</div>
+    <div><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Control de calitate pe fiecare lot</div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Transport în 24h, plata la livrare</div>
+  </div></section>
+
+  <div class="w"><p class="np-legal">Suplimentele alimentare nu înlocuiesc o dietă variată și echilibrată și un stil de viață sănătos. Informațiile de pe această pagină au scop informativ și nu înlocuiesc consultul medical.</p></div>
+
+  <div class="np-sticky" data-np-sticky>
+    <div class="t">{{ product.metafields.custom.nume_scurt | default: product.title | truncate: 40 }}<b data-np-price>{{ current.price | money }}</b></div>
+    <button type="button" data-np-sticky-add {% unless current.available %}disabled{% endunless %}>Adaugă în coș</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('np-{{ section.id }}'); if(!root) return;
+  var main=root.querySelector('#np-main-img');
+  root.querySelectorAll('.np-thumbs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(main){main.src=b.dataset.src;main.removeAttribute('srcset');}
+      root.querySelectorAll('.np-thumbs button').forEach(function(x){x.setAttribute('aria-current','false')});
+      b.setAttribute('aria-current','true');
+    });
+  });
+  var q=root.querySelector('[data-np-q]');
+  root.querySelectorAll('[data-np-qty]').forEach(function(b){
+    b.addEventListener('click',function(){var v=Math.max(1,(parseInt(q.value,10)||1)+parseInt(b.dataset.npQty,10));q.value=v;});
+  });
+  var sel=root.querySelector('[data-np-select]');
+  if(sel){sel.addEventListener('change',function(){
+    var o=sel.options[sel.selectedIndex];
+    root.querySelector('[data-np-id]').value=o.value;
+    root.querySelectorAll('[data-np-price]').forEach(function(p){p.textContent=o.dataset.price});
+    var c=root.querySelector('[data-np-compare]'); if(c){c.textContent=o.dataset.compare;c.hidden=!o.dataset.compare;}
+    var s=root.querySelector('[data-np-save]'); if(s){s.hidden=!o.dataset.compare;}
+  });}
+  var sticky=root.querySelector('[data-np-sticky]'), buy=root.querySelector('.np-buy');
+  if(sticky&&buy&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){sticky.classList.toggle('on',!e[0].isIntersecting&&e[0].boundingClientRect.top<0)}).observe(buy);
+    root.querySelector('[data-np-sticky-add]').addEventListener('click',function(){var f=document.getElementById('np-form');if(f.requestSubmit)f.requestSubmit();else f.submit();});
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Novensa – Pagină produs",
+  "tag": "div",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "select", "id": "palette", "label": "Set de culori", "default": "clinic", "options": [
+      { "value": "clinic", "label": "Bleumarin clinic" },
+      { "value": "forest", "label": "Verde farmacie" },
+      { "value": "graphite", "label": "Grafit" } ] },
+    { "type": "text", "id": "eyebrow", "label": "Text mic deasupra numelui (dacă produsul nu are „Tip”)", "default": "Supliment alimentar" },
+    { "type": "checkbox", "id": "show_add_to_cart", "label": "Arată „Adaugă în coș” și cantitatea", "default": true },
+    { "type": "checkbox", "id": "show_buy_now", "label": "Arată butonul Shopify „Cumpără acum”", "default": false },
+    { "type": "text", "id": "phone", "label": "Telefon", "default": "0371 234 979" }
+  ],
+  "blocks": [ { "type": "@app" } ],
+  "presets": [{ "name": "Novensa – Pagină produs" }]
+}
+{% endschema %}

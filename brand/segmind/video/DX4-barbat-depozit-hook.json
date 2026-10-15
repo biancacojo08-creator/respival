@@ -1,0 +1,24 @@
+{
+ "script": "Dacă ai glicemia mare, îți e poftă de dulce toată ziua și ai câteva kilograme în plus de care nu scăpi… ascultă-mă douăzeci de secunde. Exact așa eram și eu acum câteva luni. Mâncam dulce seara, mă simțeam greu după masă și obosit toată ziua la muncă. Am început Diabexum Forte. E un complex de ingrediente naturale care susține echilibrul glicemic și metabolic. Acum pofta de dulce s-a mai liniștit și mă simt mai ușor. Comandă-l acum, plătești la livrare.",
+ "hooks": [
+  {
+   "text": "GLICEMIE MARE? POFTĂ DE DULCE? KG ÎN PLUS?",
+   "start": 0,
+   "end": 4
+  },
+  {
+   "text": "EXACT AȘA ERAM ȘI EU",
+   "at_word": "Exact",
+   "dur": 2.5
+  },
+  {
+   "text": "SUSȚINE ECHILIBRUL GLICEMIC",
+   "at_word": "susține",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

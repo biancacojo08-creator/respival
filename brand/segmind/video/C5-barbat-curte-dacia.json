@@ -1,0 +1,24 @@
+{
+ "script": "Mașina asta are patruzeci de ani și încă merge. Eu am cincizeci și cinci și vreau să merg la fel de bine. Muncesc mult, stres, nopți scurte… și simțeam că nu mai am suflu. Am început Cardio Balance: două capsule pe zi, ingrediente naturale. Acum am energie toată ziua și mă simt mai liniștit. Ai o singură inimă, frate. Comandă Cardio Balance, plătești la livrare.",
+ "hooks": [
+  {
+   "text": "MAȘINA ARE 40 DE ANI. EU AM 55.",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "2 CAPSULE PE ZI • NATURAL",
+   "at_word": "două",
+   "dur": 3
+  },
+  {
+   "text": "AI O SINGURĂ INIMĂ",
+   "at_word": "singură",
+   "dur": 3
+  },
+  {
+   "text": "PLATA LA LIVRARE",
+   "last": 3
+  }
+ ]
+}

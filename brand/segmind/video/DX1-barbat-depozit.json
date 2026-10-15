@@ -1,0 +1,24 @@
+{
+ "script": "Stai, stai, uitați-vă aici! Trei paleți de Diabexum au intrat azi-dimineață… și, sincer, nu cred că apucăm să-i ținem până vineri. Lucrez de cinci ani în depozitul ăsta și n-am văzut ceva să plece așa repede. Oamenii revin și comandă câte două, trei flacoane. Zic că pofta de dulce s-a mai liniștit și că se simt mai ușori după masă. E un complex de ingrediente naturale, nimic complicat. Dacă vreți și voi, comandați acum, cât mai e pe stoc. Plata la livrare.",
+ "hooks": [
+  {
+   "text": "3 PALEȚI AU VENIT AZI...",
+   "start": 0,
+   "end": 3.5
+  },
+  {
+   "text": "PLEACĂ ÎNAINTE DE VINERI",
+   "at_word": "vineri",
+   "dur": 3
+  },
+  {
+   "text": "COMANDĂ CÂTE 2-3 FLACOANE",
+   "at_word": "revin",
+   "dur": 3
+  },
+  {
+   "text": "STOC LIMITAT • PLATA LA LIVRARE",
+   "last": 3.5
+  }
+ ]
+}
