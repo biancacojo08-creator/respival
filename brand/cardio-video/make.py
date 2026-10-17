@@ -86,7 +86,8 @@ def make(vid, v):
     shots = v['shots']; seg = end_at / len(shots)
     parts = []
     for i, s in enumerate(shots):
-        p = os.path.join(tmp, f's{i}.mp4'); shot(os.path.join(D, s), seg + (0.01 if i < len(shots) - 1 else 0), i, p); parts.append(p)
+        talk = os.path.join(D, 'talk', f'{vid}-s{i}.mp4')  # lip-synced version of this shot, if one was made
+        p = os.path.join(tmp, f's{i}.mp4'); shot(talk if os.path.exists(talk) else os.path.join(D, s), seg + (0.01 if i < len(shots) - 1 else 0), i, p); parts.append(p)
     endp = os.path.join(tmp, 'end.mp4')
     shot(os.path.join(D, 'cards', 'end.png'), total - end_at, 0, endp); parts.append(endp)
     lst = os.path.join(tmp, 'list.txt'); open(lst, 'w').write(''.join(f"file '{p}'\n" for p in parts))
