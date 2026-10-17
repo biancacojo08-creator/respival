@@ -1,0 +1,8 @@
+{
+ "_note": "Fișierele sursă (Segmind) pentru videoclipurile cu voce. wav/mp4 = https://images.segmind.com/generations/288ae3cf-f8ab-4923-a426-f05ea3f3d3f2/<id>.<ext>",
+ "v1": {"a.wav":"7bd125b9d7606715f7e4fb0197a7cd5c","b.wav":"09ee0670adb7382c0440d216446aa712","c.wav":"ff486278075510ddbe127cab946cfb77","d.wav":"cee09037fc980a71324aa77f8b60aac9","a.mp4":"43c8c61544144056b33a4b87c8836d02","c.mp4":"41ec3df3f77cac494ef0a85f0f8b2dc5"},
+ "v2": {"a.wav":"07792f4b3177ecbc582da96b1538bd4e","b.wav":"c8eca8221d570ef13d807b1eb9e92a41","c.wav":"b7bde239282a780f5ba24d6813aaa2ba","d.wav":"193c2270121458f86d41abfd9245518c","a.mp4":"51d688af927a5df156dfda9c3c4e09b4","c.mp4":"64c6caa101a6c62a200bc788a6634305"},
+ "v3": {"a.wav":"d050d6013ae098ad44badd469bd71b79","b.wav":"631c400c2a43258af96696041fbef0c5","c.wav":"8b460bfdd50295ec0218537316f2c54f","d.wav":"930814e4cb47f1f97b077dff85479609","a.mp4":"cdf55827928dbb8315a2f51a17c170ef","c.mp4":"8080ad74e7bb9b30df5b21eede8763b2"},
+ "v5": {"a.wav":"58932e7aaadbed69c6e6e817f82e6f53","b.wav":"c66dc3821031127e3c979b0a0fe2d0b1","c.wav":"ec7828031d6f9e20c37cbe4073ecdc3d","d.wav":"7f295011eb8ca5995622517e51e722d8","a.mp4":"843ca43d25859036c703e8cc29e3b826","c.mp4":"b5d9c30ab0244e8a4ae4a5f7e2893435"},
+ "v6": {"a.wav":"1386c47b39d0b700188c613b47a45065","b.wav":"d48224d1cb0fe85822c84d4f69417d68","c.wav":"b1a278e1d752a2adbc3edda25ebadcfb","d.wav":"10a8a62dec7857dc41d649cc0601e7cf","a.mp4":"695c883129d18619ce409064bea1c7e2","c.mp4":"5053bab4a9989d2035e604aa78e85825"}
+}
