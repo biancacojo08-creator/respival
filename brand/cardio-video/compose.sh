@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 mkdir -p final
 S='scale=1080:1350:force_original_aspect_ratio=increase,crop=1080:1350,fps=30,format=yuv420p,setsar=1'
 ffmpeg -v error -y \
-  -i src/noapte.mp4 -i src/dimineata.mp4 -loop 1 -t 3.6 -i ov/end.png \
+  -i ../animatii/clipuri/cardio-noapte-nesomn-3am.mp4 -i ../animatii/clipuri/cardio-dimineata-perdea-rasarit.mp4 -loop 1 -t 3.6 -i ov/end.png \
   -i ov/t1.png -i ov/t2.png -i ov/t3.png -i ov/t4.png \
   -f lavfi -t 14.2 -i anullsrc=r=44100:cl=stereo \
   -filter_complex "
