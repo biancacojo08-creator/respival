@@ -104,6 +104,7 @@ def make(vid, v):
     print('ok', vid, f'{total:.1f}s')
 
 
-V = json.load(open(os.path.join(D, 'videos.json')))
-for vid in (sys.argv[1:] or V):
-    make(vid, V[vid])
+if __name__ == '__main__':
+    V = json.load(open(os.path.join(D, 'videos.json')))
+    for vid in (sys.argv[1:] or V):
+        make(vid, V[vid])
