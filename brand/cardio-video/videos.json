@@ -1,0 +1,26 @@
+{
+  "C1-3dimineata": {
+    "voice": "voci/C1-3dimineata.wav",
+    "hook": "Treaz la 3 dimineața din cauza <b>inimii</b>?",
+    "text": "Dacă și tu ești treaz la trei dimineața din cauza inimii și a palpitațiilor... vezi asta până nu e prea târziu. Așa eram și eu. Mă întindeam în pat și îmi auzeam inima bătând în urechi, ore întregi. Acum iau Cardio Balance, de la Novensa. Are usturoi, păducel și vâsc, plantele pe care le folosea și bunica. Susține sănătatea inimii și ajută la reglarea ritmului cardiac și a tensiunii. Una până la trei capsule pe zi, atât. Apasă pe butonul de mai jos și comandă acum. Plătești la livrare.",
+    "shots": ["../animatii/clipuri/cardio-noapte-nesomn-3am.mp4", "foto/SQ01-femeie-parc-toamna.jpg#0.9", "../animatii/clipuri/cardio-dimineata-perdea-rasarit.mp4", "foto/CB04-maini-capsula.jpg", "foto/CB10-flatlay-paducel.jpg"]
+  },
+  "C2-semnale": {
+    "voice": "voci/C2-semnale.wav",
+    "hook": "Inima ta îți trimite <b>semnale</b>. Tu le ignori?",
+    "text": "Inima ta îți trimite semnale în fiecare noapte. Tu le ignori? Eu le-am ignorat ani de zile. Stres, cafele, nervi... și seara, în pat, inima îmi sărea câte o bătaie. Nevastă-mea mi-a pus pe masă Cardio Balance, de la Novensa. Usturoi, păducel și vâsc, în capsule. Susține inima, circulația și tensiunea. Iau capsula dimineața, cu un pahar de apă, și gata. Nu mai amâna ca mine. Apasă pe buton și comandă acum, plătești la livrare.",
+    "shots": ["foto/SQ04-barbat-masina.jpg#0.9", "foto/CB08-barbat-seara-sufragerie.jpg", "foto/UGC07-barbat-curte-dacia.jpg", "foto/CB04-maini-capsula.jpg", "foto/UGC11-barbat-curte-dacia-masa.jpg"]
+  },
+  "C3-scari": {
+    "voice": "voci/C3-scari.wav",
+    "hook": "Te oprești pe scări și inima îți <b>bubuie</b>?",
+    "text": "Te oprești pe scări să-ți tragi sufletul și inima îți bubuie în piept? Nu mai amâna. Eu urcam două etaje și trebuia să stau pe palier, cu mâna pe balustradă. Am zis că-i de la vârstă. Pe urmă am început Cardio Balance, de la Novensa. Usturoi, păducel și vâsc, ca pe vremuri. Susține inima, circulația și tensiunea. Iau capsula dimineața, cu un pahar de apă. Comandă și tu acum, plătești la livrare.",
+    "shots": ["foto/UGC05-bunic-testimonial.jpg", "foto/CB07-bunic-bolta-vie.jpg", "foto/CB10-flatlay-paducel.jpg", "foto/CB04-maini-capsula.jpg", "foto/UGC10-bunic-caciula-prispa.jpg"]
+  },
+  "C4-varsta": {
+    "voice": "voci/C4-varsta.wav",
+    "hook": "„E de la vârstă.” <b>Inima mea</b> nu era de acord.",
+    "text": "Toți mi-au zis: «e de la vârstă». Inima mea nu era de acord. Palpitații seara, oboseală dimineața, tensiunea care o lua razna. Am căutat ceva natural și am găsit Cardio Balance, de la Novensa. Usturoi, păducel și vâsc, în capsule. Susține sănătatea inimii și a vaselor de sânge. Și se poate lua alături de tratament, cu acordul medicului. Nu te resemna. Comandă acum, plătești la livrare.",
+    "shots": ["foto/UGC01-femeie-selfie-bucatarie.jpg", "foto/SQ03-femeie-canapea-pisica.jpg#0.6", "foto/CB02-femeie-pahar-apa.jpg", "foto/CB10-flatlay-paducel.jpg", "foto/SQ05-bunica-fiica-poarta.jpg#0.35"]
+  }
+}
