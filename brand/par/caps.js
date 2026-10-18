@@ -11,6 +11,7 @@ const css = `
 .hook b{color:#FFE14D}
 .wow{position:absolute;left:0;right:0;top:330px;text-align:center;font:900 230px A;color:#FFE14D;-webkit-text-stroke:10px #000;paint-order:stroke fill;
   text-shadow:0 0 60px rgba(255,225,77,.8)}
+.big{position:absolute;left:40px;right:40px;top:330px;text-align:center;font:900 130px/1 A;color:#FFE14D;-webkit-text-stroke:8px #000;paint-order:stroke fill}
 .box{position:absolute;left:70px;right:70px;top:1080px;text-align:center}
 .box span{font:900 70px/1.18 A;color:#111;background:#fff;padding:8px 26px;border-radius:18px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .pill{position:absolute;top:170px;font:900 50px A;letter-spacing:3px;color:#fff;padding:14px 30px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
@@ -24,11 +25,12 @@ const css = `
 const page = b => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>${b}</body></html>`;
 (async () => {
   const spec = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+  const endText = spec._end; delete spec._end;
   const items = Object.entries(spec).map(([k, s]) => [k,
-    s.style === 'hook' ? `<div class="hook">${s.text}</div>` : s.style === 'wow' ? `<div class="wow">${s.text}</div>` : `<div class="box"><span>${s.text}</span></div>`]);
+    s.style === 'hook' ? `<div class="hook">${s.text}</div>` : s.style === 'wow' ? `<div class="wow">${s.text}</div>` : s.style === 'big' ? `<div class="big">${s.text}</div>` : `<div class="box"><span>${s.text}</span></div>`]);
   items.push(['inainte', `<div class="pill" style="left:50px;background:#E5252A">ÎNAINTE</div>`]);
   items.push(['dupa', `<div class="pill" style="right:50px;background:#18B26B">DUPĂ</div>`]);
-  items.push(['end', `<div class="end"><h1>Vrei și tu păr <b>ca oglinda?</b></h1><div class="cta">COMANDĂ ACUM →</div>
+  items.push(['end', `<div class="end"><h1>${endText}</h1><div class="cta">COMANDĂ ACUM →</div>
     <div class="sub">✓ Plata la livrare   ✓ Livrare rapidă</div></div>`]);
   items.push(['disc', `<div class="disc">Imagini reprezentative</div>`]);
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
