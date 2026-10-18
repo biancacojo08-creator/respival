@@ -9,3 +9,5 @@ hepato/video/_tmp/
 hepato/video/ov/
 hepato/video/__pycache__/
 hepato/video/*.zip
+par/_tmp/
+par/_caps.json
