@@ -1,0 +1,92 @@
+{
+ "V01": {
+  "hook": "Ții telefonul la un metru?<br><span>Nu e vârsta!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V02": {
+  "hook": "Ochelarii mai groși<br><span>nu rezolvă nimic</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V03": {
+  "hook": "Te orbesc farurile?<br><span>Nu mai conduce noaptea</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V04": {
+  "hook": "8 ore în ecran?<br><span>Nu te mai plânge!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V05": {
+  "hook": "Ori ăsta,<br><span>ori îți citesc eu ziarul!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V06": {
+  "hook": "Nu mai bagi ața în ac?<br><span>Oprește-te!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V07": {
+  "hook": "30 de ani<br><span>și strângi din ochi?</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V08": {
+  "hook": "„Bunicu', tu<br><span>nu mai vezi?”</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V09": {
+  "hook": "Problema nu e<br><span>la ochelari!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ },
+ "V10": {
+  "hook": "„Lasă cititul”?<br><span>HA!</span>",
+  "caps": [
+   "Îmbunătățește vederea",
+   "Calmează usturimea",
+   "Efect rapid",
+   "Plata la livrare"
+  ]
+ }
+}
