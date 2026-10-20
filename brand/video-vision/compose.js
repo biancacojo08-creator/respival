@@ -1,4 +1,4 @@
-// Vision Elite+: aggressive hook, benefit captions and 64,99 lei end card on top of a talking-avatar video.
+// Vision Elite+: aggressive hook, word-synced subtitles and 64,99 lei end card on top of a talking-avatar video.
 // Usage: node compose.js <id>   (reads raw/<id>.mp4 and scripts.json, writes final/<id>.mp4)
 const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
@@ -18,8 +18,9 @@ const css = `
 .hook{position:absolute;left:${28 * k}px;right:${28 * k}px;top:${70 * k}px;text-align:center;font:900 ${58 * k}px/1.02 A;text-transform:uppercase;letter-spacing:-1px;color:#fff;
  -webkit-text-stroke:${2 * k}px #000;paint-order:stroke fill;text-shadow:0 ${4 * k}px ${14 * k}px rgba(0,0,0,.7)}
 .hook span{background:#FFD23F;color:#0E0E0E;-webkit-text-stroke:0;padding:0 ${10 * k}px;box-decoration-break:clone;-webkit-box-decoration-break:clone;text-shadow:none}
-.cap{position:absolute;left:50%;transform:translateX(-50%) rotate(-2deg);bottom:${200 * k}px;width:max-content;max-width:88%;text-align:center;background:#D7262E;color:#fff;font:900 ${40 * k}px A;text-transform:uppercase;padding:${12 * k}px ${26 * k}px;border-radius:${14 * k}px;box-shadow:0 ${8 * k}px ${20 * k}px rgba(0,0,0,.45)}
-.cap.y{background:#FFD23F;color:#0E0E0E}
+.sub{position:absolute;left:${24 * k}px;right:${24 * k}px;top:${H * 0.64}px;transform:translateY(-50%);text-align:center;font:900 ${50 * k}px/1.1 A;text-transform:uppercase;color:#fff;
+ -webkit-text-stroke:${7 * k}px #000;paint-order:stroke fill;text-shadow:0 ${4 * k}px ${12 * k}px rgba(0,0,0,.6)}
+.sub b{color:#FFD23F;font-weight:900}
 .badge{position:absolute;left:${20 * k}px;bottom:${20 * k}px;font:600 ${16 * k}px I;color:rgba(255,255,255,.85);text-shadow:0 1px 4px #000}
 .end{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.88) 45%,rgba(0,0,0,.95))}
 .end .box{position:absolute;right:${40 * k}px;top:${120 * k}px;height:${430 * k}px;filter:drop-shadow(0 ${20 * k}px ${24 * k}px rgba(0,0,0,.6))}
@@ -45,15 +46,21 @@ const page = (body) => `<!doctype html><html lang="ro"><head><meta charset="utf-
   const layers = [];
   await shot('badge', `<div class="badge">Supliment alimentar · Rezultatele pot varia</div>`); layers.push(['badge', 0, dur - END]);
   await shot('hook', `<div class="hook">${S.hook}</div>`); layers.push(['hook', 0, 3.8]);
-  const capStart = 4.2, capEnd = dur - END - 0.3, step = (capEnd - capStart) / S.caps.length;
-  for (let i = 0; i < S.caps.length; i++) {
-    await shot('cap' + i, `<div class="cap ${i % 2 ? 'y' : ''}">${S.caps[i]}</div>`);
-    layers.push(['cap' + i, capStart + i * step, capStart + (i + 1) * step - 0.2]);
-  }
   await shot('end', `<div class="end"><img class="logo" src="../../../logo-novensa.png"><img class="box" src="../../../shopify/src/vision_cut.png">
     <div class="t1">Vision Elite+</div><div class="p">64<small>,99 lei</small></div><div class="t2">30 capsule<br>morcov + beta-caroten</div>
     <div class="tg">PLATA LA LIVRARE</div><div class="cta">Comandă acum ↓</div><div class="chk">✓ Plata la livrare &nbsp; ✓ Livrare rapidă &nbsp; ✓ Supliment alimentar</div></div>`);
   layers.push(['end', dur - END, dur + 1]);
+  // word-synced subtitles (timings from subs.py), the spoken word lit in yellow; drawn on top of everything
+  const subs = JSON.parse(fs.readFileSync(path.join(D, 'subs', id + '.json'), 'utf8'));
+  for (const [c, line] of subs.entries()) {
+    for (const [w, [t0, t1]] of line.times.entries()) {
+      const html = line.words.map((x, j) => j === w ? `<b>${x}</b>` : x).join(' ');
+      await shot(`s${c}_${w}`, `<div class="sub">${html}</div>`);
+      const last = w === line.words.length - 1;
+      const next = subs[c + 1] ? subs[c + 1].times[0][0] : dur;
+      layers.push([`s${c}_${w}`, t0, last ? Math.min(t1 + 0.25, next) : line.times[w + 1][0]]);
+    }
+  }
   await b.close();
 
   const args = ['-y', '-i', raw];

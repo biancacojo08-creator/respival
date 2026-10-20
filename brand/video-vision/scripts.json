@@ -1,92 +1,42 @@
 {
  "V01": {
   "hook": "Ții telefonul la un metru?<br><span>Nu e vârsta!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Ții telefonul la un metru? Nu e vârsta. Ți-ai lăsat ochii de izbeliște! Și eu așa făceam, până am luat Vision Elite Plus, de la Novensa. Capsule cu morcov și beta-caroten. Îmbunătățește vederea, calmează usturimea și are efect rapid. Comandă acum. Plătești la livrare!"
  },
  "V02": {
   "hook": "Ochelarii mai groși<br><span>nu rezolvă nimic</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Măi, tu chiar crezi că ochelarii mai groși rezolvă ceva? Hai să-ți zic ce iau eu. Vision Elite Plus, de la Novensa. Capsule cu morcov și beta-caroten. Îmbunătățește vederea, calmează usturimea și are efect rapid. La 72 de ani, citesc singur ziarul! Comandă acum. Plătești la livrare."
  },
  "V03": {
   "hook": "Te orbesc farurile?<br><span>Nu mai conduce noaptea</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Dacă te orbesc farurile noaptea, nu mai urca la volan până nu vezi asta! Eu din volan îmi câștig pâinea. Acum iau Vision Elite Plus, de la Novensa. Îmbunătățește vederea, calmează usturimea și are efect rapid. 30 de capsule, cu morcov și beta-caroten. Comandă acum și plătești la livrare!"
  },
  "V04": {
   "hook": "8 ore în ecran?<br><span>Nu te mai plânge!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Stai 8 ore în fața ecranului și nu faci nimic pentru ochi? Atunci nu te mai plânge! Eu seara simțeam nisip în ochi. Acum iau Vision Elite Plus, de la Novensa, cu morcov și beta-caroten. Îmbunătățește vederea, calmează usturimea și are efect rapid. Comandă acum. Plătești la livrare."
  },
  "V05": {
   "hook": "Ori ăsta,<br><span>ori îți citesc eu ziarul!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Bărbate, ori îți iei ăsta, ori îți citesc eu ziarul toată viața! Vision Elite Plus, de la Novensa. Îmbunătățește vederea, calmează usturimea și are efect rapid. Am luat pentru amândoi, că ochii nu mai sunt ce-au fost. Comandă acum. Plătești la livrare!"
  },
  "V06": {
   "hook": "Nu mai bagi ața în ac?<br><span>Oprește-te!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Dacă nu mai bagi ața în ac din prima, oprește-te! Ochii tăi îți cer ajutor. 30 de ani am cusut fără probleme. Acum iau Vision Elite Plus, de la Novensa, cu morcov și beta-caroten. Îmbunătățește vederea, calmează usturimea și are efect rapid. Comandă acum. Plătești la livrare."
  },
  "V07": {
   "hook": "30 de ani<br><span>și strângi din ochi?</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Ai 30 de ani și strângi din ochi la telefon? Frate, e grav! 10 ore pe zi în ecran, ochii roșii, usturime. Eu iau Vision Elite Plus, de la Novensa. Îmbunătățește vederea, calmează usturimea și are efect rapid. Comandă acum. Plătești la livrare."
  },
  "V08": {
   "hook": "„Bunicu', tu<br><span>nu mai vezi?”</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Nepoata mi-a zis: „Bunicu', tu nu mai vezi?” M-a durut mai rău ca orice. De atunci iau Vision Elite Plus, de la Novensa. Îmbunătățește vederea, calmează usturimea și are efect rapid. Acum facem temele împreună! Comandă acum. Plătești la livrare."
  },
  "V09": {
   "hook": "Problema nu e<br><span>la ochelari!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Femeie, ai trei perechi de ochelari și tot nu vezi? Problema nu e la ochelari! Eu iau Vision Elite Plus, de la Novensa, cu morcov și beta-caroten. Îmbunătățește vederea, calmează usturimea și are efect rapid. Comandă acum. Plătești la livrare!"
  },
  "V10": {
   "hook": "„Lasă cititul”?<br><span>HA!</span>",
-  "caps": [
-   "Îmbunătățește vederea",
-   "Calmează usturimea",
-   "Efect rapid",
-   "Plata la livrare"
-  ]
+  "text": "Toți îmi ziceau: „La vârsta ta, lasă cititul!” Ha! Uite-mă! Iau Vision Elite Plus, de la Novensa. Îmbunătățește vederea, calmează usturimea și are efect rapid. Și citesc în fiecare seară. Comandă acum. Plătești la livrare."
  }
 }
