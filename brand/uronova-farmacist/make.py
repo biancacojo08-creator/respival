@@ -36,6 +36,13 @@ V = {
       (25.77, 28.08, 'Nu mai lăsa disconfortul să-ți controleze viața.'),
       (28.35, 31.33, 'Comandă UroNova Forte Elite+ acum!')],
     cuts=[(6.41, 13.35, 'face'), (16.6, 20.6, 'pack'), (25.77, 28.08, 'face')], pack='Formulă avansată cu extracte naturale'),
+  'f4': dict(out='F4-te-trezesti-noaptea', hook='Te trezești noaptea să mergi la baie?', segs=[
+      (0.22, 1.80, 'Te trezești noaptea să mergi la baie?'), (2.21, 4.15, 'Și te ustură de fiecare dată?'),
+      (4.65, 7.04, 'Am trecut și eu prin asta, an după an.'), (7.19, 10.62, 'Infecția urinară revenea după fiecare antibiotic.'),
+      (11.19, 14.66, 'Acum iau UroNova Forte Elite+, cu extracte naturale.'),
+      (14.85, 18.98, 'Susține sănătatea tractului urinar și mă ajută să previn recidivele.'),
+      (19.81, 23.02, 'Dormi liniștită, trăiește fără grija băii.'), (23.42, 25.32, 'Comandă acum, plătești la livrare!')],
+    cuts=[(4.65, 7.04, 'face'), (13.4, 17.6, 'pack'), (19.81, 23.02, 'face')], pack='Cu extracte naturale'),
 }
 
 def chunks(segs):
