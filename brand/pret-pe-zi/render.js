@@ -8,8 +8,8 @@ const ads = [
   { id: 'vision-1-58-pe-zi', img: 'vision.png', price: '1,58', cure: '142,47', line: 'Pentru ochii tăi, mai puțin decât o cafea pe zi.' },
   { id: 'uronova-1-74-pe-zi', img: 'uronova.png', price: '1,74', cure: '156,72', line: 'Confort zilnic, mai ieftin decât o cafea pe zi.' },
   { id: 'diabexum-1-89-pe-zi', img: 'diabexum.png', price: '1,89', cure: '170', line: 'Echilibru în fiecare zi, mai ieftin decât o cafea.' },
-  // 60 capsules per box, 2 per day: 3 boxes = 90 days
-  { id: 'cardio-2-21-pe-zi', img: 'cardio.png', price: '2,21', cure: '199', caps: '180 de capsule', line: 'Pentru inima ta, mai puțin decât o cafea pe zi.' },
+  // 60 capsules per box last 45 days: 3 boxes = 135 days
+  { id: 'cardio-1-47-pe-zi', img: 'cardio.png', price: '1,47', tag: 'CURA DE 4 LUNI ȘI JUMĂTATE', cure: '199', caps: '180 de capsule', line: 'Pentru inima ta, mai puțin decât o cafea pe zi.' },
 ];
 
 const css = `
@@ -40,7 +40,7 @@ const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8">
 <img class="logo" src="../logo-novensa.png">
 <img class="prod" src="img/${a.img}">
 <div class="col">
-  <div class="tag">CURA DE 3 LUNI</div>
+  <div class="tag">${a.tag || 'CURA DE 3 LUNI'}</div>
   <div class="doar">Doar</div>
   <div class="price"><div class="num">${a.price}</div><div class="unit">lei<br>/zi</div></div>
   <div class="bar"></div>
