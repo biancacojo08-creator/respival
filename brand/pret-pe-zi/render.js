@@ -7,6 +7,9 @@ const D = __dirname, F = '../fonts/';
 const ads = [
   { id: 'vision-1-58-pe-zi', img: 'vision.png', price: '1,58', cure: '142,47', line: 'Pentru ochii tăi, mai puțin decât o cafea pe zi.' },
   { id: 'uronova-1-74-pe-zi', img: 'uronova.png', price: '1,74', cure: '156,72', line: 'Confort zilnic, mai ieftin decât o cafea pe zi.' },
+  { id: 'diabexum-1-89-pe-zi', img: 'diabexum.png', price: '1,89', cure: '170', line: 'Echilibru în fiecare zi, mai ieftin decât o cafea.' },
+  // 60 capsules per box, 2 per day: 3 boxes = 90 days
+  { id: 'cardio-2-21-pe-zi', img: 'cardio.png', price: '2,21', cure: '199', caps: '180 de capsule', line: 'Pentru inima ta, mai puțin decât o cafea pe zi.' },
 ];
 
 const css = `
@@ -42,7 +45,7 @@ const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8">
   <div class="price"><div class="num">${a.price}</div><div class="unit">lei<br>/zi</div></div>
   <div class="bar"></div>
   <div class="line">${a.line}</div>
-  <div class="card"><b>${a.cure} lei</b><span>3 cutii<br>90 de capsule</span></div>
+  <div class="card"><b>${a.cure} lei</b><span>3 cutii<br>${a.caps || '90 de capsule'}</span></div>
 </div>
 </body></html>`;
 
