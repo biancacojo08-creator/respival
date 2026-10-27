@@ -1,41 +1,49 @@
-// "Preț pe zi" statics (Vision Elite+, UroNova Forte) in the style of the Life+ Flora Help ad.
+// "Preț pe zi" statics for Vision Elite+ and UroNova Forte, in Novensa label colours (navy + gold).
 // Usage: node render.js   -> png/<id>.png (1080x1080)
 const fs = require('fs'), path = require('path');
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
 const D = __dirname, F = '../fonts/';
 
 const ads = [
-  { id: 'vision-1-58-pe-zi', img: 'vision.png', int: '1', dec: '58', accent: '#1F4FA8', pill: '#CFE0FA',
-    line: 'Mai puțin decât o cafea.',
-    info: ['Cura de 3 cutii: 142,47 lei', '30 capsule / cutie'] },
-  { id: 'uronova-1-74-pe-zi', img: 'uronova.png', int: '1', dec: '74', accent: '#1F4FA8', pill: '#CFE0FA',
-    line: 'Mai puțin decât o cafea.',
-    info: ['Cura de 3 cutii: 156,72 lei', '30 capsule / cutie'] },
+  { id: 'vision-1-58-pe-zi', img: 'vision.png', price: '1,58', cure: '142,47', line: 'Pentru ochii tăi, mai puțin decât o cafea pe zi.' },
+  { id: 'uronova-1-74-pe-zi', img: 'uronova.png', price: '1,74', cure: '156,72', line: 'Confort zilnic, mai ieftin decât o cafea pe zi.' },
 ];
 
-const css = (a) => `
+const css = `
 @font-face{font-family:A;font-weight:900;src:url(${F}Archivo-900.ttf)}
 @font-face{font-family:A;font-weight:800;src:url(${F}Archivo-800.ttf)}
 @font-face{font-family:I;font-weight:700;src:url(${F}Inter-700.ttf)}
 @font-face{font-family:I;font-weight:600;src:url(${F}Inter-600.ttf)}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1080px;overflow:hidden;background:#FBF1E7;color:#141414}
-.price{position:absolute;left:0;right:0;top:110px;display:flex;justify-content:center;align-items:flex-start}
-.num{font:900 300px/0.82 A;letter-spacing:-14px}
-.side{display:flex;flex-direction:column;align-items:flex-start;margin-left:18px;margin-top:22px}
-.pill{background:${a.pill};color:${a.accent};font:800 40px/1 A;padding:12px 26px;border-radius:999px}
-.lei{font:900 132px/0.9 A;letter-spacing:-4px;margin-top:6px}
-.line{position:absolute;left:0;right:0;top:450px;text-align:center;font:800 56px/1 A;letter-spacing:-1px}
-.prod{position:absolute;right:120px;bottom:70px;height:470px;filter:drop-shadow(0 30px 28px rgba(0,0,0,.28))}
-.info{position:absolute;left:100px;bottom:120px;display:flex;align-items:center;gap:22px}
-.i{width:62px;height:62px;border-radius:50%;background:#141414;color:#FBF1E7;font:800 40px/62px A;text-align:center;flex:none}
-.t{font:700 30px/1.3 I}.t small{display:block;font:600 24px/1.35 I;color:#444}
+html,body{width:1080px;height:1080px;overflow:hidden;background:linear-gradient(160deg,#EEF4FD 0%,#FFFFFF 60%,#F7F1E6 100%);color:#14306B}
+.disk{position:absolute;left:-120px;top:250px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle at 45% 40%,#FFFFFF 0%,#DCE8FA 70%)}
+.ring{position:absolute;left:-80px;top:290px;width:640px;height:640px;border-radius:50%;border:3px solid #E6C27A;opacity:.6}
+.logo{position:absolute;left:70px;top:64px;height:52px}
+.prod{position:absolute;left:70px;bottom:80px;height:640px;filter:drop-shadow(0 36px 30px rgba(20,48,107,.25))}
+.col{position:absolute;left:540px;right:40px;top:150px}
+.tag{display:inline-block;background:#14306B;color:#F3D48B;font:800 26px/1 A;letter-spacing:2px;padding:14px 22px;border-radius:10px}
+.doar{font:800 64px/1 A;margin-top:46px}
+.price{display:flex;align-items:flex-end;margin-top:4px}
+.num{font:900 190px/0.8 A;letter-spacing:-9px}
+.unit{font:900 46px/0.95 A;color:#C9963A;margin:0 0 4px 12px}
+.bar{width:150px;height:10px;border-radius:5px;background:linear-gradient(90deg,#C9963A,#F3D48B);margin-top:34px}
+.line{font:700 34px/1.25 I;color:#24324F;margin-top:30px}
+.card{margin-top:44px;background:#fff;border-radius:22px;box-shadow:0 14px 34px rgba(20,48,107,.14);padding:24px 28px;display:flex;align-items:center;gap:20px}
+.card b{font:900 50px/1 A;color:#14306B;white-space:nowrap}
+.card span{font:600 24px/1.3 I;color:#4A5675;white-space:nowrap}
 `;
-const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css(a)}</style></head><body>
-<div class="price"><div class="num">${a.int},${a.dec}</div><div class="side"><div class="pill">pe zi</div><div class="lei">lei</div></div></div>
-<div class="line">${a.line}</div>
-<div class="info"><div class="i">i</div><div class="t">${a.info[0]}<small>${a.info[1]}</small></div></div>
+const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
+<div class="disk"></div><div class="ring"></div>
+<img class="logo" src="../logo-novensa.png">
 <img class="prod" src="img/${a.img}">
+<div class="col">
+  <div class="tag">CURA DE 3 LUNI</div>
+  <div class="doar">Doar</div>
+  <div class="price"><div class="num">${a.price}</div><div class="unit">lei<br>/zi</div></div>
+  <div class="bar"></div>
+  <div class="line">${a.line}</div>
+  <div class="card"><b>${a.cure} lei</b><span>3 cutii<br>90 de capsule</span></div>
+</div>
 </body></html>`;
 
 (async () => {
