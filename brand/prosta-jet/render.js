@@ -30,6 +30,8 @@ const ads = [
     reasons: ['Susține sănătatea prostatei și funcția urinară', 'Contribuie la reducerea disconfortului', 'Supliment lichid, cu ingrediente naturale', 'Fabricat în România'] },
   { id: 'prosta-treziri', hook: '3 treziri pe noapte <span>nu sunt normale.</span>', sub: 'Chiar dacă toată lumea zice „așa e la vârsta asta”.',
     reasons: ['Susține sănătatea prostatei și funcția urinară', 'Contribuie la reducerea disconfortului', '30 de picături, de 2 ori pe zi', 'Ingrediente naturale, fabricat în România'] },
+  { id: 'prosta-semne', hook: 'Jet slab.<br><span>Nopți pierdute.</span>', sub: 'Semne pe care mulți bărbați după 50 de ani le ignoră.',
+    reasons: ['Susține sănătatea prostatei și funcția urinară', 'Cu Serenoa repens, urzică și dovleac', 'Lichid, nu încă o pastilă', 'Fabricat în România'] },
 ];
 const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="top"></div>
