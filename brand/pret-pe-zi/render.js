@@ -7,10 +7,10 @@ const D = __dirname, F = '../fonts/';
 const ads = [
   { id: 'vision-1-58-pe-zi', img: 'vision.png', int: '1', dec: '58', accent: '#1F4FA8', pill: '#CFE0FA',
     line: 'Mai puțin decât o cafea.',
-    info: ['Cura de 3 cutii: 142,47 lei', '30 capsule / cutie · 1 capsulă pe zi'] },
+    info: ['Cura de 3 cutii: 142,47 lei', '30 capsule / cutie'] },
   { id: 'uronova-1-74-pe-zi', img: 'uronova.png', int: '1', dec: '74', accent: '#1F4FA8', pill: '#CFE0FA',
     line: 'Mai puțin decât o cafea.',
-    info: ['Cura de 3 cutii: 156,72 lei', '30 capsule / cutie · 1 capsulă pe zi'] },
+    info: ['Cura de 3 cutii: 156,72 lei', '30 capsule / cutie'] },
 ];
 
 const css = (a) => `
