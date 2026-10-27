@@ -11,15 +11,15 @@ const css = `
 html,body{width:1080px;height:1350px;overflow:hidden;color:#0E1E3A;background:linear-gradient(180deg,#FFF9EA 0%,#FFEFC2 100%)}
 .hook{position:absolute;left:0;right:0;top:90px;text-align:center;font:900 112px/1 A;letter-spacing:-3px}
 .hook span{color:#D7262E}
-.col{position:absolute;top:400px;width:440px;height:600px;display:flex;align-items:center;justify-content:center}
-.col.a{left:40px}.col.b{right:40px}
+.col{position:absolute;top:400px;width:400px;height:600px;display:flex;align-items:center;justify-content:center}
+.col.a{left:0}.col.b{right:0}
 .soft{height:430px;transform:rotate(150deg) translateY(-30px);filter:saturate(.75) drop-shadow(0 20px 22px rgba(0,0,0,.25))}
 .firm{height:600px;transform:rotate(-6deg);filter:drop-shadow(0 26px 26px rgba(0,0,0,.28))}
-.lab{position:absolute;top:1010px;width:440px;text-align:center}
-.lab.a{left:40px}.lab.b{right:40px}
+.lab{position:absolute;top:1010px;width:400px;text-align:center}
+.lab.a{left:0}.lab.b{right:0}
 .lab b{display:inline-block;font:900 34px/1 A;padding:16px 30px;border-radius:999px}
 .lab.a b{background:#D9D3C4;color:#5B5547}.lab.b b{background:#D7262E;color:#fff}
-.prod{position:absolute;left:0;right:0;margin:auto;top:640px;height:330px;transform:rotate(-4deg);filter:drop-shadow(0 24px 24px rgba(0,0,0,.3))}
+.prod{position:absolute;left:0;right:0;margin:auto;top:560px;height:500px;transform:rotate(-4deg);filter:drop-shadow(0 24px 24px rgba(0,0,0,.3))}
 .cta{position:absolute;left:70px;right:70px;bottom:70px;text-align:center;background:#0E1E3A;color:#fff;font:900 46px/1 A;padding:28px;border-radius:999px;box-shadow:0 14px 30px rgba(14,30,58,.35)}
 `;
 const html = `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
@@ -34,7 +34,7 @@ const html = `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>
 const sizes = [
   { id: 'power-man-doua-banane-4x5', h: 1350, css: '' },
   { id: 'power-man-doua-banane-1x1', h: 1080, css: `html,body{height:1080px}.hook{top:50px;font-size:92px}.col{top:280px;height:520px}
-.soft{height:360px}.firm{height:500px}.prod{top:470px;height:280px}.lab{top:800px}.lab b{font-size:30px;padding:13px 26px}.cta{bottom:44px;font-size:40px;padding:22px}` },
+.soft{height:330px}.firm{height:470px}.prod{top:400px;height:400px}.lab{top:800px}.lab b{font-size:30px;padding:13px 26px}.cta{bottom:44px;font-size:40px;padding:22px}` },
 ];
 
 (async () => {
