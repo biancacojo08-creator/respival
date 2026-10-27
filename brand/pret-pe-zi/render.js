@@ -30,14 +30,12 @@ html,body{width:1080px;height:1080px;overflow:hidden;background:#FBF1E7;color:#1
 .info{position:absolute;left:100px;bottom:120px;display:flex;align-items:center;gap:22px}
 .i{width:62px;height:62px;border-radius:50%;background:#141414;color:#FBF1E7;font:800 40px/62px A;text-align:center;flex:none}
 .t{font:700 30px/1.3 I}.t small{display:block;font:600 24px/1.35 I;color:#444}
-.disc{position:absolute;left:100px;bottom:48px;font:600 18px/1.3 I;color:#777}
 `;
 const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css(a)}</style></head><body>
 <div class="price"><div class="num">${a.int},${a.dec}</div><div class="side"><div class="pill">pe zi</div><div class="lei">lei</div></div></div>
 <div class="line">${a.line}</div>
 <div class="info"><div class="i">i</div><div class="t">${a.info[0]}<small>${a.info[1]}</small></div></div>
 <img class="prod" src="img/${a.img}">
-<div class="disc">Supliment alimentar. Preț calculat pentru cura de 3 cutii.</div>
 </body></html>`;
 
 (async () => {
