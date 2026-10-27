@@ -1,4 +1,4 @@
-// Prosta Complex static: hook "Dacă jetul nu mai are presiune...". Claims only from the box.
+// Prosta Complex statics with a strong hook on black. Claims only from the box.
 // Usage: node render.js   -> png/<id>.png (4:5 and 1:1)
 const fs = require('fs'), path = require('path');
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
@@ -25,19 +25,24 @@ html,body{width:1080px;height:1350px;overflow:hidden;background:#F6F0E6;color:#1
 .cta{position:absolute;left:70px;bottom:90px}
 .cta b{display:inline-block;background:linear-gradient(90deg,#D4A24C,#F7E19C);color:#0B0B0B;font:900 42px/1 A;padding:26px 56px;border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.2)}
 `;
-const reasons = ['Susține sănătatea prostatei și funcția urinară', 'Contribuie la reducerea disconfortului', 'Supliment lichid, cu ingrediente naturale', 'Fabricat în România'];
-const html = `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
+const ads = [
+  { id: 'prosta-jet', hook: 'Dacă jetul nu mai are <span>presiune…</span>', sub: '…nu e doar vârsta. Prostata are nevoie de sprijin.',
+    reasons: ['Susține sănătatea prostatei și funcția urinară', 'Contribuie la reducerea disconfortului', 'Supliment lichid, cu ingrediente naturale', 'Fabricat în România'] },
+  { id: 'prosta-treziri', hook: '3 treziri pe noapte <span>nu sunt normale.</span>', sub: 'Chiar dacă toată lumea zice „așa e la vârsta asta”.',
+    reasons: ['Susține sănătatea prostatei și funcția urinară', 'Contribuie la reducerea disconfortului', '30 de picături, de 2 ori pe zi', 'Ingrediente naturale, fabricat în România'] },
+];
+const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="top"></div>
-<div class="hook">Dacă jetul nu mai are <span>presiune…</span></div>
-<div class="sub">…nu e doar vârsta. Prostata are nevoie de sprijin.</div>
+<div class="hook">${a.hook}</div>
+<div class="sub">${a.sub}</div>
 <img class="prod" src="../product-cutout.png">
-<div class="list">${reasons.map((r) => `<div class="r"><div class="ck">✓</div><p>${r}</p></div>`).join('')}</div>
+<div class="list">${a.reasons.map((r) => `<div class="r"><div class="ck">✓</div><p>${r}</p></div>`).join('')}</div>
 <div class="cta"><b>Comandă acum</b></div>
 </body></html>`;
 
 const sizes = [
-  { id: 'prosta-jet-4x5', h: 1350, css: '' },
-  { id: 'prosta-jet-1x1', h: 1080, css: `html,body{height:1080px}.top{height:450px}.hook{top:70px;font-size:82px}.sub{top:335px;font-size:30px}
+  { suffix: '-4x5', h: 1350, css: '' },
+  { suffix: '-1x1', h: 1080, css: `html,body{height:1080px}.top{height:450px}.hook{top:70px;font-size:82px}.sub{top:335px;font-size:30px}
 .prod{top:380px;height:640px}.list{top:500px;width:540px}.r{margin-bottom:22px}.r p{font-size:28px}.ck{width:44px;height:44px;line-height:44px;font-size:26px}
 .cta{bottom:60px}.cta b{font-size:36px;padding:22px 48px}` },
 ];
@@ -47,10 +52,14 @@ const sizes = [
   const b = await chromium.launch();
   for (const s of sizes) {
     const p = await b.newPage({ viewport: { width: 1080, height: s.h } });
-    const f = path.join(D, '_' + s.id + '.html'); fs.writeFileSync(f, html.replace('</style>', s.css + '</style>'));
-    await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready);
-    await p.screenshot({ path: path.join(D, 'png', s.id + '.png') }); fs.unlinkSync(f);
-    console.log('ok', s.id); await p.close();
+    for (const a of ads) {
+      const id = a.id + s.suffix, f = path.join(D, '_' + id + '.html');
+      fs.writeFileSync(f, html(a).replace('</style>', s.css + '</style>'));
+      await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready);
+      await p.screenshot({ path: path.join(D, 'png', id + '.png') }); fs.unlinkSync(f);
+      console.log('ok', id);
+    }
+    await p.close();
   }
   await b.close();
 })();
