@@ -26,8 +26,8 @@ html,body{width:1080px;height:1350px;overflow:hidden;background:#F2F5FA;color:#1
 .cta b{display:inline-block;background:#D7262E;color:#fff;font:900 42px/1 A;padding:26px 56px;border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.2)}
 `;
 const ads = [
-  { id: 'power-man', hook: 'Mai multă energie.<br><span>Mai mult chef.</span>', sub: 'Pentru bărbații care vor să se simtă din nou în formă.',
-    reasons: ['Susține libidoul', 'Susține creșterea energiei', 'Susține performanța în cuplu', 'Supliment alimentar, 30 ml'] },
+  { id: 'power-man', hook: 'Libido scăzut?<br><span>Zero energie în pat?</span>', sub: 'Power Man: pentru libido și performanță sexuală.',
+    reasons: ['Susține libidoul', 'Susține creșterea energiei', 'Îmbunătățește performanța sexuală', 'Supliment alimentar, 30 ml'] },
 ];
 const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8"><style>${css}</style></head><body>
 <div class="top"></div>
