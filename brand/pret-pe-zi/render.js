@@ -46,14 +46,27 @@ const html = (a) => `<!doctype html><html lang="ro"><head><meta charset="utf-8">
 </div>
 </body></html>`;
 
+// 1:1 and 4:5 feed; the 4:5 layout stretches the same composition over 1350px.
+const sizes = [
+  { suffix: '', h: 1080, css: '' },
+  { suffix: '-4x5', h: 1350, css: `html,body{height:1350px}
+.logo{top:80px}.disk{top:420px;width:720px;height:720px;left:-190px}.ring{top:460px;width:640px;height:640px;left:-150px}
+.prod{height:780px;bottom:110px;left:60px}.col{top:260px}.doar{margin-top:60px}.bar{margin-top:44px}.line{margin-top:40px}.card{margin-top:60px}` },
+];
+
 (async () => {
   fs.mkdirSync(path.join(D, 'png'), { recursive: true });
-  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1080 } });
-  for (const a of ads) {
-    const f = path.join(D, '_' + a.id + '.html'); fs.writeFileSync(f, html(a));
-    await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready);
-    await p.screenshot({ path: path.join(D, 'png', a.id + '.png') }); fs.unlinkSync(f);
-    console.log('ok', a.id);
+  const b = await chromium.launch();
+  for (const s of sizes) {
+    const p = await b.newPage({ viewport: { width: 1080, height: s.h } });
+    for (const a of ads) {
+      const id = a.id + s.suffix, f = path.join(D, '_' + id + '.html');
+      fs.writeFileSync(f, html(a).replace('</style>', s.css + '</style>'));
+      await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready);
+      await p.screenshot({ path: path.join(D, 'png', id + '.png') }); fs.unlinkSync(f);
+      console.log('ok', id);
+    }
+    await p.close();
   }
   await b.close();
 })();
