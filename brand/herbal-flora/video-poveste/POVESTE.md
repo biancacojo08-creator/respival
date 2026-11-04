@@ -16,5 +16,5 @@ Cadrele sunt în `cadre/` (JPG), clipurile animate în `clipuri/`, varianta fina
 | 9 | C09-picnic | Ana și Ioana la picnic, râzând | Acum îmi trăiesc viața fără grija aceea. Iar când o prietenă are nevoie, știu ce să-i spun. |
 | 10 | C10-produs | Flaconul printre plante | Herbal Flora Complex Elite Plus. Echilibrul tău intim, natural. Comandă acum! |
 
-Pe ecran, discret: „Supliment alimentar · Rezultatele pot varia”.
+Vocea: Gemini TTS (vocea „Sulafat”). Variantele ElevenLabs sunt în `voce/elevenlabs/`.
 Textele evită afirmațiile de tip medicament („vindecă”, „elimină infecția”) și întrebările care presupun că privitoarea are o boală (interzise de politicile Meta).

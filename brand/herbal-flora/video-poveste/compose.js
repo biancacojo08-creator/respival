@@ -39,12 +39,13 @@ const page = (b) => `<!doctype html><html lang="ro"><head><meta charset="utf-8">
   const cd = LINES.map((_, i) => dur(clip(i)));
   const start = []; let t = 0; cd.forEach((d, i) => { start.push(t); t += d - XF; });
   const total = t + XF;
+  const vs = []; let pe = 0; LINES.forEach((_, i) => { const a = Math.max(start[i] + 0.3, pe + 0.25); vs.push(a); pe = a + dur(voice(i)); });
+  console.log('voce', vs.map((a, i) => `${i + 1}:${a.toFixed(1)}-${(a + dur(voice(i))).toFixed(1)} (scena ${start[i].toFixed(1)})`).join(' | '));
   const layers = []; // [png, from, to]
   for (let i = 0; i < 9; i++) {
     await shot('s' + i, `<div class="sub"><span>${LINES[i]}</span></div>`);
-    const a = start[i] + 0.5; layers.push(['s' + i, a, a + dur(voice(i)) + 0.3]);
+    const a = vs[i]; layers.push(['s' + i, a, a + dur(voice(i)) + 0.3]);
   }
-  await shot('badge', `<div class="badge">Supliment alimentar · Nu înlocuiește o dietă variată · Rezultatele pot varia</div>`); layers.push(['badge', 0, total]);
   await shot('end', `<div class="t1">Echilibrul tău intim, natural<b>Herbal Flora Complex Elite+</b></div><div class="cta">Comandă acum ↓</div>`);
   layers.push(['end', start[9] + 0.6, total]);
   await b.close();
@@ -58,7 +59,7 @@ const page = (b) => `<!doctype html><html lang="ro"><head><meta charset="utf-8">
   for (let i = 1; i < 10; i++) { const o = 'x' + i; fc += `[${last}][${i}:v]xfade=transition=fade:duration=${XF}:offset=${(start[i]).toFixed(3)}[${o}];`; last = o; }
   const L0 = 21;
   layers.forEach(([, a, z], k) => { const o = 'o' + k; fc += `[${last}][${L0 + k}:v]overlay=0:0:enable='between(t,${a.toFixed(2)},${z.toFixed(2)})'[${o}];`; last = o; });
-  const vo = LINES.map((_, i) => { const ms = Math.round((start[i] + 0.5) * 1000); fc += `[${10 + i}:a]adelay=${ms}|${ms},volume=1.6[a${i}];`; return `[a${i}]`; }).join('');
+  const vo = LINES.map((_, i) => { const ms = Math.round(vs[i] * 1000); fc += `[${10 + i}:a]adelay=${ms}|${ms},volume=1.3[a${i}];`; return `[a${i}]`; }).join('');
   fc += `${vo}amix=inputs=10:normalize=0,asplit=2[vo1][vo2];[20:a]atrim=0:${total.toFixed(2)},afade=t=out:st=${(total - 2.5).toFixed(2)}:d=2.5,volume=0.22[mu];`;
   fc += `[mu][vo1]sidechaincompress=threshold=0.05:ratio=6:attack=20:release=400[duck];[duck][vo2]amix=inputs=2:normalize=0,alimiter=limit=0.95[aout]`;
   args.push('-filter_complex', fc, '-map', `[${last}]`, '-map', '[aout]', '-t', total.toFixed(2), '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p', '-r', '24', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', path.join(D, 'Herbal-Flora-Poveste.mp4'));
