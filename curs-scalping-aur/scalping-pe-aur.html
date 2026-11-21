@@ -1,0 +1,1453 @@
+<title>Scalping pe Aur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: caiet de studiu — cuprins lipit în stânga pe desktop, o singură coloană de lectură (~68ch); graficele ies puțin din coloană. */
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --ink:#1a2330; --muted:#5a6573; --line:#d8dcd3;
+  --accent:#8a5a00; --soft:#f5ecd8; --blue:#2c56c9; --up:#12845a; --down:#cf4136; --warn:#b4530f; --warnbg:#fbece0;
+  --upbg:#e2f3ea; --downbg:#fbe7e4; --grid:#e6e9e2;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10141a; --surface:#171d25; --ink:#e5e9ee; --muted:#9aa5b2; --line:#2a333e;
+  --accent:#e2b553; --soft:#2a2414; --blue:#86a3ff; --up:#34c08a; --down:#f2685c; --warn:#f08a4b; --warnbg:#2e1d12;
+  --upbg:#14301f; --downbg:#3a1c19; --grid:#222a34; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10141a; --surface:#171d25; --ink:#e5e9ee; --muted:#9aa5b2; --line:#2a333e;
+  --accent:#e2b553; --soft:#2a2414; --blue:#86a3ff; --up:#34c08a; --down:#f2685c; --warn:#f08a4b; --warnbg:#2e1d12;
+  --upbg:#14301f; --downbg:#3a1c19; --grid:#222a34; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.ln-blue{stroke:var(--blue);stroke-width:1.8;fill:none}
+.zone-gray{fill:var(--muted);opacity:.13}
+.zone-blue{fill:var(--blue);opacity:.13}
+.toc .clock{font-size:13px;color:var(--ink);background:var(--soft);border-radius:8px;padding:8px 10px;margin-bottom:14px;line-height:1.45}
+.toc .clock:empty{display:none}
+.opts button:disabled,#dr-btns button:disabled{cursor:default;opacity:.85}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.65}
+a{color:var(--accent)}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding-inline:24px;padding-block:0 80px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-block:28px}
+.toc .brand{font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.01em;margin-bottom:4px}
+.toc .prog{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:14px}
+.toc .bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:18px}
+.toc .bar i{display:block;height:100%;width:0;background:var(--up);transition:width .3s}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.toc li a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--muted);padding:5px 8px;border-radius:6px;font-size:14px;line-height:1.35}
+.toc li a:hover{background:var(--soft);color:var(--ink)}
+.toc li a .n{font-family:var(--f-mono);font-size:12px;min-width:20px}
+.toc li a.done{color:var(--up)}
+.toc li a.done .n::after{content:" ✓"}
+.toc .tools{margin-top:18px;display:grid;gap:8px}
+button,.btn{font:inherit;font-size:14px;font-weight:500;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:8px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+main{min-width:0;padding-block:28px}
+.col{max-width:70ch}
+header.hero{padding-block:24px 36px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.hero .kicker{font-family:var(--f-mono);font-size:13px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.025em;margin:10px 0 16px;text-wrap:balance}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:60ch;margin:0 0 20px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.hero-chart{margin-top:26px}
+section.mod{padding-block:40px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:6px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.2;margin:34px 0 8px;text-wrap:balance}
+h4{font-size:16.5px;margin:22px 0 4px}
+p{margin:0 0 14px}
+.goal{color:var(--muted);font-size:15.5px;border-left:2px solid var(--line);padding-left:14px;margin-bottom:22px}
+ul,ol{padding-left:22px;margin:0 0 14px}
+li{margin-bottom:4px}
+.term{font-weight:600}
+.en{font-family:var(--f-mono);font-size:.86em;color:var(--muted)}
+code,.mono{font-family:var(--f-mono);font-size:.9em}
+.box{border-radius:10px;padding:14px 18px;margin:18px 0;max-width:70ch}
+.box > :last-child{margin-bottom:0}
+.box .lbl{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.def{background:var(--soft)}
+.def .lbl{color:var(--accent)}
+.ex{background:var(--surface);border:1px solid var(--line)}
+.ex .lbl{color:var(--up)}
+.warn{background:var(--warnbg)}
+.warn .lbl{color:var(--warn)}
+.calc{font-family:var(--f-mono);font-size:14.5px;background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;white-space:pre-wrap;overflow-x:auto;font-variant-numeric:tabular-nums}
+figure{margin:22px 0;max-width:780px}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px;overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto;min-width:420px}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;max-width:70ch}
+figcaption b{color:var(--ink)}
+.tbl{overflow-x:auto;margin:16px 0;max-width:780px}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right}
+.pos{color:var(--up)} .neg{color:var(--down)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;max-width:780px;margin:16px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.card h4{margin:6px 0 2px;font-size:15.5px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.card .mini svg{width:100%;height:auto;display:block}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:11px;padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:2px}
+.tag.bull{background:var(--upbg);color:var(--up)} .tag.bear{background:var(--downbg);color:var(--down)} .tag.neu{background:var(--soft);color:var(--accent)}
+/* SVG chart parts */
+.c-up{fill:var(--up);stroke:var(--up)} .c-down{fill:var(--down);stroke:var(--down)}
+.wick-up{stroke:var(--up)} .wick-down{stroke:var(--down)}
+.gridl{stroke:var(--grid);stroke-width:1}
+.axis{fill:var(--muted);font-family:var(--f-mono);font-size:10.5px}
+.lbl-t{fill:var(--ink);font-family:var(--f-body);font-size:12px;font-weight:600}
+.lbl-m{fill:var(--muted);font-family:var(--f-body);font-size:11.5px}
+.ln-acc{stroke:var(--accent);stroke-width:1.8;fill:none}
+.ln-ink{stroke:var(--ink);stroke-width:1.5;fill:none}
+.ln-warn{stroke:var(--warn);stroke-width:1.8;fill:none}
+.ln-up{stroke:var(--up);stroke-width:1.6;fill:none}
+.ln-down{stroke:var(--down);stroke-width:1.6;fill:none}
+.ln-muted{stroke:var(--muted);stroke-width:1.2;fill:none}
+.dash{stroke-dasharray:5 4}
+.zone-up{fill:var(--up);opacity:.12} .zone-down{fill:var(--down);opacity:.12} .zone-acc{fill:var(--accent);opacity:.10} .zone-warn{fill:var(--warn);opacity:.13}
+.hl{fill:var(--accent);opacity:.09}
+.t-acc{fill:var(--accent)} .t-up{fill:var(--up)} .t-down{fill:var(--down)} .t-warn{fill:var(--warn)} .t-ink{fill:var(--ink)} .t-muted{fill:var(--muted)}
+.dot-acc{fill:var(--accent)} .dot-up{fill:var(--up)} .dot-down{fill:var(--down)}
+.vol{fill:var(--muted);opacity:.35}
+.svgbg{fill:var(--surface)}
+/* Quiz */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:28px 0 10px;max-width:70ch}
+.quiz h4{margin:0 0 10px;font-family:var(--f-display);font-size:18px}
+.q{padding-block:10px;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0}
+.q p{font-weight:600;margin-bottom:8px}
+.opts{display:grid;gap:6px}
+.opts button{text-align:left;font-weight:400}
+.opts button.ok{border-color:var(--up);background:var(--upbg)}
+.opts button.bad{border-color:var(--down);background:var(--downbg)}
+.fb{font-size:14.5px;color:var(--muted);margin-top:8px}
+.donebox{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:15px}
+.donebox input{width:18px;height:18px;accent-color:var(--up)}
+/* Tools */
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:22px 0;max-width:780px}
+.tool h4{margin:0 0 12px;font-family:var(--f-display);font-size:18px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.fields label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+input,select{font:inherit;font-family:var(--f-mono);font-size:15px;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.out div{background:var(--bg);border-radius:8px;padding:10px 12px}
+.out .k{font-size:12px;color:var(--muted);display:block}
+.out .v{font-family:var(--f-mono);font-size:18px;font-weight:500;font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.seg button{border:0;border-radius:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+/* Glossary */
+.gsearch{max-width:420px;margin:8px 0 16px}
+dl.gl{max-width:780px;margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+dl.gl div{padding:10px 0;border-bottom:1px solid var(--line)}
+dl.gl dt{font-weight:600}
+dl.gl dt .en{margin-left:6px}
+dl.gl dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+/* Slides */
+#deck{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+#deck .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+#deck .slide{background:var(--surface);border:1px solid var(--line);border-radius:14px;width:min(1000px,100%);aspect-ratio:16/9;max-height:100%;padding:clamp(18px,4vw,48px);display:flex;flex-direction:column;overflow:auto}
+#deck .slide .sn{font-family:var(--f-mono);font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+#deck .slide h2{font-size:clamp(22px,3.6vw,42px);margin:8px 0 18px}
+#deck .slide ul{font-size:clamp(14px,1.9vw,21px);line-height:1.5}
+#deck .slide .big{font-family:var(--f-display);font-size:clamp(26px,5vw,64px);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+#deck .ctrl{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;max-width:1000px;width:100%;margin:0 auto}
+#deck .ctrl span{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.slide-strip{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.check{list-style:none;padding:0}
+.check li{padding-left:28px;position:relative}
+.check li::before{content:"";position:absolute;left:2px;top:5px;width:14px;height:14px;border:1.5px solid var(--muted);border-radius:3px}
+.src{font-size:14px;color:var(--muted)}
+.src li{margin-bottom:6px}
+.part-head{padding-block:64px 8px;border-bottom:1px solid var(--line)}
+.toc .sep{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 8px 4px}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.opts button:disabled,#dr-btns button:disabled{cursor:default;opacity:.85}
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-inline:16px}
+  nav.toc{position:static;max-height:none;padding-block:16px 0;border-bottom:1px solid var(--line)}
+  .toc ol{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .chart svg{min-width:520px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+<div class="wrap">
+<nav class="toc" aria-label="Cuprins">
+  <div class="brand">Scalping pe Aur</div>
+  <div class="prog" id="progtxt">0 din 17 module terminate</div>
+  <div class="bar"><i id="progbar"></i></div>
+  <div class="clock" id="clock" aria-live="polite"></div>
+  <ol id="toclist">
+    <li><a href="#a0"><span class="n">00</span>Realitatea scalpingului</a></li>
+    <li><a href="#a1"><span class="n">01</span>Aurul și dolarul</a></li>
+    <li><a href="#a2"><span class="n">02</span>Ceasul aurului</a></li>
+    <li><a href="#a3"><span class="n">03</span>Citirea lumânărilor M5/M15</a></li>
+    <li><a href="#a4"><span class="n">04</span>Urcă sau scade?</a></li>
+    <li><a href="#a5"><span class="n">05</span>Rezistența și spargerea</a></li>
+    <li><a href="#a6"><span class="n">06</span>Lichiditatea în aur</a></li>
+    <li><a href="#a7"><span class="n">07</span>Indicatorii utili</a></li>
+    <li><a href="#a8"><span class="n">08</span>Analiza în 15 minute</a></li>
+    <li><a href="#a9"><span class="n">09</span>Cele 5 intrări</a></li>
+    <li><a href="#real"><span class="n">10</span>Două zile reale (19–20 nov.)</a></li>
+    <li><a href="#manip"><span class="n">11</span>Manipulări și adaptare</a></li>
+    <li><a href="#a10"><span class="n">12</span>Risc, loturi, costuri</a></li>
+    <li><a href="#a11"><span class="n">13</span>Gestionarea scalpului</a></li>
+    <li><a href="#a12"><span class="n">14</span>Planul zilei și mintea</a></li>
+    <li><a href="#a13"><span class="n">15</span>Antrenament pe grafice</a></li>
+    <li><a href="#a14"><span class="n">16</span>Drumul de 6 săptămâni</a></li>
+    <li><a href="#gloss"><span class="n">A–Z</span>Glosar aur</a></li>
+  </ol>
+  <div class="tools"><button class="primary" id="openDeck">▶ Mod prezentare</button></div>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="kicker">Curs gratuit · XAU/USD · M15 + M5</div>
+  <h1>Scalping pe aur, citit lumânare cu lumânare</h1>
+  <p class="lead">Cum se mișcă aurul față de dolar, la ce oră se mișcă, cum citești lumânările pe M15 și M5, cum se formează și se sparge o rezistență, unde stă lichiditatea, cum verifici dacă urcă sau scade, 5 intrări complete cu stop, țintă și lot calculat, plus două zile reale de aur (19–20 noiembrie 2026) citite lumânare cu lumânare.</p>
+  <div class="meta"><span>17 module + glosar</span><span>~10–12 ore de studiu</span><span>51 de întrebări</span><span>2 zile reale analizate</span><span>8 exerciții</span><span>4 instrumente interactive</span></div>
+  <figure class="hero-chart"><div class="chart" id="g-hero"></div>
+  <figcaption><b>XAU/USD pe M5, exemplu ilustrativ.</b> Range-ul asiatic (zona gri) e măturat la deschiderea Londrei, apoi prețul se întoarce. Linia albastră e EMA 20, cea aurie punctată e VWAP-ul sesiunii. Până la Modulul 9 vei putea citi și tranzacționa exact această situație, iar în Modulul 10 o vezi pe date reale.</figcaption></figure>
+  <p class="col" style="font-size:15px;color:var(--muted)">Acest curs presupune că știi bazele (ce e o lumânare, un ordin, un stop loss). Dacă nu, începe cu cursul „Trading de la Zero”. Prețurile din exemple sunt în jurul nivelului din noiembrie 2026 (~3.540 $), dar graficele sunt generate ilustrativ, nu sunt prețuri reale. Material educativ, nu sfat de investiții.</p>
+</header>
+
+<!-- ================= 0 ================= -->
+<section class="mod" id="a0">
+<div class="eyebrow">Modulul 00 · 15 min</div>
+<h2>Realitatea scalpingului, înainte de orice</h2>
+<p class="goal">Ce afli: ce e scalpingul, de ce e cel mai greu stil de trading, ce înseamnă realist „tranzacții de 5–10 minute” și ce reguli de siguranță ai de la început.</p>
+<div class="col">
+<div class="box def"><span class="lbl">Definiție</span><p><span class="term">Scalping</span> = tranzacții foarte scurte, de la câteva minute la cel mult o oră, care urmăresc mișcări mici de preț. Pe aur, un scalp tipic urmărește <b>3–10 $</b> de mișcare, cu un stop de <b>2–6 $</b>.</p></div>
+<h3>Ce înseamnă „5–10 minute”</h3>
+<p>Dacă intri pe graficul M5, o singură lumânare durează 5 minute. Un scalp pe M5 durează de obicei <b>2–6 lumânări, adică 10–30 de minute</b>. Tranzacțiile de sub 5 minute se fac pe M1 și sunt dominate de spread și de zgomot. În acest curs folosim:</p>
+<ul>
+<li><b>M15</b> pentru context: trend, niveluri, structură. O lumânare = 15 minute.</li>
+<li><b>M5</b> pentru intrare și gestionare. O lumânare = 5 minute.</li>
+<li><b>Stop de timp</b>: dacă scalpul nu merge în favoarea ta în 3–4 lumânări M5 (15–20 de minute), ieși. Așa păstrezi tranzacțiile scurte.</li>
+</ul>
+<h3>De ce e cel mai greu stil</h3>
+<ul>
+<li><b>Costurile cântăresc enorm.</b> Un spread de 0,30 $ pe un stop de 3 $ înseamnă 10% din risc pierdut la fiecare intrare, înainte ca prețul să se miște. Pe swing trading, același spread e 1% din risc.</li>
+<li><b>Zgomotul e mare.</b> Pe M5 multe mișcări sunt întâmplătoare.</li>
+<li><b>Deciziile sunt rapide</b>, deci emoțiile (FOMO, răzbunare) lovesc mai des.</li>
+<li><b>Aurul e foarte volatil.</b> La știri poate sări 10–30 $ în câteva secunde.</li>
+<li>Între 74% și 89% din conturile de retail pierd pe CFD-uri (ESMA). Scalperii sunt în general în partea proastă a acestei statistici.</li>
+</ul>
+<div class="box warn"><span class="lbl">Regulile de siguranță din prima zi</span>
+<ul>
+<li>Primele 6 săptămâni: <b>doar cont demo</b> și backtesting (Modulul 14).</li>
+<li>Risc maxim <b>0,5% pe tranzacție</b> la scalping (nu 1%): faci mai multe tranzacții pe zi.</li>
+<li>Maximum <b>3 tranzacții pe zi</b> și oprire după <b>2 pierderi</b>.</li>
+<li>Stop loss pus <b>în momentul intrării</b>, de fiecare dată.</li>
+<li>Nicio intrare cu 5 minute înainte și 5 minute după o știre majoră.</li>
+</ul></div>
+</div>
+<div class="quiz" data-quiz="a0"></div>
+</section>
+
+<!-- ================= 1 ================= -->
+<section class="mod" id="a1">
+<div class="eyebrow">Modulul 01 · 35 min</div>
+<h2>Aurul și dolarul: XAU/USD pe înțeles</h2>
+<p class="goal">Ce afli: ce e XAU/USD, de ce aurul se mișcă de obicei invers față de dolar, ce altceva îl mișcă și toate cifrele contractului (lot, valoare pe 1 $, marjă, spread).</p>
+<div class="col">
+<h3>Ce e XAU/USD</h3>
+<p><b>XAU</b> e codul pentru o uncie de aur (31,1 grame), <b>USD</b> e dolarul american. XAU/USD = 3.540 înseamnă că <b>o uncie de aur costă 3.540 de dolari</b>. Aurul e cotat în dolari în toată lumea, de aceea dolarul îl influențează atât de mult.</p>
+<ul>
+<li>Cumperi (long) XAU/USD = cumperi aur și vinzi dolari. Câștigi dacă aurul urcă.</li>
+<li>Vinzi (short) XAU/USD = vinzi aur și cumperi dolari. Câștigi dacă aurul scade.</li>
+</ul>
+
+<h3>Relația aur – dolar</h3>
+<figure><div class="chart" id="g-dxy"></div>
+<figcaption><b>Aurul (galben) și indicele dolarului DXY (gri), ilustrativ.</b> Când dolarul se întărește, aurul tinde să scadă, pentru că devine mai scump pentru cei care plătesc în alte monede. Când dolarul slăbește, aurul tinde să urce. Relația e frecventă, nu garantată: în crize pot urca amândouă.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Factor</th><th>Efect tipic asupra aurului</th><th>De ce</th></tr>
+<tr><td><b>Dolarul (DXY)</b> urcă</td><td class="neg">Aurul scade</td><td>Aurul devine mai scump în alte monede; cererea scade</td></tr>
+<tr><td><b>Randamentele reale</b> din SUA urcă (dobânda minus inflația)</td><td class="neg">Aurul scade</td><td>Aurul nu plătește dobândă; obligațiunile devin mai atractive</td></tr>
+<tr><td><b>Fed</b> sugerează creșteri de dobândă</td><td class="neg">Aurul scade</td><td>Dolar mai puternic, randamente mai mari</td></tr>
+<tr><td><b>Fed</b> sugerează scăderi de dobândă</td><td class="pos">Aurul urcă</td><td>Invers</td></tr>
+<tr><td><b>Inflație peste așteptări</b> (CPI)</td><td>Depinde</td><td>Pe termen scurt adesea scade (piața se așteaptă la dobânzi mai mari); pe termen lung aurul e văzut ca protecție</td></tr>
+<tr><td><b>Frică, războaie, crize</b> (risk-off)</td><td class="pos">Aurul urcă</td><td>Activ de refugiu</td></tr>
+<tr><td><b>Cumpărări ale băncilor centrale</b></td><td class="pos">Susțin prețul</td><td>Cerere mare, pe termen lung</td></tr>
+</table></div>
+<div class="box ex"><span class="lbl">Contextul din 2026</span><p>Aurul a atins un maxim istoric de aproximativ 5.598 $ la sfârșitul lui ianuarie 2026, apoi a scăzut puternic. În noiembrie 2026 se tranzacționează în jur de 3.500–3.600 $, pe fondul unui dolar foarte puternic și al așteptărilor că Fed va crește dobânda în decembrie. Asta arată exact relația din tabel: dolar puternic + dobânzi în creștere = presiune pe aur.</p></div>
+<p><b>Ce înseamnă pentru un scalper:</b> nu tranzacționezi pe M5 știrile macro, dar îți spun <b>direcția zilei</b>. Înainte de sesiune verifici: dolarul (DXY) urcă sau scade azi? Randamentele pe 10 ani (US10Y) urcă sau scad? Dacă ambele urcă, prioritate pentru short-uri pe aur; dacă ambele scad, prioritate pentru long-uri.</p>
+
+<h3>Cifrele contractului</h3>
+<div class="box def"><span class="lbl">Specificații uzuale (verifică la brokerul tău)</span>
+<p><b>1 lot = 100 uncii.</b> O mișcare de <b>1 $</b> a prețului = <b>100 $</b> pe 1 lot.</p>
+<p>0,10 loturi (10 uncii): 1 $ mișcare = 10 $ &nbsp;·&nbsp; 0,01 loturi (1 uncie): 1 $ mișcare = 1 $.</p>
+<p><b>Levier maxim retail în UE pe aur: 20:1.</b></p></div>
+<div class="calc">Preț 3.540 $, cumperi 0,05 loturi (5 uncii)
+Valoarea poziției = 5 × 3.540 = 17.700 $
+Marjă la 20:1     = 17.700 / 20 = 885 $
+Prețul urcă la 3.546 (+6 $)  → profit = 6 × 5 = +30 $
+Prețul scade la 3.536 (−4 $) → pierdere = 4 × 5 = −20 $</div>
+<div class="box warn"><span class="lbl">Atenție la „pips” pe aur</span><p>Brokerii definesc diferit un „pip” la aur: unii 0,01 $, alții 0,10 $. Un „stop de 30 de pips” poate însemna 0,30 $ sau 3 $. Ca să nu te încurci, <b>în acest curs măsurăm totul în dolari de preț</b>: „stop de 3 $” = prețul se mișcă 3 dolari.</p></div>
+<h3>Spread și swap</h3>
+<ul>
+<li><b>Spread-ul</b> pe aur la brokerii de retail e de obicei în jur de 0,15–0,40 $ în orele active (Londra, New York) și se lărgește mult noaptea, la rollover și la știri. Verifică spread-ul brokerului tău exact în orele în care tranzacționezi.</li>
+<li><b>Swap-ul</b> se plătește dacă ții poziția peste ora 00:00 (ora României). Scalperii închid înainte, deci de obicei nu-l plătesc.</li>
+<li><b>Comisionul</b>: unele conturi au spread mai mic și comision fix pe lot. Adună-le pe amândouă când calculezi costul.</li>
+</ul>
+<h3>Cât se mișcă aurul</h3>
+<p>Aurul e unul dintre cele mai volatile instrumente populare. În 2026 range-ul zilnic (de la minim la maxim) a fost des de <b>50–120 $</b>. Pe M5, o lumânare normală are câțiva dolari, iar la știri una singură poate avea 15–30 $. Nu memora cifre fixe: <b>pune ATR(14) pe M5 și M15</b> și citește-l zilnic. ATR-ul îți spune cât e „normal” azi.</p>
+</div>
+<div class="quiz" data-quiz="a1"></div>
+</section>
+
+<!-- ================= 2 ================= -->
+<section class="mod" id="a2">
+<div class="eyebrow">Modulul 02 · 25 min</div>
+<h2>Ceasul aurului: când se mișcă și când să stai deoparte</h2>
+<p class="goal">Ce afli: sesiunile pe ora României, ferestrele bune pentru scalping, orele știrilor și orele de evitat.</p>
+<figure><div class="chart" id="g-sessions"></div>
+<figcaption><b>O zi de aur, ora României.</b> Banda de jos arată cât de activ e de obicei aurul. Cele mai bune ferestre pentru scalping sunt deschiderea Londrei și deschiderea New York-ului, inclusiv suprapunerea lor.</figcaption></figure>
+<div class="col">
+<div class="tbl"><table>
+<tr><th>Ora (RO)</th><th>Ce se întâmplă</th><th>Pentru scalper</th></tr>
+<tr><td class="mono">00:00–01:00</td><td>Pauza zilnică (rollover). La mulți brokeri aurul nu se tranzacționează; spread uriaș înainte și după.</td><td class="neg">Evită</td></tr>
+<tr><td class="mono">01:00–09:00</td><td>Sesiunea asiatică. Mișcări mai mici, se formează <b>range-ul asiatic</b>.</td><td>Marchezi maximul și minimul</td></tr>
+<tr><td class="mono">09:00–10:00</td><td>Pre-Londra. Uneori o primă mișcare falsă.</td><td>Pregătire, analiză</td></tr>
+<tr><td class="mono">10:00–12:30</td><td><b>Deschiderea Londrei.</b> Volum mare; adesea mătură maximul sau minimul asiatic.</td><td class="pos">Fereastra 1</td></tr>
+<tr><td class="mono">12:30</td><td>Licitația LBMA de dimineață (prețul de referință al aurului, 10:30 ora Londrei).</td><td>Poate da o mișcare scurtă</td></tr>
+<tr><td class="mono">12:30–15:00</td><td>Prânzul Londrei. Mișcări mai slabe, range-uri.</td><td>Puține intrări</td></tr>
+<tr><td class="mono">15:30</td><td><b>Date economice SUA</b> (CPI, NFP, PCE, cereri de șomaj joia, vânzări cu amănuntul).</td><td class="neg">Stai deoparte 15:25–15:45</td></tr>
+<tr><td class="mono">15:30–18:30</td><td><b>New York + suprapunerea cu Londra.</b> 16:30 deschiderea bursei americane. Cea mai mare volatilitate.</td><td class="pos">Fereastra 2</td></tr>
+<tr><td class="mono">17:00</td><td>Licitația LBMA de după-amiază; uneori date ISM sau încrederea consumatorilor.</td><td>Atenție</td></tr>
+<tr><td class="mono">18:30–21:00</td><td>Londra s-a închis; volum în scădere.</td><td>Doar setup-uri foarte clare</td></tr>
+<tr><td class="mono">21:00</td><td><b>Decizia Fed (FOMC)</b>, de 8 ori pe an; conferința de presă la 21:30.</td><td class="neg">Nu tranzacționa</td></tr>
+<tr><td class="mono">22:00–00:00</td><td>Volum mic, spread în creștere.</td><td class="neg">Evită</td></tr>
+</table></div>
+<p>Orele pot fi decalate cu o oră câteva săptămâni pe an (martie și octombrie-noiembrie), când SUA și Europa schimbă ora în date diferite. Verifică orele exacte în calendarul economic, setat pe fusul orar al României.</p>
+<h3>Știrile care mișcă cel mai tare aurul</h3>
+<ol>
+<li><b>FOMC</b>: decizia de dobândă și conferința de presă (21:00 / 21:30).</li>
+<li><b>CPI</b>: inflația în SUA (15:30).</li>
+<li><b>NFP</b>: locurile de muncă, prima vineri din lună (15:30).</li>
+<li><b>PCE</b>: inflația preferată de Fed (15:30).</li>
+<li><b>Discursurile președintelui Fed</b> și evenimentele geopolitice neașteptate.</li>
+</ol>
+<div class="box warn"><span class="lbl">Regula știrilor</span><p>Verifică în fiecare dimineață calendarul economic (Investing.com sau ForexFactory, filtrat pe USD și impact mare). Cu <b>5 minute înainte</b> de o știre majoră nu deschizi nimic și închizi scalpurile deschise. După știre aștepți <b>închiderea primei lumânări M15</b> (adică 15 minute), apoi analizezi din nou (vezi Setup-ul E din Modulul 9).</p></div>
+<h3>Zilele mai slabe</h3>
+<ul>
+<li><b>Luni dimineață</b>: piața caută direcția; adesea range.</li>
+<li><b>Vineri după 18:00</b>: traderii închid pozițiile pentru weekend; mișcări bruște și apoi liniște.</li>
+<li><b>Sărbătorile din SUA și Marea Britanie</b>: lichiditate mică, mișcări imprevizibile.</li>
+</ul>
+</div>
+<div class="quiz" data-quiz="a2"></div>
+</section>
+
+<!-- ================= 3 ================= -->
+<section class="mod" id="a3">
+<div class="eyebrow">Modulul 03 · 50 min · esențial</div>
+<h2>Citirea lumânărilor pe M15 și M5</h2>
+<p class="goal">Ce afli: legătura dintre M15 și M5, cum citești presiunea dintr-o lumânare, cum citești o succesiune de lumânări și modelele care contează pe intervale mici.</p>
+<div class="col">
+<h3>O lumânare M15 = trei lumânări M5</h3>
+<p>Lumânarea de 15 minute e formată din exact trei lumânări de 5 minute. Deschiderea ei e deschiderea primei M5, închiderea ei e închiderea celei de-a treia, iar maximul și minimul sunt cele mai extreme valori dintre cele trei.</p>
+<figure><div class="chart" id="g-m5m15"></div>
+<figcaption><b>Trei lumânări M5 (stânga) formează o lumânare M15 (dreapta).</b> Pe M5 vezi lupta: o coborâre, o revenire, o închidere sus. Pe M15 vezi doar rezultatul: un fitil inferior lung, adică respingerea prețurilor joase. De aceea M15 îți dă contextul, iar M5 îți arată momentul.</figcaption></figure>
+
+<h3>Citirea unei singure lumânări: 4 întrebări</h3>
+<ol>
+<li><b>Cât de mare e corpul față de toată lumânarea?</b> Corp de peste 70% = convingere. Corp de sub 30% = nehotărâre.</li>
+<li><b>Unde s-a închis?</b> În treimea de sus = cumpărătorii au câștigat perioada. În treimea de jos = vânzătorii. La mijloc = egalitate.</li>
+<li><b>Unde e fitilul lung?</b> Fitilul arată unde prețul a fost <b>respins</b>. Fitil lung jos = prețurile joase au fost respinse (bullish). Fitil lung sus = prețurile înalte au fost respinse (bearish).</li>
+<li><b>Cât de mare e față de ATR?</b> O lumânare de peste 1,5 × ATR e o <b>lumânare de impuls</b>: cineva mare a intrat. Una de sub 0,5 × ATR e o pauză.</li>
+</ol>
+<figure><div class="chart" id="g-read1"></div>
+<figcaption><b>Șase lumânări, șase povești.</b> (1) Impuls bullish: corp mare, închidere la maxim. (2) Respingere jos: fitil inferior lung, închidere în treimea de sus. (3) Nehotărâre: corp mic, fitile pe ambele părți. (4) Respingere sus: fitil superior lung. (5) Impuls bearish: corp mare roșu, închidere la minim. (6) Lumânare verde slabă: corp mic, închidere la mijloc, fitil sus. Culoarea singură nu spune mult; contează unde se închide.</figcaption></figure>
+
+<h3>Citirea unei succesiuni: ultimele 5 lumânări</h3>
+<p>Înainte de orice intrare, citește ultimele 5 lumânări de pe M5 ca pe o propoziție. Patru tipare de recunoscut:</p>
+<figure><div class="chart" id="g-seq"></div>
+<figcaption><b>Patru tipare de succesiune.</b> <b>Impuls</b>: corpuri care cresc, închideri tot mai sus, fitile mici. <b>Epuizare</b>: corpuri care se micșorează, fitile tot mai lungi în direcția mișcării; mișcarea obosește. <b>Absorbție</b>: prețul atinge de mai multe ori același nivel și lasă fitile; cineva absoarbe ordinele acolo. <b>Comprimare</b>: lumânări tot mai mici, range tot mai îngust; urmează de obicei o mișcare puternică.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Ce vezi</th><th>Ce înseamnă</th><th>Ce faci</th></tr>
+<tr><td>Închideri consecutive peste maximul lumânării anterioare</td><td>Cumpărătorii controlează</td><td>Cauți doar long-uri, la pullback</td></tr>
+<tr><td>Corpuri tot mai mici în direcția trendului, fitile tot mai lungi</td><td>Epuizare</td><td>Nu mai intri în direcția trendului; aștepți</td></tr>
+<tr><td>3+ fitile la același nivel</td><td>Absorbție, nivel apărat</td><td>Pregătește intrarea în direcția respingerii</td></tr>
+<tr><td>Lumânare de impuls care închide dincolo de un nivel</td><td>Posibilă spargere reală</td><td>Aștepți retestul</td></tr>
+<tr><td>Fitil dincolo de nivel, închidere înapoi înăuntru</td><td>Posibilă spargere falsă, lichiditate măturată</td><td>Pregătește intrarea în sens opus</td></tr>
+<tr><td>Lumânări mici, suprapuse, fără direcție</td><td>Range, zgomot</td><td>Nu tranzacționezi</td></tr>
+</table></div>
+
+<h3>Modelele care contează pe M5</h3>
+<div class="grid2" id="g-pats"></div>
+<div class="box warn"><span class="lbl">Regula de aur a lumânărilor pe M5</span><p>Un model are sens doar <b>la un nivel marcat dinainte</b> (Modulele 5–6) și <b>în direcția contextului de pe M15</b>. Pe M5 apar zeci de „ciocane” pe zi; cele din mijlocul graficului sunt zgomot. Și intri doar <b>după închiderea</b> lumânării, nu în timp ce se formează.</p></div>
+</div>
+<div class="quiz" data-quiz="a3"></div>
+</section>
+
+<!-- ================= 4 ================= -->
+<section class="mod" id="a4">
+<div class="eyebrow">Modulul 04 · 40 min · esențial</div>
+<h2>Urcă sau scade? Cum verifici direcția</h2>
+<p class="goal">Ce afli: trendul ascendent, descendent și range-ul pe M15 și M5, structura (HH, HL, BOS, CHoCH) și un verificator în 7 puncte pe care îl poți folosi înainte de fiecare tranzacție.</p>
+<div class="col">
+<h3>Trei stări ale pieței</h3>
+<figure><div class="chart" id="g-up"></div>
+<figcaption><b>Trend ascendent pe M15</b>: vârfuri tot mai sus (HH) și văi tot mai sus (HL), prețul peste EMA 20, EMA 20 înclinată în sus. Fiecare HL e o zonă unde cumpărătorii au intrat din nou. Cât timp HL-urile se păstrează, trendul e valid.</figcaption></figure>
+<figure><div class="chart" id="g-down"></div>
+<figcaption><b>Trend descendent pe M15</b>: vârfuri tot mai jos (LH) și văi tot mai jos (LL), prețul sub EMA 20. Fiecare LH e o zonă unde vânzătorii au revenit.</figcaption></figure>
+<p>Când nu ai nici HH/HL, nici LH/LL clare, iar EMA 20 e plată și prețul o traversează des, piața e în <b>range</b>. Aurul stă des în range în sesiunea asiatică și la prânzul Londrei.</p>
+
+<h3>BOS și CHoCH: cum vezi că trendul continuă sau se schimbă</h3>
+<div class="box def"><span class="lbl">Definiții</span>
+<p><span class="term">BOS</span> <span class="en">break of structure</span> — prețul <b>închide</b> dincolo de ultimul vârf în direcția trendului (un nou HH în uptrend, un nou LL în downtrend). Trendul continuă.</p>
+<p><span class="term">CHoCH</span> <span class="en">change of character</span> — prețul închide dincolo de ultimul HL (în uptrend) sau de ultimul LH (în downtrend). E <b>primul semn</b> că trendul se poate întoarce.</p></div>
+<figure><div class="chart" id="g-choch"></div>
+<figcaption><b>Uptrend pe M5 care se întoarce.</b> Două BOS-uri confirmă trendul ascendent. Apoi prețul face un maxim care nu mai sparge (LH) și închide sub ultimul HL: CHoCH. De aici, cumpărătorii nu mai au controlul; un scalper nu mai caută long-uri și începe să caute short-uri.</figcaption></figure>
+<p>Pe M5 apar multe CHoCH-uri false. Unul care contează apare <b>la un nivel important de pe M15</b> sau <b>după o măturare de lichiditate</b> (Modulul 6).</p>
+
+<h3>Verificatorul de direcție (7 puncte)</h3>
+<p>Bifează ce vezi pe grafic. Verificatorul îți spune dacă ai o direcție clară sau dacă e mai bine să stai deoparte.</p>
+<div class="tool" id="bias">
+<h4>Verificatorul de direcție</h4>
+<div id="bias-list" style="display:grid;gap:8px"></div>
+<div class="out" id="bias-out" style="margin-top:14px"></div>
+</div>
+<div class="box ex"><span class="lbl">Cum folosești rezultatul</span><p>Scor de <b>+4 sau mai mult</b>: cauți doar long-uri. <b>−4 sau mai puțin</b>: doar short-uri. Între −3 și +3: piața nu are o direcție clară; ori aștepți, ori tranzacționezi doar range-ul de la margini (Setup-ul D). Scorul nu e o predicție, e un filtru: te oprește să tranzacționezi împotriva pieței.</p></div>
+</div>
+<div class="quiz" data-quiz="a4"></div>
+</section>
+
+<!-- ================= 5 ================= -->
+<section class="mod" id="a5">
+<div class="eyebrow">Modulul 05 · 50 min · esențial</div>
+<h2>Cum se formează o rezistență, cum și când se sparge</h2>
+<p class="goal">Ce afli: de ce apare o rezistență, ce niveluri contează la aur, semnele că rezistența va ține, semnele că va ceda, spargerea reală vs. falsă și retestul.</p>
+<div class="col">
+<h3>Cum se naște o rezistență</h3>
+<p>O rezistență e o zonă unde <b>vânzătorii au fost mai puternici decât cumpărătorii</b>. Povestea, pas cu pas:</p>
+<ol>
+<li>Prețul urcă până la 3.560 $. Acolo apar vânzători: cei care vor să închidă long-uri în profit și cei care deschid short-uri. Prețul se întoarce.</li>
+<li>Toată lumea a văzut întoarcerea. Cei care au cumpărat sus și au rămas în pierdere vor vinde „pe zero” când prețul revine la 3.560.</li>
+<li>Prețul revine la 3.560 și e respins din nou. Acum nivelul e confirmat: mai mulți traderi pun ordine de vânzare acolo și stopuri de cumpărare (buy stop) chiar deasupra.</li>
+<li>Fiecare test consumă din ordinele de vânzare. Dacă cumpărătorii insistă, la un moment dat ordinele se termină și nivelul cedează.</li>
+</ol>
+<p>Suportul funcționează la fel, în oglindă.</p>
+
+<h3>Nivelurile care contează la aur</h3>
+<div class="tbl"><table>
+<tr><th>Nivel</th><th>Cum îl găsești</th><th>Importanță</th></tr>
+<tr><td><b>Maximul/minimul zilei anterioare</b> (PDH / PDL)</td><td>Cel mai înalt și cel mai jos preț de ieri</td><td>Foarte mare</td></tr>
+<tr><td><b>Maximul/minimul range-ului asiatic</b></td><td>Între 01:00 și 09:00 ora României</td><td>Mare, la deschiderea Londrei</td></tr>
+<tr><td><b>Numerele rotunde</b></td><td>Multiplii de 50 $ și 100 $ (3.500, 3.550, 3.600); mai slab, multiplii de 10 $ sau 25 $</td><td>Mare</td></tr>
+<tr><td><b>Niveluri de pe H1/H4</b></td><td>Zone de unde prețul s-a întors de mai multe ori</td><td>Mare</td></tr>
+<tr><td><b>Maximul/minimul săptămânii anterioare</b></td><td>PWH / PWL</td><td>Foarte mare</td></tr>
+<tr><td><b>Ultimul swing pe M15</b></td><td>Ultimul HH, HL, LH sau LL</td><td>Mediu, pentru structură</td></tr>
+</table></div>
+<p>Desenează-le ca <b>zone</b> de 1–3 $ grosime, nu ca linii exacte. Aurul trece adesea cu un fitil de 1–2 $ dincolo de nivel.</p>
+
+<h3>Semne că rezistența VA ȚINE</h3>
+<ul>
+<li>E primul sau al doilea test al unui nivel important (H1, PDH, număr rotund).</li>
+<li>Prețul ajunge la ea <b>obosit</b>: corpuri mici, fitile superioare lungi (epuizare).</li>
+<li>Lumânări de respingere pe M5: stea căzătoare, înghițire bearish.</li>
+<li>Trendul pe M15 sau H1 e descendent; urcarea e doar o corecție.</li>
+<li>Divergență bearish pe RSI la al doilea test.</li>
+</ul>
+<h3>Semne că rezistența VA CEDA</h3>
+<ul>
+<li><b>Văi tot mai sus sub rezistență</b> (triunghi ascendent): cumpărătorii intră tot mai devreme.</li>
+<li><b>Reacții tot mai mici</b> la fiecare test: prima dată prețul a coborât 8 $, apoi 5 $, apoi 2 $.</li>
+<li>Comprimare: lumânări mici chiar sub nivel, fără respingeri.</li>
+<li>Trend ascendent pe M15 și H1.</li>
+<li>Se apropie o fereastră cu volum (10:00 sau 15:30–16:30).</li>
+</ul>
+<figure><div class="chart" id="g-break"></div>
+<figcaption><b>Rezistența care cedează.</b> Primul test: respingere puternică. Apoi văi tot mai sus și reacții tot mai mici. Comprimarea se termină cu o lumânare de impuls care <b>închide</b> peste zonă. Prețul revine la nivel (retest), fosta rezistență ține ca suport, iar trendul continuă.</figcaption></figure>
+
+<h3>Spargere reală sau falsă?</h3>
+<div class="tbl"><table>
+<tr><th></th><th>Spargere reală</th><th>Spargere falsă</th></tr>
+<tr><td>Închiderea pe M5/M15</td><td>Corp închis clar dincolo de nivel</td><td>Doar fitil dincolo; închidere înapoi în interior</td></tr>
+<tr><td>Lumânarea de spargere</td><td>Mare, peste ATR, închidere aproape de extremă</td><td>Fitil lung în direcția spargerii</td></tr>
+<tr><td>Ce urmează</td><td>Continuare sau retest care ține</td><td>Revenire rapidă în range, adesea până în partea opusă</td></tr>
+<tr><td>Contextul</td><td>În direcția trendului M15/H1, după comprimare</td><td>Împotriva trendului, după o mișcare lungă, la ore cu volum mic</td></tr>
+<tr><td>Ora</td><td>Londra, New York</td><td>Asia, prânz, înainte de știri</td></tr>
+</table></div>
+<figure><div class="chart" id="g-fake"></div>
+<figcaption><b>Spargere falsă peste maximul zilei anterioare (PDH).</b> Un fitil trece peste nivel, declanșează stopurile vânzătorilor și ordinele celor care cumpără „spargerea”, apoi lumânarea închide înapoi sub nivel. Următoarea lumânare e o înghițire bearish. Cei prinși sus vor alimenta scăderea.</figcaption></figure>
+<div class="box ex"><span class="lbl">Retestul: cea mai sigură intrare după spargere</span><p>Nu cumpăra lumânarea de spargere: e deja mare, stopul ar fi departe și poate fi falsă. Așteaptă <b>retestul</b>: prețul revine la fosta rezistență, apare o lumânare de respingere pe M5 (fitil inferior, înghițire bullish) și abia atunci intri. Stopul merge sub fitilul retestului. Dacă prețul nu revine, ai ratat o tranzacție, nu ai pierdut bani.</p></div>
+</div>
+<div class="quiz" data-quiz="a5"></div>
+</section>
+
+<!-- ================= 6 ================= -->
+<section class="mod" id="a6">
+<div class="eyebrow">Modulul 06 · 45 min · esențial</div>
+<h2>Lichiditatea în aur: unde stau stopurile</h2>
+<p class="goal">Ce afli: unde se adună ordinele în aur, cum arată o măturare a range-ului asiatic, a maximului sau minimului de ieri și a numerelor rotunde, ce e un FVG pe M5 și cum transformi o măturare într-o intrare.</p>
+<div class="col">
+<p>Prețul se mișcă spre locurile unde sunt multe ordine, pentru că acolo pot intra și ieși pozițiile mari. În aur, ordinele (stopuri, buy stop, sell stop) se adună în locuri pe care le vede toată lumea:</p>
+<div class="tbl"><table>
+<tr><th>Locul</th><th>Ce ordine sunt acolo</th></tr>
+<tr><td><b>Peste maximul asiatic</b> și sub minimul asiatic</td><td>Stopurile celor care au tranzacționat range-ul nopții; ordinele celor care vor să prindă „spargerea Londrei”</td></tr>
+<tr><td><b>Peste PDH, sub PDL</b></td><td>Stopurile pozițiilor de ieri; ordine de spargere</td></tr>
+<tr><td><b>Maxime egale / minime egale</b> pe M5–M15</td><td>Stopuri foarte grupate: toată lumea și-a pus stopul „deasupra dublului vârf”</td></tr>
+<tr><td><b>Numere rotunde</b> (3.500, 3.550, 3.600)</td><td>Ordine limită, stopuri, opțiuni</td></tr>
+<tr><td><b>Linii de trend evidente</b></td><td>Stopurile celor care au cumpărat „la a treia atingere”</td></tr>
+</table></div>
+
+<h3>Măturarea range-ului asiatic la deschiderea Londrei</h3>
+<figure><div class="chart" id="g-asia"></div>
+<figcaption><b>Exemplu ilustrativ pe M5.</b> Noaptea, aurul stă într-un range de 3.526–3.542 $. La 10:15, Londra împinge prețul peste maximul asiatic, cu un fitil până la 3.545 $: se declanșează stopurile vânzătorilor și ordinele celor care cumpără spargerea. Lumânarea închide înapoi în range. La 10:30, prețul închide sub ultimul minim de pe M5 (CHoCH). Mișcarea reală e în jos, spre minimul asiatic. Mișcarea falsă de la deschidere se mai numește „Judas swing”.</figcaption></figure>
+<p>Nu orice depășire a range-ului e o măturare. Diferența o face <b>închiderea</b>:</p>
+<ul>
+<li><b>Măturare</b>: fitil dincolo de nivel, închidere înapoi în interior, apoi CHoCH în sens opus.</li>
+<li><b>Spargere reală</b>: închideri M5 și M15 dincolo de nivel, lumânări de impuls, reteste care țin.</li>
+</ul>
+
+<h3>Maxime egale: magnetul stopurilor</h3>
+<figure><div class="chart" id="g-eqh"></div>
+<figcaption><b>Două maxime aproape egale pe M5</b> (3.552,4 și 3.552,6 $). Deasupra lor stau stopurile tuturor celor care au vândut la dublul vârf. Prețul urcă scurt peste ele (3.554,8 $), umple ordinele, apoi scade. Pentru un vânzător, intrarea bună e <b>după</b> măturare, nu la al doilea vârf, unde stopul ar fi fost luat.</figcaption></figure>
+
+<h3>FVG pe M5: golul pe care prețul îl umple</h3>
+<p>O lumânare de impuls foarte mare lasă un <b>FVG</b> (fair value gap): spațiul dintre maximul lumânării dinaintea ei și minimul lumânării de după ea (la o mișcare în sus). Prețul a trecut prin acel spațiu atât de repede încât puține ordine s-au executat acolo. Adesea revine să-l umple parțial, apoi continuă.</p>
+<figure><div class="chart" id="g-fvg"></div>
+<figcaption><b>FVG după o lumânare de impuls de +12 $.</b> Prețul revine în zona golului (3.537–3.541 $), lasă un fitil de respingere și continuă în sus. Un FVG creat de o lumânare care a spart structura (BOS) e o zonă bună pentru intrarea la pullback (Setup-ul B).</figcaption></figure>
+
+<h3>Cum transformi lichiditatea într-o intrare</h3>
+<ol>
+<li>Marchezi dinainte locurile cu lichiditate (Asia, PDH/PDL, maxime egale, numere rotunde).</li>
+<li>Aștepți ca prețul să ajungă acolo, de preferat în ferestrele bune (10:00–12:30, 15:45–18:30).</li>
+<li>Urmărești <b>reacția</b>: măturare (fitil + închidere înapoi) sau acceptare (închideri dincolo).</li>
+<li>După măturare: aștepți CHoCH pe M5 în sens opus. După acceptare: aștepți retestul.</li>
+<li>Stopul merge <b>dincolo de fitilul măturării</b>, cu o marjă de 0,5–1 $.</li>
+<li>Ținta este următorul loc cu lichiditate (partea opusă a range-ului, PDL, următorul număr rotund).</li>
+</ol>
+<div class="box warn"><span class="lbl">Greșeala tipică</span><p>„Prețul a trecut peste maximul asiatic, deci e o măturare, vând.” Nu. Fără închidere înapoi în range și fără CHoCH, e doar o mișcare. În zilele cu trend puternic (ca 19–20 noiembrie 2026, Modulul 10), nivelurile se sparg pe bune unul după altul.</p></div>
+</div>
+<div class="quiz" data-quiz="a6"></div>
+</section>
+
+<!-- ================= 7 ================= -->
+<section class="mod" id="a7">
+<div class="eyebrow">Modulul 07 · 25 min</div>
+<h2>Indicatorii utili (și doar atât)</h2>
+<p class="goal">Ce afli: cele patru instrumente care ajută în scalpingul pe aur (EMA, VWAP, ATR, RSI) și cum le setezi.</p>
+<div class="col">
+<figure><div class="chart" id="g-ind"></div>
+<figcaption><b>M5 cu EMA 20 (albastru), EMA 50 (portocaliu închis) și VWAP-ul sesiunii (galben, punctat).</b> Prețul peste VWAP și peste EMA 20 &gt; EMA 50 = cumpărătorii controlează sesiunea. Pullback-urile până la EMA 20 sau VWAP sunt zone de intrare în trend.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Instrument</th><th>Setare</th><th>La ce îl folosești</th></tr>
+<tr><td><b>EMA 20 și EMA 50</b></td><td>Pe M5 și M15</td><td>Direcția (prețul peste/sub, înclinarea, ordinea mediilor) și zona de pullback</td></tr>
+<tr><td><b>VWAP</b></td><td>Resetat zilnic (sesiunea)</td><td>Cine controlează ziua: peste VWAP cumpărătorii, sub VWAP vânzătorii. Prețul revine des la VWAP</td></tr>
+<tr><td><b>ATR (14)</b></td><td>Pe M5 și M15</td><td>Cât de mare e „normal” azi; marja stopului (0,5–1 × ATR M5); filtrul lumânărilor de impuls</td></tr>
+<tr><td><b>RSI (14)</b></td><td>Pe M5</td><td>Doar divergențe la niveluri importante. Nu vinde doar pentru că e peste 70</td></tr>
+</table></div>
+<div class="box ex"><span class="lbl">Cum folosești ATR pentru stop</span>
+<div class="calc">ATR(14) pe M5 = 4,20 $
+Intri short la 3.555,4 după respingerea de la 3.561,8 (fitilul)
+Stop = fitil + 0,5 × ATR = 3.561,8 + 2,10 = 3.563,9
+Risc = 3.563,9 − 3.555,4 = 8,5 $</div></div>
+<div class="box warn"><span class="lbl">Ce să nu faci</span><p>Nu adăuga stocastic, MACD, Bollinger și 5 medii pe un grafic M5. Pe intervale mici, mai mulți indicatori înseamnă mai multe semnale contradictorii și decizii mai lente. Structura (Modulul 4), nivelurile (5) și lichiditatea (6) sunt baza. Indicatorii doar confirmă.</p></div>
+</div>
+<div class="quiz" data-quiz="a7"></div>
+</section>
+
+<!-- ================= 8 ================= -->
+<section class="mod" id="a8">
+<div class="eyebrow">Modulul 08 · 35 min · esențial</div>
+<h2>Analiza în 15 minute, înainte de sesiune</h2>
+<p class="goal">Ce afli: rutina pas cu pas pe care o faci înainte de Londra (09:30) și înainte de New York (15:00), cu o fișă completată pe o zi reală.</p>
+<div class="col">
+<p>Un scalper bun nu „caută ceva” pe M5. Ajunge la grafic cu <b>niveluri marcate, o direcție preferată și scenarii scrise</b>. Pe M5 doar așteaptă ca unul dintre scenarii să se întâmple.</p>
+<h3>Cei 8 pași</h3>
+<ol>
+<li><b>Calendarul</b> (2 min): ce știri USD cu impact mare sunt azi și la ce oră? Le scrii pe fișă.</li>
+<li><b>Dolarul și randamentele</b> (1 min): DXY și US10Y urcă sau scad azi? Ambele în sus = presiune pe aur.</li>
+<li><b>H1</b> (3 min): trendul (HH/HL sau LH/LL) și nivelurile mari: PDH, PDL, maximul/minimul săptămânii, numerele rotunde de 50 $ și 100 $.</li>
+<li><b>Range-ul asiatic</b> (1 min): maximul și minimul dintre 01:00 și 09:00.</li>
+<li><b>M15</b> (3 min): structura, ultimul BOS/CHoCH, poziția față de EMA 20/50 și VWAP. Folosești verificatorul din Modulul 4.</li>
+<li><b>Scenariile</b> (3 min): două–trei propoziții „Dacă … atunci …”.</li>
+<li><b>Alertele</b> (1 min): pui alerte pe TradingView la nivelurile din scenarii.</li>
+<li><b>Limitele zilei</b> (1 min): risc pe tranzacție, maximum 3 tranzacții, oprire după 2 pierderi, ora la care te oprești.</li>
+</ol>
+<h3>Fișa completată pentru o zi reală: vineri, 20 noiembrie 2026, ora 09:30</h3>
+<div class="box ex"><span class="lbl">Fișa de analiză (date reale, futures pe aur COMEX)</span>
+<div class="calc">Știri: nimic major la 15:30 vineri; atenție la discursurile oficialilor Fed
+DXY: aproape de maximul de 19 luni, piața se așteaptă la o creștere de dobândă în decembrie
+H1: trend descendent puternic (LH, LL) de 3 zile, de la ~3.860 la ~3.515 $
+Niveluri:  PDH (joi) 3.759,5 · PDL (joi) 3.620,6 · 3.600 (rotund, spart la 01:30)
+           3.550 · 3.500 (rotund, următorul magnet)
+Range asiatic: maxim 3.638,1 · minim 3.514,9 (foarte mare: ~123 $, zi extremă)
+M15: rebound de la 3.514,9 la 3.567 (07:45–08:00), încă sub EMA 50 → corecție
+Direcție preferată: SHORT (scor verificator ≈ −5)
+
+Scenariul 1: Dacă revenirea urcă în zona 3.590–3.600 (fost suport, rotund) și
+             apare respingere + CHoCH pe M5 → short, țintă 3.570 apoi 3.550
+Scenariul 2: Dacă prețul închide sub 3.550 cu impuls și retestează → short spre 3.515
+Scenariul 3: Dacă prețul mătură 3.514,9 și închide înapoi deasupra → scalp long mic,
+             doar până la 1R (împotriva trendului)
+Interzis:   long-uri în mijlocul mișcării; tranzacții după 21:00 (vineri seara)
+Risc: 0,5% / tranzacție · max 3 tranzacții · stop după 2 pierderi</div></div>
+<p>Ce s-a întâmplat apoi (vezi Modulul 10): prețul a urcat până la 3.596,7 $ la 12:30, a fost respins de două ori sub 3.600 (scenariul 1), a scăzut la 3.567 $, apoi după 17:00 a spart 3.550 cu impuls, a revenit la nivel (scenariul 2) și a coborât până la 3.502,9 $. Seara, prețul a măturat minimul asiatic (scenariul 3), dar după ora 21:00, când fișa interzicea tranzacțiile.</p>
+<div class="box warn"><span class="lbl">De ce contează fișa</span><p>Fără fișă, la 12:30 ai fi văzut „aurul urcă puternic de 5 ore” și ai fi cumpărat. Cu fișa, știai că 3.590–3.600 e zona unde cauți short-uri. Analiza dinainte te protejează de deciziile luate pe impuls.</p></div>
+</div>
+<div class="quiz" data-quiz="a8"></div>
+</section>
+
+<!-- ================= 9 ================= -->
+<section class="mod" id="a9">
+<div class="eyebrow">Modulul 09 · 70 min · esențial</div>
+<h2>Cele 5 intrări, cu reguli exacte</h2>
+<p class="goal">Ce afli: cinci setup-uri complete pentru scalping pe aur pe M15 + M5, fiecare cu condiții, declanșator, stop, ținte, invalidare și un exemplu calculat cu lotul.</p>
+<div class="col">
+<p>Toate exemplele de calcul folosesc un cont de <b>5.000 $</b> și risc de <b>0,5% = 25 $</b>. Formula lotului (Modulul 11): <span class="mono">loturi = risc $ ÷ (stop $ × 100)</span>, rotunjit în jos.</p>
+
+<h3>A. Măturarea range-ului asiatic (Londra, 10:00–12:30)</h3>
+<div class="box def"><span class="lbl">Reguli</span>
+<ol>
+<li><b>Pregătire</b>: marchezi maximul și minimul asiatic (01:00–09:00). Direcția preferată de pe H1 îți spune ce parte cauți: în downtrend, măturarea <b>maximului</b> pentru short; în uptrend, a <b>minimului</b> pentru long.</li>
+<li><b>Măturarea</b>: între 10:00 și 12:30, un fitil M5 trece dincolo de nivel cu cel puțin 1 $, iar lumânarea închide înapoi în range.</li>
+<li><b>Declanșator</b>: o lumânare M5 închide dincolo de ultimul swing în sens opus (CHoCH).</li>
+<li><b>Intrare</b>: la închiderea lumânării CHoCH, sau limit la 50% din ea.</li>
+<li><b>Stop</b>: dincolo de fitilul măturării + 0,5 $.</li>
+<li><b>Ținte</b>: TP1 la 1R (închizi jumătate, muți stopul la intrare); TP2 în partea opusă a range-ului asiatic.</li>
+<li><b>Invalidare</b>: o lumânare M5 închide din nou dincolo de nivelul măturat.</li>
+</ol></div>
+<div class="calc">Range asiatic 3.526,0 – 3.542,0 · măturare la 10:15 cu fitil la 3.545,1
+CHoCH la 10:30, închidere 3.539,0 → SHORT 3.539,0
+Stop 3.545,6 (fitil + 0,5) → risc 6,6 $
+Lot = 25 / (6,6 × 100) = 0,037 → 0,03 loturi (risc real 19,80 $)
+TP1 = 3.532,4 (1R) · TP2 = 3.526,0 (minimul asiatic, ≈2R)</div>
+
+<h3>B. Pullback în trend pe M5 (oricând în ferestrele bune)</h3>
+<div class="box def"><span class="lbl">Reguli (long; la short invers)</span>
+<ol>
+<li><b>Context</b>: verificatorul de direcție ≥ +4 și un BOS recent pe M15.</li>
+<li><b>Impulsul</b>: pe M5, o mișcare de cel puțin 2 × ATR M5 care face un maxim nou.</li>
+<li><b>Pullback-ul</b>: prețul revine în zona EMA 20 M5, în FVG-ul lăsat de impuls sau la 50% din impuls. Retragerea nu trece de 61,8% și nu durează mai mult de 8 lumânări.</li>
+<li><b>Declanșator</b>: lumânare M5 de respingere (fitil inferior lung, înghițire bullish) închisă în zonă.</li>
+<li><b>Stop</b>: sub minimul pullback-ului − 0,5 $.</li>
+<li><b>Ținte</b>: TP1 la maximul impulsului; TP2 la 2R sau la următorul nivel.</li>
+</ol></div>
+<figure><div class="chart" id="g-setB"></div>
+<figcaption><b>Setup-ul B, ilustrativ.</b> Impuls de la 3.531 la 3.552 $ (BOS pe M15), pullback la EMA 20 și la 50% din impuls, înghițire bullish, intrare. Stopul sub minimul pullback-ului, TP1 la maximul impulsului.</figcaption></figure>
+<div class="calc">Intrare LONG 3.546,0 (închiderea înghițirii) · minim pullback 3.542,5
+Stop 3.542,0 → risc 4,0 $
+Lot = 25 / (4,0 × 100) = 0,0625 → 0,06 loturi (risc 24 $)
+TP1 = 3.552,0 (maximul impulsului, 1,5R) · TP2 = 3.554,0 (2R)</div>
+
+<h3>C. Spargere + retest (New York, 15:45–18:30)</h3>
+<div class="box def"><span class="lbl">Reguli</span>
+<ol>
+<li><b>Nivelul</b>: unul important, marcat dinainte (PDH/PDL, maxim/minim asiatic, număr rotund, nivel H1).</li>
+<li><b>Spargerea</b>: o lumânare M5 de impuls (≥ 1,2 × ATR M5) <b>închide</b> dincolo de nivel, în direcția preferată.</li>
+<li><b>Retestul</b>: în 1–8 lumânări M5, prețul revine la nivel.</li>
+<li><b>Declanșator</b>: lumânare de respingere la nivel (pentru short: fitil superior, închidere în treimea de jos).</li>
+<li><b>Stop</b>: dincolo de fitilul retestului + 0,5–1 $.</li>
+<li><b>Ținte</b>: TP1 la 1R; TP2 la următorul nivel cu lichiditate.</li>
+<li><b>Invalidare</b>: o închidere M5 înapoi dincolo de nivel cu mai mult de 2 $.</li>
+</ol></div>
+<p>Două exemple reale complete, pe 19 și 20 noiembrie 2026, sunt în Modulul 10.</p>
+
+<h3>D. Respingere la nivel major</h3>
+<div class="box def"><span class="lbl">Reguli (short la rezistență; la suport invers)</span>
+<ol>
+<li><b>Nivelul</b>: PDH, maxim săptămânal, număr rotund de 50/100 $, sau un fost suport important (acum rezistență).</li>
+<li><b>Contextul</b>: primul sau al doilea test; ideal în direcția trendului H1 (corecția urcă într-o rezistență în downtrend).</li>
+<li><b>Sosirea</b>: prețul ajunge obosit (corpuri tot mai mici, fitile superioare).</li>
+<li><b>Declanșator</b>: respingere pe M5 (stea căzătoare, înghițire bearish), apoi CHoCH pe M5.</li>
+<li><b>Stop</b>: peste cel mai înalt fitil + 0,5 × ATR M5.</li>
+<li><b>Ținte</b>: TP1 la 1R; TP2 la ultimul minim al urcării sau VWAP.</li>
+</ol></div>
+<div class="calc">PDH 3.561,0 · fitil la 3.561,8, stea căzătoare, CHoCH la 3.555,4 → SHORT 3.555,4
+Stop 3.563,9 (fitil + 0,5 × ATR 4,2) → risc 8,5 $
+Lot = 25 / (8,5 × 100) = 0,029 → 0,02 loturi (risc 17 $)
+TP1 = 3.546,9 (1R) · TP2 = 3.540,0 (ultimul minim, ≈1,8R)</div>
+
+<h3>E. Continuarea după știre (15:45 sau mai târziu)</h3>
+<div class="box def"><span class="lbl">Reguli</span>
+<ol>
+<li><b>Nimic deschis</b> între 15:25 și 15:45 la știrile de la 15:30.</li>
+<li><b>Lumânarea M15 a știrii</b> (15:30–15:45) trebuie să fie mare (≥ 2 × ATR M15) și să închidă în ultima treime, în direcția mișcării. Dacă are fitile lungi în ambele părți: <b>nicio tranzacție</b>.</li>
+<li><b>Pullback</b> pe M5 de 38–50% din lumânarea știrii.</li>
+<li><b>Declanșator</b>: respingere pe M5 în zonă, în direcția știrii.</li>
+<li><b>Stop</b>: dincolo de extrema pullback-ului + 1 $ (volatilitatea e mare).</li>
+<li><b>Ținte</b>: TP1 la extrema lumânării știrii; TP2 la 2R.</li>
+<li><b>Risc redus</b>: 0,25–0,35% (slippage și spread mai mari).</li>
+</ol></div>
+<div class="box warn"><span class="lbl">Cum alegi</span><p>Nu învăța toate cinci deodată. Începe cu <b>C (spargere + retest)</b> sau <b>B (pullback în trend)</b>: sunt cele mai ușor de recunoscut și funcționează în direcția pieței. Fă 50–100 de tranzacții de backtest cu unul singur, apoi adaugă al doilea.</p></div>
+</div>
+<div class="quiz" data-quiz="a9"></div>
+</section>
+
+<!-- ================= 10 REAL ================= -->
+<section class="mod" id="real">
+<div class="eyebrow">Modulul 10 · 60 min · date reale</div>
+<h2>Două zile reale, citite lumânare cu lumânare: 19–20 noiembrie 2026</h2>
+<p class="goal">Ce afli: cum arată tot ce ai învățat pe grafice reale de aur din ultimele două zile de tranzacționare (joi și vineri). Pentru fiecare situație: ce vezi, ce înseamnă, ce ar fi făcut un scalper disciplinat și ce s-a întâmplat de fapt.</p>
+<div class="col">
+<div class="box warn"><span class="lbl">Despre date</span><p>Graficele din acest modul folosesc prețurile reale ale <b>contractului futures pe aur de la COMEX</b> (cel mai tranzacționat contract), pe M5, M15 și H1, preluate de pe Yahoo Finance. Prețul spot XAU/USD de la brokerul tău poate diferi cu câțiva dolari, dar mișcările sunt aceleași. Toate orele sunt <b>ora României</b>. Tranzacțiile analizate sunt reconstituite după reguli, nu tranzacții efectuate de cineva.</p></div>
+
+<h3>Imaginea de ansamblu: H1, joi + vineri</h3>
+<figure><div class="chart" id="r-h1"></div>
+<figcaption><b>Aurul pe H1, 19–20 noiembrie 2026.</b> De la 3.759,5 $ (joi, 03:00) la 3.502,9 $ (vineri, 20:45): o scădere de ~257 $ în două zile. Fiecare revenire face un vârf mai jos (LH), fiecare scădere un minim mai jos (LL). Liniile orizontale sunt nivelurile pe care le-ai fi marcat în analiza de dimineață.</figcaption></figure>
+<p><b>Contextul</b>: dolarul american era aproape de maximul ultimelor 19 luni, iar piața se aștepta ca Fed să crească dobânda în decembrie. Asta e exact combinația din Modulul 1 (dolar puternic + dobânzi în creștere = presiune pe aur). Pe H1, verificatorul de direcție dădea un scor clar negativ în ambele zile. <b>Concluzie pentru un scalper: în aceste două zile, prioritate absolută pentru short-uri.</b></p>
+
+<h3>Exemplul 1 · Joi, sesiunea asiatică: măturarea lui 3.700 (M15)</h3>
+<figure><div class="chart" id="r-e7"></div>
+<figcaption><b>Joi, 01:00–09:00, M15.</b> Minimul de miercuri (PDL) e 3.721,8 $. La 04:45–05:00, prețul cade cu ~45 $, trece de PDL și de 3.700, până la 3.694,5 $. Lumânarea de la 05:00 închide totuși peste 3.700 (3.701,0), iar până la 06:00 prețul revine peste PDL.</figcaption></figure>
+<ol>
+<li><b>Ce vezi</b>: o lumânare mare roșie (04:45) urmată de un fitil inferior lung sub 3.700 (05:00) și închideri tot mai sus după.</li>
+<li><b>Ce înseamnă</b>: stopurile de sub PDL și de sub 3.700 au fost măturate; cumpărătorii au apărat zona.</li>
+<li><b>Ce face un scalper</b>: nimic. E sesiunea asiatică, cu lichiditate mică, iar trendul H1 e descendent. Dar <b>notează 3.694,5–3.700</b> ca nivelul-cheie al zilei: dacă se sparge pe bune mai târziu, accelerarea poate fi mare.</li>
+</ol>
+
+<h3>Exemplul 2 · Joi, Londra: range, zero tranzacții (M15)</h3>
+<figure><div class="chart" id="r-e5"></div>
+<figcaption><b>Joi, 08:00–14:00, M15.</b> Toată dimineața Londrei, aurul stă între 3.726 și 3.744 $. Lumânări mici, suprapuse, EMA 20 plată, fără niciun nivel atins. La 13:45 prețul începe să coboare sub range.</figcaption></figure>
+<p><b>Lecția</b>: deschiderea Londrei nu garantează mișcare. Lumânările suprapuse și o EMA plată spun „range”. Nicio intrare nu respectă regulile, deci <b>nu tranzacționezi</b>. Să nu faci nimic într-o fereastră „bună” e o decizie bună, nu o oportunitate ratată.</p>
+
+<h3>Exemplul 3 · Joi, 15:30: lumânarea de știre care te taie în ambele părți (M5)</h3>
+<figure><div class="chart" id="r-e6"></div>
+<figcaption><b>Joi, 15:00–16:30, M5.</b> La 15:25 prețul urcă +9 $ (anticipare). La 15:30 (datele americane de joi) sare la 3.728,9 $, apoi închide jos (3.720,6) și coboară la 3.716 $ în 5 minute. Cine a cumpărat la 15:25 sau 15:30 a fost prins.</figcaption></figure>
+<p>Lumânarea M15 a știrii (15:30–15:45) are fitile în ambele părți și nu e de 2 × ATR. Conform Setup-ului E: <b>nicio tranzacție</b>. Ce a urmat: o alunecare lentă spre 3.706 $ și nivelul-cheie de la Exemplul 1.</p>
+
+<h3>Exemplul 4 · Joi, New York: spargere + retest sub 3.700 (M5), tranzacție completă</h3>
+<figure><div class="chart" id="r-e1"></div>
+<figcaption><b>Joi, 16:00–18:35, M5.</b> Suportul 3.704–3.707 $ (minime aproape egale) cedează la 17:10, apoi 3.700 la 17:15. La 17:25, o lumânare de impuls cu cel mai mare volum închide la 3.688,1 $, sub minimul asiatic 3.694,5 $: spargerea e acceptată. La 17:40 prețul revine exact la 3.694–3.695 $ (retest), iar la 17:45 o lumânare roșie închide jos: intrarea.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Ora</th><th>Ce vezi</th><th>Ce înseamnă</th></tr>
+<tr><td class="mono">16:30–16:35</td><td>Deschiderea NY urcă la 3.719,2 $ și e respinsă (fitil sus)</td><td>Vânzătorii apără zona de sub 3.720: un LH</td></tr>
+<tr><td class="mono">16:50–16:55</td><td>Al doilea test al zonei 3.704–3.707 $, revenire slabă</td><td>Minime egale = lichiditate dedesubt; reacții tot mai mici</td></tr>
+<tr><td class="mono">17:00</td><td>Urcare până la 3.714,9 $, sub 3.719,2</td><td>Încă un vârf mai jos; presiunea de vânzare crește</td></tr>
+<tr><td class="mono">17:10–17:15</td><td>Închideri sub 3.704, apoi sub 3.700</td><td>Suportul cedează; stopurile de sub minimele egale se declanșează</td></tr>
+<tr><td class="mono">17:25</td><td>Corp mare roșu (−9,3 $), volum maxim, închidere sub 3.694,5</td><td>Spargere reală a nivelului-cheie al zilei (BOS)</td></tr>
+<tr><td class="mono">17:40</td><td>Revenire la 3.695,0 $ și închidere sub nivel</td><td>Retestul: fostul suport e acum rezistență</td></tr>
+<tr><td class="mono">17:45</td><td>Lumânare roșie, închidere în treimea de jos (3.686,2)</td><td><b>Declanșator Setup C → SHORT</b></td></tr>
+</table></div>
+<div class="calc">SHORT 3.686,2 · stop 3.695,8 (fitilul retestului + 0,8) → risc 9,6 $
+Cont 5.000 $, risc 0,5% = 25 $ → lot = 25 / 960 = 0,026 → 0,02 loturi (risc 19,20 $)
+TP1 (1R) = 3.676,6 → atins la 17:55 (minim 3.672,6). Închizi 0,01 loturi: +9,60 $
+Stopul restului mutat la intrare (3.686,2) → atins după 18:30 (urcare la 3.691,4): 0 $
+Rezultat: +9,60 $ ≈ +0,5R, în ~45 de minute</div>
+<p><b>Ce ar fi fost fără break-even?</b> Stopul inițial (3.695,8) nu a mai fost atins. Ținta de 2R (3.667,0) a fost atinsă abia la 22:00, după mai bine de 4 ore. Asta nu mai e scalping: regula stopului de timp te-ar fi scos oricum. Pentru scalping, +0,5R în 45 de minute e un rezultat bun și realist.</p>
+
+<h3>Exemplul 5 · Vineri dimineață: cum se formează rezistența sub 3.600 (M15)</h3>
+<figure><div class="chart" id="r-e2"></div>
+<figcaption><b>Vineri, 07:30–15:15, M15.</b> După ce noaptea a coborât până la 3.514,9 $, aurul revine +82 $. Dar 3.600 e un fost suport, spart la 01:30, și un număr rotund. Prețul îl testează de două ori (3.591,6 la 10:30 și 3.596,7 la 12:30–12:45), fără să ajungă la el. Apoi scade până la 3.567,8 $.</figcaption></figure>
+<ol>
+<li><b>Fost suport → rezistență</b>: la 01:30 prețul a spart 3.600 în jos. Cei care au cumpărat acolo și au stat în pierdere vând „pe zero” când prețul revine.</li>
+<li><b>Două vârfuri egale (3.596,7)</b> sub numărul rotund: cumpărătorii nu au forță nici măcar să atingă 3.600.</li>
+<li><b>Corpuri mici sus</b> (13:00–13:15): epuizare.</li>
+<li><b>13:45</b>: lumânare roșie care închide în treimea de jos, sub minimele ultimelor patru lumânări.</li>
+<li><b>Contextul H1</b>: toată urcarea e o corecție (LH) într-un downtrend. Exact scenariul 1 din fișa de analiză (Modulul 8).</li>
+</ol>
+<p>Un scalper care urma Setup-ul D ar fi căutat short pe M5 după a doua respingere, cu stopul peste 3.597–3.598 $. Prețul a scăzut ~29 $ în următoarea oră și jumătate.</p>
+
+<h3>Exemplul 6 · Vineri, 17:00: spargere falsă în sus, apoi prăbușire (M5), tranzacție completă</h3>
+<figure><div class="chart" id="r-e3"></div>
+<figcaption><b>Vineri, 16:30–18:05, M5.</b> Range 3.564,8–3.581,1 $. La 17:00, un fitil până la 3.587,0 mătură maximul range-ului și închide înapoi înăuntru (spargere falsă). La 17:10, închidere sub minimul range-ului. Până la 17:25: −59 $ față de vârf. La 17:35 prețul revine la 3.564,2 $, exact la minimul spart al range-ului (retest). La 17:40 închide jos: intrarea.</figcaption></figure>
+<div class="tbl"><table>
+<tr><th>Ora</th><th>Ce vezi</th><th>Ce înseamnă</th></tr>
+<tr><td class="mono">16:30–16:55</td><td>Range de ~16 $, maxime aproape egale la 3.579,5–3.581,1</td><td>Lichiditate deasupra; piață în așteptare</td></tr>
+<tr><td class="mono">17:00</td><td>Fitil până la 3.587,0, închidere 3.573,8 (înapoi în range)</td><td>Măturare a maximelor: cumpărătorii prinși sus</td></tr>
+<tr><td class="mono">17:10</td><td>Corp roșu, închidere 3.559,6 sub minimul range-ului</td><td>Range spart în jos, în direcția trendului H1</td></tr>
+<tr><td class="mono">17:15–17:25</td><td>Trei lumânări roșii mari, minim 3.527,7</td><td>Impuls; nu se intră aici (stop prea departe)</td></tr>
+<tr><td class="mono">17:30–17:35</td><td>Revenire puternică până la 3.564,2</td><td>Retest exact al minimului spart (3.564,8)</td></tr>
+<tr><td class="mono">17:40</td><td>Fitil sus, închidere 3.554,4 în treimea de jos</td><td><b>Declanșator Setup C → SHORT</b></td></tr>
+</table></div>
+<div class="calc">SHORT 3.554,4 · stop 3.565,0 (retest 3.564,2 + 0,8) → risc 10,6 $
+Lot = 25 / 1.060 = 0,023 → 0,02 loturi (risc 21,20 $)
+TP1 (1R) = 3.543,8 → atins la 18:00 (minim 3.536,3). Închizi 0,01: +10,60 $
+Stopul restului la intrare 3.554,4 → atins la 18:05–18:10 (urcare la 3.558,8): 0 $
+Rezultat cu break-even: +10,60 $ ≈ +0,5R
+
+Fără break-even: stopul inițial (3.565,0) nu a fost atins (maximul a fost 3.558,8),
+iar TP2 (2R = 3.533,2) a fost atins la 19:15 (minim 3.523,9) → +2R pe toată poziția</div>
+<div class="box ex"><span class="lbl">Lecția despre break-even, pe date reale</span><p>În ambele tranzacții (Exemplele 4 și 6), mutarea stopului la intrare a transformat un posibil +2R în +0,5R. În zilele cu trend puternic, aurul face reveniri violente care lovesc break-even-ul. Nu există o regulă „corectă”: o alegi dinainte, o scrii în plan și o testezi pe 50–100 de tranzacții (Modulul 12).</p></div>
+
+<h3>Exemplul 7 · Vineri seara: măturarea minimului asiatic (M5)</h3>
+<figure><div class="chart" id="r-e4"></div>
+<figcaption><b>Vineri, 19:45–21:45, M5.</b> Minimul asiatic e 3.514,9 $. La 20:25 o lumânare cu volum mare trece sub el; la 20:45 prețul atinge 3.502,9 $, aproape de 3.500. La 20:50 o lumânare verde închide înapoi peste minimul asiatic (3.519,5), iar la 20:55 una de impuls urcă până la 3.542,9 $. Apoi totul se șterge: la 21:30 prețul e din nou la 3.512 $.</figcaption></figure>
+<ol>
+<li><b>Ce vezi</b>: o măturare clasică (fitil sub nivel, închidere înapoi deasupra, impuls în sens opus).</li>
+<li><b>Ce ar fi dat Setup-ul A</b>: long la 3.519,5, stop 3.502,1 (risc 17,4 $). Pentru 25 $ risc ar fi ieșit 0,014 loturi, adică doar <b>0,01</b> (risc 17,40 $). Cu 0,01 loturi nu poți închide jumătate, deci ai fi avut o singură țintă.</li>
+<li><b>Ce s-a întâmplat</b>: 1R (3.536,9) a fost atins în 5 minute. Cu țintă la 1R: +17,40 $. Cu țintă la 2R: prețul s-a întors și stopul ar fi rămas deschis spre seară.</li>
+<li><b>De ce nu o iei, totuși</b>: e vineri după 20:30, lichiditate în scădere, spread mai mare, iar tranzacția e împotriva unui trend H1 foarte puternic. Fișa de dimineață interzicea long-urile în afara unui scalp mic. Rezultatul bun nu face tranzacția bună.</li>
+</ol>
+
+<h3>Ce înveți din aceste două zile</h3>
+<div class="tbl"><table>
+<tr><th>Situația</th><th>Decizia corectă</th><th>Rezultat</th></tr>
+<tr><td>Joi, Asia: măturarea lui 3.700</td><td>Doar notezi nivelul</td><td>Nivelul a devenit cheia zilei</td></tr>
+<tr><td>Joi, Londra: range</td><td>Zero tranzacții</td><td>0 $, fără stres</td></tr>
+<tr><td>Joi, 15:30: știre cu fitile în ambele părți</td><td>Zero tranzacții</td><td>Ai evitat o pierdere</td></tr>
+<tr><td>Joi, NY: spargere + retest sub 3.700</td><td>Short (Setup C)</td><td class="pos">+0,5R</td></tr>
+<tr><td>Vineri: rezistență sub 3.600</td><td>Short (Setup D)</td><td class="pos">~29 $ de mișcare</td></tr>
+<tr><td>Vineri, 17:00: spargere falsă + retest</td><td>Short (Setup C)</td><td class="pos">+0,5R (sau +2R fără BE)</td></tr>
+<tr><td>Vineri, 20:50: măturare contra trendului</td><td>Nu, oră și context proaste</td><td>A mers, dar era un risc inutil</td></tr>
+</table></div>
+<p>În două zile cu mișcări uriașe, un scalper disciplinat ar fi avut <b>2–3 tranzacții</b>, toate în direcția trendului. Restul timpului a fost așteptare. Scalpingul bun arată așa.</p>
+</div>
+<div class="quiz" data-quiz="real"></div>
+</section>
+
+<!-- ================= 11 MANIP ================= -->
+<section class="mod" id="manip">
+<div class="eyebrow">Modulul 11 · 40 min · esențial</div>
+<h2>Manipulările, esența și adaptarea</h2>
+<p class="goal">Ce afli: ce „manipulări” există cu adevărat pe aur, cum le recunoști pe grafic, cum te aperi de ele și care sunt principiile de bază care rămân valabile oricât s-ar schimba piața.</p>
+<div class="col">
+<h3>Ce e adevărat și ce e mit</h3>
+<p>Pe aur există mișcări create ca să prindă traderi. Unele sunt ilegale, altele sunt simplu felul în care funcționează lichiditatea. E important să le separi, ca să nu vezi „manipulare” în orice lumânare.</p>
+<div class="tbl"><table>
+<tr><th>Fenomenul</th><th>Ce e</th><th>Legal?</th></tr>
+<tr><td><b>Spoofing</b></td><td>Ordine mari plasate fără intenția de a fi executate, ca să creeze impresia de cerere/ofertă, apoi anulate</td><td class="neg">Ilegal. În 2020, JPMorgan a plătit ~920 de milioane $ în SUA pentru spoofing pe metale prețioase și obligațiuni</td></tr>
+<tr><td><b>Vânătoarea de stopuri</b> <span class="en">stop run</span></td><td>Prețul e împins dincolo de un nivel evident, unde stau multe stopuri, ca să umple ordine mari, apoi se întoarce</td><td>De obicei e doar căutarea lichidității (Modulul 6)</td></tr>
+<tr><td><b>Spargerea falsă</b> la deschidere <span class="en">Judas swing</span></td><td>Prima mișcare a Londrei sau a NY merge în direcția greșită, apoi se întoarce</td><td>Comportament normal al pieței</td></tr>
+<tr><td><b>Vârfurile de la știri</b></td><td>Prețul sare în ambele direcții în câteva secunde, lichiditatea dispare</td><td>Normal, dar periculos</td></tr>
+<tr><td><b>Lărgirea spread-ului</b> la broker</td><td>La rollover (00:00), la știri și noaptea, spread-ul crește mult și îți poate atinge stopul fără ca prețul să ajungă acolo pe grafic</td><td>Permis, dar verifică în contract</td></tr>
+<tr><td><b>Brokerul care joacă împotriva ta</b></td><td>La brokerii nereglementați: prețuri „aranjate”, execuții întârziate, refuzul retragerilor</td><td class="neg">Fraudă. Lucrează doar cu brokeri reglementați</td></tr>
+</table></div>
+<p>Ce nu e manipulare: un stop pus exact sub un minim evident și atins de un fitil. Acolo stau stopurile tuturor, iar piața trece pe acolo pentru că acolo sunt ordinele. Soluția e în mâna ta: unde pui stopul.</p>
+
+<h3>Cum arată o „manipulare” pe grafic</h3>
+<figure><div class="chart" id="g-manip"></div>
+<figcaption><b>Tiparul tipic, ilustrativ.</b> (1) Range clar, cu un minim evident. (2) Prețul coboară brusc sub minim: stopurile cumpărătorilor sunt executate, iar alții vând „spargerea”. (3) Lumânarea închide înapoi deasupra. (4) Mișcarea reală pornește în sens opus și prinde pe toți cei care au vândut jos. Linia roșie punctată e un stop „evident”; linia verde, un stop pus cu marjă de ATR.</figcaption></figure>
+
+<h3>Esența: 8 principii care nu se schimbă</h3>
+<p>Setup-urile, indicatorii și numele la modă (SMC, ICT, order blocks) se schimbă. Aceste principii rămân, pentru că vin din felul în care funcționează orice piață:</p>
+<ol>
+<li><b>Prețul merge acolo unde sunt ordine.</b> Maxime/minime evidente, numere rotunde, nivelurile de ieri. Întreabă mereu: „Unde stau stopurile acum?”</li>
+<li><b>Închiderea contează mai mult decât fitilul.</b> Un fitil dincolo de nivel e o încercare; o închidere e o decizie. Majoritatea „manipulărilor” sunt fitile.</li>
+<li><b>Reacția contează mai mult decât predicția.</b> Nu ghicești ce va face prețul la nivel. Aștepți să vezi ce face (respingere sau acceptare) și reacționezi.</li>
+<li><b>Contextul mare câștigă.</b> Un semnal pe M5 împotriva trendului H1 are șanse mici, oricât de frumos arată.</li>
+<li><b>Ora contează.</b> Același tipar e de încredere la 10:15 sau 16:45 și nesigur la 13:00, 23:00 sau la 15:29.</li>
+<li><b>Stopul se pune unde ideea ta e greșită, nu unde e evident.</b> Dincolo de fitilul măturării, cu marjă de ATR. Apoi calculezi lotul din distanța asta.</li>
+<li><b>Riscul mic te ține în joc.</b> Nimeni nu poate evita toate capcanele. Cu 0,5% risc, cinci capcane la rând costă 2,5%, nu contul.</li>
+<li><b>„Nu intru” e o poziție.</b> Cele mai multe pierderi vin din tranzacții care nu trebuiau luate.</li>
+</ol>
+
+<h3>Cum te aperi concret</h3>
+<ul>
+<li><b>Nu intra la prima atingere</b> a unui nivel evident. Așteaptă măturarea și închiderea înapoi, sau spargerea și retestul.</li>
+<li><b>Stopul cu marjă</b>: dincolo de fitil + 0,5–1 × ATR M5, nu exact sub minim. Lotul se micșorează corespunzător.</li>
+<li><b>Fără stopuri pe numere rotunde</b>: nu 3.600,0, ci 3.601,8 sau 3.597,9, în funcție de direcție.</li>
+<li><b>Evită orele cu spread mare</b>: 23:30–01:30, cu 5 minute înainte de știri și imediat după.</li>
+<li><b>Verifică spread-ul în contractul brokerului</b> și compară graficul brokerului cu TradingView. Dacă stopul tău e atins des fără ca prețul să ajungă acolo, problema e la broker.</li>
+<li><b>Ordine de intrare la închiderea lumânării</b>, nu ordine stop puse exact peste maxime evidente.</li>
+</ul>
+
+<h3>Adaptarea: ce schimbi în funcție de tipul zilei</h3>
+<p>Nu există o setare bună pentru toate zilele. Identifici tipul zilei în analiza de dimineață și la deschiderea NY, apoi adaptezi:</p>
+<div class="tbl"><table>
+<tr><th>Tipul zilei</th><th>Cum o recunoști</th><th>Ce adaptezi</th></tr>
+<tr><td><b>Zi de trend</b> (ca 19–20 noiembrie)</td><td>H1 cu LH/LL clare, niveluri sparte unul după altul, reveniri care nu trec de EMA 50</td><td>Doar în direcția trendului (B, C). Fără întoarceri. Măturările contra trendului sunt doar pauze. Ia în calcul trailing în loc de break-even</td></tr>
+<tr><td><b>Zi de range</b></td><td>Prețul revine mereu între aceleași niveluri, EMA plată, VWAP traversat des</td><td>Setup A și D la margini. Ținte mai scurte (mijlocul range-ului). Fără spargeri</td></tr>
+<tr><td><b>Zi de știri mari</b> (CPI, NFP, FOMC)</td><td>Calendarul</td><td>Risc redus la jumătate sau zero tranzacții. Doar Setup E, după închiderea M15</td></tr>
+<tr><td><b>Zi foarte volatilă</b></td><td>ATR M5 de 2 ori peste normal</td><td>Stopuri mai largi → loturi mai mici (lotul se calculează din stop). Mai puține tranzacții</td></tr>
+<tr><td><b>Zi „moartă”</b></td><td>ATR mic, sărbători, vineri seara</td><td>Nu tranzacționezi. Spread-ul mănâncă tot</td></tr>
+</table></div>
+<div class="box ex"><span class="lbl">Cum adaptezi în timp, nu doar într-o zi</span><p>Piața se schimbă de la o lună la alta: în 2026 aurul a trecut de la un maxim istoric la o scădere de peste 35%, iar volatilitatea s-a modificat mult. O dată pe lună, citește-ți jurnalul: ce setup a mers, la ce oră, în ce tip de zi. Ajustezi <b>un singur lucru</b> o dată (ora, marja stopului sau ținta), îl testezi pe 30 de tranzacții, apoi decizi. Esența rămâne; detaliile se adaptează.</p></div>
+</div>
+<div class="quiz" data-quiz="manip"></div>
+</section>
+
+<!-- ================= 12 RISC ================= -->
+<section class="mod" id="a10">
+<div class="eyebrow">Modulul 12 · 40 min · esențial</div>
+<h2>Riscul, lotul și costurile pe aur</h2>
+<p class="goal">Ce afli: cum calculezi lotul pentru aur, cât te costă de fapt spread-ul pe un scalp, regulile zilnice și un calculator.</p>
+<div class="col">
+<h3>Formula lotului pe aur</h3>
+<div class="calc">Lot = Suma riscată ($) ÷ (Distanța stopului în $ × 100)
+
+Cont 5.000 $, risc 0,5% = 25 $, stop la 5 $ de intrare
+Lot = 25 / (5 × 100) = 0,05 loturi
+Verificare: 0,05 loturi = 5 uncii; 5 $ × 5 = 25 $ ✓</div>
+<p>Rotunjești <b>întotdeauna în jos</b>. Dacă rezultatul e sub 0,01 (lotul minim), stopul e prea larg pentru contul tău: sari peste tranzacție.</p>
+<div class="box warn"><span class="lbl">Contul mic și aurul</span><p>Cu un cont de 1.000 $ și 0,5% risc (5 $), lotul minim de 0,01 îți permite un stop de maximum 5 $. În zilele volatile, multe setup-uri au stopuri de 8–15 $ (Modulul 10). Asta înseamnă că trebuie să sari peste ele sau să riști mai mult decât trebuie. E un motiv onest să exersezi pe demo până ai un cont suficient de mare.</p></div>
+
+<h3>Cât te costă spread-ul pe un scalp</h3>
+<div class="tbl"><table>
+<tr><th class="num">Stop</th><th class="num">Spread 0,30 $</th><th class="num">Cost ca % din risc</th><th>Ce înseamnă</th></tr>
+<tr><td class="num">2 $</td><td class="num">0,30 $</td><td class="num neg">15%</td><td>Pierzi 0,15R la fiecare tranzacție</td></tr>
+<tr><td class="num">3 $</td><td class="num">0,30 $</td><td class="num neg">10%</td><td>Greu de compensat</td></tr>
+<tr><td class="num">5 $</td><td class="num">0,30 $</td><td class="num">6%</td><td>Acceptabil</td></tr>
+<tr><td class="num">8 $</td><td class="num">0,30 $</td><td class="num pos">3,8%</td><td>Bine</td></tr>
+</table></div>
+<p>Cu 3 tranzacții pe zi și stop de 3 $, spread-ul te costă ~0,3R pe zi, adică ~6R pe lună. Strategia ta trebuie să câștige mai mult decât atât doar ca să ajungi pe zero. De aceea, pe aur, stopurile foarte mici (sub 3 $) sunt rareori o idee bună.</p>
+
+<div class="tool" id="lotcalc">
+<h4>Calculatorul de lot pentru aur</h4>
+<div class="fields">
+<label>Capital cont ($)<input id="lc-acc" type="number" value="5000" min="0" step="100"></label>
+<label>Risc (%)<input id="lc-risk" type="number" value="0.5" min="0.1" max="5" step="0.1"></label>
+<label>Preț intrare<input id="lc-entry" type="number" value="3554.4" step="0.1"></label>
+<label>Preț stop<input id="lc-stop" type="number" value="3565.0" step="0.1"></label>
+<label>Spread ($)<input id="lc-spread" type="number" value="0.30" min="0" step="0.05"></label>
+<label>Comision / lot dus-întors ($)<input id="lc-com" type="number" value="0" min="0" step="1"></label>
+<label>Țintă (R)<input id="lc-rr" type="number" value="2" min="0.5" step="0.5"></label>
+</div>
+<div class="out" id="lc-out"></div>
+</div>
+
+<h3>Regulile zilnice</h3>
+<ul>
+<li><b>Risc pe tranzacție</b>: 0,25–0,5%.</li>
+<li><b>Maximum 3 tranzacții pe zi</b>, doar în ferestrele bune.</li>
+<li><b>Oprire după 2 pierderi</b> sau după −1,5% pe zi. Închizi platforma.</li>
+<li><b>Oprire după +2R</b> pe zi (opțional, dar ajută mult la început): o zi bună nu trebuie stricată.</li>
+<li><b>Stop de timp</b>: dacă după 3–4 lumânări M5 prețul nu s-a mișcat spre țintă, ieși la piață.</li>
+<li><b>Nicio poziție peste ora 23:30</b> și niciuna peste weekend.</li>
+</ul>
+</div>
+<div class="quiz" data-quiz="a10"></div>
+</section>
+
+<!-- ================= 13 GESTIONARE ================= -->
+<section class="mod" id="a11">
+<div class="eyebrow">Modulul 13 · 25 min</div>
+<h2>Gestionarea scalpului</h2>
+<p class="goal">Ce afli: ce faci de la intrare până la ieșire, minut cu minut, și cum alegi între țintă fixă, break-even și trailing.</p>
+<div class="col">
+<h3>Cronologia unui scalp</h3>
+<div class="tbl"><table>
+<tr><th>Momentul</th><th>Ce faci</th></tr>
+<tr><td><b>Intrarea</b></td><td>Ordin cu SL și TP puse imediat. Verifici volumul în fereastra de poziții.</td></tr>
+<tr><td><b>Primele 1–2 lumânări</b></td><td>Nu atingi nimic. E normal ca prețul să oscileze.</td></tr>
+<tr><td><b>+1R</b></td><td>Varianta A: închizi jumătate și muți stopul la intrare. Varianta B: muți stopul doar la −0,5R. Varianta C: nu faci nimic, lași ținta de 2R. Alegi una în plan.</td></tr>
+<tr><td><b>3–4 lumânări fără progres</b></td><td>Stop de timp: ieși la piață.</td></tr>
+<tr><td><b>Lumânare M5 puternică împotriva ta</b> care închide dincolo de nivelul de intrare</td><td>Ieși înainte de stop, dacă regula e scrisă în plan.</td></tr>
+<tr><td><b>Se apropie o știre</b></td><td>Închizi cu 5 minute înainte.</td></tr>
+<tr><td><b>Trailing</b> (doar în zile de trend)</td><td>Muți stopul deasupra/sub ultimul swing M5 confirmat.</td></tr>
+</table></div>
+<p>Exemplele reale din Modulul 10 arată compromisul: break-even-ul a dat +0,5R în loc de +2R în ambele tranzacții. În zilele de range, break-even-ul te salvează des. Testează pe datele tale.</p>
+<div class="box warn"><span class="lbl">Niciodată</span>
+<ul>
+<li>Nu muți stopul mai departe.</li>
+<li>Nu adaugi la o poziție în pierdere.</li>
+<li>Nu transformi un scalp pierzător într-o „investiție pe termen lung”.</li>
+</ul></div>
+</div>
+<div class="quiz" data-quiz="a11"></div>
+</section>
+
+<!-- ================= 14 PLAN ================= -->
+<section class="mod" id="a12">
+<div class="eyebrow">Modulul 14 · 30 min</div>
+<h2>Planul zilei și mintea scalperului</h2>
+<p class="goal">Ce afli: structura unei zile de scalping, jurnalul specific și capcanele psihologice care lovesc cel mai tare pe intervale mici.</p>
+<div class="col">
+<h3>O zi de scalping, în ordine</h3>
+<div class="tbl"><table>
+<tr><th>Ora (RO)</th><th>Activitate</th></tr>
+<tr><td class="mono">09:30–09:45</td><td>Analiza de 15 minute (Modulul 8), scenarii, alerte</td></tr>
+<tr><td class="mono">10:00–12:00</td><td>Fereastra 1. Reacționezi doar la alerte și la scenarii</td></tr>
+<tr><td class="mono">12:00</td><td>Pauză. Notezi tranzacțiile în jurnal</td></tr>
+<tr><td class="mono">15:00–15:15</td><td>Actualizezi analiza: ce a făcut Londra, ce știri vin</td></tr>
+<tr><td class="mono">15:45–18:00</td><td>Fereastra 2</td></tr>
+<tr><td class="mono">18:00</td><td>Închizi platforma. Jurnal, capturi de ecran</td></tr>
+</table></div>
+<p>Nu trebuie să tranzacționezi ambele ferestre. Mulți scalperi constanți lucrează doar 1–2 ore pe zi. Oboseala e un dușman mai mare decât piața.</p>
+
+<h3>Jurnalul specific scalpingului pe aur</h3>
+<p>Pe lângă rubricile obișnuite, notează la fiecare tranzacție:</p>
+<ul>
+<li><b>Sesiunea și ora exactă</b> (Londra / NY / altă oră).</li>
+<li><b>Tipul zilei</b> (trend / range / știri / volatilă).</li>
+<li><b>Setup-ul</b> (A–E) și <b>scorul verificatorului</b> de direcție.</li>
+<li><b>A existat măturare de lichiditate înainte?</b> (da/nu)</li>
+<li><b>Spread-ul la intrare</b> și slippage-ul.</li>
+<li><b>Ce ai făcut la +1R</b> și ce ar fi dat celelalte variante.</li>
+<li>Captură de ecran M15 și M5 la intrare și la ieșire.</li>
+</ul>
+<p>După 50 de tranzacții, filtrează după oră și setup. Aproape sigur vei descoperi că o fereastră și un setup îți aduc majoritatea câștigului.</p>
+
+<h3>Capcanele minții pe M5</h3>
+<div class="tbl"><table>
+<tr><th>Capcana</th><th>Cum arată pe aur</th><th>Antidotul</th></tr>
+<tr><td><b>FOMO</b></td><td>O lumânare de 15 $ pe care „trebuie” s-o prinzi</td><td>Nu intri niciodată în lumânarea de impuls; aștepți retestul</td></tr>
+<tr><td><b>Răzbunarea</b></td><td>După un stop, intri imediat în sens opus, cu lot dublu</td><td>Oprire după 2 pierderi; 15 minute pauză după fiecare pierdere</td></tr>
+<tr><td><b>Overtrading-ul</b></td><td>12 tranzacții pe zi „pentru că se mișcă”</td><td>Maximum 3, doar din scenariile scrise</td></tr>
+<tr><td><b>Ochii pe P&amp;L</b></td><td>Te uiți la bani, nu la grafic</td><td>Ascunde profitul în dolari; urmărește doar R</td></tr>
+<tr><td><b>„Manipulare!”</b></td><td>Fiecare stop atins e „vânat”</td><td>Verifică unde era stopul (Modulul 11). De obicei era în locul evident</td></tr>
+<tr><td><b>Lumânarea neînchisă</b></td><td>Intri când lumânarea „arată bine” la minutul 3</td><td>Intri doar după închidere</td></tr>
+</table></div>
+</div>
+<div class="quiz" data-quiz="a12"></div>
+</section>
+
+<!-- ================= 15 ANTRENAMENT ================= -->
+<section class="mod" id="a13">
+<div class="eyebrow">Modulul 15 · 30–60 min · exerciții</div>
+<h2>Antrenament pe grafice de aur: „Ce faci aici?”</h2>
+<p class="goal">Ce faci: 8 situații pe M5, fiecare cu ora și contextul. Alegi long, short sau „nu intru”, apoi vezi ce a urmat și explicația.</p>
+<div class="col"><p>Folosește tot: ora (Modulul 2), direcția (4), nivelul (5), lichiditatea (6), setup-ul (9) și manipulările (11). Răspunsul corect e cel pe care l-ar da un scalper disciplinat <b>înainte</b> să vadă viitorul. Situațiile sunt ilustrative, construite după tiparele reale ale aurului.</p></div>
+<div class="tool" id="drill" style="max-width:820px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px"><h4 id="dr-title" style="margin:0"></h4><span class="mono" id="dr-score" style="color:var(--muted);font-size:13px"></span></div>
+<p id="dr-ctx" style="margin:10px 0"></p>
+<div class="chart" id="dr-chart"></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px" id="dr-btns">
+<button type="button" data-a="long" style="border-color:var(--up);color:var(--up);font-weight:600">▲ Long</button>
+<button type="button" data-a="short" style="border-color:var(--down);color:var(--down);font-weight:600">▼ Short</button>
+<button type="button" data-a="none" style="font-weight:600">Nu intru</button>
+</div>
+<div class="fb" id="dr-fb" aria-live="polite" style="font-size:15px;margin-top:12px"></div>
+<div style="display:flex;gap:10px;margin-top:12px"><button type="button" id="dr-prev">← Anterioara</button><button type="button" id="dr-next" class="primary">Următoarea →</button></div>
+</div>
+<div class="quiz" data-quiz="a13"></div>
+</section>
+
+<!-- ================= 16 DRUM ================= -->
+<section class="mod" id="a14">
+<div class="eyebrow">Modulul 16 · 20 min</div>
+<h2>Drumul de 6 săptămâni</h2>
+<p class="goal">Ce faci: un plan concret, de la zero la primele tranzacții reale cu lot minim, fără să-ți arzi contul.</p>
+<div class="col">
+<div class="tbl"><table>
+<tr><th>Săptămâna</th><th>Ce faci</th><th>Rezultatul</th></tr>
+<tr><td><b>1</b></td><td>Modulele 0–5. Pe TradingView, XAUUSD pe M15: marchezi zilnic PDH/PDL, range-ul asiatic, numerele rotunde. Notezi la 18:00 ce au făcut nivelurile.</td><td>Vezi nivelurile fără să te gândești</td></tr>
+<tr><td><b>2</b></td><td>Modulele 6–8 și 10. Faci analiza de 15 minute în fiecare zi, cu fișa scrisă. Seara verifici care scenariu s-a întâmplat.</td><td>Analiză de rutină</td></tr>
+<tr><td><b>3</b></td><td>Modulele 9 și 11. Alegi <b>un</b> setup (C sau B). Bar Replay pe M5: 50 de tranzacții de backtest, toate în jurnal.</td><td>Speranța primului setup</td></tr>
+<tr><td><b>4</b></td><td>Încă 50 de tranzacții de backtest, pe alte săptămâni (zile de trend și de range). Modulele 12–14.</td><td>100 de tranzacții testate</td></tr>
+<tr><td><b>5–6</b></td><td>Cont demo, în timp real, doar în ferestrele tale. Minimum 30 de tranzacții, exact după reguli. Modulul 15.</td><td>Știi dacă poți executa</td></tr>
+<tr><td><b>După</b></td><td>Doar dacă speranța e pozitivă și pe backtest, și pe demo: cont real cu <b>0,01 loturi</b>, timp de minimum o lună.</td><td>Experiență cu bani reali, risc minim</td></tr>
+</table></div>
+<p>Dacă speranța nu iese pozitivă: nu treci pe real. Revii la jurnal, adaptezi un singur lucru (Modulul 11) și testezi din nou. Folosește și jurnalul Excel și analizorul din cursul „Trading de la Zero”.</p>
+<div class="box warn"><span class="lbl">Ultimul cuvânt</span><p>Scalpingul pe aur e unul dintre cele mai grele lucruri din trading. Cei care reușesc au de obicei luni de practică, reguli foarte simple și o disciplină aproape plictisitoare. Dacă după 2–3 luni de practică onestă cifrele nu ies, o strategie mai lentă (swing pe H4/D1) sau investițiile pe termen lung sunt alegeri la fel de bune.</p></div>
+</div>
+<div class="quiz" data-quiz="a14"></div>
+</section>
+
+<!-- ================= GLOSAR ================= -->
+<section class="mod" id="gloss">
+<div class="eyebrow">Referință</div>
+<h2>Glosar pentru scalping pe aur</h2>
+<label class="gsearch" style="display:grid;gap:4px;font-size:13px;color:var(--muted)">Caută un termen<input id="gq" type="search" placeholder="ex: PDH, măturare, CHoCH…" autocomplete="off"></label>
+<p class="src" id="gcount"></p>
+<dl class="gl" id="glist"></dl>
+</section>
+
+<section class="mod" id="surse" style="border-bottom:0">
+<div class="eyebrow">Surse</div>
+<h2>Surse folosite</h2>
+<ul class="src col">
+<li>Prețurile reale din Modulul 10: contractul futures pe aur COMEX (GC=F), date pe 5 și 15 minute, Yahoo Finance, preluate pe 21 noiembrie 2026.</li>
+<li>Prețul și contextul aurului în noiembrie 2026: <a href="https://www.fxleaders.com/news/2026/11/20/gold-price-forecast-xau-usd-breaks-below-3600-worst-week-since-march/" target="_blank" rel="noopener">fxleaders.com</a>, <a href="https://finance.yahoo.com/markets/commodities/articles/gold-price-today-november-20-110915168.html" target="_blank" rel="noopener">finance.yahoo.com</a>, <a href="https://www.fxempire.com/forecasts/gold" target="_blank" rel="noopener">fxempire.com</a>, <a href="https://www.tradingview.com/symbols/XAUUSD/" target="_blank" rel="noopener">tradingview.com</a></li>
+<li>Range-uri și spread-uri tipice pe aur în 2026: <a href="https://www.mql5.com/en/blogs/post/778649" target="_blank" rel="noopener">mql5.com</a>, <a href="https://fxnx.com/en/blog/xauusd-trading-hours-session-range-spread-cost-windows" target="_blank" rel="noopener">fxnx.com</a>, <a href="https://www.financemagnates.com/forex/best-brokers-to-trade-gold-in-2026-xauusd-brokers-compared/" target="_blank" rel="noopener">financemagnates.com</a></li>
+<li>ESMA, restricțiile pe CFD-uri și limita de levier 20:1 pe aur pentru retail: <a href="https://www.esma.europa.eu/node/84933" target="_blank" rel="noopener">esma.europa.eu</a></li>
+<li>Amenda JPMorgan pentru spoofing pe metale prețioase (septembrie 2020): comunicatele CFTC și ale Departamentului de Justiție al SUA.</li>
+<li>Graficele din afara Modulului 10 sunt generate ilustrativ și nu reprezintă prețuri reale.</li>
+</ul>
+<p class="src col">Material educativ. Nu reprezintă recomandare de investiții. Tranzacționarea cu levier implică un risc ridicat de pierdere a întregului capital.</p>
+</section>
+</main>
+</div>
+
+<div id="deck" hidden role="dialog" aria-label="Mod prezentare">
+  <div class="stage"><div class="slide" id="slide"></div></div>
+  <div class="ctrl"><button type="button" id="dPrev">← Înapoi</button><span id="dNum"></span><button type="button" id="dNext">Înainte →</button><button type="button" id="dClose">Închide ✕</button></div>
+</div>
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg';
+const $=id=>document.getElementById(id);
+const fmt=(v,d=2)=>Number(v).toLocaleString('ro-RO',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+/* ---------- date ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gen(pts,o){o=o||{};const r=rng(o.seed||7),vol=o.vol??0.5,wick=o.wick??0.6,n=pts[pts.length-1][0]+1;
+  const tgt=i=>{for(let k=0;k<pts.length-1;k++){const[a,pa]=pts[k],[b,pb]=pts[k+1];if(i>=a&&i<=b)return pa+(pb-pa)*(i-a)/(b-a||1)}return pts[pts.length-1][1]};
+  const out=[];let prev=tgt(0);
+  for(let i=0;i<n;i++){const o2=prev,c=tgt(i)+(r()-.5)*2*vol;const h=Math.max(o2,c)+r()*wick,l=Math.min(o2,c)-r()*wick;
+    out.push({o:o2,h,l,c,v:40+r()*40+Math.abs(c-o2)*(o.vk||25)});prev=c}
+  return out}
+const fromArr=a=>a.map(x=>({o:x[0],h:x[1],l:x[2],c:x[3],v:50}));
+function sma(d,p){return d.map((_,i)=>i<p-1?null:d.slice(i-p+1,i+1).reduce((s,x)=>s+x.c,0)/p)}
+function emaArr(vals,p){const k=2/(p+1);let e=null;return vals.map(v=>{if(v==null)return null;e=e==null?v:v*k+e*(1-k);return e})}
+function ema(d,p){return emaArr(d.map(x=>x.c),p)}
+function rsi(d,p=14){const out=Array(d.length).fill(null);let g=0,l=0;
+  for(let i=1;i<d.length;i++){const ch=d[i].c-d[i-1].c,up=Math.max(ch,0),dn=Math.max(-ch,0);
+    if(i<=p){g+=up;l+=dn;if(i===p){g/=p;l/=p;out[i]=l===0?100:100-100/(1+g/l)}}
+    else{g=(g*(p-1)+up)/p;l=(l*(p-1)+dn)/p;out[i]=l===0?100:100-100/(1+g/l)}}
+  return out}
+function macd(d){const e12=ema(d,12),e26=ema(d,26);const m=e12.map((v,i)=>i<25?null:v-e26[i]);const s=emaArr(m,9);return{m,s,h:m.map((v,i)=>v==null||s[i]==null?null:v-s[i])}}
+function boll(d,p=20,k=2){const m=sma(d,p);return m.map((v,i)=>{if(v==null)return null;const sl=d.slice(i-p+1,i+1);const sd=Math.sqrt(sl.reduce((s,x)=>s+(x.c-v)**2,0)/p);return{m:v,u:v+k*sd,l:v-k*sd}})}
+
+/* ---------- svg ---------- */
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e}
+function svgRoot(W,H,label){const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':label||'grafic'});return s}
+
+function chart(id,d,o){o=o||{};const host=typeof id==='string'?$(id):id;if(!host)return;
+  const W=o.w||760,mainH=o.h||290,padL=10,padR=o.bare?10:58,padT=16,padB=o.bare?10:18;
+  const ph=o.panel?(o.panel.h||100):0,gap=o.panel?18:0,H=padT+mainH+padB+gap+ph+(o.panel?8:0);
+  const s=svgRoot(W,H,o.label);
+  const n=d.length+(o.extra||0);
+  let mn=Infinity,mx=-Infinity;d.forEach(x=>{mn=Math.min(mn,x.l);mx=Math.max(mx,x.h)});
+  (o.hlines||[]).forEach(h=>{mn=Math.min(mn,h.y);mx=Math.max(mx,h.y)});
+  (o.zones||[]).forEach(z=>{mn=Math.min(mn,z.y1);mx=Math.max(mx,z.y2)});
+  const bb=o.bb?boll(d):null;if(bb)bb.forEach(b=>{if(b){mn=Math.min(mn,b.l);mx=Math.max(mx,b.u)}});
+  const pad=(mx-mn)*.08;mn-=pad;mx+=pad;
+  const step=(W-padL-padR)/n,bw=Math.max(1.5,step*(o.bw||.62));
+  const X=i=>padL+(i+.5)*step,Y=p=>padT+(mx-p)/(mx-mn)*mainH;
+  const P=(i,p)=>typeof p==='string'?(p==='L'?d[i].l:p==='H'?d[i].h:p==='C'?d[i].c:d[i].o):p;
+  const ctx={X,Y,P,s,step,W,padL,padR,padT,mainH,d};
+  // grid
+  if(!o.bare){const ticks=5;for(let k=0;k<=ticks;k++){const p=mn+(mx-mn)*k/ticks,y=Y(p);el('line',{x1:padL,x2:W-padR,y1:y,y2:y,class:'gridl'},s);el('text',{x:W-padR+6,y:y+3.5,class:'axis'},s,fmt(p,o.dec??(mx>500?0:mx>20?1:mx>2?2:4)))}}
+  // zones
+  (o.zones||[]).forEach(z=>{const x1=z.i1!=null?X(z.i1)-step/2:padL,x2=z.i2!=null?X(z.i2)+step/2:W-padR;el('rect',{x:x1,y:Y(z.y2),width:x2-x1,height:Math.max(1,Y(z.y1)-Y(z.y2)),class:z.cls||'zone-acc'},s);if(z.label)el('text',{x:x1+6,y:Y(z.y2)-4,class:'lbl-t'},s,z.label)});
+  (o.boxes||[]).forEach(b=>{const x1=X(b.i1)-step/2,x2=X(b.i2)+step/2;el('rect',{x:x1,y:padT,width:x2-x1,height:mainH,class:'hl'},s);if(b.label)el('text',{x:(x1+x2)/2,y:padT+12,'text-anchor':'middle',class:'lbl-t'},s,b.label)});
+  // bollinger
+  if(bb){['u','m','l'].forEach(k=>{let p='';bb.forEach((b,i)=>{if(b)p+=(p?'L':'M')+X(i)+' '+Y(b[k])});el('path',{d:p,class:k==='m'?'ln-warn':'ln-acc'},s)})}
+  // volume
+  if(o.volume){const vmax=Math.max(...d.map(x=>x.v));d.forEach((x,i)=>{const h=x.v/vmax*mainH*.18;el('rect',{x:X(i)-bw/2,y:padT+mainH-h,width:bw,height:h,class:'vol'},s)})}
+  // candles
+  if(o.line){let p='';d.forEach((x,i)=>p+=(i?'L':'M')+X(i)+' '+Y(x.c));el('path',{d:p,class:'ln-ink'},s)}
+  else if(o.ohlc){d.forEach((x,i)=>{const up=x.c>=x.o,c=up?'wick-up':'wick-down';el('line',{x1:X(i),x2:X(i),y1:Y(x.h),y2:Y(x.l),class:c,'stroke-width':1.6},s);el('line',{x1:X(i)-bw/2,x2:X(i),y1:Y(x.o),y2:Y(x.o),class:c,'stroke-width':1.6},s);el('line',{x1:X(i),x2:X(i)+bw/2,y1:Y(x.c),y2:Y(x.c),class:c,'stroke-width':1.6},s)})}
+  else d.forEach((x,i)=>{const up=x.c>=x.o;el('line',{x1:X(i),x2:X(i),y1:Y(x.h),y2:Y(x.l),class:up?'wick-up':'wick-down','stroke-width':Math.max(1,bw*.12)},s);const y1=Y(Math.max(x.o,x.c)),hh=Math.max(1.2,Math.abs(Y(x.o)-Y(x.c)));el('rect',{x:X(i)-bw/2,y:y1,width:bw,height:hh,class:up?'c-up':'c-down','stroke-width':.5},s)});
+  // MAs
+  (o.ma||[]).forEach(m=>{const v=m.type==='ema'?ema(d,m.p):sma(d,m.p);let p='';v.forEach((y,i)=>{if(y!=null)p+=(p?'L':'M')+X(i)+' '+Y(y)});el('path',{d:p,class:m.cls||'ln-acc'},s)});
+  // hlines
+  (o.hlines||[]).forEach(h=>{const x1=h.i1!=null?X(h.i1):padL,x2=h.i2!=null?X(h.i2):W-padR;el('line',{x1,x2,y1:Y(h.y),y2:Y(h.y),class:(h.cls||'ln-acc')+(h.solid?'':' dash')},s);if(h.label)el('text',{x:h.lx!=null?X(h.lx):x1+4,y:Y(h.y)+(h.below?13:-5),class:'lbl-t '+(h.tcls||'')},s,h.label)});
+  // lines
+  (o.lines||[]).forEach(l=>{let[i1,p1]=l.a,[i2,p2]=l.b;p1=P(i1,p1);p2=P(i2,p2);let xe=i2,ye=p2;if(l.ext!=null){xe=l.ext;ye=p1+(p2-p1)*(xe-i1)/(i2-i1)}
+    el('line',{x1:X(i1),y1:Y(p1),x2:X(xe),y2:Y(ye),class:(l.cls||'ln-acc')+(l.dash?' dash':'')},s);if(l.label)el('text',{x:X(xe)-4,y:Y(ye)+(l.below?14:-6),'text-anchor':'end',class:'lbl-t '+(l.tcls||'')},s,l.label)});
+  // marks
+  (o.marks||[]).forEach(m=>{const below=m.pos==='below';const p=m.p!=null?P(m.i,m.p):(below?d[m.i].l:d[m.i].h);const y=Y(p)+(below?8:-8);
+    el('circle',{cx:X(m.i),cy:y,r:2.6,class:m.dot||'dot-acc'},s);el('text',{x:X(m.i)+(m.dx||0),y:y+(below?14:-6),'text-anchor':m.anchor||'middle',class:'lbl-t '+(m.cls||'')},s,m.text)});
+  if(o.after)o.after(ctx);
+  // panel
+  if(o.panel){const top=padT+mainH+padB+gap,pb=top+ph;el('line',{x1:padL,x2:W-padR,y1:top-gap/2,y2:top-gap/2,class:'gridl'},s);
+    el('text',{x:padL+2,y:top+2,class:'lbl-m'},s,o.panel.title||'');
+    if(o.panel.type==='rsi'){const r=rsi(d),Yr=v=>top+(100-v)/100*ph;[[70,'zone-down'],[30,'zone-up']].forEach(([lv,c])=>{});
+      el('rect',{x:padL,y:Yr(100),width:W-padR-padL,height:Yr(70)-Yr(100),class:'zone-down'},s);el('rect',{x:padL,y:Yr(30),width:W-padR-padL,height:Yr(0)-Yr(30),class:'zone-up'},s);
+      [70,50,30].forEach(v=>{el('line',{x1:padL,x2:W-padR,y1:Yr(v),y2:Yr(v),class:'gridl'},s);el('text',{x:W-padR+6,y:Yr(v)+3.5,class:'axis'},s,v)});
+      let p='';r.forEach((v,i)=>{if(v!=null)p+=(p?'L':'M')+X(i)+' '+Yr(v)});el('path',{d:p,class:'ln-acc'},s)}
+    if(o.panel.type==='macd'){const m=macd(d);const all=[...m.m,...m.s,...m.h].filter(v=>v!=null);const a=Math.max(...all.map(Math.abs))*1.1;const Ym=v=>top+ph/2-v/a*ph/2;
+      el('line',{x1:padL,x2:W-padR,y1:Ym(0),y2:Ym(0),class:'gridl'},s);el('text',{x:W-padR+6,y:Ym(0)+3.5,class:'axis'},s,'0');
+      m.h.forEach((v,i)=>{if(v==null)return;el('rect',{x:X(i)-bw/2,y:Math.min(Ym(0),Ym(v)),width:bw,height:Math.abs(Ym(v)-Ym(0)),class:v>=0?'c-up':'c-down',opacity:.45},s)});
+      [['m','ln-acc'],['s','ln-warn']].forEach(([k,c])=>{let p='';m[k].forEach((v,i)=>{if(v!=null)p+=(p?'L':'M')+X(i)+' '+Ym(v)});el('path',{d:p,class:c},s)})}
+    if(o.panel.type==='vol'){const vmax=Math.max(...d.map(x=>x.v));d.forEach((x,i)=>{const h=x.v/vmax*(ph-14);el('rect',{x:X(i)-bw/2,y:pb-h,width:bw,height:h,class:x.c>=x.o?'c-up':'c-down',opacity:.55},s)})}
+  }
+  host.innerHTML='';host.appendChild(s);return ctx}
+
+window.TDZ={chart,gen,ema,sma,rsi,macd,boll,fromArr,el,svgRoot,rng,fmt};
+})();
+</script>
+<script>window.REAL={"h1":[[3730.2,3746.3,3727.4,3741.3,4779,"Joi 01:00"],[3741.2,3757.6,3736.2,3754.5,5528,"Joi 02:00"],[3754.3,3759.5,3738.5,3755.7,7580,"Joi 03:00"],[3755.3,3755.6,3705.4,3710.2,9596,"Joi 04:00"],[3710.0,3724.3,3694.5,3721.3,11558,"Joi 05:00"],[3721.2,3729.8,3720.9,3724.2,3623,"Joi 06:00"],[3725.5,3745.6,3722.6,3741.4,6824,"Joi 07:00"],[3741.2,3743.1,3729.2,3734.2,4205,"Joi 08:00"],[3733.9,3742.6,3731.7,3738.4,4645,"Joi 09:00"],[3737.7,3743.8,3731.1,3737.5,5067,"Joi 10:00"],[3737.5,3742.4,3726.3,3727.2,4815,"Joi 11:00"],[3727.2,3738.7,3726.6,3736.7,4471,"Joi 12:00"],[3737.0,3738.1,3719.9,3720.1,4816,"Joi 13:00"],[3720.0,3722.6,3711.7,3721.3,6223,"Joi 14:00"],[3721.4,3728.9,3712.3,3715.4,11497,"Joi 15:00"],[3715.3,3719.2,3704.2,3709.8,14399,"Joi 16:00"],[3709.4,3714.9,3672.6,3674.3,23455,"Joi 17:00"],[3674.3,3693.3,3671.0,3685.2,17477,"Joi 18:00"],[3685.4,3693.8,3668.4,3681.4,16118,"Joi 19:00"],[3681.5,3688.6,3677.3,3682.4,9383,"Joi 20:00"],[3682.5,3682.5,3667.1,3669.1,4123,"Joi 21:00"],[3669.2,3674.6,3660.5,3661.6,8413,"Joi 22:00"],[3661.7,3663.6,3620.6,3627.9,10916,"Joi 23:00"],[3633.0,3638.1,3591.6,3608.7,10972,"Vin 01:00"],[3607.9,3628.0,3586.3,3597.7,11129,"Vin 02:00"],[3597.7,3610.4,3557.8,3561.9,20385,"Vin 03:00"],[3560.9,3562.2,3526.8,3548.6,27510,"Vin 04:00"],[3549.3,3557.7,3518.5,3551.0,14048,"Vin 05:00"],[3550.8,3552.3,3522.2,3533.0,8341,"Vin 06:00"],[3533.7,3558.6,3514.9,3546.1,15978,"Vin 07:00"],[3546.6,3567.3,3544.1,3561.2,12275,"Vin 08:00"],[3560.7,3576.5,3542.2,3569.4,11321,"Vin 09:00"],[3569.7,3591.6,3568.5,3583.4,10087,"Vin 10:00"],[3582.8,3587.4,3567.8,3569.2,9196,"Vin 11:00"],[3568.9,3596.7,3567.7,3588.4,7742,"Vin 12:00"],[3588.6,3593.6,3575.2,3575.7,4479,"Vin 13:00"],[3575.7,3581.4,3566.7,3574.3,9471,"Vin 14:00"],[3574.6,3582.4,3553.5,3572.9,21013,"Vin 15:00"],[3572.7,3582.8,3563.8,3578.9,21149,"Vin 16:00"],[3579.3,3587.0,3527.7,3551.9,30323,"Vin 17:00"],[3551.7,3558.8,3535.9,3547.5,17017,"Vin 18:00"],[3547.3,3547.3,3521.2,3531.7,12320,"Vin 19:00"],[3530.6,3542.9,3502.9,3535.6,22511,"Vin 20:00"],[3535.4,3536.8,3511.8,3524.7,10256,"Vin 21:00"],[3524.6,3530.5,3503.8,3526.2,10303,"Vin 22:00"],[3526.4,3544.3,3514.6,3539.0,5185,"Vin 23:00"]],"e1":[[3715.3,3717.5,3713.3,3714.0,650,"16:00"],[3714.1,3715.2,3712.6,3714.3,497,"16:05"],[3714.7,3714.7,3708.6,3712.0,1377,"16:10"],[3712.0,3712.3,3708.8,3710.7,833,"16:15"],[3711.0,3711.6,3706.6,3709.9,1097,"16:20"],[3709.4,3712.1,3707.0,3711.3,785,"16:25"],[3711.2,3717.5,3711.0,3715.5,1831,"16:30"],[3715.2,3719.2,3708.9,3712.6,1933,"16:35"],[3713.6,3716.8,3710.8,3713.0,1394,"16:40"],[3712.5,3716.8,3708.1,3714.0,919,"16:45"],[3713.8,3714.0,3704.3,3706.4,1941,"16:50"],[3706.4,3710.2,3704.2,3709.8,1142,"16:55"],[3709.4,3714.9,3706.2,3712.4,2232,"17:00"],[3712.6,3713.4,3707.4,3709.8,1094,"17:05"],[3709.3,3709.7,3703.4,3703.5,1621,"17:10"],[3703.5,3704.0,3698.3,3699.4,2696,"17:15"],[3698.8,3701.5,3696.2,3697.4,2160,"17:20"],[3697.4,3701.1,3686.6,3688.1,3173,"17:25"],[3688.1,3691.0,3686.2,3688.1,1822,"17:30"],[3688.4,3689.0,3683.6,3685.0,1811,"17:35"],[3684.3,3695.0,3684.2,3694.0,1714,"17:40"],[3693.7,3693.7,3686.1,3686.2,1405,"17:45"],[3686.6,3688.5,3681.0,3681.5,1493,"17:50"],[3681.6,3682.3,3672.6,3674.3,2234,"17:55"],[3674.3,3680.6,3671.0,3678.4,2695,"18:00"],[3678.6,3680.5,3675.2,3679.7,1346,"18:05"],[3679.9,3683.1,3678.2,3679.8,1192,"18:10"],[3679.7,3683.0,3679.0,3681.3,1351,"18:15"],[3681.1,3683.2,3677.1,3678.1,1015,"18:20"],[3678.4,3681.5,3676.9,3680.8,1169,"18:25"],[3680.9,3685.9,3679.7,3685.4,1521,"18:30"]],"e2":[[3524.1,3526.7,3515.1,3523.4,4743,"07:30"],[3523.4,3558.6,3520.9,3546.1,5310,"07:45"],[3546.6,3567.3,3544.1,3553.9,5819,"08:00"],[3554.2,3565.3,3552.6,3555.2,3069,"08:15"],[3556.0,3560.5,3549.0,3554.6,1575,"08:30"],[3554.8,3563.3,3553.5,3561.2,1812,"08:45"],[3560.7,3562.6,3549.4,3558.8,2336,"09:00"],[3558.4,3561.1,3547.9,3554.0,1808,"09:15"],[3553.7,3556.7,3542.2,3554.4,2946,"09:30"],[3554.6,3576.5,3554.6,3569.4,4231,"09:45"],[3569.7,3579.7,3568.5,3574.8,2951,"10:00"],[3574.4,3590.8,3572.6,3590.8,2662,"10:15"],[3590.7,3591.6,3583.7,3584.5,2921,"10:30"],[3584.5,3585.8,3580.5,3583.4,1553,"10:45"],[3582.8,3587.4,3572.9,3581.2,3614,"11:00"],[3581.9,3586.0,3571.7,3573.4,2682,"11:15"],[3573.5,3578.0,3571.5,3577.6,1404,"11:30"],[3576.7,3576.8,3567.8,3569.2,1496,"11:45"],[3568.9,3578.3,3567.7,3576.5,1048,"12:00"],[3576.6,3585.0,3576.0,3583.0,2207,"12:15"],[3583.0,3596.7,3582.6,3596.7,2580,"12:30"],[3596.5,3596.7,3586.3,3588.4,1907,"12:45"],[3588.6,3593.6,3586.9,3588.0,1176,"13:00"],[3587.4,3592.3,3585.7,3591.8,830,"13:15"],[3591.8,3592.0,3583.6,3584.1,1004,"13:30"],[3583.6,3586.4,3575.2,3575.7,1469,"13:45"],[3575.7,3577.8,3567.8,3574.4,3298,"14:00"],[3573.9,3581.4,3573.5,3579.2,1856,"14:15"],[3579.1,3579.1,3569.6,3572.0,2314,"14:30"],[3571.8,3576.4,3566.7,3574.3,2003,"14:45"],[3574.6,3582.4,3571.0,3571.7,4059,"15:00"]],"e3":[[3570.0,3579.7,3568.1,3572.8,2189,"16:30"],[3572.4,3579.5,3568.6,3578.3,1701,"16:35"],[3577.9,3577.9,3564.8,3568.0,2017,"16:40"],[3568.6,3581.1,3566.4,3576.2,2284,"16:45"],[3577.0,3577.5,3566.1,3575.2,2410,"16:50"],[3575.2,3580.6,3574.0,3578.9,1498,"16:55"],[3579.3,3587.0,3570.4,3573.8,4298,"17:00"],[3573.6,3575.0,3566.2,3568.3,2283,"17:05"],[3567.8,3568.3,3559.5,3559.6,1848,"17:10"],[3559.5,3559.5,3542.2,3543.1,2973,"17:15"],[3542.2,3546.7,3534.7,3535.3,3053,"17:20"],[3535.3,3537.5,3527.7,3537.0,3265,"17:25"],[3537.6,3550.6,3535.4,3547.5,2965,"17:30"],[3548.5,3564.2,3547.8,3562.1,3011,"17:35"],[3562.2,3562.6,3551.5,3554.4,2075,"17:40"],[3554.3,3558.2,3548.8,3557.8,2158,"17:45"],[3557.3,3557.6,3549.5,3552.7,1109,"17:50"],[3552.3,3554.9,3548.1,3551.9,1285,"17:55"],[3551.7,3551.9,3536.3,3540.5,2424,"18:00"]],"e4":[[3579.3,3587.0,3559.5,3559.6,8429,"17:00"],[3559.5,3559.5,3527.7,3537.0,9291,"17:15"],[3537.6,3564.2,3535.4,3554.4,8051,"17:30"],[3554.3,3558.2,3548.1,3551.9,4552,"17:45"],[3551.7,3558.8,3536.3,3555.6,6432,"18:00"],[3554.8,3556.5,3538.9,3543.8,3568,"18:15"],[3543.4,3553.5,3541.8,3545.7,3325,"18:30"],[3545.7,3548.2,3535.9,3547.5,3692,"18:45"],[3547.3,3547.3,3534.4,3536.5,3129,"19:00"],[3536.9,3541.3,3523.9,3530.5,3358,"19:15"],[3531.2,3534.5,3524.6,3527.7,2899,"19:30"],[3526.9,3532.3,3521.2,3531.7,2934,"19:45"],[3530.6,3532.2,3520.1,3522.1,3410,"20:00"],[3522.2,3529.7,3509.4,3514.5,9047,"20:15"],[3514.9,3522.5,3506.2,3506.9,4388,"20:30"],[3506.8,3542.9,3502.9,3535.6,5666,"20:45"],[3535.4,3536.8,3518.5,3518.8,2616,"21:00"],[3518.5,3522.4,3512.2,3513.6,1508,"21:15"],[3513.6,3535.7,3511.8,3532.6,3682,"21:30"],[3531.9,3532.1,3512.7,3524.7,2450,"21:45"],[3524.6,3524.8,3514.3,3514.9,1676,"22:00"],[3514.5,3524.0,3513.9,3515.7,1727,"22:15"],[3515.7,3517.0,3503.8,3506.8,2614,"22:30"],[3507.2,3530.5,3506.4,3526.2,4286,"22:45"],[3526.4,3529.3,3519.2,3519.3,1714,"23:00"],[3519.7,3525.3,3514.6,3523.8,979,"23:15"],[3524.0,3528.6,3519.8,3526.7,974,"23:30"],[3526.9,3544.3,3525.4,3539.0,1518,"23:45"]],"e5":[[3741.2,3743.1,3733.1,3740.0,1314,"08:00"],[3740.0,3741.7,3734.7,3736.4,651,"08:15"],[3736.6,3739.4,3730.4,3734.3,921,"08:30"],[3734.0,3735.9,3729.2,3734.2,1319,"08:45"],[3733.9,3741.6,3733.3,3735.3,1505,"09:00"],[3735.2,3742.6,3734.1,3735.4,1232,"09:15"],[3735.5,3738.7,3732.1,3734.2,997,"09:30"],[3734.1,3739.2,3731.7,3738.4,911,"09:45"],[3737.7,3743.8,3734.0,3741.8,1652,"10:00"],[3741.5,3743.7,3733.4,3736.2,981,"10:15"],[3736.4,3737.8,3732.0,3733.0,907,"10:30"],[3733.3,3739.6,3731.1,3737.5,1527,"10:45"],[3737.5,3742.4,3733.5,3734.0,1055,"11:00"],[3733.9,3736.8,3727.9,3727.9,1205,"11:15"],[3727.7,3737.3,3727.1,3732.5,1423,"11:30"],[3732.1,3733.1,3726.3,3727.2,1132,"11:45"],[3727.2,3733.5,3726.9,3731.1,1060,"12:00"],[3730.6,3734.1,3728.0,3728.8,1310,"12:15"],[3728.9,3736.9,3726.6,3736.3,1018,"12:30"],[3736.6,3738.7,3734.2,3736.7,1083,"12:45"],[3737.0,3738.1,3728.0,3729.2,1114,"13:00"],[3729.1,3730.8,3726.3,3730.2,1073,"13:15"],[3730.2,3734.2,3725.5,3726.5,1166,"13:30"],[3726.4,3729.1,3719.9,3720.1,1463,"13:45"]],"e6":[[3721.4,3725.6,3714.6,3716.2,1555,"15:00"],[3716.1,3722.2,3714.3,3722.2,1050,"15:05"],[3722.5,3723.9,3719.0,3719.7,654,"15:10"],[3719.2,3719.9,3714.7,3715.4,879,"15:15"],[3715.9,3717.3,3712.3,3716.1,817,"15:20"],[3715.5,3725.3,3715.4,3724.3,1271,"15:25"],[3724.3,3728.9,3718.8,3720.6,1483,"15:30"],[3721.2,3721.9,3715.6,3716.2,1146,"15:35"],[3716.3,3718.8,3712.7,3715.4,811,"15:40"],[3715.2,3717.6,3713.0,3716.8,640,"15:45"],[3716.8,3718.0,3713.4,3713.4,600,"15:50"],[3713.3,3717.7,3713.3,3715.4,591,"15:55"],[3715.3,3717.5,3713.3,3714.0,650,"16:00"],[3714.1,3715.2,3712.6,3714.3,497,"16:05"],[3714.7,3714.7,3708.6,3712.0,1377,"16:10"],[3712.0,3712.3,3708.8,3710.7,833,"16:15"],[3711.0,3711.6,3706.6,3709.9,1097,"16:20"],[3709.4,3712.1,3707.0,3711.3,785,"16:25"]],"e7":[[3730.2,3738.5,3727.4,3736.0,980,"01:00"],[3735.6,3746.1,3733.9,3741.2,1595,"01:15"],[3740.4,3746.3,3737.6,3744.1,1374,"01:30"],[3743.9,3744.5,3739.6,3741.3,830,"01:45"],[3741.2,3743.0,3736.2,3739.4,1187,"02:00"],[3739.0,3746.6,3737.6,3745.4,1390,"02:15"],[3744.7,3755.7,3741.9,3755.0,1512,"02:30"],[3754.3,3757.6,3750.5,3754.5,1439,"02:45"],[3754.3,3759.5,3747.2,3755.3,2453,"03:00"],[3755.6,3755.8,3743.8,3744.7,1572,"03:15"],[3744.1,3756.3,3738.5,3754.5,2169,"03:30"],[3754.3,3757.6,3750.9,3755.7,1386,"03:45"],[3755.3,3755.6,3745.6,3752.1,1715,"04:00"],[3752.0,3753.4,3746.3,3746.9,785,"04:15"],[3745.9,3746.4,3733.2,3734.7,2305,"04:30"],[3733.6,3735.8,3705.4,3710.2,4791,"04:45"],[3710.0,3717.7,3694.5,3701.0,5808,"05:00"],[3701.0,3715.4,3700.1,3714.9,2819,"05:15"],[3714.8,3715.5,3708.2,3709.5,1245,"05:30"],[3709.2,3724.3,3708.4,3721.3,1686,"05:45"],[3721.2,3729.2,3720.9,3729.0,1315,"06:00"],[3728.8,3729.0,3724.5,3727.1,845,"06:15"],[3726.6,3728.6,3721.8,3724.7,837,"06:30"],[3724.3,3729.8,3723.5,3724.2,626,"06:45"],[3725.5,3736.2,3722.6,3730.0,1645,"07:00"],[3729.9,3735.8,3728.2,3735.6,792,"07:15"],[3736.0,3745.6,3730.9,3740.9,3043,"07:30"],[3741.0,3744.2,3734.3,3741.4,1344,"07:45"],[3741.2,3743.1,3733.1,3740.0,1314,"08:00"],[3740.0,3741.7,3734.7,3736.4,651,"08:15"],[3736.6,3739.4,3730.4,3734.3,921,"08:30"],[3734.0,3735.9,3729.2,3734.2,1319,"08:45"]],"e4m5":[[3526.9,3528.9,3521.2,3525.1,816,"19:45"],[3524.7,3532.3,3524.0,3529.0,874,"19:50"],[3529.0,3532.3,3526.6,3531.7,1244,"19:55"],[3530.6,3531.8,3525.8,3528.2,1209,"20:00"],[3528.3,3532.2,3525.2,3526.9,1174,"20:05"],[3526.4,3526.6,3520.1,3522.1,1027,"20:10"],[3522.2,3527.4,3520.8,3525.0,2153,"20:15"],[3524.6,3529.7,3523.5,3524.4,1006,"20:20"],[3524.5,3524.5,3509.4,3514.5,5888,"20:25"],[3514.9,3518.6,3512.7,3517.6,1435,"20:30"],[3517.5,3522.5,3514.2,3515.8,2032,"20:35"],[3515.9,3516.3,3506.2,3506.9,921,"20:40"],[3506.8,3507.7,3502.9,3507.0,948,"20:45"],[3506.7,3520.2,3506.6,3519.5,1202,"20:50"],[3519.4,3542.9,3519.4,3535.6,3516,"20:55"],[3535.4,3536.8,3527.2,3527.2,929,"21:00"],[3526.8,3529.5,3521.5,3523.5,834,"21:05"],[3523.3,3526.6,3518.5,3518.8,853,"21:10"],[3518.5,3522.4,3516.5,3518.2,601,"21:15"],[3517.7,3519.0,3515.5,3517.1,297,"21:20"],[3517.2,3518.0,3512.2,3513.6,610,"21:25"],[3513.6,3517.1,3511.8,3513.9,886,"21:30"],[3514.3,3531.2,3514.0,3529.0,1536,"21:35"],[3528.9,3535.7,3526.7,3532.6,1260,"21:40"]]};</script>
+<script>
+(function(){
+const T=window.TDZ;const{chart,gen,ema,fromArr,el,svgRoot,rng,fmt}=T;const $=id=>document.getElementById(id);
+const REAL=window.REAL;
+const setC=(d,i,o,h,l,c)=>{d[i]={o,h,l,c,v:d[i].v};if(d[i+1])d[i+1].o=c};
+const lowest=(d,a,b)=>{let m=a;for(let i=a;i<=b;i++)if(d[i].l<d[m].l)m=i;return m};
+const highest=(d,a,b)=>{let m=a;for(let i=a;i<=b;i++)if(d[i].h>d[m].h)m=i;return m};
+const R=a=>a.map(x=>({o:x[0],h:x[1],l:x[2],c:x[3],v:x[4]||50,t:x[5]}));
+function vwap(d){let pv=0,vv=0;return d.map(x=>{const tp=(x.h+x.l+x.c)/3;pv+=tp*x.v;vv+=x.v;return pv/vv})}
+const drawLine=(c,vals,cls)=>{let p='';vals.forEach((y,i)=>{if(y!=null)p+=(p?'L':'M')+c.X(i)+' '+c.Y(y)});el('path',{d:p,class:cls},c.s)};
+const timeAxis=(d,every)=>c=>{d.forEach((x,i)=>{if(x.t&&i%every===0){el('line',{x1:c.X(i),x2:c.X(i),y1:c.padT+c.mainH,y2:c.padT+c.mainH+3,class:'gridl'},c.s);el('text',{x:c.X(i),y:c.padT+c.mainH+15,'text-anchor':i===0?'start':'middle',class:'axis'},c.s,x.t)}})};
+const vline=(i,label,cls)=>c=>{el('line',{x1:c.X(i)-c.step/2,x2:c.X(i)-c.step/2,y1:c.padT,y2:c.padT+c.mainH,class:(cls||'ln-muted')+' dash'},c.s);if(label)el('text',{x:c.X(i)-c.step/2+4,y:c.padT+c.mainH-6,class:'lbl-t'},c.s,label)};
+const both=(...f)=>c=>f.forEach(g=>g&&g(c));
+const idx=(d,t)=>d.findIndex(x=>x.t===t);
+const D1=1;
+
+/* ======== hero + Asia sweep ======== */
+function asiaData(){const d=gen([[0,3534],[5,3540.5],[10,3528],[16,3541],[21,3527],[27,3540],[31,3530],[35,3536],[38,3541.2],[39,3541.6],[42,3536.6],[48,3531],[50,3533.5],[56,3525.6],[60,3528]],{seed:301,vol:.7,wick:.8});
+ setC(d,39,d[39].o,3545.1,d[39].o-.6,3541.0);setC(d,40,3541.0,3541.6,3538.4,3538.9);setC(d,41,3538.9,3540.2,3537.6,3539.6);setC(d,42,3539.6,3539.8,3535.2,3535.6);return d}
+(function(){const d=asiaData();const ah=Math.max(...d.slice(0,36).map(x=>x.h)),al=Math.min(...d.slice(0,36).map(x=>x.l));const vw=vwap(d);
+ chart('g-hero',d,{h:270,dec:D1,ma:[{p:20,type:'ema',cls:'ln-blue'}],zones:[{y1:al,y2:ah,i1:0,i2:35,cls:'zone-gray',label:'range asiatic'}],marks:[{i:39,text:'măturare',pos:'above'},{i:42,text:'CHoCH',pos:'below'}],after:both(c=>drawLine(c,vw,'ln-acc dash'),vline(36,'10:00 Londra')),label:'Aur M5 măturarea range-ului asiatic'});
+ chart('g-asia',d,{h:270,dec:D1,zones:[{y1:al,y2:ah,i1:0,i2:35,cls:'zone-gray',label:'range asiatic 01:00–09:00'}],hlines:[{y:ah,i1:0,label:'maxim asiatic',cls:'ln-down',tcls:'t-down',lx:44},{y:al,i1:0,label:'minim asiatic = țintă',cls:'ln-up',tcls:'t-up',lx:44,below:1}],marks:[{i:39,text:'fitil peste maxim, închidere înapoi',pos:'above',anchor:'end'},{i:42,text:'CHoCH → short',pos:'below'}],after:vline(36,'10:00 deschiderea Londrei'),label:'Măturarea range-ului asiatic'})})();
+
+/* ======== DXY vs aur ======== */
+(function(){const host=$('g-dxy');if(!host)return;const r=rng(17);const n=60;let dx=103.2;const D=[],G=[];
+ for(let i=0;i<n;i++){dx+=(i<25?.035:i<40?-.05:.03)+(r()-.5)*.09;D.push(dx);G.push(3700-(dx-103)*160+(r()-.5)*14)}
+ const W=760,H=260,L=56,Rr=64,Tp=14,B=24,s=svgRoot(W,H,'Aur vs dolar');const X=i=>L+i/(n-1)*(W-L-Rr);
+ const dmn=Math.min(...D)-.1,dmx=Math.max(...D)+.1,gmn=Math.min(...G)-10,gmx=Math.max(...G)+10;const Yd=v=>Tp+(dmx-v)/(dmx-dmn)*(H-Tp-B),Yg=v=>Tp+(gmx-v)/(gmx-gmn)*(H-Tp-B);
+ for(let k=0;k<=4;k++){const y=Tp+k*(H-Tp-B)/4;el('line',{x1:L,x2:W-Rr,y1:y,y2:y,class:'gridl'},s);el('text',{x:L-6,y:y+3.5,'text-anchor':'end',class:'axis'},s,fmt(dmx-(dmx-dmn)*k/4,2));el('text',{x:W-Rr+6,y:y+3.5,class:'axis'},s,fmt(gmx-(gmx-gmn)*k/4,0))}
+ el('path',{d:D.map((v,i)=>(i?'L':'M')+X(i)+' '+Yd(v)).join(''),class:'ln-muted','stroke-width':2},s);el('path',{d:G.map((v,i)=>(i?'L':'M')+X(i)+' '+Yg(v)).join(''),class:'ln-acc','stroke-width':2.4},s);
+ el('text',{x:L,y:H-6,class:'lbl-t t-muted'},s,'DXY (scala stânga)');el('text',{x:W-Rr,y:H-6,'text-anchor':'end',class:'lbl-t t-acc'},s,'Aur $ (scala dreapta)');
+ el('text',{x:X(22),y:Yd(D[22])-10,'text-anchor':'middle',class:'lbl-m'},s,'dolarul urcă → aurul scade');el('text',{x:X(36),y:Yg(G[36])-12,'text-anchor':'middle',class:'lbl-m'},s,'dolarul scade → aurul urcă');host.appendChild(s)})();
+
+/* ======== sesiuni ======== */
+(function(){const host=$('g-sessions');if(!host)return;const W=760,H=300,L=118,Rr=16,s=svgRoot(W,H,'Ceasul aurului');const X=h=>L+(W-L-Rr)*h/24;
+ for(let h=0;h<=24;h+=3){el('line',{x1:X(h),x2:X(h),y1:14,y2:H-26,class:'gridl'},s);el('text',{x:X(h),y:H-10,'text-anchor':'middle',class:'axis'},s,String(h).padStart(2,'0')+':00')}
+ const rows=[['Asia',[[1,9]],'gray','01:00–09:00'],['Londra',[[10,19]],'blue','10:00–19:00'],['New York',[[15,24]],'blue','15:00–24:00'],['Fereastra 1',[[10,12.5]],'up','10:00–12:30'],['Fereastra 2',[[15.75,18.5]],'up','15:45–18:30'],['Evită',[[0,1.5],[15.42,15.75],[22,24]],'down','']];
+ rows.forEach((r,k)=>{const y=18+k*30;el('text',{x:L-8,y:y+15,'text-anchor':'end',class:'lbl-t'},s,r[0]);r[1].forEach(([a,b])=>{el('rect',{x:X(a),y,width:Math.max(3,X(b)-X(a)),height:20,rx:4,fill:`var(--${r[2]==='gray'?'muted':r[2]==='blue'?'blue':r[2]})`,opacity:.8},s);if(r[3]){const wide=X(b)-X(a)>90;el('text',{x:wide?X(a)+6:X(b)+6,y:y+14,class:'lbl-t',style:wide?'fill:var(--surface)':''},s,r[3])}})});
+ const act=[.15,.1,.25,.3,.28,.25,.22,.22,.25,.35,.8,.75,.55,.45,.5,.75,1,.95,.8,.55,.42,.38,.28,.2,.15];const base=H-34,hh=70;
+ el('text',{x:L-8,y:base-hh/2,'text-anchor':'end',class:'lbl-t'},s,'Activitate');
+ el('path',{d:act.map((a,i)=>(i?'L':'M')+X(i)+' '+(base-a*hh)).join('')+`L${X(24)} ${base}L${X(0)} ${base}Z`,fill:'var(--accent)',opacity:.25},s);
+ el('path',{d:act.map((a,i)=>(i?'L':'M')+X(i)+' '+(base-a*hh)).join(''),class:'ln-acc','stroke-width':2},s);
+ [[15.5,'15:30 date SUA'],[21,'21:00 FOMC']].forEach(([h,t])=>{el('line',{x1:X(h),x2:X(h),y1:14,y2:base,class:'ln-down dash'},s);el('text',{x:X(h)+4,y:base-hh-6,class:'lbl-t t-down'},s,t)});
+ host.appendChild(s)})();
+
+/* ======== ceas live ======== */
+(function(){const box=$('clock');if(!box)return;
+ function tick(){let t;try{t=new Intl.DateTimeFormat('ro-RO',{timeZone:'Europe/Bucharest',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date())}catch(e){return}
+  const g=k=>(t.find(p=>p.type===k)||{}).value;const wd=g('weekday'),h=+g('hour'),m=+g('minute'),x=h+m/60;const we=/sâm|dum|sam/i.test(wd||'');
+  let st;if(we)st='piața aurului e închisă (weekend)';else if(x<1)st='pauză / rollover: evită';else if(x<9)st='sesiunea asiatică: marchează range-ul';else if(x<10)st='pregătire: analiza de 15 minute';else if(x<12.5)st='Fereastra 1 (Londra)';else if(x<15.42)st='prânzul Londrei: puține setup-uri';else if(x<15.75)st='știri SUA: stai deoparte';else if(x<18.5)st='Fereastra 2 (New York)';else if(x<22)st='volum în scădere';else st='seara târziu: evită';
+  box.innerHTML=`<span class="mono">Acum în România: ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}</span><br>${st}`}
+ tick();setInterval(tick,30000)})();
+
+/* ======== M5 → M15 ======== */
+(function(){const host=$('g-m5m15');if(!host)return;const m5=[[3540,3541,3533.5,3535],[3535,3538,3534,3537.5],[3537.5,3542.5,3537,3542]];const m15=[[3540,3542.5,3533.5,3542]];
+ host.innerHTML='';const w=document.createElement('div');w.style.cssText='display:grid;grid-template-columns:3fr 1fr;gap:10px;min-width:420px';host.appendChild(w);
+ [[m5,'3 lumânări M5 (10:00, 10:05, 10:10)'],[m15,'1 lumânare M15 (10:00)']].forEach(([a,t],k)=>{const c=document.createElement('div');w.appendChild(c);const ctx=chart(c,fromArr(a),{w:k?200:520,h:200,bw:k?.4:.45,dec:D1,hlines:[{y:3533.5,cls:'ln-muted',label:k?'':'minim 3.533,5',lx:0,below:1},{y:3542.5,cls:'ln-muted',label:k?'':'maxim 3.542,5',lx:0}],label:t});const sv=c.querySelector('svg');sv.style.minWidth='0';el('text',{x:12,y:12,class:'lbl-t'},sv,t)})})();
+
+/* ======== citirea a 6 lumânări ======== */
+(function(){const a=[[3530,3539.8,3529.6,3539.5],[3538,3539.2,3531,3538.6],[3538.5,3541,3536,3538.8],[3539,3546,3538.6,3539.6],[3539.5,3540,3530.2,3530.5],[3530.5,3534.5,3529.8,3532.4]];
+ chart('g-read1',fromArr(a),{h:230,bw:.38,dec:D1,marks:a.map((x,i)=>({i,text:String(i+1),pos:'above'})),label:'Șase lumânări'})})();
+
+/* ======== succesiuni ======== */
+(function(){const host=$('g-seq');if(!host)return;host.innerHTML='';const w=document.createElement('div');w.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:460px';host.appendChild(w);
+ const S=[['Impuls',[[3530,3531.5,3529.5,3531.2],[3531.2,3533.4,3531,3533.1],[3533.1,3536.5,3532.9,3536.3],[3536.3,3540.8,3536,3540.5],[3540.5,3546.2,3540.3,3546]],null],
+  ['Epuizare',[[3530,3536,3529.8,3535.8],[3535.8,3539.6,3535.5,3539.2],[3539.2,3542.4,3538.8,3541.6],[3541.6,3544.6,3541,3542.6],[3542.6,3545.4,3542,3542.9],[3542.9,3545.8,3541.4,3542.2]],null],
+  ['Absorbție',[[3536,3541,3535.6,3540.6],[3540.6,3545.2,3539.8,3541.4],[3541.4,3545.4,3539.2,3540.2],[3540.2,3545.1,3539.8,3541.0],[3541,3545.3,3538.4,3539.0],[3539,3539.4,3534,3534.6]],3545.2],
+  ['Comprimare',[[3540,3546,3534,3537],[3537,3543,3535,3541],[3541,3543.5,3537.5,3539],[3539,3541.6,3537.8,3540.6],[3540.6,3541.4,3539,3539.8],[3539.8,3540.6,3539.2,3540.2],[3540.2,3547.5,3540,3547.2]],null]];
+ S.forEach(([t,a,lv])=>{const c=document.createElement('div');w.appendChild(c);chart(c,fromArr(a),{w:360,h:170,bare:1,bw:.5,hlines:lv?[{y:lv,cls:'ln-down'}]:[],label:t});const sv=c.querySelector('svg');sv.style.minWidth='0';el('text',{x:10,y:14,class:'lbl-t'},sv,t)})})();
+
+/* ======== modele M5 ======== */
+(function(){const host=$('g-pats');if(!host)return;
+ const P=[['Pin bar la suport','Pin bar','bull','Fitil inferior de 2–3 × corpul, închidere în treimea de sus, chiar la nivel. Respingere clară a prețurilor joase.',[[3548,3548.6,3543.5,3544],[3544,3544.6,3540.2,3540.8],[3540.8,3541.5,3532.4,3540.4],[3540.4,3545.2,3540,3544.8]],[2],3534.5],
+  ['Înghițire bullish','Engulfing','bull','Corpul verde acoperă complet corpul roșu anterior. Pe M5 e un semnal bun doar la un nivel sau la retest.',[[3548,3548.4,3543,3543.4],[3543.4,3543.8,3539.6,3540.2],[3540,3546.2,3539.4,3545.8],[3545.8,3548.5,3545,3548]],[1,2],3539.5],
+  ['Inside bar + spargere','Inside bar','neu','O lumânare complet în interiorul celei anterioare (pauză), apoi spargerea maximului sau minimului ei. Direcția o dă spargerea.',[[3536,3537,3534,3536.5],[3536.5,3548,3536,3546],[3545.5,3546.8,3541,3542],[3542,3550.5,3541.8,3550.2]],[1,2,3],null],
+  ['Lumânare de impuls','Momentum candle','bear','Corp de peste 1,5 × ATR, închidere aproape de minim, volum mare. Arată că a intrat cineva mare. Nu intri în ea; aștepți retestul.',[[3546,3547.5,3544.5,3545.2],[3545.2,3546.4,3543.8,3544.4],[3544.4,3544.8,3532.5,3533],[3533,3536.5,3532,3535.8]],[2],null],
+  ['Doji la nivel','Doji','neu','Deschiderea ≈ închiderea, după o mișcare, la un nivel marcat. Mișcarea s-a oprit; aștepți lumânarea următoare pentru direcție.',[[3532,3538,3531.6,3537.6],[3537.6,3543.2,3537,3542.8],[3542.8,3546,3539.6,3542.9],[3542.9,3543.2,3537.5,3538]],[2],3545.5],
+  ['Stea căzătoare la rezistență','Shooting star','bear','Fitil superior lung peste nivel, închidere jos. Cumpărătorii au încercat și au fost respinși.',[[3536,3540.5,3535.6,3540.2],[3540.2,3543.5,3539.8,3543],[3543,3549.8,3542.4,3542.8],[3542.8,3543.2,3537.4,3538]],[2],3546]];
+ P.forEach(p=>{const c=document.createElement('div');c.className='card';const m=document.createElement('div');m.className='mini';c.appendChild(m);
+  const h=document.createElement('h4');h.innerHTML=`${p[0]} <span class="tag ${p[2]}">${p[2]==='bull'?'bullish':p[2]==='bear'?'bearish':'neutru'}</span>`;c.appendChild(h);
+  const e=document.createElement('div');e.className='en';e.textContent=p[1];c.appendChild(e);const t=document.createElement('p');t.textContent=p[3];t.style.marginTop='6px';c.appendChild(t);host.appendChild(c);
+  chart(m,fromArr(p[4]),{w:260,h:140,bare:1,bw:.5,boxes:[{i1:Math.min(...p[5]),i2:Math.max(...p[5])}],hlines:p[6]?[{y:p[6],cls:'ln-acc'}]:[],label:p[0]});m.querySelector('svg').style.minWidth='0'})})();
+
+/* ======== structura: pivots ======== */
+function pivots(d,w){const H=[],L=[];for(let i=w;i<d.length-w;i++){let ph=true,pl=true;for(let k=1;k<=w;k++){if(d[i].h<=d[i-k].h||d[i].h<d[i+k].h)ph=false;if(d[i].l>=d[i-k].l||d[i].l>d[i+k].l)pl=false}if(ph)H.push(i);if(pl)L.push(i)}return{H,L}}
+function structMarks(d,w){const p=pivots(d,w),m=[];p.H.forEach((i,k)=>{if(k)m.push({i,text:d[i].h>d[p.H[k-1]].h?'HH':'LH',pos:'above'})});p.L.forEach((i,k)=>{if(k)m.push({i,text:d[i].l>d[p.L[k-1]].l?'HL':'LL',pos:'below'})});return m}
+(function(){const up=gen([[0,3500],[6,3512],[9,3506],[15,3521],[18,3514.5],[24,3531],[27,3525],[33,3542],[36,3536],[42,3552]],{seed:331,vol:.9,wick:1});
+ chart('g-up',up,{h:250,dec:0,ma:[{p:20,type:'ema',cls:'ln-blue'}],marks:structMarks(up,2),label:'Trend ascendent M15'});
+ const dn=gen([[0,3580],[6,3566],[9,3573],[15,3556],[18,3563],[24,3545],[27,3551.5],[33,3534],[36,3540],[42,3522]],{seed:333,vol:.9,wick:1});
+ chart('g-down',dn,{h:250,dec:0,ma:[{p:20,type:'ema',cls:'ln-blue'}],marks:structMarks(dn,2),label:'Trend descendent M15'})})();
+(function(){const d=gen([[0,3520],[6,3531],[9,3526],[15,3538],[18,3532.5],[24,3546],[27,3539.5],[31,3544.5],[34,3536],[40,3527]],{seed:335,vol:.6,wick:.6});
+ const h1=highest(d,4,8),h2=highest(d,13,17),h3=highest(d,22,26),l2=lowest(d,16,20),l3=lowest(d,25,29),lh=highest(d,29,33);
+ const bos=(a,from)=>{for(let i=from;i<d.length;i++)if(d[i].c>d[a].h)return i;return from};const b1=bos(h1,h1+2),b2=bos(h2,h2+2);let ch=lh;for(let i=lh;i<d.length;i++)if(d[i].c<d[l3].l){ch=i;break}
+ chart('g-choch',d,{h:270,dec:D1,hlines:[{y:d[h1].h,i1:h1,i2:b1,label:'BOS',cls:'ln-up',tcls:'t-up',lx:h1+1},{y:d[h2].h,i1:h2,i2:b2,label:'BOS',cls:'ln-up',tcls:'t-up',lx:h2+1},{y:d[l3].l,i1:l3,i2:ch,label:'CHoCH',cls:'ln-down',tcls:'t-down',lx:l3+1,below:1}],marks:[{i:h3,text:'HH',pos:'above'},{i:l3,text:'ultimul HL',pos:'below'},{i:lh,text:'LH',pos:'above'}],label:'BOS și CHoCH'})})();
+
+/* ======== verificator direcție ======== */
+(function(){const host=$('bias-list');if(!host)return;
+ const Q=[['Structura pe M15',[['HH și HL',1],['LH și LL',-1],['Neclară',0]]],['Prețul față de EMA 20 (M15)',[['Peste',1],['Sub',-1],['O traversează des',0]]],['EMA 20 față de EMA 50 (M15)',[['20 peste 50, ambele în sus',1],['20 sub 50, ambele în jos',-1],['Împletite / plate',0]]],['Prețul față de VWAP',[['Peste',1],['Sub',-1],['În jurul lui',0]]],['Ultimul BOS pe M15',[['În sus',1],['În jos',-1],['Niciunul recent',0]]],['Trendul pe H1',[['Ascendent',1],['Descendent',-1],['Range',0]]],['Dolarul (DXY) azi',[['Scade',1],['Urcă',-1],['Plat',0]]]];
+ Q.forEach((q,k)=>{const l=document.createElement('label');l.style.cssText='display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:10px;align-items:center;font-size:14.5px';l.innerHTML=`<span>${k+1}. ${q[0]}</span>`;const s=document.createElement('select');s.id='bias-'+k;q[1].forEach(([t,v],j)=>{const o=document.createElement('option');o.value=v;o.textContent=t;if(j===2)o.selected=true;s.appendChild(o)});s.onchange=calc;l.appendChild(s);host.appendChild(l)});
+ function calc(){let sc=0;Q.forEach((q,k)=>sc+=+$('bias-'+k).value);const v=sc>=4?['Doar LONG-uri','pos']:sc<=-4?['Doar SHORT-uri','neg']:['Fără direcție clară: aștepți sau tranzacționezi doar marginile range-ului',''];
+  $('bias-out').innerHTML=`<div><span class="k">Scor</span><span class="v ${v[1]}">${sc>0?'+':''}${sc} / 7</span></div><div style="grid-column:span 2"><span class="k">Ce faci</span><span class="v ${v[1]}" style="font-size:16px">${v[0]}</span></div>`}
+ calc()})();
+
+/* ======== rezistența care cedează ======== */
+(function(){const d=gen([[0,3532],[6,3551.4],[11,3539],[17,3551.6],[21,3543.5],[26,3551.4],[29,3547.2],[32,3551.2],[34,3549.6],[35,3550],[36,3557.5],[38,3553.8],[40,3552.8],[46,3563]],{seed:341,vol:.45,wick:.55});
+ setC(d,35,d[35].o,d[35].o+.4,d[35].o-.3,d[35].o+.1);setC(d,36,d[36].o,3558.2,d[36].o-.2,3557.8);
+ const t1=highest(d,4,8),t2=highest(d,15,19),t3=highest(d,24,28),r1=lowest(d,9,13),r2=lowest(d,19,23),r3=lowest(d,28,31),rt=lowest(d,38,42);
+ chart('g-break',d,{h:280,dec:D1,zones:[{y1:3550.8,y2:3553,cls:'zone-down',i2:35,label:'rezistență'},{y1:3550.8,y2:3553,cls:'zone-up',i1:36}],lines:[{a:[r1,'L'],b:[r3,'L'],cls:'ln-up',label:'văi tot mai sus',tcls:'t-up',below:1}],marks:[{i:t1,text:'test 1',pos:'above'},{i:t2,text:'test 2',pos:'above'},{i:t3,text:'test 3',pos:'above'},{i:36,text:'închidere peste',pos:'above'},{i:rt,text:'retest',pos:'below'}],label:'Rezistența care cedează'})})();
+
+/* ======== spargere falsă PDH ======== */
+(function(){const d=gen([[0,3546],[8,3559.4],[12,3552],[18,3560.2],[20,3558.2],[21,3559],[28,3541]],{seed:343,vol:.5,wick:.55});
+ setC(d,21,3559.0,3564.2,3558.2,3558.8);setC(d,22,3558.8,3559.4,3553.4,3553.8);
+ chart('g-fake',d,{h:260,dec:D1,hlines:[{y:3561,label:'PDH 3.561',cls:'ln-acc',tcls:'t-acc',lx:0}],marks:[{i:21,text:'fitil peste PDH, închidere sub',pos:'above',anchor:'end'},{i:22,text:'înghițire bearish',pos:'below'}],label:'Spargere falsă'})})();
+
+/* ======== maxime egale ======== */
+(function(){const d=gen([[0,3540],[6,3552],[10,3546],[16,3552.2],[19,3548],[22,3550.6],[23,3551],[30,3539]],{seed:345,vol:.45,wick:.45});
+ setC(d,6,d[6].o,3552.4,d[6].o-.4,3551.6);setC(d,16,d[16].o,3552.6,d[16].o-.4,3551.8);setC(d,23,d[23].o,3554.8,d[23].o-.4,3550.6);setC(d,24,3550.6,3551,3547.4,3547.8);
+ chart('g-eqh',d,{h:250,dec:D1,hlines:[{y:3552.5,label:'maxime egale: stopuri deasupra',cls:'ln-warn',tcls:'t-warn',lx:0}],marks:[{i:6,text:'1',pos:'above'},{i:16,text:'2',pos:'above'},{i:23,text:'măturare',pos:'above'}],label:'Maxime egale'})})();
+
+/* ======== FVG ======== */
+(function(){const a=[[3535,3537.2,3534.6,3536.8],[3536.8,3537.0,3535.8,3536.4],[3536.5,3549,3536.2,3548.6],[3548.6,3550.6,3541.0,3549.8],[3549.8,3550.2,3545,3546],[3546,3546.5,3540.2,3541.5],[3541.5,3545.8,3540.8,3545.5],[3545.5,3552,3545.2,3551.6],[3551.6,3555,3551,3554.5]];
+ chart('g-fvg',fromArr(a),{h:230,bw:.5,dec:D1,zones:[{y1:3537.0,y2:3541.0,i1:1,cls:'zone-blue',label:'FVG'}],marks:[{i:2,text:'impuls +12 $',pos:'above'},{i:5,text:'revenire în FVG',pos:'below'}],label:'FVG pe M5'})})();
+
+/* ======== indicatori ======== */
+(function(){const d=gen([[0,3520],[10,3530],[14,3526],[24,3540],[28,3535],[38,3549],[42,3544],[50,3556]],{seed:351,vol:.7,wick:.8});const vw=vwap(d);
+ chart('g-ind',d,{h:260,dec:D1,ma:[{p:20,type:'ema',cls:'ln-blue'},{p:50,type:'ema',cls:'ln-warn'}],after:c=>drawLine(c,vw,'ln-acc dash'),label:'EMA și VWAP'})})();
+
+/* ======== setup B ======== */
+(function(){const d=gen([[0,3528],[6,3531],[12,3552],[15,3546.5],[17,3543.4],[18,3546],[23,3553.5],[26,3555]],{seed:361,vol:.5,wick:.6});
+ setC(d,17,d[17].o,d[17].o+.3,3542.5,3543.2);setC(d,18,3543.1,3546.5,3542.8,3546.0);
+ chart('g-setB',d,{h:260,dec:D1,ma:[{p:20,type:'ema',cls:'ln-blue'}],hlines:[{y:3546,i1:18,label:'intrare 3.546',cls:'ln-ink',tcls:'t-ink',solid:1,lx:19},{y:3542,i1:18,label:'stop 3.542',cls:'ln-down',tcls:'t-down',lx:19,below:1},{y:3552,i1:18,label:'TP1 3.552',cls:'ln-up',tcls:'t-up',lx:19},{y:3554,i1:18,label:'TP2 3.554',cls:'ln-up',tcls:'t-up',lx:22}],marks:[{i:12,text:'impuls (BOS)',pos:'above'},{i:18,text:'înghițire',pos:'below',anchor:'end',dx:-4}],label:'Setup B'})})();
+
+/* ======== manipulare ======== */
+(function(){const d=gen([[0,3538],[5,3545],[9,3530.8],[14,3544],[18,3530.6],[22,3540],[26,3532],[27,3531],[28,3534],[34,3548]],{seed:371,vol:.55,wick:.55});
+ setC(d,27,3532,3532.6,3524.9,3531.4);
+ chart('g-manip',d,{h:270,dec:D1,hlines:[{y:3530.4,i2:27,label:'minim evident',cls:'ln-ink',tcls:'t-ink',lx:0},{y:3529.6,i1:18,label:'stop „evident” 3.529,6',cls:'ln-down',tcls:'t-down',lx:28,below:1},{y:3523.6,i1:18,label:'stop cu marjă ATR 3.523,6',cls:'ln-up',tcls:'t-up',lx:28,below:1}],marks:[{i:9,text:'1',pos:'below'},{i:27,text:'2 · 3',pos:'below'},{i:31,text:'4',pos:'above'}],label:'Tiparul unei manipulări'})})();
+
+/* ======== DATE REALE ======== */
+(function(){if(!REAL)return;
+ // H1
+ const h=R(REAL.h1);const H=t=>idx(h,t);
+ chart('r-h1',h,{h:300,dec:0,bw:.6,hlines:[{y:3759.5,label:'maxim joi 3.759,5',cls:'ln-muted',tcls:'t-muted',lx:24},{y:3700,label:'3.700 / minim asiatic joi 3.694,5',cls:'ln-acc',tcls:'t-acc',lx:24},{y:3620.6,label:'minim joi (PDL vineri) 3.620,6',cls:'ln-muted',tcls:'t-muted',lx:0},{y:3600,label:'3.600',cls:'ln-acc',tcls:'t-acc',lx:0,below:1},{y:3514.9,label:'minim asiatic vineri 3.514,9',cls:'ln-muted',tcls:'t-muted',lx:0},{y:3500,label:'3.500',cls:'ln-acc',tcls:'t-acc',lx:0,below:1}],
+  marks:[{i:H('Joi 03:00'),text:'maxim',pos:'above'},{i:H('Joi 07:00'),text:'LH',pos:'above'},{i:H('Joi 17:00'),text:'spargere 3.700',pos:'below'},{i:H('Vin 01:00'),text:'spargere 3.600',pos:'below'},{i:H('Vin 07:00'),text:'LL',pos:'below'},{i:H('Vin 12:00'),text:'LH sub 3.600',pos:'above'},{i:H('Vin 20:00'),text:'LL 3.502,9',pos:'below'}].filter(m=>m.i>=0),
+  after:timeAxis(h,6),label:'Aur H1 19-20 noiembrie 2026'});
+ // e7 Asia joi
+ const a=R(REAL.e7);chart('r-e7',a,{h:260,dec:0,hlines:[{y:3721.8,label:'PDL (miercuri) 3.721,8',cls:'ln-muted',tcls:'t-muted',lx:0},{y:3700,label:'3.700',cls:'ln-acc',tcls:'t-acc',lx:0,below:1}],marks:[{i:idx(a,'04:45'),text:'cădere −23 $',pos:'below',anchor:'end'},{i:idx(a,'05:00'),text:'fitil la 3.694,5',pos:'below'},{i:idx(a,'06:00'),text:'înapoi peste PDL',pos:'above'}],after:timeAxis(a,4),label:'Joi Asia M15'});
+ // e5 Londra range
+ const l=R(REAL.e5);chart('r-e5',l,{h:240,dec:0,ma:[{p:8,type:'ema',cls:'ln-blue'}],zones:[{y1:3726.3,y2:3743.8,i2:idx(l,'13:30'),cls:'zone-gray',label:'range 3.726–3.744'}],marks:[{i:idx(l,'10:00'),text:'10:00 Londra',pos:'above'},{i:idx(l,'13:45'),text:'iese din range',pos:'below'}],after:timeAxis(l,4),label:'Joi Londra M15'});
+ // e6 stire
+ const n=R(REAL.e6);chart('r-e6',n,{h:240,dec:0,volume:1,boxes:[{i1:idx(n,'15:30'),i2:idx(n,'15:40'),label:'M15 a știrii'}],marks:[{i:idx(n,'15:25'),text:'+9 $ înainte',pos:'above',anchor:'end'},{i:idx(n,'15:30'),text:'vârf 3.728,9',pos:'above'},{i:idx(n,'15:35'),text:'−12 $',pos:'below'}],after:timeAxis(n,3),label:'Joi 15:30 M5'});
+ // e1 spargere + retest joi
+ const e=R(REAL.e1);const ei=idx(e,'17:45');
+ chart('r-e1',e,{h:300,dec:0,volume:1,zones:[{y1:3704.2,y2:3706.6,i2:idx(e,'17:05'),cls:'zone-up',label:'suport 3.704–3.707'}],hlines:[{y:3694.5,label:'minim asiatic 3.694,5',cls:'ln-acc',tcls:'t-acc',lx:0,below:1},{y:3686.2,i1:ei,label:'short 3.686,2',cls:'ln-ink',tcls:'t-ink',solid:1,lx:ei+1},{y:3695.8,i1:ei,label:'stop 3.695,8',cls:'ln-down',tcls:'t-down',lx:ei+1},{y:3676.6,i1:ei,label:'TP1 (1R) 3.676,6',cls:'ln-up',tcls:'t-up',lx:idx(e,'18:05')}],
+  marks:[{i:idx(e,'16:35'),text:'LH',pos:'above'},{i:idx(e,'17:25'),text:'impuls, volum maxim',pos:'below',anchor:'end'},{i:idx(e,'17:40'),text:'retest',pos:'above'},{i:idx(e,'17:55'),text:'TP1 ✓',pos:'below'}],after:timeAxis(e,3),label:'Joi spargere sub 3700 M5'});
+ // e2 rezistenta 3600
+ const r=R(REAL.e2);chart('r-e2',r,{h:280,dec:0,zones:[{y1:3591,y2:3600,cls:'zone-down',i1:idx(r,'10:00'),label:'zona 3.591–3.600'}],hlines:[{y:3600,label:'3.600 (fost suport, spart la 01:30)',cls:'ln-acc',tcls:'t-acc',lx:0},{y:3514.9,label:'minim asiatic 3.514,9',cls:'ln-muted',tcls:'t-muted',lx:idx(r,'11:00'),below:1}],
+  marks:[{i:idx(r,'07:45'),text:'impuls',pos:'below',anchor:'start'},{i:idx(r,'10:30'),text:'test 1',pos:'above'},{i:idx(r,'12:30'),text:'test 2',pos:'above'},{i:idx(r,'13:45'),text:'închidere jos',pos:'below'},{i:idx(r,'14:00'),text:'3.567,8',pos:'below',anchor:'start'}].filter(m=>m.i>=0),after:timeAxis(r,4),label:'Vineri rezistenta 3600 M15'});
+ // e3 fakeout + retest vineri
+ const f=R(REAL.e3);const fi=idx(f,'17:40');
+ chart('r-e3',f,{h:300,dec:0,volume:1,zones:[{y1:3564.8,y2:3581.1,i2:idx(f,'17:05'),cls:'zone-gray',label:'range 3.564,8–3.581,1'}],hlines:[{y:3564.8,i1:idx(f,'17:05'),label:'minimul spart al range-ului',cls:'ln-acc',tcls:'t-acc',lx:idx(f,'17:05')},{y:3554.4,i1:fi,label:'short 3.554,4',cls:'ln-ink',tcls:'t-ink',solid:1,lx:fi+1},{y:3565.0,i1:fi,label:'stop 3.565',cls:'ln-down',tcls:'t-down',lx:fi+1,below:0},{y:3543.8,i1:fi,label:'TP1 3.543,8',cls:'ln-up',tcls:'t-up',lx:fi+1,below:1}],
+  marks:[{i:idx(f,'17:00'),text:'spargere falsă 3.587',pos:'above'},{i:idx(f,'17:10'),text:'închidere sub range',pos:'below',anchor:'end'},{i:idx(f,'17:25'),text:'3.527,7',pos:'below'},{i:idx(f,'17:35'),text:'retest',pos:'above'},{i:idx(f,'18:00'),text:'TP1 ✓',pos:'below'}],after:timeAxis(f,3),label:'Vineri spargere falsa si retest M5'});
+ // e4 seara
+ const s=R(REAL.e4m5);chart('r-e4',s,{h:280,dec:0,volume:1,hlines:[{y:3514.9,label:'minim asiatic 3.514,9',cls:'ln-acc',tcls:'t-acc',lx:0},{y:3500,label:'3.500',cls:'ln-muted',tcls:'t-muted',lx:0,below:1}],
+  marks:[{i:idx(s,'20:25'),text:'sub minimul asiatic',pos:'below',anchor:'end'},{i:idx(s,'20:45'),text:'3.502,9',pos:'below'},{i:idx(s,'20:50'),text:'închidere înapoi',pos:'above',anchor:'end'},{i:idx(s,'20:55'),text:'impuls +16 $',pos:'above'},{i:idx(s,'21:30'),text:'totul șters',pos:'below'}],after:timeAxis(s,3),label:'Vineri seara M5'})})();
+
+/* ======== calculator lot ======== */
+(function(){if(!$('lotcalc'))return;const ids=['lc-acc','lc-risk','lc-entry','lc-stop','lc-spread','lc-com','lc-rr'];
+ function calc(){const acc=+$('lc-acc').value,risk=+$('lc-risk').value,e=+$('lc-entry').value,s=+$('lc-stop').value,sp=+$('lc-spread').value,com=+$('lc-com').value,rr=+$('lc-rr').value;const dist=Math.abs(e-s);
+  if(!dist){$('lc-out').innerHTML='<div><span class="k">Eroare</span><span class="v">Stopul trebuie să fie diferit de intrare</span></div>';return}
+  const amt=acc*risk/100,raw=amt/(dist*100),lots=Math.floor(raw*100+1e-9)/100;const dir=s<e?1:-1;
+  if(lots<.01){$('lc-out').innerHTML=`<div style="grid-column:1/-1"><span class="k">Rezultat</span><span class="v neg" style="font-size:16px">Lotul calculat (${fmt(raw,3)}) e sub minimul de 0,01. Stopul e prea larg pentru riscul tău: sari peste tranzacție.</span></div>`;return}
+  const realRisk=lots*100*dist,cost=sp*100*lots+com*lots,tp=e+dir*dist*rr,win=lots*100*dist*rr-cost,loss=realRisk+cost,be=loss/(win+loss);
+  $('lc-out').innerHTML=[['Suma riscată',fmt(amt)+' $',''],['Lot',fmt(lots)+' ('+fmt(lots*100,0)+' uncii)',''],['Risc real la stop',fmt(realRisk)+' $',''],['Cost spread + comision',fmt(cost)+' $','neg'],['Cost ca % din risc',fmt(cost/realRisk*100,1)+'%',cost/realRisk>.08?'neg':''],['Țintă ('+rr+'R)',fmt(tp,1),''],['Câștig net la țintă',fmt(win)+' $','pos'],['Pierdere la stop (cu cost)',fmt(loss)+' $','neg'],['Rata minimă de câștig',fmt(be*100,1)+'%',''],['Marjă la 20:1',fmt(lots*100*e/20)+' $','']].map(x=>`<div><span class="k">${x[0]}</span><span class="v ${x[2]}">${x[1]}</span></div>`).join('')}
+ ids.forEach(i=>$(i).addEventListener('input',calc));calc()})();
+
+/* ======== exerciții ======== */
+(function(){if(!$('drill'))return;
+ const SC=[
+  {t:'10:20 · Londra, după măturarea maximului asiatic',ctx:'H1 descendent. Range asiatic 3.526–3.542 (zona gri). La 10:15 un fitil a trecut peste maximul asiatic și a închis înapoi. Ultima lumânare M5 a închis sub ultimul minim.',data:()=>asiaData(),cut:43,a:'short',zones:d=>[{y1:Math.min(...d.slice(0,36).map(x=>x.l)),y2:Math.max(...d.slice(0,36).map(x=>x.h)),i1:0,i2:35,cls:'zone-gray'}],e:'Short corect: Setup A. Măturare a maximului asiatic în fereastra Londrei, închidere înapoi în range, CHoCH, totul în direcția H1. Stop peste fitilul măturării, ținta la minimul asiatic.'},
+  {t:'16:45 · pullback în trend ascendent',ctx:'Verificatorul dă +5. Pe M15 a fost un BOS în sus la 16:15. Pe M5 prețul a revenit la EMA 20 și ultima lumânare e o înghițire bullish închisă în zonă.',pts:[[0,3528],[6,3531],[12,3552],[15,3546.5],[17,3543.4],[18,3546],[23,3553.5],[27,3557]],seed:361,cut:19,a:'long',shape:d=>{setC(d,17,d[17].o,d[17].o+.3,3542.5,3543.2);setC(d,18,3543.1,3546.5,3542.8,3546.0)},e:'Long corect: Setup B. Trend confirmat pe M15, pullback la EMA 20, declanșator închis. Stop sub minimul pullback-ului, TP1 la maximul impulsului.'},
+  {t:'15:28 · NFP în 2 minute',ctx:'Prima vineri din lună. Prețul a urcat dimineața și e chiar sub o rezistență H1. Ultima lumânare e o stea căzătoare frumoasă.',pts:[[0,3530],[10,3542],[14,3538],[22,3549],[23,3549.5],[24,3548],[26,3536],[28,3560],[34,3552]],seed:381,cut:24,a:'none',shape:d=>setC(d,23,d[23].o,3552.4,d[23].o-.4,d[23].o-.3),e:'Nu intri. Cu 2 minute înainte de NFP nu se deschide nimic, oricât de bun ar arăta modelul. Știrea a mișcat prețul 12 $ în jos și apoi 24 $ în sus, în câteva minute: orice stop ar fi fost luat.'},
+  {t:'13:05 · prânzul Londrei',ctx:'De două ore prețul stă între 3.534 și 3.546. EMA 20 e plată. Prețul e la 3.540, iar ultima lumânare e verde.',pts:[[0,3540],[4,3545.5],[9,3534.6],[14,3545.4],[19,3534.8],[24,3545],[28,3540],[32,3535.5],[37,3544.6],[42,3538]],seed:383,cut:29,a:'none',zones:()=>[{y1:3533.8,y2:3535.4,cls:'zone-up'},{y1:3544.6,y2:3546.2,cls:'zone-down'}],e:'Nu intri. Mijlocul unui range, la prânz, fără nivel și fără direcție. Prețul a mers apoi la ambele margini; acolo ar fi fost intrările (Setup D).'},
+  {t:'16:40 · spargere și retest în trend ascendent',ctx:'H1 ascendent. Rezistența M15 de la 3.552 a fost spartă la 16:25 de o lumânare de impuls. Prețul a revenit la 3.552 și ultima lumânare are un fitil inferior lung.',pts:[[0,3532],[6,3551.4],[11,3539],[17,3551.6],[21,3543.5],[26,3551.4],[29,3547.2],[32,3551.2],[34,3549.6],[35,3550],[36,3557.5],[38,3553.8],[40,3552.8],[46,3563]],seed:341,cut:41,a:'long',shape:d=>{setC(d,35,d[35].o,d[35].o+.4,d[35].o-.3,d[35].o+.1);setC(d,36,d[36].o,3558.2,d[36].o-.2,3557.8);setC(d,40,d[40].o,d[40].o+.4,3551.2,d[40].o+.9)},zones:()=>[{y1:3550.8,y2:3553,cls:'zone-up'}],e:'Long corect: Setup C. Rezistența a cedat cu închidere și impuls, retestul ține, iar fitilul arată respingerea. Stop sub fitil, TP1 la 1R.'},
+  {t:'17:10 · revenire la fost suport în trend descendent',ctx:'H1 descendent (ca pe 19–20 noiembrie). Suportul de la 3.550 a fost spart acum o oră. Prețul a revenit la 3.550, iar ultima lumânare are un fitil superior lung și închide jos.',pts:[[0,3572],[6,3561],[10,3566],[16,3551],[19,3554],[22,3541],[27,3550.5],[28,3549],[34,3531],[38,3535]],seed:387,cut:29,a:'short',shape:d=>setC(d,28,d[28].o,3551.8,d[28].o-3.2,d[28].o-2.8),zones:()=>[{y1:3549,y2:3551.2,cls:'zone-down'}],e:'Short corect: Setup C/D. Fost suport devenit rezistență, retest cu respingere, în direcția trendului H1. Exact ce s-a întâmplat real sub 3.700 (joi) și sub 3.564 (vineri).'},
+  {t:'11:00 · fitil peste PDH',ctx:'PDH e 3.561. Prețul a urcat dimineața până acolo. O lumânare a trecut cu fitilul la 3.564,2 și a închis sub nivel; ultima lumânare e o înghițire bearish. H1 e în range.',pts:[[0,3546],[8,3559.4],[12,3552],[18,3560.2],[20,3558.2],[21,3559],[28,3541]],seed:343,cut:23,a:'short',shape:d=>{setC(d,21,3559.0,3564.2,3558.2,3558.8);setC(d,22,3558.8,3559.4,3553.4,3553.8)},zones:()=>[{y1:3560.4,y2:3561.6,cls:'zone-acc'}],e:'Short corect: măturare a PDH cu închidere înapoi și înghițire bearish (Setup D). Stop peste fitilul de 3.564,2 plus marjă de ATR.'},
+  {t:'23:40 · seara târziu',ctx:'Prețul a făcut o mișcare bruscă în sus de 8 $ în două lumânări. Spread-ul la broker a crescut de la 0,30 la 1,20 $.',pts:[[0,3540],[10,3536],[18,3539],[24,3537],[26,3545],[30,3538],[36,3541]],seed:389,cut:27,a:'none',e:'Nu intri. Aproape de rollover, cu spread de 4 ori mai mare și volum mic, mișcările sunt imprevizibile, iar costul mănâncă orice scalp. Prețul a revenit imediat.'}];
+ let i=0;const score=new Map();
+ function data(s){const d=s.data?s.data():gen(s.pts,{seed:s.seed,vol:.5,wick:.55});if(s.shape)s.shape(d);return d}
+ function show(k){i=(k+SC.length)%SC.length;const s=SC[i],d=data(s);$('dr-title').textContent=`Situația ${i+1} din ${SC.length}: ${s.t}`;$('dr-ctx').textContent=s.ctx;$('dr-fb').innerHTML='';
+  chart('dr-chart',d.slice(0,s.cut),{h:280,dec:D1,extra:d.length-s.cut,zones:s.zones?s.zones(d):[],ma:[{p:20,type:'ema',cls:'ln-blue'}],label:s.t});[...$('dr-btns').children].forEach(b=>{b.disabled=false;b.classList.remove('ok','bad')});upd()}
+ function upd(){$('dr-score').textContent=`Scor: ${[...score.values()].filter(Boolean).length} / ${score.size} răspunse`}
+ function answer(a){const s=SC[i],d=data(s),last=d[s.cut-1],n=d.length;const o={h:280,dec:D1,zones:s.zones?s.zones(d):[],ma:[{p:20,type:'ema',cls:'ln-blue'}],boxes:[{i1:s.cut,i2:n-1,label:'ce a urmat'}],label:s.t};
+  if(s.a!=='none'){const lo=d[lowest(d,s.cut-3,s.cut-1)].l,hi=d[highest(d,s.cut-3,s.cut-1)].h,en=last.c,st=s.a==='long'?lo-.6:hi+.6,tp=en+2*(en-st);
+   o.hlines=[{y:en,i1:s.cut-1,label:'intrare',cls:'ln-ink',tcls:'t-ink',solid:1,lx:s.cut},{y:st,i1:s.cut-1,label:'stop',cls:'ln-down',tcls:'t-down',lx:s.cut,below:s.a==='long'},{y:tp,i1:s.cut-1,label:'2R',cls:'ln-up',tcls:'t-up',lx:s.cut,below:s.a!=='long'}]}
+  chart('dr-chart',d,o);const good=a===s.a;if(!score.has(i))score.set(i,good);
+  [...$('dr-btns').children].forEach(b=>{b.disabled=true;if(b.dataset.a===s.a)b.classList.add('ok');else if(b.dataset.a===a)b.classList.add('bad')});
+  $('dr-fb').innerHTML=(good?'<b class="pos">Corect.</b> ':'<b class="neg">Nu e decizia potrivită.</b> ')+s.e;upd()}
+ [...$('dr-btns').children].forEach(b=>b.onclick=()=>answer(b.dataset.a));$('dr-prev').onclick=()=>show(i-1);$('dr-next').onclick=()=>show(i+1);show(0)})();
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const Q={
+a0:[['Cât durează de obicei un scalp intrat pe M5?',['Câteva secunde','2–6 lumânări, adică 10–30 de minute','O zi întreagă','O săptămână'],1,'O lumânare M5 = 5 minute; un scalp tipic durează câteva lumânări.'],
+ ['De ce costurile contează mai mult la scalping?',['Brokerii taxează dublu','Spread-ul e un procent mare dintr-un stop mic','Nu contează','Din cauza swap-ului'],1,'0,30 $ spread pe un stop de 3 $ = 10% din risc.'],
+ ['Ce risc pe tranzacție e recomandat la scalping în acest curs?',['5%','2%','0,25–0,5%','10%'],2,'Faci mai multe tranzacții, deci riști mai puțin pe fiecare.']],
+a1:[['Dolarul (DXY) urcă puternic azi. Ce face de obicei aurul?',['Urcă','Scade','Nu se mișcă','Se dublează'],1,'Relația tipică e inversă, nu garantată.'],
+ ['Cât câștigi pe 0,05 loturi dacă aurul urcă 6 $?',['6 $','30 $','300 $','0,30 $'],1,'0,05 loturi = 5 uncii; 6 $ × 5 = 30 $.'],
+ ['De ce în curs măsurăm în dolari, nu în pips?',['Pips nu există','Brokerii definesc diferit pip-ul la aur','Dolarii sunt mai mari','Așa cere ANAF'],1,'Unii folosesc 0,01 $, alții 0,10 $.']],
+a2:[['Care e Fereastra 1 pentru scalping pe aur (ora RO)?',['01:00–09:00','10:00–12:30','22:00–00:00','13:00–15:00'],1,'Deschiderea Londrei.'],
+ ['La ce oră apar de obicei datele importante din SUA?',['10:00','15:30','21:00','03:00'],1,'CPI, NFP, PCE: 15:30 ora României.'],
+ ['Ce faci între 00:00 și 01:00?',['Scalpezi intens','Eviți: rollover, pauză, spread mare','Deschizi poziții mari','Nimic special'],1,'Spread-ul crește mult; mulți brokeri au pauză.']],
+a3:[['Câte lumânări M5 formează o lumânare M15?',['2','3','5','15'],1,'15 minute = 3 × 5 minute.'],
+ ['O lumânare verde închide în treimea de jos, cu fitil superior lung. Ce înseamnă?',['Cumpărătorii au controlat perioada','Prețurile înalte au fost respinse','Nimic','Spargere confirmată'],1,'Culoarea contează mai puțin decât locul închiderii.'],
+ ['Corpuri tot mai mici și fitile tot mai lungi în direcția trendului arată…',['Impuls','Epuizare','Absorbție','Spargere'],1,'Mișcarea obosește.']],
+a4:[['Ce e un CHoCH într-un uptrend?',['Un nou maxim','O închidere sub ultimul HL','O medie mobilă','O știre'],1,'E primul semn că trendul se poate întoarce.'],
+ ['Verificatorul dă −5. Ce faci?',['Doar long-uri','Doar short-uri','Ambele','Dublezi riscul'],1,'Scor ≤ −4 = doar short-uri.'],
+ ['BOS înseamnă…',['Prețul închide dincolo de ultimul vârf în direcția trendului','Un tip de ordin','Pauza de la miezul nopții','Un indicator'],0,'Trendul continuă.']],
+a5:[['Care e un semn că rezistența va ceda?',['Fitile superioare lungi la fiecare test','Văi tot mai sus și reacții tot mai mici','Divergență bearish','Primul test'],1,'Cumpărătorii intră tot mai devreme.'],
+ ['Diferența principală dintre spargerea reală și cea falsă?',['Culoarea','Închiderea corpului dincolo de nivel','Ora','Numărul de indicatori'],1,'Fitilul e o încercare, închiderea e o decizie.'],
+ ['Unde intri cel mai sigur după o spargere?',['În lumânarea de spargere','La retestul nivelului, după respingere','Înainte de spargere','Niciodată'],1,'Stop mai strâns, spargere confirmată.']],
+a6:[['Unde stau multe stopuri în aur?',['În mijlocul range-ului','Peste maxime egale și sub minime egale','Pe EMA 50','Nicăieri'],1,'Și la PDH/PDL, range-ul asiatic, numere rotunde.'],
+ ['Prețul trece peste maximul asiatic. Când e o măturare?',['Imediat','Când lumânarea închide înapoi în range și urmează CHoCH','Niciodată','Când RSI e 70'],1,'Fără închidere înapoi e doar o mișcare.'],
+ ['Ce e un FVG?',['Un tip de cont','Golul lăsat de o lumânare de impuls între vecinele ei','Un indicator de volum','O taxă'],1,'Prețul revine adesea să-l umple.']],
+a7:[['La ce folosești ATR pe M5?',['Direcția','Marja stopului și cât de „normal” se mișcă prețul azi','Intrarea','Nimic'],1,'Ex: stop = fitil + 0,5 × ATR.'],
+ ['Prețul e sub VWAP toată ziua. Ce îți spune?',['Cumpărătorii controlează ziua','Vânzătorii controlează ziua','Piața e închisă','Nimic'],1,'VWAP = prețul mediu ponderat al zilei.'],
+ ['Cum folosești RSI pe M5?',['Vinzi peste 70','Doar pentru divergențe la niveluri importante','Cumperi sub 30','Nu-l folosești niciodată'],1,'Singur, RSI dă multe semnale false.']],
+a8:[['Primul pas al analizei de dimineață?',['Intri pe M5','Verifici calendarul economic','Mărești lotul','Cauți semnale pe Telegram'],1,'Știi la ce oră nu tranzacționezi.'],
+ ['Ce e un scenariu „Dacă… atunci…”?',['O predicție','Un plan scris dinainte pentru o reacție a prețului','O știre','Un ordin'],1,'Pe M5 doar aștepți ca un scenariu să se întâmple.'],
+ ['Pe 20 noiembrie, fișa spunea short în zona 3.590–3.600. De ce?',['Era vineri','Fost suport + număr rotund + trend H1 descendent','RSI 50','Din întâmplare'],1,'Exact acolo prețul a fost respins de două ori.']],
+a9:[['Cont 5.000 $, risc 0,5%, stop 5 $. Ce lot?',['0,5','0,05','0,25','0,005'],1,'25 / (5 × 100) = 0,05.'],
+ ['La Setup A (măturarea Asiei), unde pui stopul?',['Sub intrare cu 1 $','Dincolo de fitilul măturării + 0,5 $','La mijlocul range-ului','Fără stop'],1,'Acolo ideea e greșită.'],
+ ['Lumânarea M15 a știrii are fitile lungi în ambele părți. Setup E spune…',['Intri long','Intri short','Nicio tranzacție','Dublezi'],2,'Piață nehotărâtă și periculoasă.']],
+real:[['Pe 19 noiembrie, la 17:25, ce a confirmat spargerea sub 3.694,5?',['Un doji','O lumânare de impuls cu volum maxim care a închis sub nivel','O știre','Un fitil'],1,'Închiderea + volumul = acceptare.'],
+ ['Ce a dat break-even-ul în ambele tranzacții reale?',['+2R','+0,5R în loc de un posibil +2R','−1R','0'],1,'Compromisul break-even-ului în zile de trend.'],
+ ['De ce nu iei long-ul de vineri, 20:50, deși a mers?',['Nu era nivel','Oră târzie, lichiditate mică, contra unui trend H1 foarte puternic','Era luni','Spread zero'],1,'Rezultatul bun nu face tranzacția bună.']],
+manip:[['Ce e spoofing-ul?',['O strategie legală','Ordine mari plasate fără intenția de execuție, apoi anulate; ilegal','Un tip de lumânare','Un indicator'],1,'JPMorgan a plătit ~920 milioane $ în 2020 pentru asta.'],
+ ['Stopul tău exact sub un minim evident a fost atins de un fitil. Ce e cel mai probabil?',['Manipulare personală','Prețul a căutat lichiditatea, iar stopul era în locul evident','Eroarea brokerului','Noroc'],1,'Pune stopul cu marjă de ATR.'],
+ ['Într-o zi de trend puternic, ce adaptezi?',['Cauți întoarceri','Doar în direcția trendului; măturările contra trendului sunt doar pauze','Dublezi riscul','Tranzacționezi noaptea'],1,'Exact ca pe 19–20 noiembrie.']],
+a10:[['Cont 1.000 $, risc 0,5%, stop 8 $. Ce faci?',['Iei 0,01 loturi','Lotul ar fi 0,006, sub minim: sari peste tranzacție','Iei 0,1','Scoți stopul'],1,'0,01 loturi ar însemna risc de 8 $ = 0,8%.'],
+ ['Spread 0,30 $, stop 2 $. Cât din risc e cost?',['1,5%','15%','50%','0%'],1,'0,30 / 2 = 15%.'],
+ ['După 2 pierderi într-o zi…',['Dublezi lotul','Închizi platforma','Treci pe M1','Schimbi strategia'],1,'Regula zilnică.']],
+a11:[['Ce faci în primele 1–2 lumânări după intrare?',['Muți stopul','Nimic','Închizi','Adaugi'],1,'Oscilațiile sunt normale.'],
+ ['3–4 lumânări M5 fără progres. Ce faci?',['Aștepți o zi','Ieși (stop de timp)','Mărești poziția','Muți stopul mai departe'],1,'Un scalp care nu merge se închide.'],
+ ['Se apropie o știre majoră și ai un scalp deschis.',['Îl ții','Îl închizi cu 5 minute înainte','Dublezi','Scoți stopul'],1,'Spread și slippage mari la știri.']],
+a12:[['Câte ore pe zi lucrează de obicei un scalper constant?',['10–12','1–2 ore, în ferestrele bune','Toată noaptea','24'],1,'Oboseala strică deciziile.'],
+ ['Antidotul pentru FOMO pe aur?',['Intri în lumânarea mare','Aștepți retestul; nu intri niciodată în lumânarea de impuls','Mărești lotul','Treci pe M1'],1,'Stopul ar fi prea departe.'],
+ ['Ce notezi în plus în jurnalul de scalping?',['Nimic','Ora, sesiunea, tipul zilei, setup-ul, spread-ul, măturarea','Doar profitul','Vremea'],1,'Așa găsești ce funcționează.']],
+a13:[['Ce face o decizie „corectă” în exerciții?',['Că a câștigat','Că respectă ora, direcția, nivelul și setup-ul','Că e rapidă','Că e curajoasă'],1,'Procesul, nu rezultatul.'],
+ ['La 15:28, cu NFP la 15:30, un model perfect apare. Ce faci?',['Intri','Nu intri','Dublezi','Intri cu stop mic'],1,'Știrile anulează orice model.'],
+ ['La 23:40 spread-ul e 1,20 $. Ce faci?',['Scalpezi','Nu intri','Intri cu lot mare','Muți stopul'],1,'Costul mănâncă scalpul.']],
+a14:[['Ce faci în săptămâna 3?',['Cont real','Alegi un setup și faci 50 de tranzacții în backtest','Nimic','Cumperi semnale'],1,'Un singur setup, testat.'],
+ ['Când treci pe cont real?',['Imediat','Doar dacă speranța e pozitivă pe backtest și pe demo','După 2 zile','Când ai chef'],1,'Și atunci cu 0,01 loturi.'],
+ ['Cifrele nu ies după 2–3 luni. O alegere bună?',['Mărești riscul','Swing pe H4/D1 sau investiții pe termen lung','Martingale','Semnale plătite'],1,'Scalpingul nu e singura cale.']]
+};
+document.querySelectorAll('.quiz').forEach(box=>{const key=box.dataset.quiz,qs=Q[key];if(!qs)return;
+ box.innerHTML=`<h4>Verifică-te</h4><div class="src" style="margin-bottom:6px">${qs.length} întrebări · alege un răspuns</div>`;
+ qs.forEach((q,qi)=>{const w=document.createElement('div');w.className='q';const p=document.createElement('p');p.textContent=(qi+1)+'. '+q[0];w.appendChild(p);
+  const o=document.createElement('div');o.className='opts';const fb=document.createElement('div');fb.className='fb';fb.setAttribute('aria-live','polite');
+  q[1].forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>{o.querySelectorAll('button').forEach(x=>x.classList.remove('ok','bad'));
+   if(i===q[2]){b.classList.add('ok');fb.innerHTML='<b class="pos">Corect.</b> '+q[3]}else{b.classList.add('bad');fb.innerHTML='<b class="neg">Nu chiar.</b> Mai încearcă sau recitește secțiunea.'}};o.appendChild(b)});
+  w.appendChild(o);w.appendChild(fb);box.appendChild(w)});
+ const lab=document.createElement('label');lab.className='donebox';lab.innerHTML=`<input type="checkbox" id="done-${key}"> Am terminat acest modul`;box.appendChild(lab)});
+const MODS=['a0','a1','a2','a3','a4','a5','a6','a7','a8','a9','real','manip','a10','a11','a12','a13','a14'];
+const done=new Set(store.get('aur-done')||[]);
+function paint(){MODS.forEach(m=>{const cb=$('done-'+m);if(cb)cb.checked=done.has(m);const a=document.querySelector(`#toclist a[href="#${m}"]`);if(a)a.classList.toggle('done',done.has(m))});
+ $('progtxt').textContent=`${done.size} din ${MODS.length} module terminate`;$('progbar').style.width=(done.size/MODS.length*100)+'%'}
+MODS.forEach(m=>{const cb=$('done-'+m);if(cb)cb.addEventListener('change',()=>{cb.checked?done.add(m):done.delete(m);store.set('aur-done',[...done]);paint()})});paint();
+
+const G=[
+['XAU/USD','Gold spot','Prețul unei uncii de aur în dolari americani.'],['Uncie (troy)','Troy ounce','31,1 grame; unitatea de măsură a aurului.'],['Lot (aur)','Lot','De obicei 100 de uncii; 1 $ mișcare = 100 $ pe 1 lot.'],['DXY','US Dollar Index','Indicele dolarului față de un coș de monede; de obicei invers față de aur.'],['US10Y','10-year Treasury yield','Randamentul obligațiunilor americane pe 10 ani.'],['Randament real','Real yield','Dobânda minus inflația; când crește, aurul tinde să scadă.'],['Fed / FOMC','Federal Reserve','Banca centrală a SUA; decizia de dobândă la 21:00 ora României.'],['CPI','Consumer Price Index','Inflația din SUA, 15:30 ora României.'],['NFP','Non-Farm Payrolls','Locurile de muncă din SUA, prima vineri din lună, 15:30.'],['PCE','Personal Consumption Expenditures','Indicatorul de inflație preferat de Fed.'],['LBMA','London Bullion Market Association','Stabilește prețul de referință al aurului prin licitații (12:30 și 17:00 ora RO).'],['COMEX','Commodity Exchange','Bursa americană a futures-urilor pe aur (simbol GC).'],['Futures pe aur','Gold futures (GC)','Contract standardizat; prețul diferă de spot cu câțiva dolari.'],['Spot','Spot','Prețul pentru livrare imediată; ce vezi la XAU/USD.'],
+['Scalping','Scalping','Tranzacții de câteva minute până la o oră, pentru mișcări mici.'],['M5 / M15 / H1','Timeframe','Interval de 5 minute / 15 minute / o oră pe lumânare.'],['Range asiatic','Asian range','Maximul și minimul dintre 01:00 și 09:00 ora României.'],['PDH / PDL','Previous Day High / Low','Maximul / minimul zilei anterioare.'],['PWH / PWL','Previous Week High / Low','Maximul / minimul săptămânii anterioare.'],['Număr rotund','Round number','Niveluri ca 3.500, 3.550, 3.600; atrag ordine.'],['Rollover','Rollover','Trecerea la ziua următoare (00:00 ora RO); spread mare, uneori pauză.'],['Fereastră de tranzacționare','Trading window','Intervalul orar în care tranzacționezi (ex: 10:00–12:30).'],
+['Corp','Body','Partea groasă a lumânării, între deschidere și închidere.'],['Fitil','Wick','Linia subțire; arată unde prețul a fost respins.'],['Lumânare de impuls','Momentum candle','Corp mare (≥ 1,5 × ATR), închidere aproape de extremă.'],['Epuizare','Exhaustion','Corpuri tot mai mici și fitile tot mai lungi în direcția mișcării.'],['Absorbție','Absorption','Mai multe fitile la același nivel; ordinele sunt absorbite acolo.'],['Comprimare','Compression','Lumânări tot mai mici înaintea unei mișcări puternice.'],['Pin bar','Pin bar','Lumânare cu fitil lung într-o parte și corp mic în cealaltă.'],['Inside bar','Inside bar','Lumânare complet în interiorul celei anterioare.'],['Înghițire','Engulfing','Corpul acoperă complet corpul lumânării anterioare.'],
+['HH / HL','Higher high / Higher low','Vârf / vale mai sus decât precedentul; uptrend.'],['LH / LL','Lower high / Lower low','Vârf / vale mai jos; downtrend.'],['BOS','Break of structure','Închidere dincolo de ultimul vârf în direcția trendului.'],['CHoCH','Change of character','Prima închidere împotriva structurii trendului.'],['Retest','Retest','Revenirea prețului la un nivel spart.'],['Spargere falsă','Fakeout','Fitil dincolo de nivel, închidere înapoi.'],['Judas swing','Judas swing','Prima mișcare falsă de la deschiderea unei sesiuni.'],
+['Lichiditate','Liquidity','Locurile unde se adună ordine (stopuri, limită).'],['Măturare','Liquidity sweep','Prețul trece scurt de un nivel cu ordine și se întoarce.'],['Maxime / minime egale','Equal highs / lows','Vârfuri sau văi la același preț; stopuri grupate.'],['FVG','Fair value gap','Golul lăsat de o lumânare de impuls.'],['Spoofing','Spoofing','Ordine false plasate și anulate ca să păcălească piața; ilegal.'],['Stop run','Stop hunt','Mișcare prin zona stopurilor, ca să umple ordine mari.'],
+['EMA 20 / 50','Exponential moving average','Medii mobile pentru direcție și pullback.'],['VWAP','Volume Weighted Average Price','Prețul mediu al zilei ponderat cu volumul.'],['ATR','Average True Range','Mișcarea medie pe lumânare; măsura volatilității.'],['Divergență','Divergence','Prețul și RSI merg în direcții diferite la un nivel.'],
+['Verificator de direcție','Bias checklist','Cele 7 întrebări care îți dau scorul de direcție (−7…+7).'],['Fișa de analiză','Trading plan sheet','Niveluri, direcție și scenarii scrise înainte de sesiune.'],['Setup','Setup','Un set exact de condiții pentru intrare.'],['R','R-multiple','Rezultatul raportat la risc; 1R = suma riscată.'],['Break-even','Break-even','Stop mutat la prețul de intrare.'],['Stop de timp','Time stop','Ieșirea după 3–4 lumânări fără progres.'],['Profit parțial','Partial take profit','Închiderea unei părți la TP1.'],['Spread','Spread','Diferența dintre ask și bid; cost la fiecare intrare.'],['Slippage','Slippage','Diferența dintre prețul dorit și cel executat.'],['Marjă','Margin','Garanția blocată; pe aur, la 20:1, 5% din valoarea poziției.'],['Tip de zi','Day type','Trend, range, știri, volatilă sau „moartă”; adaptezi strategia.']];
+G.sort((a,b)=>a[0].localeCompare(b[0],'ro'));
+function renderG(q){const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const nq=norm((q||'').trim());const list=G.filter(g=>!nq||norm(g.join(' ')).includes(nq));
+ $('glist').innerHTML=list.map(g=>`<div><dt>${g[0]}${g[1]!==g[0]?`<span class="en">${g[1]}</span>`:''}</dt><dd>${g[2]}</dd></div>`).join('');$('gcount').textContent=`${list.length} termeni`}
+$('gq').addEventListener('input',e=>renderG(e.target.value));renderG('');
+
+const S=[
+ {n:'Scalping pe aur',big:'Esența: prețul merge unde sunt ordinele, iar tu reacționezi, nu ghicești.',b:['XAU/USD · M15 pentru context, M5 pentru intrare','Risc 0,5% · max 3 tranzacții · stop după 2 pierderi']},
+ {n:'00 · Realitatea',t:'De ce e cel mai greu stil',b:['Costurile cântăresc mult pe stopuri mici','Zgomot mare pe M5','Decizii rapide, emoții puternice','6 săptămâni de demo înainte de bani reali']},
+ {n:'01 · Aur și dolar',t:'Ce mișcă aurul',b:['Dolar ↑ → aur ↓ (de obicei)','Randamente reale ↑ → aur ↓','Frică, crize → aur ↑','1 lot = 100 uncii · 1 $ = 100 $/lot']},
+ {n:'02 · Ceasul',t:'Când tranzacționezi',b:['Fereastra 1: 10:00–12:30 (Londra)','Fereastra 2: 15:45–18:30 (New York)','Evită: 00:00–01:30, 15:25–15:45, după 22:00','FOMC: 21:00, nu tranzacționa']},
+ {n:'03 · Lumânări',t:'Citește presiunea',b:['1 × M15 = 3 × M5','Corp, locul închiderii, fitilul, mărimea față de ATR','Impuls · epuizare · absorbție · comprimare','Intri doar după închidere']},
+ {n:'04 · Direcția',t:'Urcă sau scade?',b:['HH/HL = sus · LH/LL = jos','BOS = continuă · CHoCH = se poate întoarce','Verificator: ≥ +4 long, ≤ −4 short']},
+ {n:'05 · Rezistența',t:'Ține sau cedează?',b:['Ține: respingeri, epuizare, contra trendului mare','Cedează: văi tot mai sus, reacții tot mai mici','Reală = închidere; falsă = fitil','Intri la retest']},
+ {n:'06 · Lichiditate',t:'Unde stau stopurile',b:['Asia high/low, PDH/PDL, maxime egale, numere rotunde','Măturare = fitil + închidere înapoi + CHoCH','FVG: golul pe care prețul îl umple']},
+ {n:'07 · Indicatori',t:'Doar patru',b:['EMA 20/50 · VWAP · ATR · RSI (divergențe)','ATR pentru marja stopului']},
+ {n:'08 · Analiza',t:'15 minute înainte de sesiune',b:['Calendar · DXY · H1 · Asia · M15','Scenarii „Dacă… atunci…”','Alerte, apoi aștepți']},
+ {n:'09 · Intrări',t:'Cele 5 setup-uri',b:['A: măturarea Asiei · B: pullback în trend','C: spargere + retest · D: respingere la nivel','E: continuarea după știre','Lot = risc ÷ (stop $ × 100)']},
+ {n:'10 · Date reale',t:'19–20 noiembrie 2026',b:['−257 $ în două zile, LH și LL clare','2 tranzacții Setup C, +0,5R fiecare cu BE','Range, știre, oră târzie: zero tranzacții']},
+ {n:'11 · Manipulări',big:'Închiderea contează mai mult decât fitilul.',b:['Stopul unde ideea e greșită, nu unde e evident','Adaptezi după tipul zilei']},
+ {n:'12 · Risc',t:'Lotul și costurile',b:['Stop sub 3 $ = cost prea mare','Lot sub 0,01 = sari peste','−1,5% pe zi = oprire']},
+ {n:'13–14 · Gestionare și minte',t:'Disciplina',b:['Stop de timp: 3–4 lumânări','Închizi înainte de știri','1–2 ore pe zi, jurnal după fiecare sesiune']},
+ {n:'15–16 · Practică',t:'6 săptămâni',b:['Niveluri → analiză → un setup → 100 backtest → 30 demo','Real doar cu speranță pozitivă, 0,01 loturi']}];
+let cur=0;function show(i){cur=Math.max(0,Math.min(S.length-1,i));const s=S[cur];$('slide').innerHTML=`<div class="sn">${s.n}</div>${s.big?`<div class="big" style="margin:14px 0 22px">${s.big}</div>`:`<h2>${s.t}</h2>`}<ul>${s.b.map(x=>`<li>${x}</li>`).join('')}</ul>`;$('dNum').textContent=`${cur+1} / ${S.length}`;$('dPrev').disabled=cur===0;$('dNext').disabled=cur===S.length-1}
+function open(){$('deck').hidden=false;show(cur);$('dNext').focus()}function close(){$('deck').hidden=true;$('openDeck').focus()}
+$('openDeck').onclick=open;$('dClose').onclick=close;$('dPrev').onclick=()=>show(cur-1);$('dNext').onclick=()=>show(cur+1);
+document.addEventListener('keydown',e=>{if($('deck').hidden)return;if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();show(cur+1)}else if(e.key==='ArrowLeft')show(cur-1);else if(e.key==='Escape')close()});
+let tx=null;$('deck').addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});$('deck').addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null});
+})();
+</script>
